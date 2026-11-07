@@ -1,0 +1,2834 @@
+{
+  "summary": {
+    "totalPagesChecked": 29,
+    "schemaBlocksFound": 28,
+    "strictJsonParseErrors": 0,
+    "trailingCommasDetected": 0,
+    "htmlEntitiesInJsonDetected": 0,
+    "schemaSemanticErrors": 0,
+    "napMismatches": 0,
+    "breadcrumbErrors": 0,
+    "imageAssetMissingErrors": 0,
+    "idReferenceErrors": 0
+  },
+  "perFile": {
+    "index.html": {
+      "file": "index.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "CleaningService",
+                "LocalBusiness"
+              ],
+              "@id": "https://sfcleaningconcepts.com/#localbusiness",
+              "name": "South Florida Cleaning Concepts",
+              "alternateName": "SF Cleaning Concepts",
+              "url": "https://sfcleaningconcepts.com/",
+              "telephone": "(561) 704-5303",
+              "email": "Sflcleaningco@gmail.com",
+              "priceRange": "$$",
+              "currenciesAccepted": "USD",
+              "paymentAccepted": "Cash, Credit Card, Check, Invoice",
+              "logo": {
+                "@type": "ImageObject",
+                "@id": "https://sfcleaningconcepts.com/#logo",
+                "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg",
+                "contentUrl": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg",
+                "caption": "South Florida Cleaning Concepts Logo"
+              },
+              "image": "https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg",
+              "description": "South Florida's premier commercial and residential cleaning specialists. Trusted by leading businesses and luxury homes for over 20 years across Palm Beach, Broward, and Miami-Dade counties.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Boynton Beach",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 26.5253,
+                "longitude": -80.0664
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                },
+                {
+                  "@type": "City",
+                  "name": "Boynton Beach"
+                },
+                {
+                  "@type": "City",
+                  "name": "West Palm Beach"
+                },
+                {
+                  "@type": "City",
+                  "name": "Boca Raton"
+                },
+                {
+                  "@type": "City",
+                  "name": "Delray Beach"
+                },
+                {
+                  "@type": "City",
+                  "name": "Jupiter"
+                },
+                {
+                  "@type": "City",
+                  "name": "Wellington"
+                },
+                {
+                  "@type": "City",
+                  "name": "Fort Lauderdale"
+                },
+                {
+                  "@type": "City",
+                  "name": "Miami"
+                }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "20:00"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/SFCLEAN"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Professional Cleaning Services Catalog",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Commercial Cleaning Services",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Commercial Office Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/office-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Medical Office Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Bars and Restaurant Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "School & Daycare Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/school-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Post-Construction Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "COVID-19 Disinfection Services",
+                          "url": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Residential Cleaning Services",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Move In / Move Out Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Short-Term Rental Turnover Cleaning",
+                          "url": "https://sfcleaningconcepts.com/service/short-term-rentals.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Comprehensive Home Maintenance",
+                          "url": "https://sfcleaningconcepts.com/service/home-maintenance.html"
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Home Watching Services",
+                          "url": "https://sfcleaningconcepts.com/service/home-watching.html"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sfcleaningconcepts.com/#website",
+              "url": "https://sfcleaningconcepts.com/",
+              "name": "South Florida Cleaning Concepts",
+              "description": "South Florida's premier commercial and residential cleaning specialists.",
+              "publisher": {
+                "@id": "https://sfcleaningconcepts.com/#localbusiness"
+              },
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ]
+    },
+    "about-us.html": {
+      "file": "about-us.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://sfcleaningconcepts.com/about-us.html#webpage",
+              "url": "https://sfcleaningconcepts.com/about-us.html",
+              "name": "About Us | South Florida Cleaning Concepts",
+              "description": "Learn more about South Florida Cleaning Concepts. Discover our 20+ year history, our signature Rotation Cleaning System, family ownership, vetted staff, and 100% Satisfaction Guarantee.",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntity": {
+                "@id": "https://sfcleaningconcepts.com/#localbusiness"
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "CleaningService",
+              "@id": "https://sfcleaningconcepts.com/#localbusiness",
+              "name": "South Florida Cleaning Concepts",
+              "url": "https://sfcleaningconcepts.com/",
+              "telephone": "+1-561-704-5303",
+              "email": "Sflcleaningco@gmail.com",
+              "logo": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg",
+              "image": "https://sfcleaningconcepts.com/assets/images/about/about-us-title-img-1.jpg",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Boynton Beach",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About Us",
+                  "item": "https://sfcleaningconcepts.com/about-us.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "our-services.html": {
+      "file": "our-services.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://sfcleaningconcepts.com/our-services.html#webpage",
+              "url": "https://sfcleaningconcepts.com/our-services.html",
+              "name": "Our Services | South Florida Cleaning Concepts",
+              "description": "Explore our comprehensive range of commercial and residential cleaning services across South Florida. From medical offices to luxury homes, we deliver perfection.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": "Cleaning Services Catalog",
+                "numberOfItems": 10,
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Commercial Office Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/office-cleaning.html",
+                    "description": "Daily and periodic commercial office cleaning in Palm Beach County."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Medical Office Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html",
+                    "description": "Specialized hospital-grade disinfection for clinics and medical offices."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Bars & Restaurant Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html",
+                    "description": "24/7 commercial bar and restaurant cleaning, degreasing, and sanitation."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Short-Term Rental Turnover",
+                    "url": "https://sfcleaningconcepts.com/service/short-term-rentals.html",
+                    "description": "Airbnb and VRBO vacation rental turnovers with linen service."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Post-Construction Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html",
+                    "description": "Rough and final post-construction cleanup and debris removal."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "name": "Move In / Move Out Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html",
+                    "description": "Comprehensive deep clean for tenants, buyers, and landlords."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "name": "Home Maintenance Services",
+                    "url": "https://sfcleaningconcepts.com/service/home-maintenance.html",
+                    "description": "Residential rotation cleaning, pressure washing, window, and gutter care."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 8,
+                    "name": "School & Daycare Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/school-cleaning.html",
+                    "description": "Safe, non-toxic sanitization for classrooms, hallways, and cafeterias."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 9,
+                    "name": "Home Watching Services",
+                    "url": "https://sfcleaningconcepts.com/service/home-watching.html",
+                    "description": "Regular property checks and monitoring for absentee homeowners."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 10,
+                    "name": "COVID-19 Disinfection Services",
+                    "url": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html",
+                    "description": "Certified electrostatic and ULV fogging pathogen disinfection."
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "contact-us.html": {
+      "file": "contact-us.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://sfcleaningconcepts.com/contact-us.html#webpage",
+              "url": "https://sfcleaningconcepts.com/contact-us.html",
+              "name": "Contact Us | South Florida Cleaning Concepts",
+              "description": "Reach out to South Florida Cleaning Concepts. Request a free quote, call (561) 704-5303, or email Sflcleaningco@gmail.com. We proudly service all of South Florida.",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntity": {
+                "@id": "https://sfcleaningconcepts.com/#localbusiness"
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "CleaningService",
+              "@id": "https://sfcleaningconcepts.com/#localbusiness",
+              "name": "South Florida Cleaning Concepts",
+              "url": "https://sfcleaningconcepts.com/",
+              "telephone": "+1-561-704-5303",
+              "email": "Sflcleaningco@gmail.com",
+              "logo": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg",
+              "image": "https://sfcleaningconcepts.com/assets/images/about/about-us-img-4.jpg",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Boynton Beach",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "20:00"
+                }
+              ],
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact Us",
+                  "item": "https://sfcleaningconcepts.com/contact-us.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "faqs.html": {
+      "file": "faqs.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "FAQPage",
+              "@id": "https://sfcleaningconcepts.com/faqs.html#faq",
+              "url": "https://sfcleaningconcepts.com/faqs.html",
+              "name": "Frequently Asked Questions | South Florida Cleaning Concepts",
+              "description": "Find answers to common questions about South Florida Cleaning Concepts. Learn about our rotation cleaning system, safety, insurance, supplies, and satisfaction guarantee.",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is the unique rotation system for cleaning used by South Florida Cleaning Concepts?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "South Florida Cleaning Concepts uses a unique rotation system for cleaning that ensures every part of your home gets the attention it deserves. On the first visit, the focus is on an in-depth clean of your bathrooms and kitchen, while a general cleaning of the rest of your house is performed. On the subsequent visit, we detail your rooms and perform a general clean of the kitchen and bathrooms. This systematic approach ensures that your home is consistently clean."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does South Florida Cleaning Concepts maintain the safety and security of my home during their professional cleaning services?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "South Florida Cleaning Concepts is committed to the safety and security of your home during our professional cleaning services. All our cleaning professionals are thoroughly vetted, background-checked, and trained to respect your space. We also have procedures in place to securely manage keys and alarm systems, and we are fully insured and bonded for your peace of mind."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What experience does South Florida Cleaning Concepts bring with their 20 years in the professional cleaning business?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With 20 years in the professional cleaning business, South Florida Cleaning Concepts brings a wealth of experience to every job. We are a family-owned and operated business, trusted by our clients to deliver high-quality, reliable cleaning services for residential and commercial spaces across Palm Beach and South Florida."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What range of professional cleaning services does South Florida Cleaning Concepts provide for homes, offices, and other locations?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "South Florida Cleaning Concepts offers a wide range of professional cleaning services tailored to your needs. This includes deep cleaning for homes and offices, specialized commercial cleaning for restaurants and bars, medical facilities, schools, short-term rentals, post-construction cleaning, and routine home maintenance. We provide customized cleaning solutions for each client."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does South Florida Cleaning Concepts ensure customer satisfaction with their guaranteed results in their cleaning services?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At South Florida Cleaning Concepts, we guarantee customer satisfaction through our high-quality cleaning services. Our dedicated team takes pride in their work and ensures a job well done every time. We believe in our work so much that if we fail to make you happy, we do not expect you to pay. It’s that simple. If you are not completely satisfied, notify us within 24 hours and we will re-clean the area at no extra cost."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do I need to supply cleaning products or equipment?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Our cleaning teams arrive fully equipped with professional, eco-friendly cleaning supplies, microfibers, HEPA vacuums, and hospital-grade disinfectants. If you have specific specialty cleaning products you prefer us to use on certain surfaces, simply let us know and we will gladly accommodate."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does payment and scheduling work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We offer flexible scheduling including one-time deep cleans, weekly, bi-weekly, monthly, or customized commercial contract intervals. Invoicing and payments are convenient and transparent, with no hidden fees or locked-in contracts. You may pay online securely upon completion of service."
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "FAQs",
+                  "item": "https://sfcleaningconcepts.com/faqs.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "our-publications.html": {
+      "file": "our-publications.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://sfcleaningconcepts.com/our-publications.html#webpage",
+              "url": "https://sfcleaningconcepts.com/our-publications.html",
+              "name": "Our Publications & Cleaning Guides | South Florida Cleaning Concepts",
+              "description": "Browse our latest publications at South Florida Cleaning Concepts. Gain expert insights on maintaining hygiene in medical offices, restaurants, Airbnb rentals, and luxury homes.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": "Cleaning Industry Publications & Educational Guides",
+                "numberOfItems": 11,
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Revitalize Your Office Space with South Florida Cleaning Concepts",
+                    "url": "https://sfcleaningconcepts.com/blog/revitalize-your-office-space.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "South Florida Cleaning Concepts – Complete Guide to Home Cleaning Tips and Tricks",
+                    "url": "https://sfcleaningconcepts.com/blog/complete-guide-to-home-cleaning.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Shining a Light on Clean: How Restaurant and Bar Cleaning Services Enhance Your Business",
+                    "url": "https://sfcleaningconcepts.com/blog/restaurant-and-bar-cleaning-services.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Office Cleaning Made Easy with South Florida Cleaning Concepts",
+                    "url": "https://sfcleaningconcepts.com/blog/office-cleaning-made-easy.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Short Term Rental Cleaning with South Florida Cleaning Concepts: The Ultimate Guide",
+                    "url": "https://sfcleaningconcepts.com/blog/short-term-rental-cleaning-guide.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "name": "High-Quality Cleaning Services South Florida with South Florida Cleaning Concepts",
+                    "url": "https://sfcleaningconcepts.com/blog/high-quality-cleaning-services-south-florida.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "name": "Medical Office Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+                    "url": "https://sfcleaningconcepts.com/blog/medical-office-cleaning-guide.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 8,
+                    "name": "Deep Cleaning for Homes and Offices with South Florida Cleaning Concepts",
+                    "url": "https://sfcleaningconcepts.com/blog/deep-cleaning-for-homes-and-offices.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 9,
+                    "name": "Post-Construction Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+                    "url": "https://sfcleaningconcepts.com/blog/post-construction-cleaning-guide.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 10,
+                    "name": "Maximize the Beauty of Your Home: South Florida Home Maintenance Services with South Florida Cleaning Concepts",
+                    "url": "https://sfcleaningconcepts.com/blog/south-florida-home-maintenance-services.html"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 11,
+                    "name": "Revitalize Your Home: A Journey with South Florida Cleaning Concepts’ Residential Cleaning Services",
+                    "url": "https://sfcleaningconcepts.com/blog/residential-cleaning-services-journey.html"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/index.html": {
+      "file": "service/index.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://sfcleaningconcepts.com/service/index.html#webpage",
+              "url": "https://sfcleaningconcepts.com/service/index.html",
+              "name": "All Cleaning Services Directory | South Florida Cleaning Concepts",
+              "description": "Browse our complete catalog of 10 specialized commercial, medical, restaurant, and residential cleaning services across South Florida. Call (561) 704-5303.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": "Commercial & Residential Services Directory",
+                "numberOfItems": 10,
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Commercial Office Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/office-cleaning.html",
+                    "description": "Daily and periodic commercial office cleaning in Palm Beach County."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Medical Office Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html",
+                    "description": "Specialized hospital-grade disinfection for clinics and medical offices."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Bars & Restaurant Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html",
+                    "description": "24/7 commercial bar and restaurant cleaning, degreasing, and sanitation."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Short-Term Rental Turnover",
+                    "url": "https://sfcleaningconcepts.com/service/short-term-rentals.html",
+                    "description": "Airbnb and VRBO vacation rental turnovers with linen service."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Post-Construction Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html",
+                    "description": "Rough and final post-construction cleanup and debris removal."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "name": "Move In / Move Out Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html",
+                    "description": "Comprehensive deep clean for tenants, buyers, and landlords."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "name": "Home Maintenance Services",
+                    "url": "https://sfcleaningconcepts.com/service/home-maintenance.html",
+                    "description": "Residential rotation cleaning, pressure washing, window, and gutter care."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 8,
+                    "name": "School & Daycare Cleaning",
+                    "url": "https://sfcleaningconcepts.com/service/school-cleaning.html",
+                    "description": "Safe, non-toxic sanitization for classrooms, hallways, and cafeterias."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 9,
+                    "name": "Home Watching Services",
+                    "url": "https://sfcleaningconcepts.com/service/home-watching.html",
+                    "description": "Regular property checks and monitoring for absentee homeowners."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 10,
+                    "name": "COVID-19 Disinfection Services",
+                    "url": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html",
+                    "description": "Certified electrostatic and ULV fogging pathogen disinfection."
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/office-cleaning.html": {
+      "file": "service/office-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/office-cleaning.html#service",
+              "name": "Commercial Office Cleaning Services",
+              "serviceType": "Commercial Office Cleaning",
+              "description": "Premier contract office cleaning in Boynton Beach and Palm Beach County. Daily, weekly, and customized commercial cleaning solutions at competitive rates.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/service-img-12.jpg",
+              "url": "https://sfcleaningconcepts.com/service/office-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Commercial Office Cleaning Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Entrance & Reception Area Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Corridor & Hallway Floor Buffing & Vacuuming"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Restroom Hospital-Grade Disinfection & Supply Restocking"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Individual Workstation Dusting & Sanitization"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Commercial Office Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/service/office-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/medical-office-cleaning.html": {
+      "file": "service/medical-office-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html#service",
+              "name": "Specialized Medical Office Cleaning",
+              "serviceType": "Medical Facility & Healthcare Sanitation",
+              "description": "Premier specialized cleaning services for medical facilities and clinics. Hospital-grade disinfection of reception areas, consulting rooms, and clinical spaces.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/services-img-1.jpg",
+              "url": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Specialized Medical Office Cleaning Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Waiting Room & Reception Terminal Cleaning"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Consulting & Examination Room Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Clinical Preparation Room Sterilization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "High-Touch Healthcare Surface Disinfection"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Specialized Medical Office Cleaning",
+                  "item": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/bars-and-restaurant-cleaning.html": {
+      "file": "service/bars-and-restaurant-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html#service",
+              "name": "Commercial Cleaning for Bars and Restaurants",
+              "serviceType": "Bar & Restaurant Hospitality Sanitation",
+              "description": "Commercial bar and restaurant cleaning 365 days a year, 24/7. Front-of-house, kitchen degreasing, bar top sanitization, and restroom hygiene in South Florida.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/services-img-4.jpg",
+              "url": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Commercial Cleaning for Bars and Restaurants Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Dining Room Floor Degreasing & Table Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Bar Top, Speed Rail & Draft Tap Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Commercial Kitchen Deep Degreasing & Exhaust Care"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "High-Volume Restroom Sanitization & Odor Control"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Commercial Cleaning for Bars and Restaurants",
+                  "item": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/school-cleaning.html": {
+      "file": "service/school-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/school-cleaning.html#service",
+              "name": "School & Daycare Cleaning Services",
+              "serviceType": "Educational Facility & Daycare Sanitation",
+              "description": "South Florida Cleaning Concepts provides thorough school cleaning services, ensuring a safe, hygienic learning environment for students and staff.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/services-img-6.jpg",
+              "url": "https://sfcleaningconcepts.com/service/school-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "School & Daycare Cleaning Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Classroom Desk, Chair & Whiteboard Child-Safe Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Cafeteria Floor Scrubbing & Lunch Table Disinfection"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "High-Traffic Hallway Buffing & Locker Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Restroom Deep Sterilization & Touch-Point Disinfection"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "School & Daycare Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/service/school-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/post-construction-cleaning.html": {
+      "file": "service/post-construction-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html#service",
+              "name": "Post-Construction Cleaning Services",
+              "serviceType": "Post-Construction & Remodel Cleanup",
+              "description": "Rely on South Florida Cleaning Concepts for post-construction cleaning services. Debris removal, drywall dust elimination, window cleaning, and floor polishing.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg",
+              "url": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Post-Construction Cleaning Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Phase 1 Rough Construction Debris Removal"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Phase 2 Drywall Dust, Paint Splatter & Grout Elimination"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Phase 3 Interior Window, Track & Frame Detailing"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Final Touch-Up Move-In Ready Polish"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Post-Construction Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/covid-19-disinfection.html": {
+      "file": "service/covid-19-disinfection.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html#service",
+              "name": "Professional COVID-19 Disinfection Services",
+              "serviceType": "Pathogen Eradication & Electrostatic Disinfection",
+              "description": "Experience thorough COVID-19 disinfection services from South Florida Cleaning Concepts, ensuring hospital-grade pathogen eradication and safety.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg",
+              "url": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Professional COVID-19 Disinfection Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "CDC & EPA Registered Hospital-Grade Surface Disinfection"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Ultra-Low Volume (ULV) Whole-Room Fogging Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "High-Touch Surface Cross-Contamination Neutralization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Upholstery, Carpet & Porous Material Germicidal Treatment"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Professional COVID-19 Disinfection Services",
+                  "item": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/move-in-out-cleaning.html": {
+      "file": "service/move-in-out-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html#service",
+              "name": "Move In / Out Cleaning Services",
+              "serviceType": "Move In / Move Out Residential Deep Cleaning",
+              "description": "South Florida Cleaning Concepts provides top-tier move in/out cleaning in Boynton Beach and Palm Beach County. Deep sanitation of kitchens, baths, carpets, and walls.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg",
+              "url": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Move In / Out Cleaning Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Inside & Behind Refrigerator, Oven & Cabinets Deep Clean"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Baseboard, Crown Molding & Wall Mark Scrubbing"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Tile, Grout & Hardwood Floor Scrub & Sanitization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Full Bathroom Descaling, Disinfection & Sanitization"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Move In / Out Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/short-term-rentals.html": {
+      "file": "service/short-term-rentals.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/short-term-rentals.html#service",
+              "name": "Short-Term Rental Cleaning Services",
+              "serviceType": "Vacation Rental & Airbnb Turnover Cleaning",
+              "description": "Professional short-term rental cleaning services in South Florida. Quick turnaround times, linen laundering, guest restocking, and spotless reviews for Airbnb hosts.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg",
+              "url": "https://sfcleaningconcepts.com/service/short-term-rentals.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Short-Term Rental Cleaning Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Hotel-Grade Linen Stripping, Laundering & Staging"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Kitchen Restocking, Appliance Polishing & Dishwashing"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Sparkling Bathroom Sanitization & Towel Folding"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "5-Star Guest Welcome Presentation Staging"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Short-Term Rental Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/service/short-term-rentals.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/home-maintenance.html": {
+      "file": "service/home-maintenance.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/home-maintenance.html#service",
+              "name": "Comprehensive Home Maintenance Services",
+              "serviceType": "Residential Home Maintenance & Exterior Care",
+              "description": "Experience top-notch, customizable home maintenance with SF Cleaning Concepts. Pressure washing, window cleaning, gutter maintenance, and routine cleaning.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg",
+              "url": "https://sfcleaningconcepts.com/service/home-maintenance.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Comprehensive Home Maintenance Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Signature Routine Rotation Interior Cleaning"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Driveway, Patio & Walkway High-Pressure Exterior Washing"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Interior & Exterior Window Screen & Track Detailing"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Seasonal Gutter Clearance & Downspout Flushing"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Comprehensive Home Maintenance Services",
+                  "item": "https://sfcleaningconcepts.com/service/home-maintenance.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "service/home-watching.html": {
+      "file": "service/home-watching.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Service",
+                "CleaningService"
+              ],
+              "@id": "https://sfcleaningconcepts.com/service/home-watching.html#service",
+              "name": "Home Watching Services",
+              "serviceType": "Absentee Home Watching & Property Inspection",
+              "description": "Ensure your home is safe and properly maintained while away. Comprehensive visual inspections, HVAC monitoring, plumbing leak checks, and storm preparation.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg",
+              "url": "https://sfcleaningconcepts.com/service/home-watching.html",
+              "provider": {
+                "@type": "CleaningService",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "telephone": "+1-561-704-5303",
+                "email": "Sflcleaningco@gmail.com",
+                "url": "https://sfcleaningconcepts.com/",
+                "priceRange": "$$",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Boynton Beach",
+                  "addressRegion": "FL",
+                  "addressCountry": "US"
+                }
+              },
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Palm Beach County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Broward County"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Miami-Dade County"
+                }
+              ],
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "url": "https://sfcleaningconcepts.com/contact-us.html"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Home Watching Services Features & Deliverables",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Exterior Perimeter, Window & Entry Door Security Audits"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Interior HVAC, Temperature & Humidity Levels Verification"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Plumbing Trap Flushing & Water Intrusion Assessments"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Pre-Storm Shutter Coordination & Post-Storm Inspection"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://sfcleaningconcepts.com/our-services.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Home Watching Services",
+                  "item": "https://sfcleaningconcepts.com/service/home-watching.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/complete-guide-to-home-cleaning.html": {
+      "file": "blog/complete-guide-to-home-cleaning.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/complete-guide-to-home-cleaning.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/complete-guide-to-home-cleaning.html",
+              "headline": "South Florida Cleaning Concepts – Complete Guide to Home Cleaning Tips and Tricks",
+              "description": "Master home cleaning with SFCC's complete guide. Essential tools, room-by-room strategies, eco-friendly solutions, and mold prevention for South Florida homes.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg",
+              "datePublished": "2023-09-28T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "South Florida Cleaning Concepts – Complete Guide to Home Cleaning Tips and Tricks",
+                  "item": "https://sfcleaningconcepts.com/blog/complete-guide-to-home-cleaning.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/deep-cleaning-for-homes-and-offices.html": {
+      "file": "blog/deep-cleaning-for-homes-and-offices.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/deep-cleaning-for-homes-and-offices.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/deep-cleaning-for-homes-and-offices.html",
+              "headline": "Deep Cleaning for Homes and Offices with South Florida Cleaning Concepts",
+              "description": "Understand the difference between standard cleaning and deep cleaning. High-touch surfaces, baseboards, appliances, and seasonal sanitization.",
+              "image": "https://sfcleaningconcepts.com/assets/images/blog/blog-img-7.jpg",
+              "datePublished": "2023-06-22T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Deep Cleaning for Homes and Offices with South Florida Cleaning Concepts",
+                  "item": "https://sfcleaningconcepts.com/blog/deep-cleaning-for-homes-and-offices.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/high-quality-cleaning-services-south-florida.html": {
+      "file": "blog/high-quality-cleaning-services-south-florida.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/high-quality-cleaning-services-south-florida.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/high-quality-cleaning-services-south-florida.html",
+              "headline": "High-Quality Cleaning Services South Florida with South Florida Cleaning Concepts",
+              "description": "Explore high-quality residential and commercial cleaning across Palm Beach and South Florida. Vetted staff, eco-friendly supplies, and 100% guaranteed results.",
+              "image": "https://sfcleaningconcepts.com/assets/images/blog/blog-img-1.jpg",
+              "datePublished": "2023-07-25T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "High-Quality Cleaning Services South Florida with South Florida Cleaning Concepts",
+                  "item": "https://sfcleaningconcepts.com/blog/high-quality-cleaning-services-south-florida.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/medical-office-cleaning-guide.html": {
+      "file": "blog/medical-office-cleaning-guide.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/medical-office-cleaning-guide.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/medical-office-cleaning-guide.html",
+              "headline": "Medical Office Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+              "description": "Comprehensive medical office sanitation guide. Terminal disinfection, OSHA regulations, cross-contamination prevention, and healthcare-grade sterilization.",
+              "image": "https://sfcleaningconcepts.com/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-Large.jpeg",
+              "datePublished": "2023-07-10T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Medical Office Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+                  "item": "https://sfcleaningconcepts.com/blog/medical-office-cleaning-guide.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/office-cleaning-made-easy.html": {
+      "file": "blog/office-cleaning-made-easy.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/office-cleaning-made-easy.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/office-cleaning-made-easy.html",
+              "headline": "Office Cleaning Made Easy with South Florida Cleaning Concepts",
+              "description": "Simplify commercial facility cleaning with South Florida Cleaning Concepts. Custom scheduling, professional teams, and eco-friendly products for corporate spaces.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/service-img-12.jpg",
+              "datePublished": "2023-08-30T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Office Cleaning Made Easy with South Florida Cleaning Concepts",
+                  "item": "https://sfcleaningconcepts.com/blog/office-cleaning-made-easy.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/post-construction-cleaning-guide.html": {
+      "file": "blog/post-construction-cleaning-guide.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/post-construction-cleaning-guide.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/post-construction-cleaning-guide.html",
+              "headline": "Post-Construction Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+              "description": "Comprehensive post-construction cleaning guide. The three phases of construction cleanup: rough clean, deep clean, and final touch-up polish.",
+              "image": "https://sfcleaningconcepts.com/assets/images/blog/Post-Construction-Clean-1.jpeg",
+              "datePublished": "2023-06-05T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Post-Construction Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide",
+                  "item": "https://sfcleaningconcepts.com/blog/post-construction-cleaning-guide.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/residential-cleaning-services-journey.html": {
+      "file": "blog/residential-cleaning-services-journey.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/residential-cleaning-services-journey.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/residential-cleaning-services-journey.html",
+              "headline": "Revitalize Your Home: A Journey with South Florida Cleaning Concepts’ Residential Cleaning Services",
+              "description": "Embark on a residential cleaning journey with SFCC. Custom cleaning plans, transparent pricing, vetted cleaners, and our signature Rotation Cleaning System.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg",
+              "datePublished": "2023-05-02T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Revitalize Your Home: A Journey with South Florida Cleaning Concepts’ Residential Cleaning Services",
+                  "item": "https://sfcleaningconcepts.com/blog/residential-cleaning-services-journey.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/restaurant-and-bar-cleaning-services.html": {
+      "file": "blog/restaurant-and-bar-cleaning-services.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/restaurant-and-bar-cleaning-services.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/restaurant-and-bar-cleaning-services.html",
+              "headline": "Shining a Light on Clean: How Restaurant and Bar Cleaning Services Enhance Your Business",
+              "description": "Learn how professional restaurant and bar cleaning elevates your brand, satisfies health inspections, boosts employee morale, and drives patron loyalty.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/services-img-4.jpg",
+              "datePublished": "2023-09-14T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Shining a Light on Clean: How Restaurant and Bar Cleaning Services Enhance Your Business",
+                  "item": "https://sfcleaningconcepts.com/blog/restaurant-and-bar-cleaning-services.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/revitalize-your-office-space.html": {
+      "file": "blog/revitalize-your-office-space.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/revitalize-your-office-space.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/revitalize-your-office-space.html",
+              "headline": "Revitalize Your Office Space with South Florida Cleaning Concepts: Unleashing the Power of a Pristine Workspace",
+              "description": "Discover the psychological and physical benefits of a pristine office workspace. Learn how professional cleaning boosts productivity, reduces stress, and cuts sick days.",
+              "image": "https://sfcleaningconcepts.com/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large.jpeg",
+              "datePublished": "2023-10-15T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Revitalize Your Office Space with South Florida Cleaning Concepts: Unleashing the Power of a Pristine Workspace",
+                  "item": "https://sfcleaningconcepts.com/blog/revitalize-your-office-space.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/short-term-rental-cleaning-guide.html": {
+      "file": "blog/short-term-rental-cleaning-guide.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/short-term-rental-cleaning-guide.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/short-term-rental-cleaning-guide.html",
+              "headline": "Short Term Rental Cleaning with South Florida Cleaning Concepts: The Ultimate Guide",
+              "description": "The ultimate turnover cleaning guide for South Florida Airbnb & VRBO hosts. Checklists, linen laundering, guest staging, and 5-star cleanliness tips.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg",
+              "datePublished": "2023-08-12T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Short Term Rental Cleaning with South Florida Cleaning Concepts: The Ultimate Guide",
+                  "item": "https://sfcleaningconcepts.com/blog/short-term-rental-cleaning-guide.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "blog/south-florida-home-maintenance-services.html": {
+      "file": "blog/south-florida-home-maintenance-services.html",
+      "exists": true,
+      "blockCount": 1,
+      "blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "BlogPosting",
+                "Article"
+              ],
+              "@id": "https://sfcleaningconcepts.com/blog/south-florida-home-maintenance-services.html#article",
+              "isPartOf": {
+                "@id": "https://sfcleaningconcepts.com/#website"
+              },
+              "mainEntityOfPage": "https://sfcleaningconcepts.com/blog/south-florida-home-maintenance-services.html",
+              "headline": "Maximize the Beauty of Your Home: South Florida Home Maintenance Services with South Florida Cleaning Concepts",
+              "description": "Maximize curb appeal and protect your Florida home against tropical moisture, mildew, algae, and salt air with SFCC home maintenance services.",
+              "image": "https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg",
+              "datePublished": "2023-05-18T08:00:00-04:00",
+              "dateModified": "2026-11-07T12:00:00-05:00",
+              "author": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://sfcleaningconcepts.com/#localbusiness",
+                "name": "South Florida Cleaning Concepts",
+                "url": "https://sfcleaningconcepts.com/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://sfcleaningconcepts.com/assets/images/logo/logo.svg"
+                }
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sfcleaningconcepts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Publications",
+                  "item": "https://sfcleaningconcepts.com/our-publications.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Maximize the Beauty of Your Home: South Florida Home Maintenance Services with South Florida Cleaning Concepts",
+                  "item": "https://sfcleaningconcepts.com/blog/south-florida-home-maintenance-services.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "404.html": {
+      "file": "404.html",
+      "exists": true,
+      "blockCount": 0,
+      "blocks": []
+    }
+  },
+  "imagesChecked": {
+    "https://sfcleaningconcepts.com/assets/images/logo/logo.svg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/logo/logo.svg",
+      "size": 7319
+    },
+    "https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/hero/video-poster-2.jpeg",
+      "size": 112852
+    },
+    "https://sfcleaningconcepts.com/assets/images/about/about-us-title-img-1.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/about/about-us-title-img-1.jpg",
+      "size": 151449
+    },
+    "https://sfcleaningconcepts.com/assets/images/about/about-us-img-4.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/about/about-us-img-4.jpg",
+      "size": 126084
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/service-img-12.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/service-img-12.jpg",
+      "size": 129334
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/services-img-1.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/services-img-1.jpg",
+      "size": 116685
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/services-img-4.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/services-img-4.jpg",
+      "size": 140108
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/services-img-6.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/services-img-6.jpg",
+      "size": 140438
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg",
+      "size": 129584
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg",
+      "size": 154984
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg",
+      "size": 184087
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg",
+      "size": 160846
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg",
+      "size": 171694
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg",
+      "size": 174692
+    },
+    "https://sfcleaningconcepts.com/assets/images/blog/blog-img-7.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/blog/blog-img-7.jpg",
+      "size": 176144
+    },
+    "https://sfcleaningconcepts.com/assets/images/blog/blog-img-1.jpg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/blog/blog-img-1.jpg",
+      "size": 168759
+    },
+    "https://sfcleaningconcepts.com/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-Large.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-Large.jpeg",
+      "size": 108042
+    },
+    "https://sfcleaningconcepts.com/assets/images/blog/Post-Construction-Clean-1.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/blog/Post-Construction-Clean-1.jpeg",
+      "size": 249092
+    },
+    "https://sfcleaningconcepts.com/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large.jpeg",
+      "size": 153057
+    },
+    "https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg": {
+      "exists": true,
+      "path": "/Users/danielarrieta/Downloads/Projects/South Florida Cleaning Concepts/public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg",
+      "size": 249092
+    }
+  },
+  "napEntries": [],
+  "failures": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "south-florida-cleaning-concepts",
+  "version": "1.0.0",
+  "description": "Blazing-fast responsive website and SEO rebuild for South Florida Cleaning Concepts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

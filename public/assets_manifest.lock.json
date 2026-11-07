@@ -1,0 +1,3883 @@
+{
+  "generated_at": "2026-11-07T17:13:10.123Z",
+  "total_catalog_assets": 431,
+  "successful_downloads": 431,
+  "failed_downloads": 0,
+  "total_bytes": 75970782,
+  "assets": [
+    {
+      "id": 4,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-1.png",
+      "path": "public/assets/images/icons/h1-icon-img-1.png",
+      "size": 583,
+      "sha256": "8fdab41f61fd9284d9e737f9ead88e20647e08120158cf017d67505171998a9a",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 3,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cropped-icon-180x180.png",
+      "path": "public/assets/images/icons/cropped-icon-180x180.png",
+      "size": 7707,
+      "sha256": "c931a4c80e2b4ecc4026724d4943a8a49fb3f70273bffb661cea637e208af417",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 6,
+      "url": "https://sfcleaningconcepts.com/wp-content/plugins/revslider/public/assets/assets/dummy.png",
+      "path": "public/assets/images/hero/dummy.png",
+      "size": 68,
+      "sha256": "69539b5b3777cffda28a66d7f2aa9b17c91ee1ec8fd50c00c442af91753a60f7",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 5,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/logo.svg",
+      "path": "public/assets/images/logo/logo.svg",
+      "size": 7319,
+      "sha256": "935adcc9d247eda1bf1563d340e6d0ab4a889c0010825b9e9efa1f46d2455d22",
+      "contentType": "image/svg+xml",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 7,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-2.png",
+      "path": "public/assets/images/icons/h1-icon-img-2.png",
+      "size": 348,
+      "sha256": "cac1f44c9e17b5c901b3d011e78524c6eb762edb77528cfc3de110ee7970f4c2",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 2,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cropped-icon-192x192.png",
+      "path": "public/assets/images/icons/cropped-icon-192x192.png",
+      "size": 8112,
+      "sha256": "6ebdecee79a1237b9bafd049c8c505e458562f13d6a0dacc9dcef1e0c293b001",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 8,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-3.png",
+      "path": "public/assets/images/icons/h1-icon-img-3.png",
+      "size": 496,
+      "sha256": "f7a1de11831ccac019d90354ef17dac201c4c318bbb0d91b3ba93f703d85dd25",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 1,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cropped-icon-32x32.png",
+      "path": "public/assets/images/icons/cropped-icon-32x32.png",
+      "size": 1222,
+      "sha256": "c83fe7423544e3c1774a993b66670fe7fbd4dcbda7b76b962e48853e97c07819",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 9,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-4.png",
+      "path": "public/assets/images/icons/h1-icon-img-4.png",
+      "size": 380,
+      "sha256": "97918a3e4a35ea28730ab680da65b3265f56f9987d23c1646886c6c1b81dd3d2",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 12,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-9-230x300.jpg",
+      "path": "public/assets/images/about/h1-img-9-230x300.jpg",
+      "size": 12215,
+      "sha256": "321f834978c5ac216eb3ce60174b09921c6b407364f070fbdf60d2efd73aff55",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 17,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10-231x300.jpg",
+      "path": "public/assets/images/about/h1-img-10-231x300.jpg",
+      "size": 12193,
+      "sha256": "3cceaeab001f4a188b4dc30e15f4ab8bd03189debb75910d654e5d3b07bfa479",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 10,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-9.jpg",
+      "path": "public/assets/images/about/h1-img-9.jpg",
+      "size": 132845,
+      "sha256": "d91d4958db4372284939b6d7ec2c67eef909221639f00cee270f857d4df69abd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 11,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-9-600x782.jpg",
+      "path": "public/assets/images/about/h1-img-9-600x782.jpg",
+      "size": 50728,
+      "sha256": "4d608969ace4456d8e4760a2555098ad2dd670efab62ec1965bab2e79197730f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 16,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10-600x780.jpg",
+      "path": "public/assets/images/about/h1-img-10-600x780.jpg",
+      "size": 57350,
+      "sha256": "f66f3882e34a4a04584edc663dd628d0fa8405ccb496ae9c927241e3db2d872e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 13,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-9-786x1024.jpg",
+      "path": "public/assets/images/about/h1-img-9-786x1024.jpg",
+      "size": 80392,
+      "sha256": "82ee689dcdd571ae308495a82e7c4021372ff3b152ed1f1124e88d30464b6934",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 14,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-9-768x1001.jpg",
+      "path": "public/assets/images/about/h1-img-9-768x1001.jpg",
+      "size": 76755,
+      "sha256": "e7fa31ac8efde475abe1fe55cbece1a204539a8c44fdba19f8a2db12fe111e87",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 21,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-11-600x782.jpg",
+      "path": "public/assets/images/about/h1-img-11-600x782.jpg",
+      "size": 71636,
+      "sha256": "df0519df30f32b8fb0942d27c4ad38bbb0063e4cff26fd1a8d050c42b13fa8d7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 15,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10.jpg",
+      "path": "public/assets/images/about/h1-img-10.jpg",
+      "size": 148008,
+      "sha256": "ebcd101365399d322132ff8b5ab420915b1fc2639cabc67219a88e97ca4b467e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 18,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10-788x1024.jpg",
+      "path": "public/assets/images/about/h1-img-10-788x1024.jpg",
+      "size": 90893,
+      "sha256": "9e3dbf6da79e17802aa002b8ce0b6d15b5221204379b9f150542fb556d62e3d1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 22,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-11-230x300.jpg",
+      "path": "public/assets/images/about/h1-img-11-230x300.jpg",
+      "size": 14754,
+      "sha256": "e0b712c30eeced22ca5ea952601ed8fb3ab72d1d9f72b0dd4d42b326c491a600",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 25,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-5.png",
+      "path": "public/assets/images/icons/h1-icon-img-5.png",
+      "size": 1219,
+      "sha256": "31988c99d66840c0bb40e7d849b7609bb3007a4c887ab0c00dbd07dacb333f24",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 20,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-11.jpg",
+      "path": "public/assets/images/about/h1-img-11.jpg",
+      "size": 136332,
+      "sha256": "f13bd9ecbc3f2dc62f338a71aa47bf042dff26078b8de4ce97e671b74de883e3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 27,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-img-12-600x364.jpg",
+      "path": "public/assets/images/services/service-img-12-600x364.jpg",
+      "size": 34917,
+      "sha256": "8cbe8e2925a0a17b9940ecf8fa7bf8115196851c48e39dc55a28e7ac80d56282",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 26,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-img-12.jpg",
+      "path": "public/assets/images/services/service-img-12.jpg",
+      "size": 129334,
+      "sha256": "b8aa53666aa322af9b1981e0293ace4995f23357282877fb22b8bd6bdc9898ff",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 28,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-img-12-300x182.jpg",
+      "path": "public/assets/images/services/service-img-12-300x182.jpg",
+      "size": 12548,
+      "sha256": "c20ebb5b5fd92189c9c51b49f2586b8d2c4670b650fabd90b4dd26c45648c103",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 29,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-img-12-768x466.jpg",
+      "path": "public/assets/images/services/service-img-12-768x466.jpg",
+      "size": 51584,
+      "sha256": "d9a08121cc7d532d0ce55d50f530709333f178a016a19184d709490751bf27ca",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 30,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-150x150.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-150x150.jpeg",
+      "size": 5928,
+      "sha256": "adce1b5f795d709231bb8b7afb179240b6a3347e4210fd0fc2fad956c22d5f9f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 23,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-11-786x1024.jpg",
+      "path": "public/assets/images/about/h1-img-11-786x1024.jpg",
+      "size": 111226,
+      "sha256": "0f752f83ac603f4b0b7a2905aeb3700b1fc18c799756322ee06ce2db9ae03025",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 24,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-11-768x1001.jpg",
+      "path": "public/assets/images/about/h1-img-11-768x1001.jpg",
+      "size": 106651,
+      "sha256": "334a8ab03c67c67b0d5d547039abf02576616b432cc4c73cee356f4acf2cc5fa",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 31,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-650x650.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-650x650.jpeg",
+      "size": 62954,
+      "sha256": "d96d3b9ce394c755b2cace50ccbad92a41d65f27da42e05888a77e549187d146",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 33,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-100x100.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-100x100.jpeg",
+      "size": 3521,
+      "sha256": "28f770e2a901f8cd1ccc4d10f28562c9874cfd8affc81a19369295a235ee68c9",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 32,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-300x300.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-300x300.jpeg",
+      "size": 17283,
+      "sha256": "aadf247ac088c66e1b6acbfa71ec780cf869ef29375c32f9640b77284de89eff",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 34,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-150x150.jpg",
+      "path": "public/assets/images/services/title-img-1-150x150.jpg",
+      "size": 4310,
+      "sha256": "6f3fbe1862d80f84744e2a9959390f4b65a64217ad678b165523bd086a743f2a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 35,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-300x300.jpg",
+      "path": "public/assets/images/services/title-img-1-300x300.jpg",
+      "size": 11542,
+      "sha256": "45650590dd30408236b870ea7dd3aa3441c34244afda2e0a54c2d4b5f36301db",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 19,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10-768x998.jpg",
+      "path": "public/assets/images/about/h1-img-10-768x998.jpg",
+      "size": 86567,
+      "sha256": "fa57de02d4b12d050a7b315e21277dfa56ecbd0e9fa9a9e36bd6037a5b879af1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 36,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-100x100.jpg",
+      "path": "public/assets/images/services/title-img-1-100x100.jpg",
+      "size": 2708,
+      "sha256": "3e5016ecf5222e43b1b54f30e5f5fb1fec63b64d957862ac68a73dc5942a4488",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 37,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-150x150.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-150x150.jpg",
+      "size": 5578,
+      "sha256": "da2a1bd633671a1f54e173b2c408d7bf6f9cd308d251b27ad2490c6649c729fa",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 38,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-650x650.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-650x650.jpg",
+      "size": 38927,
+      "sha256": "e7f3ff7314fd4bf2a3bd95dfb7bf6ce2d81eaae2bf3f84c3b0e3e2481f3f0785",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 41,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-150x150.jpg",
+      "path": "public/assets/images/services/services-list-img-2-150x150.jpg",
+      "size": 3712,
+      "sha256": "a727e433dfd15c891f01642bad64e525129a5fd0cca36630e8404d3e57548aed",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 42,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-300x300.jpg",
+      "path": "public/assets/images/services/services-list-img-2-300x300.jpg",
+      "size": 9907,
+      "sha256": "72af5664266fff187ad2990664c5352fea34917972cb7594a8e24fb7f3fb1592",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 39,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-300x300.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-300x300.jpg",
+      "size": 13528,
+      "sha256": "739d161f2102bfcccb7ab271cbb4f2d39d0f89aefa305259b6428091fb31914a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 43,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-100x100.jpg",
+      "path": "public/assets/images/services/services-list-img-2-100x100.jpg",
+      "size": 2381,
+      "sha256": "e5dc37296c4ca0a512940350a2e96e86a8a26a9509ba91135ac9c825b672db8c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 40,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-100x100.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-100x100.jpg",
+      "size": 3438,
+      "sha256": "e313cf6ac2319538794143ef4771dfb2af0a7f615dc6421dec6052c056995604",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 45,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-150x150.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-150x150.jpg",
+      "size": 5655,
+      "sha256": "73af7716e749d9488960e6276516b6728ae53160d5b5181dd56445327c9e55a4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 47,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-300x300.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-300x300.jpg",
+      "size": 14647,
+      "sha256": "98513569497665fcee187c98998004ac772d0d9c5a60508b59ccf85effcf9ef2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 49,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-150x150.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-150x150.jpg",
+      "size": 5625,
+      "sha256": "3ed0df04f7582f273cf1b1f9936d46a00370b4c0e82f06ede4407a59e122822e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 48,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-100x100.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-100x100.jpg",
+      "size": 3451,
+      "sha256": "cbec5c63ca91b9f7a8c33987a57c231b454447521c11db7f4d1a4f70d0a76a9f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 44,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-650x650.jpg",
+      "path": "public/assets/images/services/services-list-img-2-650x650.jpg",
+      "size": 40296,
+      "sha256": "8fc53dd0271b28066f75e935e16a275d4ec69d5e3313271223a5ba5c2edccdbc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 46,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-650x650.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-650x650.jpg",
+      "size": 42554,
+      "sha256": "df1494f22530c4da9637d0afcf4e898e6904a49a9eb7b8ce083bb7a2237147ef",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 50,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-650x650.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-650x650.jpg",
+      "size": 69301,
+      "sha256": "0b2a894fd9bc355765c7d6f4dfd06c801b294f9af0d6db51a3eef4dc6a27feff",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 51,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-300x300.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-300x300.jpg",
+      "size": 17393,
+      "sha256": "dea681c98bffb36f6df8a2923309c910c8ba1afe4bcc874179cf40dcbccac540",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 56,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-300x298.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-300x298.jpg",
+      "size": 19288,
+      "sha256": "4980744cce80f24f5cc23f53f34b99ce3d78530ee0405705a133a7003111c9d4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 54,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-100x100.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-100x100.jpg",
+      "size": 3852,
+      "sha256": "2fb4a2b3c02a5b6bbb647934146af4047dd6c48278b396d07781ec31c955870b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 52,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-100x100.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-100x100.jpg",
+      "size": 3282,
+      "sha256": "cade2984021d5fc1edaabc941b5ee496f1526e981116598f733d7c9db4917a53",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 58,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-150x150.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-150x150.jpg",
+      "size": 6777,
+      "sha256": "a89b93f116d13fc210f07152e4c247d04470dee070dd6a6e997a9f61f5e83801",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 57,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-1024x1018.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-1024x1018.jpg",
+      "size": 142104,
+      "sha256": "72c9aaa2e86a9fe4a18bd307508948fb52a21253c76f823cd020b1a32c5272ec",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 60,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-8.png",
+      "path": "public/assets/images/icons/h1-icon-img-8.png",
+      "size": 693,
+      "sha256": "891e4927ec1da60ad70fc51cfdb74d350701d0a67f80e7b23c48a6f8715cfc88",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 61,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-6.png",
+      "path": "public/assets/images/about/h1-img-6.png",
+      "size": 1921,
+      "sha256": "c8ba06c843afaefadcad85e5cc93e88377edbb6721369e9506258c3bdad95e3e",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 63,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-logo-img-2.png",
+      "path": "public/assets/images/logo/h1-logo-img-2.png",
+      "size": 8945,
+      "sha256": "678901f7696e2ae63e3c53ae68bfd61fd0bf62aebf2a0bcd510ecce1441030d1",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 62,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-logo-img-1.png",
+      "path": "public/assets/images/logo/h1-logo-img-1.png",
+      "size": 14946,
+      "sha256": "8e79226b4ac8af446a4e8256c7e727b782e69914c30885b3d7f4d650d0e155a2",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 64,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-logo-img-3.png",
+      "path": "public/assets/images/logo/h1-logo-img-3.png",
+      "size": 9837,
+      "sha256": "0a5e964cc13f8b67789c63520f1dafc72dcb3b94ca5f7c6c01233655d7bf32a5",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 65,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/chillis.jpg",
+      "path": "public/assets/images/clients/chillis.jpg",
+      "size": 34228,
+      "sha256": "2b8c421427bd73811481daf4efdcd6240e502b90b78f0c8b53431cb1973ef679",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 66,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/chillis-150x150.jpg",
+      "path": "public/assets/images/clients/chillis-150x150.jpg",
+      "size": 4428,
+      "sha256": "de48f59306a585b1b523355eb04a3cde8b6b01c4b7a32e73d68aa1223f9fbab8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 67,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/chillis-100x100.jpg",
+      "path": "public/assets/images/clients/chillis-100x100.jpg",
+      "size": 2882,
+      "sha256": "945c22cf4da1891d72691ba9ab150490786bff5cb7626fb38133a8d0ac9de184",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 70,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/macaroni-100x100.jpg",
+      "path": "public/assets/images/clients/macaroni-100x100.jpg",
+      "size": 2450,
+      "sha256": "06041cdc61c08495ab177d649be50b4b6ae03f9eac2c69e9b0a9da742a4a82dd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 69,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/macaroni-150x150.jpg",
+      "path": "public/assets/images/clients/macaroni-150x150.jpg",
+      "size": 4056,
+      "sha256": "6e882494192e725a5f575da5f7bb3a11d32b59fa2d4a9d056c3f1c0d4bb95f26",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 71,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/longhorn.jpg",
+      "path": "public/assets/images/clients/longhorn.jpg",
+      "size": 30816,
+      "sha256": "5b6585f8ed81bddf74e8f1310b0f8cde4cd7ea232eeed52016d7aecb06af48cd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 53,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3.jpg",
+      "size": 156179,
+      "sha256": "5d4e34813e4ad9966efe20c8b49607173d938311367282227f1f37b139adaaf1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 72,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/longhorn-150x150.jpg",
+      "path": "public/assets/images/clients/longhorn-150x150.jpg",
+      "size": 3911,
+      "sha256": "5a191543d52de77dc1effbde3ffadd6f8fd363d15ede132ca3f2e2b684530055",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 73,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/longhorn-100x100.jpg",
+      "path": "public/assets/images/clients/longhorn-100x100.jpg",
+      "size": 2420,
+      "sha256": "df7373b3acf33d964691b76bdc688d583fb60bf83d2e0c0624fb01100f0f2702",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 74,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/limegrill.jpg",
+      "path": "public/assets/images/clients/limegrill.jpg",
+      "size": 43390,
+      "sha256": "52a4d622631210840e0eccfd7a3f74b58ec799e94650f3075a4a13d302d49801",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 75,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/limegrill-150x150.jpg",
+      "path": "public/assets/images/clients/limegrill-150x150.jpg",
+      "size": 6256,
+      "sha256": "6d0369f37014e500680a81ee48fe614c8250dc841fad4b52703f45f9f1ce1089",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 76,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/limegrill-100x100.jpg",
+      "path": "public/assets/images/clients/limegrill-100x100.jpg",
+      "size": 3658,
+      "sha256": "f7a2400a936f8fd1db0ad47dca70dcffc19699c18fb8629060b3a4c3b8ea6dbe",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 77,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/journeys.jpg",
+      "path": "public/assets/images/clients/journeys.jpg",
+      "size": 83590,
+      "sha256": "1fe31fcd1c862bc1a86d9f2e7e30131f6f5dc4812162694fe477bd9894ea9b81",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 78,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/journeys-150x150.jpg",
+      "path": "public/assets/images/clients/journeys-150x150.jpg",
+      "size": 7767,
+      "sha256": "4e636886fcaee5b6360f627d8a65df32ddf593c15f5886e61dfba52f080e66e6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 79,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/journeys-100x100.jpg",
+      "path": "public/assets/images/clients/journeys-100x100.jpg",
+      "size": 4461,
+      "sha256": "c1c34b7a879117fe321f4f4327da69f77ca064d65d666085265de3ec76c8cc0d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 80,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg",
+      "path": "public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg",
+      "size": 184087,
+      "sha256": "db9a3bd6b67071914a01781d94398ab39b51923a2182507dabeee3c622aa8583",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 81,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-300x200.jpeg",
+      "path": "public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-300x200.jpeg",
+      "size": 10633,
+      "sha256": "86da8ce88d8a82863ed4f8af023f00fb8a6ae7ae80cff2b420822c0c9e885d8a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 83,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-768x512.jpeg",
+      "path": "public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-768x512.jpeg",
+      "size": 47185,
+      "sha256": "75f970decdf43aa46916c2eb3aacdd4c119c50b2792f11ecfb3f825049059c3d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 82,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-1024x682.jpeg",
+      "path": "public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1-1024x682.jpeg",
+      "size": 75204,
+      "sha256": "7d026ae35f072553032532dbc99aaa5f6d112605ae7e279ba85033f4c3090a12",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 85,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-2-300x200.jpg",
+      "path": "public/assets/images/services/home-cleaning-2-300x200.jpg",
+      "size": 13060,
+      "sha256": "ccef1dde702da9b39e77820c48dc79bb1ac7aad1e030d407bac4fbc787e14db9",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 68,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/macaroni.jpg",
+      "path": "public/assets/images/clients/macaroni.jpg",
+      "size": 38298,
+      "sha256": "b254b6a67f4f5dce97ccaf8ccd701cb6bd5a95fc5d3309a3bfbe5bc68e60e1d5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 86,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-2-1024x683.jpg",
+      "path": "public/assets/images/services/home-cleaning-2-1024x683.jpg",
+      "size": 69748,
+      "sha256": "54c1e63e47ceaca741ffaf59895c3d177db42d38c8d4ba9713803a8efd2ac125",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 55,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-600x596.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-600x596.jpg",
+      "size": 58140,
+      "sha256": "f55f959f31189011aec506c823da09b7df78da8260b5007764f3548a39e21139",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 84,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-2.jpg",
+      "path": "public/assets/images/services/home-cleaning-2.jpg",
+      "size": 155884,
+      "sha256": "530cac488f44a13543e1f8c0b05ba270a5d91746936bcd40a83f7eae9fb88bfd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 89,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-2-300x200.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-2-300x200.jpeg",
+      "size": 8021,
+      "sha256": "c6d6e03fdf30b4ffd7f8f4942d05d8fb7967844335c362675136de96e6ed2c4c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 87,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-2-768x512.jpg",
+      "path": "public/assets/images/services/home-cleaning-2-768x512.jpg",
+      "size": 46586,
+      "sha256": "aa7f34300128c0cf544e6911ea97b4d317d89b7814e95077934a1a1baaef9f11",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 88,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-2.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-2.jpeg",
+      "size": 93554,
+      "sha256": "695371c28569eb9a5e9e1dd589379233f1dd77c05bd94d8c4c6de2e0295ca50c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 90,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-2-1024x682.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-2-1024x682.jpeg",
+      "size": 41697,
+      "sha256": "e5a5d879712edfa9d647ec1849b793481ac5eda8ef024891ad3e1953bde0e5d1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 91,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-2-768x512.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-2-768x512.jpeg",
+      "size": 27472,
+      "sha256": "8ade5fd37d4ccfd0d6981b5c9116bea0c5ecc368c6723145bda8474c3daf6ff3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 93,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-300x200.jpeg",
+      "path": "public/assets/images/services/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-300x200.jpeg",
+      "size": 11755,
+      "sha256": "548e4958811f3d2c127b088401674af8a58fee367c5aba637103bc579e85fd49",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 95,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-768x512.jpeg",
+      "path": "public/assets/images/services/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-768x512.jpeg",
+      "size": 45390,
+      "sha256": "82a3e96acb3aeb44b4909700229a0fd8b0d15222e4a587b6f9f929a75e7ede7f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 94,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large-1024x682.jpeg",
+      "size": 69596,
+      "sha256": "89c45d8e3e470427a04cfcf41bd2ea9ab7921e1b45d3e7fe490cf984c8ce4123",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 96,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/medical-office-2022-07-07-00-46-47-utc-Large.jpeg",
+      "path": "public/assets/images/services/medical-office-2022-07-07-00-46-47-utc-Large.jpeg",
+      "size": 149844,
+      "sha256": "69d3fad8e41bceebe3bb8ae6e1675d972ca6a4291c2c97fc6857e0d8acd4cffb",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 97,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/medical-office-2022-07-07-00-46-47-utc-Large-300x200.jpeg",
+      "path": "public/assets/images/services/medical-office-2022-07-07-00-46-47-utc-Large-300x200.jpeg",
+      "size": 9784,
+      "sha256": "4dc509672ee780d41799398052b26dfcb1f9c3e0583c3670f10e509ad774921f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 98,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/medical-office-2022-07-07-00-46-47-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/medical-office-2022-07-07-00-46-47-utc-Large-1024x682.jpeg",
+      "size": 66467,
+      "sha256": "dcbde70cd25430c7f3f4e13c4c934ee8f431c76ccb15f0ca6fdc0fa5354f4f55",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 92,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large.jpeg",
+      "path": "public/assets/images/services/process-of-deep-furniture-cleaning-removing-dirt-2023-04-21-22-06-54-utc-Large.jpeg",
+      "size": 163783,
+      "sha256": "161d37e87bcc5bacf2c161281f7d6381cc870f6d55b7694d14821bcfdc507d2b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 99,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/medical-office-2022-07-07-00-46-47-utc-Large-768x512.jpeg",
+      "path": "public/assets/images/services/medical-office-2022-07-07-00-46-47-utc-Large-768x512.jpeg",
+      "size": 42668,
+      "sha256": "c72f731f4e79be5b6497cd691c1b398129bf222b522bdf6bb0c4b59f616a378b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 59,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-3-768x763.jpg",
+      "path": "public/assets/images/about/h1-animated-img-3-768x763.jpg",
+      "size": 88138,
+      "sha256": "28b24a5554aeafac9b93198c9436136de5c787fcec751a6d5eda90bf0c2e4a76",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 101,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-home-2022-05-10-23-59-07-utc-Large-300x200.jpeg",
+      "path": "public/assets/images/services/cleaning-home-2022-05-10-23-59-07-utc-Large-300x200.jpeg",
+      "size": 11367,
+      "sha256": "dccfeb5fc899c8ddfa525dad8933bfb6a5b6f09c6fa19eda4dab3e2c4d945c94",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 103,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-home-2022-05-10-23-59-07-utc-Large-768x512.jpeg",
+      "path": "public/assets/images/services/cleaning-home-2022-05-10-23-59-07-utc-Large-768x512.jpeg",
+      "size": 46323,
+      "sha256": "f53ae88319072f2088ebac9f9bddff1284e057bfe1489a2a9cab292a66df95d6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 102,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-home-2022-05-10-23-59-07-utc-Large-1024x683.jpeg",
+      "path": "public/assets/images/services/cleaning-home-2022-05-10-23-59-07-utc-Large-1024x683.jpeg",
+      "size": 70676,
+      "sha256": "44a85baa4d82c4e81a352f342ebd1bd268650c7e7ba9c04d703700172b84cc9a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 105,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-1-300x200.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-1-300x200.jpeg",
+      "size": 11225,
+      "sha256": "cffa15456e1682710104d65e46aa8202d2f5b4edb3f547d614437b11551a7728",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 106,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-1-1024x683.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-1-1024x683.jpeg",
+      "size": 67847,
+      "sha256": "ac1abe6c3aaa84faa7f7f99056a7779f3ce7f8a7932aadb50e471921b9320dd5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 107,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-1-768x512.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-1-768x512.jpeg",
+      "size": 43936,
+      "sha256": "423dea7c29c3252de8d34b06fd529db0a3e47413318b3c1709ed6423432f807f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 108,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc.jpeg",
+      "size": 108042,
+      "sha256": "36c5a7ad9876dd6847fa24b699d36fe7a8d22bbe52a87d555af2df37992e2f9a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 109,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc-300x200.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-300x200.jpeg",
+      "size": 7952,
+      "sha256": "66b625e0d8c050645e31cf5b7ccbcb7002e0e78458100060e11698e45cf27c6a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 111,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc-768x512.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-768x512.jpeg",
+      "size": 29525,
+      "sha256": "23683d0f4e0ff49ddc5756cb44f975d68235b7b0ceca50d83b47979f0f4fcfbb",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 110,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc-1024x682.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-1024x682.jpeg",
+      "size": 45294,
+      "sha256": "0c7b0240a3da7cf87f044b02326e2948ea8f77e6f2c9cb41447d64f5cd94168d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 113,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-300x200.jpg",
+      "path": "public/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-300x200.jpg",
+      "size": 12531,
+      "sha256": "1397741b28b1618dd8e5a3f0a0d701ea95c7e11cd485caa0113ca4836c5174c1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 112,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg",
+      "path": "public/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg",
+      "size": 171694,
+      "sha256": "51428c19927770b1b1505be0659c4d4a1d0815ebad0a03d7624329ba594d49fc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 115,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-768x512.jpg",
+      "path": "public/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-768x512.jpg",
+      "size": 48654,
+      "sha256": "8fd4880d06c838f04212f6d27ffd02cb6f506f2fb124409cb4ae4c7188ff9e0c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 104,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-1.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg",
+      "size": 160846,
+      "sha256": "9b0df2db347f403ef61fe67c4aa7db85a6471e69e0d72c48c139691113376fb6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 116,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/video-poster-2.jpeg",
+      "path": "public/assets/images/hero/video-poster-2.jpeg",
+      "size": 112852,
+      "sha256": "2c895f5758836d9792519b1647facaa0174b6d5ddf90adf2102998b43225c53b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 114,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-1024x682.jpg",
+      "path": "public/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large-1024x682.jpg",
+      "size": 74621,
+      "sha256": "5049ca75aca024f5709d08bf52eeaf215e6051e0b7d51be17b500723bc04241e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 117,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-7.jpg",
+      "path": "public/assets/images/about/about-us-img-7.jpg",
+      "size": 100189,
+      "sha256": "cf410a55891261c1165fb8ce32a0848a1371ef82f1ed4466167c517c93926722",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 118,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-7-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-7-230x300.jpg",
+      "size": 10807,
+      "sha256": "ebb12003c3cd956c90af1aeacfa8b779e63dcdd1cc6c9dec2f8f7d8b0d139686",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 120,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-2-1-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-2-1-230x300.jpg",
+      "size": 10320,
+      "sha256": "13fdc997f888717dc77dab43119301247ec0aef614742c9cea2e298061476956",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 122,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-3-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-3-230x300.jpg",
+      "size": 8320,
+      "sha256": "332f75b70a5419f8dcf7c2f733f891692edcd9f6713c1ff4c8a843db7cdcef1b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 119,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-2-1.jpg",
+      "path": "public/assets/images/about/about-us-img-2-1.jpg",
+      "size": 119902,
+      "sha256": "8e5e5c37a0b7aec59173cc4624bddc1e0422931c914314f17cd087144c560d6e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 124,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-5-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-5-230x300.jpg",
+      "size": 14215,
+      "sha256": "3b2f0ddc1a9ba6396487d253bd15ecc8401cd73d8f854ac1b8d07a2eccf46644",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 126,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-14-256x300.jpg",
+      "path": "public/assets/images/services/services-list-img-14-256x300.jpg",
+      "size": 13661,
+      "sha256": "1f47047410446a681cd6dd2cdb93f71219d99298fb7ec00cf0412d602d41f7f0",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 128,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-7-1-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-7-1-230x300.jpg",
+      "size": 11438,
+      "sha256": "98919d4795c6fbef764b9fddfd79740b52c922115355bf679510bbcd295d2175",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 121,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-3.jpg",
+      "path": "public/assets/images/about/about-us-img-3.jpg",
+      "size": 122620,
+      "sha256": "cc83d9cdc674bc8657593d7fef8eea38be062e0e18197db1e08af85564c32fb2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 127,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-7-1.jpg",
+      "path": "public/assets/images/about/about-us-img-7-1.jpg",
+      "size": 144087,
+      "sha256": "c1a6dc4ea5cd4d89c47eb88eb7a8878929fa6bcab483078102d3a4789fd7fe5e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 130,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-6-230x300.jpg",
+      "path": "public/assets/images/about/about-us-img-6-230x300.jpg",
+      "size": 16468,
+      "sha256": "d9909c54af8ef6f13daae6efc4ef7aeacbe72f43afdc755281cf82f30ce7df14",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 133,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-7-600x373.jpg",
+      "path": "public/assets/images/blog/blog-img-7-600x373.jpg",
+      "size": 25662,
+      "sha256": "451eadb4f0d94718f57fe3269cfb8e3cbee90178b059f98fa92358a7afb473aa",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 134,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-7-300x187.jpg",
+      "path": "public/assets/images/blog/blog-img-7-300x187.jpg",
+      "size": 9332,
+      "sha256": "6feb84c280cc9881cd2e5164143fcbeaab6aaf338ff6802af52c4427db813454",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 125,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-14.jpg",
+      "path": "public/assets/images/services/services-list-img-14.jpg",
+      "size": 113849,
+      "sha256": "a69df0ae24eecbe4fb1f719699358490fb016ff8c87193f2d1b429fab0a1dd87",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 135,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-7-1024x637.jpg",
+      "path": "public/assets/images/blog/blog-img-7-1024x637.jpg",
+      "size": 57552,
+      "sha256": "1b18d7602070b3665ea8e7256ed14905f34dab3ad516c327a3c229dc7705f8b9",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 136,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-7-768x478.jpg",
+      "path": "public/assets/images/blog/blog-img-7-768x478.jpg",
+      "size": 37080,
+      "sha256": "fe0c58db0ed3cf559d9909c5b09c9a8b48b82fa2610506665c4ae6776a8fb15c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 137,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large.jpeg",
+      "path": "public/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large.jpeg",
+      "size": 153057,
+      "sha256": "e20cd059e21723b32250af72c6c8dbb38ec4b83dadc99703581f51fe02190a5d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 132,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-7.jpg",
+      "path": "public/assets/images/blog/blog-img-7.jpg",
+      "size": 176144,
+      "sha256": "52f31dd5b8bef8c02fa1e3475f199209963a2b132c5dbe6de9ab1afe2921f264",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 100,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-home-2022-05-10-23-59-07-utc-Large.jpeg",
+      "path": "public/assets/images/services/cleaning-home-2022-05-10-23-59-07-utc-Large.jpeg",
+      "size": 170682,
+      "sha256": "c3f39c28cdd824c072bb9da153fd20213c4e86fcf79e7aa96caf1e1864d78f13",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 138,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-300x199.jpeg",
+      "path": "public/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-300x199.jpeg",
+      "size": 11079,
+      "sha256": "3aa851f5a50f300865f376aa8467ae1b4502e3cec1f3f03c1012ff888d364ecd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 139,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-1024x679.jpeg",
+      "path": "public/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-1024x679.jpeg",
+      "size": 65571,
+      "sha256": "d188f091b46211fc9fb21507d441e5fd7a19d1017ff8b0ec577b8e5bcc6bb79c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 140,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-768x509.jpeg",
+      "path": "public/assets/images/blog/woman-cleaning-keyboard-in-the-office-2021-08-27-16-32-49-utc-Large-768x509.jpeg",
+      "size": 43109,
+      "sha256": "bb0e16083f817e7ee07bcf73e58bf25e2a57fa7ee54d829099aafa358fc2ecbf",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 142,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-3-150x150.jpg",
+      "path": "public/assets/images/services/services-list-img-3-150x150.jpg",
+      "size": 4680,
+      "sha256": "2ae2ee6ee6574029d5b4ac3ae9c2419870d6712ca890b5f71abeaa8fdd406b64",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 143,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-150x150.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-150x150.jpg",
+      "size": 5840,
+      "sha256": "a8b23f280d28b339eb7901d96bddb0f1ea4edcdc5b45c1d5f6514f5f046ace59",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 144,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-650x650.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-650x650.jpg",
+      "size": 41363,
+      "sha256": "5cdd583882418d490ddd7f35529e66f2aa040eed416c134d867ec0ac6323b144",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 145,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-300x300.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-300x300.jpg",
+      "size": 14194,
+      "sha256": "c23414c0680babbf0a447294cfd138618dd54679e957303bc89d8910f6ac8eb6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 146,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-100x100.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-100x100.jpg",
+      "size": 3653,
+      "sha256": "ff146c40d59133eaa37fb177e63bcfa0607f2ae6e5a7e0d780cd8fed0b7eb025",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 149,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-100x100.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-100x100.jpeg",
+      "size": 3646,
+      "sha256": "82c5495aebabfa0240b3411a529e8e4451ecda50ccbf42bba3e8fac82a569231",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 148,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-300x300.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-300x300.jpeg",
+      "size": 15529,
+      "sha256": "0e8df493af1f82013d0274476930adbd27c8b49766fe0ac8f36ae6e42533b265",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 147,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-150x150.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-150x150.jpeg",
+      "size": 6098,
+      "sha256": "619659bacfbc18ee71b85ee88cf31be079ad7ffc10a3e2dc5a5691f58fe06c78",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 150,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-650x650.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-650x650.jpeg",
+      "size": 46787,
+      "sha256": "b5accc0697f06d300348b9d6081be8dc4f82d226a4bc7fc2cfa48a3d46cdfade",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 152,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-300x200.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-300x200.jpg",
+      "size": 11967,
+      "sha256": "4043f370b86dfca0fe36761a6140e6d8964dc9dc2e24da6baceca89d7d665519",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 155,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-1536x1024.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-1536x1024.jpg",
+      "size": 225918,
+      "sha256": "ecc87333ae134e518a9927525995f7d56e3e4c989de0f184fdc9ade1b2bc00f1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 156,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-600x400.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-600x400.jpg",
+      "size": 40346,
+      "sha256": "c6f3888ad869664cedc282064017d7f640cf1b01109b6df8ecbdeea1e9aeb636",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 154,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-768x512.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-768x512.jpg",
+      "size": 62860,
+      "sha256": "d406729dddd1f127eb7cc1f30950b46ef1f92bfdc4ab3e603fb14f4c1f25bad6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 151,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc.jpg",
+      "size": 350795,
+      "sha256": "88f2fc90f7e510bbea6de3fca046e4c80de318b7b47badf4bd9e1ba3cd580acf",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 157,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-8.jpg",
+      "path": "public/assets/images/services/services-img-8.jpg",
+      "size": 134225,
+      "sha256": "a75515d6668e6898ea95360cd0f03d06149ae759661f1eebcd42ffcc8aa78b2c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 158,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-8-600x364.jpg",
+      "path": "public/assets/images/services/services-img-8-600x364.jpg",
+      "size": 38343,
+      "sha256": "be75703ad2db11ceb2dfb33a59f4f2481a8fb40aaf1b6eb4e2518bb42fac0fcc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 159,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-8-300x182.jpg",
+      "path": "public/assets/images/services/services-img-8-300x182.jpg",
+      "size": 13029,
+      "sha256": "11ac5a2e7273a8efb00dd264b726738bf0705df2f33e3b43cc451031a0dea222",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 160,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-8-768x466.jpg",
+      "path": "public/assets/images/services/services-img-8-768x466.jpg",
+      "size": 56085,
+      "sha256": "dea493700064ad5e0d3f277621faebc58ce3e5b9a0cde1f92075bb069904d08b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 162,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-300x200.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-300x200.jpg",
+      "size": 10720,
+      "sha256": "4d8fa766e6150143bec81824059836c7c6de7fa88f88b8e113625fcdede985c3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 161,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg",
+      "size": 129584,
+      "sha256": "9c9ee9ccd0bc1594e0891ae69576a19fada513d66b779cb0f3b5528081f045ac",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 163,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-1024x682.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-1024x682.jpg",
+      "size": 59979,
+      "sha256": "9a55c9e1aa2249521e38450c76a790b4628b6bac6da2db6818469e43e8b32e67",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 164,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-768x512.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-768x512.jpg",
+      "size": 39919,
+      "sha256": "959b2019ae542352205955f901cba8d4d07292ab77295e3e98a6408253007da5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 165,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-600x400.jpg",
+      "path": "public/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large-600x400.jpg",
+      "size": 28142,
+      "sha256": "6a3c1d6dca9cc396e29036d6a8ab33493558d1a22d3934ae764c44177c588eb0",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 166,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2.jpg",
+      "path": "public/assets/images/services/services-list-img-2.jpg",
+      "size": 159453,
+      "sha256": "5d9371befdfa40278286c6c08e206608ec661831b8e35c026b3bf72b4e341987",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 168,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-194x300.jpg",
+      "path": "public/assets/images/services/services-list-img-2-194x300.jpg",
+      "size": 7640,
+      "sha256": "a1e2042a68489e53d9109681af015573736bc0b1b1ad91672dcd09933d3fda80",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 169,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-662x1024.jpg",
+      "path": "public/assets/images/services/services-list-img-2-662x1024.jpg",
+      "size": 63365,
+      "sha256": "998d2b89192537dbea45f8394b30c89010b2dce4ff56112ce8e3ab579515741e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 129,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-6.jpg",
+      "path": "public/assets/images/about/about-us-img-6.jpg",
+      "size": 96075,
+      "sha256": "32793b6e06863d9dd6456d28f94d6b616775aac3baf2b73933a14c537e3313d2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 131,
+      "url": "https://myaide.qodeinteractive.com/wp-content/uploads/2022/11/blog-img-1.jpg",
+      "path": "public/assets/images/blog/blog-img-1.jpg",
+      "size": 168759,
+      "sha256": "0edd8310d789b3ad781bb725dfde10f5f6b030912b9f5696665f04bafe7a537c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 153,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/9gpkrsbgmc-1024x683.jpg",
+      "path": "public/assets/images/services/9gpkrsbgmc-1024x683.jpg",
+      "size": 107830,
+      "sha256": "4bfbe5d365d3019c172e79bd651eefde5bcb04f751935a6c6b2800cf141677ca",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 170,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-768x1188.jpg",
+      "path": "public/assets/images/services/services-list-img-2-768x1188.jpg",
+      "size": 84360,
+      "sha256": "a9c1c5cf28554d10059ed95a7147ad71db3d55db426a7b69551a4184533d4542",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 167,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-2-600x928.jpg",
+      "path": "public/assets/images/services/services-list-img-2-600x928.jpg",
+      "size": 52406,
+      "sha256": "f4f91d7e7923ec8e092d63148fb6c88eb746c5cf1d3f3e4c6e435e438db76bb6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 172,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/otxadkuh3-i-200x300.jpg",
+      "path": "public/assets/images/services/otxadkuh3-i-200x300.jpg",
+      "size": 13928,
+      "sha256": "7c040a7f3b17c700a6f2e347b70a2198da619d6ff26edad4624988a78c554cc9",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 141,
+      "url": "https://myaide.qodeinteractive.com/wp-content/uploads/2022/11/main-sidebar-img-1.jpg",
+      "path": "public/assets/images/blog/main-sidebar-img-1.jpg",
+      "size": 92911,
+      "sha256": "c20f8fcc510a8090ace910ec9d39b3b01e0746db72bbe7b17512aa3577bf8bee",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 123,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-5.jpg",
+      "path": "public/assets/images/about/about-us-img-5.jpg",
+      "size": 120790,
+      "sha256": "9cab1d2d58915598ecd339f5cd0d54ea97c2ae19e80f55732708a60b14954e0a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 174,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/otxadkuh3-i-768x1152.jpg",
+      "path": "public/assets/images/services/otxadkuh3-i-768x1152.jpg",
+      "size": 138748,
+      "sha256": "534d0f864d12b989e0c8c9dfce0d18b0d6d91bfef1a89fce57f886c4afb1cec8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 175,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/otxadkuh3-i-600x900.jpg",
+      "path": "public/assets/images/services/otxadkuh3-i-600x900.jpg",
+      "size": 94775,
+      "sha256": "e4cdbc1a8633a7e12c77235b71c6f4e2a3d5332084b6273b69ffd42183cb9c2c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 176,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg",
+      "size": 174692,
+      "sha256": "0e63afd1f896fe9057cfddd58fed3e40c36b54d58981ca917c3781681e749105",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 177,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-600x400.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-600x400.jpeg",
+      "size": 31728,
+      "sha256": "c9bd2cc167c711c8d53998c0a3a125825234b511786b2c3518c108f8507bd130",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 178,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-300x200.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-300x200.jpeg",
+      "size": 11695,
+      "sha256": "3c8b7365e9ed47bbc90a9b3fa7940337bf5ada58888f0fa8d7bb122cfbda19df",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 180,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-768x512.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-768x512.jpeg",
+      "size": 44720,
+      "sha256": "39d478d4826eb244c192e7713e8dec21367e7808c8e96e568a7b4b72ce263d76",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 182,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-300x194.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-300x194.jpg",
+      "size": 11187,
+      "sha256": "a8028fd6229329ea3c43503721d2564573f533c5acc991a3bfa1869e9328d882",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 183,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-1024x662.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-1024x662.jpg",
+      "size": 60313,
+      "sha256": "cb5befc40fc2bd3363a6de2f513f284040b25c78c2d6561823447a45bc30a684",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 171,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/otxadkuh3-i.jpg",
+      "path": "public/assets/images/services/otxadkuh3-i.jpg",
+      "size": 206839,
+      "sha256": "494a50775b12a2ac589d50b606ef3eec238cbb12cab4ba2b750165ae28482d84",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 179,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large-1024x682.jpeg",
+      "size": 68962,
+      "sha256": "dfba2a735809d568f90140cc70f391bdc386609ae9ff7ff3d24d54e3bd1055e8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 185,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-600x388.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-600x388.jpg",
+      "size": 28192,
+      "sha256": "f0c90657017978535c28ea169e10fa5376a0dc87ea43d56db52f7b7f1a01d715",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 181,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc.jpg",
+      "size": 151324,
+      "sha256": "4e775a3ce6bb41029a7259414f4967f9354764348193bd50dec64cbbfb12eb90",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 187,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-300x200.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-300x200.jpg",
+      "size": 11041,
+      "sha256": "d521d6425ef00f0f0bb7298fac100773b2eaa492e4356122aa8f15359152dac8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 186,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc.jpg",
+      "size": 137409,
+      "sha256": "9db59b58303dfadd12a35392fb8554945c710be6c6d2d873c36b1f09ce2fc695",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 188,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-1024x683.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-1024x683.jpg",
+      "size": 60066,
+      "sha256": "076ed37a249ea8716e8a1fb8052f9c1604ea0558dda047f3e619c961edf66ebd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 189,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-768x512.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-768x512.jpg",
+      "size": 40188,
+      "sha256": "0ab378c0b8ad058eb547bb49b1db41a9c9d7967421792cc9f4a93caae8cb0a2d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 173,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/otxadkuh3-i-683x1024.jpg",
+      "path": "public/assets/images/services/otxadkuh3-i-683x1024.jpg",
+      "size": 115465,
+      "sha256": "691fa860f830cdbebb47f0b4afb70ae8e6617c87af3faf8cf559cc6262d52530",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 190,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-600x400.jpg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-19-03-37-40-utc-600x400.jpg",
+      "size": 28529,
+      "sha256": "e9362e97ccae0e65c19165a3ca5d362558d79937422bf9bcd7b0a17a537b7112",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 192,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-600x199.jpg",
+      "path": "public/assets/images/services/title-img-1-600x199.jpg",
+      "size": 11427,
+      "sha256": "d476124d01f8abbd0d6581191193d65877040d9f678dc866406398deca82772d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 193,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-300x99.jpg",
+      "path": "public/assets/images/services/title-img-1-300x99.jpg",
+      "size": 4416,
+      "sha256": "eae2e447003b70a2bc12d636539fc9cf7223c38c754cc69ffc4edd9ed51ad823",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 195,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-768x254.jpg",
+      "path": "public/assets/images/services/title-img-1-768x254.jpg",
+      "size": 16506,
+      "sha256": "7c45b90a8b4dbf21eb3994d3fff1ed6c309271077e5bd3150732b166e1ea1b86",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 199,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-300x200.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-300x200.jpeg",
+      "size": 12396,
+      "sha256": "8c90b437a0a8501e99939dcd6cc04ba18fa75446b308d6415d343b90b10cf863",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 200,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-1024x682.jpeg",
+      "size": 98159,
+      "sha256": "d36df22ec4e8bb139f067630e415ebc5e26276fd5a03d075106042fe938b3425",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 201,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-768x512.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-768x512.jpeg",
+      "size": 59294,
+      "sha256": "60c991618ae2b394b4edda88b7f6a8fa54d880693cc056aa2a8e8ca3128e7fb4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 184,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-768x497.jpg",
+      "path": "public/assets/images/services/close-up-view-of-woman-in-protective-gloves-that-c-2021-09-03-03-42-51-utc-768x497.jpg",
+      "size": 39642,
+      "sha256": "4eee19e061f7e0e71db9a574556ed36619802e16f8c0c6dc08b22c9c3db2e70e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 197,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/pzmghcq2ks0.jpg",
+      "path": "public/assets/images/services/pzmghcq2ks0.jpg",
+      "size": 292657,
+      "sha256": "62aa6083dcf06ccd302a54abc3ad8cab61e405966cfe6fdb8150e5918a012646",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 198,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large.jpeg",
+      "size": 276468,
+      "sha256": "2ddef99b49c1f2982741d128be0186e4c67018bea5486dfb9ae44e8a8aa9bc3e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 204,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-1-1024x682.jpg",
+      "path": "public/assets/images/services/home-cleaning-1-1024x682.jpg",
+      "size": 81896,
+      "sha256": "bf1eb2694ef8ab152e2940ef89f5c813cc0a3f2d42ae3eb85c1383cb9bc1901a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 206,
+      "url": "https://secure.gravatar.com/avatar/9ef1ef6a289382cdf005f5394c697cc6ba7c0fab5a33e29b3460020287e99d4d?s=324&d=mm&r=g",
+      "path": "public/assets/images/blog/gravatar-324x324.jpg",
+      "size": 4325,
+      "sha256": "140304970f2bffeeaf4727d31dee8e2013daa3fddba1583d20a6a23a2b1024a1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 205,
+      "url": "https://secure.gravatar.com/avatar/9ef1ef6a289382cdf005f5394c697cc6ba7c0fab5a33e29b3460020287e99d4d?s=162&d=mm&r=g",
+      "path": "public/assets/images/blog/gravatar-162x162.jpg",
+      "size": 2150,
+      "sha256": "1dabbdf5dc668c23caccbcaa9adae45089b2be5f57a2a99a312c20c2bae607a2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 208,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large-1-682x1024.jpeg",
+      "path": "public/assets/images/services/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large-1-682x1024.jpeg",
+      "size": 66329,
+      "sha256": "46ec0bdfcaa1d6d7912a7ee3ec30e0638cfa798dd2ff5cdf64f6983ff65103a5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 209,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/cheerful-cleaner-in-overalls-cleaning-office-desk-2022-12-16-17-52-49-utc-Large-683x1024.jpeg",
+      "path": "public/assets/images/services/cheerful-cleaner-in-overalls-cleaning-office-desk-2022-12-16-17-52-49-utc-Large-683x1024.jpeg",
+      "size": 76044,
+      "sha256": "ffcc33464b7d7d3a3b8f965075cb394ed84e9a6ecf03df1cf28de7b425f6da5a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 194,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-1024x339.jpg",
+      "path": "public/assets/images/services/title-img-1-1024x339.jpg",
+      "size": 26963,
+      "sha256": "dc9c470a2cec43d58cb2ca60887c1244b02957b50074572a98d05946eccc49ae",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 211,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-2-1024x682.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-2-1024x682.jpeg",
+      "size": 57009,
+      "sha256": "1b345a1f9e56e52aebd1ad1db9f447e508bedee7f43a490de542630827947def",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 210,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/asian-cleaning-service-woman-worker-cleaning-in-li-2021-12-09-20-22-54-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/asian-cleaning-service-woman-worker-cleaning-in-li-2021-12-09-20-22-54-utc-Large-1024x682.jpeg",
+      "size": 76226,
+      "sha256": "76e84738e0e1f7aabde1221bb951cfc6dfb30f00aa328d19ab807007216129f4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 212,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc-1-1024x682.jpeg",
+      "path": "public/assets/images/services/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc-1-1024x682.jpeg",
+      "size": 47871,
+      "sha256": "83c836ca65ce86294bfba7d77cb5c2da2de9beddce0187255576d5a57eccdddb",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 207,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-1-1-1024x682.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-1-1-1024x682.jpeg",
+      "size": 102833,
+      "sha256": "ccf9a8df394020e99b1e244fa167951dad0dcc5a5f0cdfdf740fc9619594be92",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 213,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/home-cleaning-2022-11-16-22-05-50-utc-Large-1024x682.jpg",
+      "path": "public/assets/images/services/home-cleaning-2022-11-16-22-05-50-utc-Large-1024x682.jpg",
+      "size": 60512,
+      "sha256": "7f89789bdc02eeca792b2450d65ed9b464d599390915dd9f9ea17cc635bcf2dc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 214,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-Large-1024x682.jpeg",
+      "size": 45294,
+      "sha256": "0c7b0240a3da7cf87f044b02326e2948ea8f77e6f2c9cb41447d64f5cd94168d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 217,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-1024x654.jpeg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-1024x654.jpeg",
+      "size": 69270,
+      "sha256": "2a6298ec2e0e2b47bcc40815017e8e211ff4c3eaf012b5db77aaa632cf073c43",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 216,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-300x191.jpeg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-300x191.jpeg",
+      "size": 13202,
+      "sha256": "01c24d6cdc5799f2e7e74317349a3c2609fca8d880de2cb0a36490b94a12fb4b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 215,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg",
+      "size": 154984,
+      "sha256": "47110b25eb72b9b8400ac14c18970c18038057b4b86c76e428566693d539507c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 218,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-768x490.jpeg",
+      "path": "public/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large-768x490.jpeg",
+      "size": 46805,
+      "sha256": "db9bdd36eb0b583a79b733dbb9fbe075bc65eca773b8be93096c4e5d698447d6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 203,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/48889.jpg",
+      "path": "public/assets/images/services/48889.jpg",
+      "size": 249020,
+      "sha256": "7757554b5b9769316bc43f7ee40ac7ec57e7df04af013d459b4bebd60846666f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 191,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1.jpg",
+      "path": "public/assets/images/services/title-img-1.jpg",
+      "size": 163292,
+      "sha256": "1da9dc167c63e414ec7e5a51c2dca2c8b89844a6211a383505f1c9dc1b56bc06",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 219,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/close-up-of-waitress-cleaning-tables-with-disinfec-2022-10-06-01-46-30-utc-Large-1024x682.jpeg",
+      "path": "public/assets/images/services/close-up-of-waitress-cleaning-tables-with-disinfec-2022-10-06-01-46-30-utc-Large-1024x682.jpeg",
+      "size": 71557,
+      "sha256": "9c7570f12704c82546fb07fabd7917d77acc7f5422ddaf271c69a943e855e133",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 196,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/title-img-1-1536x509.jpg",
+      "path": "public/assets/images/services/title-img-1-1536x509.jpg",
+      "size": 56906,
+      "sha256": "f79cf4dae4c13ff8ed9fb16f40afb46f904a28be339efe9fd89543a83cbcfffb",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 221,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/home-cleaning-1.jpg",
+      "path": "public/assets/images/services/home-cleaning-1.jpg",
+      "size": 195582,
+      "sha256": "142d30032cd115c1bdacabea9b95b15d4c22281d1f4d77c1caa14a037e467380",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 222,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-1-1.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-1-1.jpeg",
+      "size": 249092,
+      "sha256": "72d292b0caf4c56800377a408acfa562c71d93759ec9d725e5dc341b758eb26d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 223,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/Post-Construction-Clean-1.jpeg",
+      "path": "public/assets/images/blog/Post-Construction-Clean-1.jpeg",
+      "size": 249092,
+      "sha256": "72d292b0caf4c56800377a408acfa562c71d93759ec9d725e5dc341b758eb26d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 227,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/asian-cleaning-service-woman-worker-cleaning-in-li-2021-12-09-20-22-54-utc-Large.jpeg",
+      "path": "public/assets/images/services/asian-cleaning-service-woman-worker-cleaning-in-li-2021-12-09-20-22-54-utc-Large.jpeg",
+      "size": 179701,
+      "sha256": "d474c02df29c4c9121db9ee8b23f1585d069564a87f4612027b7f16dbd2fb649",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 228,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/Short-Term-Rental-Cleaning-2.jpeg",
+      "path": "public/assets/images/services/Short-Term-Rental-Cleaning-2.jpeg",
+      "size": 126813,
+      "sha256": "dd52191f69c02a6dbaf9e69de489951426da59d86d0f0a4e131c9ede889a96b5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 229,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc-1.jpeg",
+      "path": "public/assets/images/services/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc-1.jpeg",
+      "size": 118946,
+      "sha256": "e6d984f7ccd8722bfc0e73366d05925e49ce3b0580bcc743dd30f6bb5993976b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 224,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large-1.jpeg",
+      "path": "public/assets/images/services/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large-1.jpeg",
+      "size": 167091,
+      "sha256": "d5e0ee64f4b42913c4606d34d6a326977814e7af1a80a69c64ee12ef3da35773",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 230,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc.jpeg",
+      "path": "public/assets/images/services/cleaning-the-office-with-a-microfiber-cloth-and-gl-2022-12-22-20-25-24-utc.jpeg",
+      "size": 118946,
+      "sha256": "e6d984f7ccd8722bfc0e73366d05925e49ce3b0580bcc743dd30f6bb5993976b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 231,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cropped-icon.png",
+      "path": "public/assets/images/icons/cropped-icon.png",
+      "size": 22553,
+      "sha256": "3a9f2521a341e509e86e4b7521d2bb2bf480d7c9aefe5429a29843c5633c92f1",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 202,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-600x400.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large-600x400.jpeg",
+      "size": 38532,
+      "sha256": "4c391c73936a3a640fa65cf2d44c6c89ae5a1f7b762663c44d6032e2faeafce5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 233,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/close-up-of-waitress-cleaning-tables-with-disinfec-2022-10-06-01-46-30-utc-Large.jpeg",
+      "path": "public/assets/images/services/close-up-of-waitress-cleaning-tables-with-disinfec-2022-10-06-01-46-30-utc-Large.jpeg",
+      "size": 161333,
+      "sha256": "804becdc5b13db310dc4b766e397ac93a1293bc3c7a953275a904f4e5e462a81",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 237,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/sqomdoqb3ws.jpg",
+      "path": "public/assets/images/services/sqomdoqb3ws.jpg",
+      "size": 163953,
+      "sha256": "fa5826894aa59a3ee47c2689db3ea3ab552b72f35c3b62e20702f4b3c698ded1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 235,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/home-cleaning-2022-11-16-22-05-50-utc-Large.jpg",
+      "path": "public/assets/images/services/home-cleaning-2022-11-16-22-05-50-utc-Large.jpg",
+      "size": 182217,
+      "sha256": "07daa258a01b4712a60f77e2647a4a5c2a42627a1c13102c1130faf1c57b11ca",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 232,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/icon.png",
+      "path": "public/assets/images/icons/icon.png",
+      "size": 44414,
+      "sha256": "c6cd96e172c07dc1298e7b4bee3b749adc1b5de4c5b989a11842ea2d3c192d33",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 220,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/08/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg",
+      "path": "public/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg",
+      "size": 249092,
+      "sha256": "72d292b0caf4c56800377a408acfa562c71d93759ec9d725e5dc341b758eb26d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 225,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large.jpeg",
+      "path": "public/assets/images/services/a-pair-of-human-hands-sanitising-a-kitchen-work-su-2022-11-11-06-53-29-utc-Large.jpeg",
+      "size": 167091,
+      "sha256": "d5e0ee64f4b42913c4606d34d6a326977814e7af1a80a69c64ee12ef3da35773",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 238,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/mgzx2mopr-s.jpg",
+      "path": "public/assets/images/services/mgzx2mopr-s.jpg",
+      "size": 420875,
+      "sha256": "0ae904df4a1f1c2ded58b4d2a10a423d7c7a74d7afbbe612b1936506be96f0ab",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 226,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/07/cheerful-cleaner-in-overalls-cleaning-office-desk-2022-12-16-17-52-49-utc-Large.jpeg",
+      "path": "public/assets/images/services/cheerful-cleaner-in-overalls-cleaning-office-desk-2022-12-16-17-52-49-utc-Large.jpeg",
+      "size": 166890,
+      "sha256": "d92ab4b61fbff3a76ba483026f28e8037adb104f910a9686f6b0cfb85461437b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 234,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/cleaning-dental-office-2022-04-19-01-57-15-utc-Large.jpeg",
+      "path": "public/assets/images/blog/cleaning-dental-office-2022-04-19-01-57-15-utc-Large.jpeg",
+      "size": 108042,
+      "sha256": "36c5a7ad9876dd6847fa24b699d36fe7a8d22bbe52a87d555af2df37992e2f9a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 245,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-deep-cleaning-sofa-a-2022-11-14-18-03-41-utc-Large.jpeg",
+      "size": 276468,
+      "status": "CACHED"
+    },
+    {
+      "id": 239,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/r-lk3sqlibw.jpg",
+      "path": "public/assets/images/services/r-lk3sqlibw.jpg",
+      "size": 305782,
+      "sha256": "da5a0fd6690d49b6d5a4e96e942ef14eab0be7756772505dd07d643a1f75e402",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 240,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/uddule_eiby.jpg",
+      "path": "public/assets/images/services/uddule_eiby.jpg",
+      "size": 257156,
+      "sha256": "90c2c4c6e45295fdd548f6eaecd62a12568bb16dff37bed1d551510c56601c47",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 236,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/06/qpzwoxjupti.jpg",
+      "path": "public/assets/images/services/qpzwoxjupti.jpg",
+      "size": 88525,
+      "sha256": "46b540e34801232ee3f36d3a4cd181b1fa983f334d6f3aae314495be7ca7362b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 247,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/housewife-or-cleaning-service-clean-up-empty-fridg-2023-02-10-15-22-16-utc-Large.jpeg",
+      "path": "public/assets/images/services/housewife-or-cleaning-service-clean-up-empty-fridg-2023-02-10-15-22-16-utc-Large.jpeg",
+      "size": 97149,
+      "sha256": "88cf7db1142d13a5c135c9efd739d8c838d734b17ca1a1b33e7671bd5ba31602",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 241,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/revslider/video-media/bg_video_13.jpeg",
+      "path": "public/assets/images/hero/bg_video_13.jpeg",
+      "size": 68549,
+      "sha256": "bbce30cd1b3c4e2b69b0a94c2a1d0820dc5291d19234aea67c868601146139a1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 248,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/hands-in-gloves-cleaning-toilet-bowl-with-brush-d-2022-11-09-23-06-28-utc-Large.jpeg",
+      "path": "public/assets/images/services/hands-in-gloves-cleaning-toilet-bowl-with-brush-d-2022-11-09-23-06-28-utc-Large.jpeg",
+      "size": 98272,
+      "sha256": "631eb46a1f906ef617cdfa054f9e6dfe5804051359b952b4cb0f19eccfa8e8aa",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 246,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/professional-cleaning-service-2022-02-01-19-48-10-utc-Large.jpeg",
+      "path": "public/assets/images/services/professional-cleaning-service-2022-02-01-19-48-10-utc-Large.jpeg",
+      "size": 251808,
+      "sha256": "b0ed744ba3ec25ba0f692f0cbdfff1307a1c0939f8b18dbcf7f617a8b893fed8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 250,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/concept-for-home-cleaning-services-2022-02-14-17-30-29-utc-Large.jpeg",
+      "path": "public/assets/images/services/concept-for-home-cleaning-services-2022-02-14-17-30-29-utc-Large.jpeg",
+      "size": 207750,
+      "sha256": "09e8ad50bd561a23798b6de57ea5190a63b514a8bc0a4c7537213371b83e8cd7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 252,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/concept-for-home-cleaning-services-2022-02-14-17-30-22-utc-Large.jpeg",
+      "path": "public/assets/images/services/concept-for-home-cleaning-services-2022-02-14-17-30-22-utc-Large.jpeg",
+      "size": 158950,
+      "sha256": "f8f7cce06ba44ee650a9b50ce45bcf6ab6a74121eb165f4d21c388ee6e0bb4cc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 254,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/cleaning-service-worker-spraying-staircase-railing-2021-08-28-05-20-35-utc-Large.jpeg",
+      "path": "public/assets/images/services/cleaning-service-worker-spraying-staircase-railing-2021-08-28-05-20-35-utc-Large.jpeg",
+      "size": 130247,
+      "sha256": "bee530c6c362412c3215ce191ada35c4a9517ea0e47a1781e4146d8d8f810102",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 255,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/cleaning-service-worker-male-hand-with-bottle-of-2022-12-16-21-56-47-utc-Large.jpeg",
+      "path": "public/assets/images/services/cleaning-service-worker-male-hand-with-bottle-of-2022-12-16-21-56-47-utc-Large.jpeg",
+      "size": 90614,
+      "sha256": "c1bbeb46722e2393e96cf100fcd7889a97689c42ce42393e3027849032caa1b3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 253,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/concept-for-home-cleaning-services-2022-02-14-17-30-16-utc-Large.jpeg",
+      "path": "public/assets/images/services/concept-for-home-cleaning-services-2022-02-14-17-30-16-utc-Large.jpeg",
+      "size": 163917,
+      "sha256": "dd87bc53533935226ba03cffb6760f5c96c38d8a26bb75c029b45be2cab6cf00",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 257,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/qi-addons-for-elementor-placeholder.png",
+      "path": "public/assets/images/services/qi-addons-for-elementor-placeholder.png",
+      "size": 14165,
+      "sha256": "7f5f90924342b04d572bbc31c60a2d0057a8360f63262dc2fe91ae14247eb0e7",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 256,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/woocommerce-placeholder.png",
+      "path": "public/assets/images/services/woocommerce-placeholder.png",
+      "size": 102644,
+      "sha256": "b207bfc50434ff10f4d5f2b9b0c3d7892c06ff72083026e3356dd7b6c3a04b45",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 249,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/concept-for-home-cleaning-services-2022-02-14-17-30-30-utc-Large.jpeg",
+      "path": "public/assets/images/services/concept-for-home-cleaning-services-2022-02-14-17-30-30-utc-Large.jpeg",
+      "size": 171792,
+      "sha256": "3d3b03e7075eea5e173c24246bc11b68e348e80f00cf4492180e654542591764",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 259,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-blog-img-4.jpg",
+      "path": "public/assets/images/blog/landing-blog-img-4.jpg",
+      "size": 131055,
+      "sha256": "ec16a0a790bd3992f2f25490b2df3fc269e82ed0ea1a45ca4a25d23d59ff82ea",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 262,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/clock-icon-top.svg",
+      "path": "public/assets/images/icons/clock-icon-top.svg",
+      "size": 1228,
+      "sha256": "f45ee31fd80fabe0225e19ac793c21d473b4bb06e3aff99c17f1b9568d8c0a3f",
+      "contentType": "image/svg+xml",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 251,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/concept-for-home-cleaning-services-2022-02-14-17-30-27-utc-Large.jpeg",
+      "path": "public/assets/images/services/concept-for-home-cleaning-services-2022-02-14-17-30-27-utc-Large.jpeg",
+      "size": 201145,
+      "sha256": "1bdd8ff57d04b258f305e38d939a50775bb1e9d9d14839ce13dc3560d5a75b69",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 260,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-single-quote-img.jpg",
+      "path": "public/assets/images/blog/blog-single-quote-img.jpg",
+      "size": 162803,
+      "sha256": "4a0fba89dc4a7e244013f6b3e3799c583e14451d6e7dbc2a5fe90fe2cb0be90e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 261,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-single-link-img.jpg",
+      "path": "public/assets/images/blog/blog-single-link-img.jpg",
+      "size": 129955,
+      "sha256": "6299a1fdbc8bc75521721edf009e228c4ef0da7e5a9687aa6a6d8d2d090e2813",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 263,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/landing-p-img-9.jpg",
+      "path": "public/assets/images/services/landing-p-img-9.jpg",
+      "size": 119040,
+      "sha256": "077bc62440100356de4225fcfd421dba560ba2ae983999ce99fbeaf6f5b6378d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 266,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/pin-icon-small.png",
+      "path": "public/assets/images/icons/pin-icon-small.png",
+      "size": 1559,
+      "sha256": "c2946f05f417791ec5df47614912a83ef48dc9d58788c644b9cacad256060321",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 267,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/pin-icon.png",
+      "path": "public/assets/images/icons/pin-icon.png",
+      "size": 2038,
+      "sha256": "87c2e7c35d89fab0e0ebb8cf6bd9f4e3f143ad5cc03e8f89608eb8e3f290666c",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 265,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/landing-p-img-10.jpg",
+      "path": "public/assets/images/services/landing-p-img-10.jpg",
+      "size": 130719,
+      "sha256": "912d469a450465dd71a3004b6c5e142f8319b1cdb18cca95a1127dda95d2a732",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 268,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/home-3-download-img-2.png",
+      "path": "public/assets/images/services/home-3-download-img-2.png",
+      "size": 12228,
+      "sha256": "95fe31c209d22ba0856fb20b0f593434372f9e55faf986a2b2302664a7f52495",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 269,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/home-3-download-img-1.png",
+      "path": "public/assets/images/services/home-3-download-img-1.png",
+      "size": 12846,
+      "sha256": "a601fe491e2eea06c14ac639ab2a8e715ca31b874386d413ab65a6c6694ceb75",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 271,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/cropped-MyAide-favicon.png",
+      "path": "public/assets/images/icons/cropped-MyAide-favicon.png",
+      "size": 11445,
+      "sha256": "2f97a0ffc5582a338e2222c91db656ebf63f879f828973acd954021a2f2f81d2",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 272,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/MyAide-favicon.png",
+      "path": "public/assets/images/icons/MyAide-favicon.png",
+      "size": 12533,
+      "sha256": "49d42ba82e3045c2c555c44167e3ff5132d3e928d469ef047595c3cf7bb97f88",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 264,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/landing-p-img-2.jpg",
+      "path": "public/assets/images/services/landing-p-img-2.jpg",
+      "size": 159219,
+      "sha256": "7f38912fb51cf97ca0283314a0a83e4f56fc5664240dc6a87bc6177592e3857f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 258,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-shop-img-5.jpg",
+      "path": "public/assets/images/services/landing-shop-img-5.jpg",
+      "size": 123632,
+      "sha256": "dcefeeb66d53de58b0454818aaba60ade96332ca1f775b9de87d59971833f773",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 275,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-7.jpg",
+      "path": "public/assets/images/services/product-single-img-7.jpg",
+      "size": 105089,
+      "sha256": "bebfd5761ced7f2a0beb60b18ebd7eddca4b9b56de99e3d09f9d86b23a6406c0",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 270,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/01/404-error-page-image.jpg",
+      "path": "public/assets/images/services/404-error-page-image.jpg",
+      "size": 231205,
+      "sha256": "acdfa6df357711862b1c39c3e69872a8d8b272adaf9f13e1405c3d1233c0fa41",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 273,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-9.jpg",
+      "path": "public/assets/images/services/product-single-img-9.jpg",
+      "size": 109973,
+      "sha256": "49b1f062d1057a450cb38313528278fd59fe741d3d515555aa441d57715ae814",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 278,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-6-1.jpg",
+      "path": "public/assets/images/services/product-single-img-6-1.jpg",
+      "size": 106021,
+      "sha256": "4fe27eaff0033d57d5029119179f5b0fb1a2421201d61d33710b5429545e5681",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 277,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-4.jpg",
+      "path": "public/assets/images/services/product-single-img-4.jpg",
+      "size": 101249,
+      "sha256": "3c08f58ad90c0552c529c1c2a26dc0c218e14c736bbd44f007653fe431e82841",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 280,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-2.jpg",
+      "path": "public/assets/images/services/product-single-img-2.jpg",
+      "size": 95478,
+      "sha256": "a8fa02fc5db69cb0be86100fcd534009e614c16d3f74145dc5d6db3dff8a0e3d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 279,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-3.jpg",
+      "path": "public/assets/images/services/product-single-img-3.jpg",
+      "size": 80761,
+      "sha256": "1ff895379c8f0377c433790fb7836e09a77fc99b2659d6c7e8a6eeaa000e1dd4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 274,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-8.jpg",
+      "path": "public/assets/images/services/product-single-img-8.jpg",
+      "size": 111264,
+      "sha256": "ed483cb000aba66ac58c0a3f7d38540879e9c8be21f4d0bb332b108d88d8ba68",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 283,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-9-2.jpg",
+      "path": "public/assets/images/services/product-single-9-2.jpg",
+      "size": 43129,
+      "sha256": "c073ea5caf8ac55c8ca0f938b29d06f0c5e6d1bf546107529e3cdc9dea56eeea",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 284,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-8-2.jpg",
+      "path": "public/assets/images/services/product-single-8-2.jpg",
+      "size": 44115,
+      "sha256": "5a51ca822d1f9544972d04ca4eef549facb5165c0a454065fc4d118a7f2c157e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 276,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-5.jpg",
+      "path": "public/assets/images/services/product-single-img-5.jpg",
+      "size": 94371,
+      "sha256": "1cca4f4a59a96f708e9aaaf38c253066e7e36ce9e62aea5d913076be66c32e6b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 285,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-7-2.jpg",
+      "path": "public/assets/images/services/product-single-7-2.jpg",
+      "size": 41677,
+      "sha256": "21684736ac01e116e28a1a64dfda4e66f42598a1520d688145dbe93d44585938",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 286,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-3-3.jpg",
+      "path": "public/assets/images/services/product-single-3-3.jpg",
+      "size": 32523,
+      "sha256": "09362dff4b39c9ec6aeaaf0c4ec51383052ae585f8a0c581fdfb505cd5650e41",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 288,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-5-2.jpg",
+      "path": "public/assets/images/services/product-single-5-2.jpg",
+      "size": 37448,
+      "sha256": "335395271e39d12f68567ce2b3ece2d7bc2bf43799779fb8320300c372672089",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 289,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-4-2.jpg",
+      "path": "public/assets/images/services/product-single-4-2.jpg",
+      "size": 40259,
+      "sha256": "d1be175865aeec5a2942d3d4896ac81eab297f12686580863e68bf7540bb800c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 287,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-3-1.jpg",
+      "path": "public/assets/images/services/product-single-3-1.jpg",
+      "size": 33043,
+      "sha256": "c2797bd4718b324c6f5408a287ea40d6ad2bcb5745ee34915adab33c83d87118",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 290,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-6-3.jpg",
+      "path": "public/assets/images/services/product-single-6-3.jpg",
+      "size": 38659,
+      "sha256": "d5a128f52ca9c5d1f34c93bfe8dae6afc3c54de65beb3b7d3bb6dfeaabe1edd8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 282,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/blog-img-11.jpg",
+      "path": "public/assets/images/blog/blog-img-11.jpg",
+      "size": 147175,
+      "sha256": "c1d8fd2b1ac2b121ceb68d4b3e0e5395bb0e3d30ef4ac0c37d16e142a57f7bb7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 291,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-2-2.jpg",
+      "path": "public/assets/images/services/product-single-2-2.jpg",
+      "size": 36840,
+      "sha256": "c8d1be42d90fd27b9274e96d901b36efd9771cd5abde771b029d579779a59fc8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 293,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/Logo-dark-myaide.png",
+      "path": "public/assets/images/logo/Logo-dark-myaide.png",
+      "size": 4793,
+      "sha256": "7b59126627d4f01685c18e817da52a6027d098a964885807a201cf8b69ba18e0",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 295,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/h2-dd-img.jpg",
+      "path": "public/assets/images/about/h2-dd-img.jpg",
+      "size": 71657,
+      "sha256": "71536f1af7197cb5de74936af52a816c7362e54188fbac13a29057f86a076475",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 296,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/h1-dd-img.jpg",
+      "path": "public/assets/images/about/h1-dd-img.jpg",
+      "size": 74796,
+      "sha256": "4072743f6898d9ae0e4a158f60527071e6ac958c543fc9fe174cff660a9e283b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 294,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/h3-dd-img.jpg",
+      "path": "public/assets/images/about/h3-dd-img.jpg",
+      "size": 76448,
+      "sha256": "3a67c582f257e4691d2bff5e756c1ba28da174a9efbe0d3430cc94fc35d6c825",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 298,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/user-blog-comment-2.jpg",
+      "path": "public/assets/images/blog/user-blog-comment-2.jpg",
+      "size": 7439,
+      "sha256": "467a3e0b11385f71c0ac6232ebb29010d0f63fb09c7dda38bd8d2007fe86fe61",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 281,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-img-1.jpg",
+      "path": "public/assets/images/services/product-single-img-1.jpg",
+      "size": 99154,
+      "sha256": "319c4f9dd1d6672a1712564475fd974449ca095bf81afe33026ff0150fc21562",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 299,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/user-blog-comment-1.jpg",
+      "path": "public/assets/images/blog/user-blog-comment-1.jpg",
+      "size": 8412,
+      "sha256": "5d4176a4b1d934e0489be7b62b48e38a23a00b0d66fcb5eddbdb0ae052a74f75",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 302,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/user-img-5.jpg",
+      "path": "public/assets/images/about/user-img-5.jpg",
+      "size": 33575,
+      "sha256": "f6bfd380a924e5f18028c5fb477a9a605676adb9dcfb2511bd4e71661172c779",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 303,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/pin-icon-top.svg",
+      "path": "public/assets/images/icons/pin-icon-top.svg",
+      "size": 761,
+      "sha256": "e6c3d98b2b471808577b81d618ae03a982483173c26f29c31788152dbdeb36a2",
+      "contentType": "image/svg+xml",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 304,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/phone-icon-top-1.svg",
+      "path": "public/assets/images/icons/phone-icon-top-1.svg",
+      "size": 625,
+      "sha256": "e5db8cc39801d6241f4b02447f8a9e397e4b058a14b30b2610b107ef738d9701",
+      "contentType": "image/svg+xml",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 301,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-8.jpg",
+      "path": "public/assets/images/blog/blog-img-8.jpg",
+      "size": 162077,
+      "sha256": "ac1b2c91406a5e47e12db23d998c32c57c2a55b6ac812e7c3739df90d019005e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 300,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-image-9.jpg",
+      "path": "public/assets/images/blog/blog-image-9.jpg",
+      "size": 341301,
+      "sha256": "6a013463478e26cac9f21b99926f22eceb5ac04e1321b8504220b09b86d9c2f1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 297,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/user-blog-comment-3.jpg",
+      "path": "public/assets/images/blog/user-blog-comment-3.jpg",
+      "size": 8446,
+      "sha256": "efde2638e6ee289ea0d07ba28db57ba39174caa3c157f98de994848669a4055b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 292,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-1-1.jpg",
+      "path": "public/assets/images/services/product-single-1-1.jpg",
+      "size": 46454,
+      "sha256": "ccfc5f3aef475b32aace1b9b462468e51d377480a04dc65e498afb5bf525fcf5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 307,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/user-img-4.jpg",
+      "path": "public/assets/images/about/user-img-4.jpg",
+      "size": 89266,
+      "sha256": "11f8ac33589b79a63a25f7dfd1e7ad1ffcf1db4ce1facca1f026c08964860029",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 310,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/Landing-bottom-img.jpg",
+      "path": "public/assets/images/services/Landing-bottom-img.jpg",
+      "size": 95260,
+      "sha256": "5409f4dc8c290445be53ca7ff10cb0a711a7035b8d9b7d39d8599b4189e7a29a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 305,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/home-3-image-2.jpg",
+      "path": "public/assets/images/services/home-3-image-2.jpg",
+      "size": 266770,
+      "sha256": "fed7e5850dd5582dab4904cf1769b5b41f3c751bf070cd4c9e2a811a05d30bed",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 311,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-rev-img-6.png",
+      "path": "public/assets/images/hero/landing-rev-img-6.png",
+      "size": 16135,
+      "sha256": "74d6a27145001bcd5e2a9458365e121340b1c9218ae7af381669a5e0d2a4b756",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 312,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-rev-img-8.png",
+      "path": "public/assets/images/hero/landing-rev-img-8.png",
+      "size": 4185,
+      "sha256": "817d7dc351439e73515e1b236a8557aadad55b38bb0ca7f3d64ffa02c1b3351f",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 308,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/logo-landing.png",
+      "path": "public/assets/images/logo/logo-landing.png",
+      "size": 3567,
+      "sha256": "e778ec627266d12fc9c496d88c884e066d8dde0c57219d66a86c5181254beff8",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 313,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-rev-img-9.png",
+      "path": "public/assets/images/hero/landing-rev-img-9.png",
+      "size": 20319,
+      "sha256": "2975d6b366f7380d3bacf6df7f8e882403b26835f39adb0ba88d662c0f9b9cd7",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 309,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/lamding-parallax-img.jpg",
+      "path": "public/assets/images/hero/lamding-parallax-img.jpg",
+      "size": 139244,
+      "sha256": "ef6a83b2ce1474095d5ee4544ce0a9977f457027b4c4235b3e39d1da165def7d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 317,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-icon-img-1.png",
+      "path": "public/assets/images/icons/landing-icon-img-1.png",
+      "size": 807,
+      "sha256": "4459f90846e22e8d0b4c046739aade619c6c456041f2d6bbd3d44f3e12c08816",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 315,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-shop-img-6.jpg",
+      "path": "public/assets/images/services/landing-shop-img-6.jpg",
+      "size": 116419,
+      "sha256": "80a4b61c1244a4e1f6c2077883327af107260911b00b97505d94afa2c2a34b6a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 314,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-rev-img-4.png",
+      "path": "public/assets/images/hero/landing-rev-img-4.png",
+      "size": 121232,
+      "sha256": "3c7047fb123015b5a684e6b38182e4ee6fb30a0780d39ea3f776e5a088a3cbda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 318,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-background-img-2.jpg",
+      "path": "public/assets/images/services/landing-background-img-2.jpg",
+      "size": 34775,
+      "sha256": "5b779d5a0bbc79d8ddc377a143c34736f01c7df0580b5ab0a2819f801bb64d23",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 316,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-img-2.jpg",
+      "path": "public/assets/images/services/landing-img-2.jpg",
+      "size": 125854,
+      "sha256": "a85924b1410c083f333b1879cf5a7a2b76ee174b02df93c4f017bbdc880dd22b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 319,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-p-img-5.jpg",
+      "path": "public/assets/images/services/landing-p-img-5.jpg",
+      "size": 159253,
+      "sha256": "802f817d58945cfc862bc1c995f6b0d2e2c8748d39458ecb2f2706c694c60042",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 320,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-p-img-4.jpg",
+      "path": "public/assets/images/services/landing-p-img-4.jpg",
+      "size": 144834,
+      "sha256": "1b1d0e070f4c9617638ee3100291c26ef93bc6f2d954c5ac8250307445f9351d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 322,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/Landing-h3-img-1.jpg",
+      "path": "public/assets/images/services/Landing-h3-img-1.jpg",
+      "size": 143564,
+      "sha256": "2352f3b939f12e19fa5c1cb123d7debbf4def659676107252ba44d6dc50f2667",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 306,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/12/home-3-img.jpg",
+      "path": "public/assets/images/services/home-3-img.jpg",
+      "size": 448302,
+      "sha256": "1e775f7accf0676a47f0b50c6c93f36495a78aebd6e00b2d888ef6f9fcd51bbd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 323,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/Landing-h2-img-1.jpg",
+      "path": "public/assets/images/services/Landing-h2-img-1.jpg",
+      "size": 131248,
+      "sha256": "26e6b48f93cd6ba5f1f8b73324b0f8fe87029ac4d53960b6a8983f9ccb5027ce",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 321,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-p-img-3.jpg",
+      "path": "public/assets/images/services/landing-p-img-3.jpg",
+      "size": 135370,
+      "sha256": "3174c9a7c47f4146aa247d6840e023f8baf9dcc956737c19b48ff10b4eb0a381",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 325,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/Landing-background-img-1.jpg",
+      "path": "public/assets/images/services/Landing-background-img-1.jpg",
+      "size": 22368,
+      "sha256": "19c39b5369507f5ae34a56c46eb95991a1214132f5cb7e92b9c4da412cf47c6c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 324,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/landing-h1-img-2.jpg",
+      "path": "public/assets/images/services/landing-h1-img-2.jpg",
+      "size": 186883,
+      "sha256": "a590e8f083b6a9a914c7cb8ed3be786401143950e18bf9fc5cd04b38b839434a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 326,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-rev-img-4.jpg",
+      "path": "public/assets/images/hero/h1-rev-img-4.jpg",
+      "size": 154188,
+      "sha256": "8a1484595140b536b2f9d604c311bab932ab2fbee48c93d469148b8dd2f35e03",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 331,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-rev-img-2.png",
+      "path": "public/assets/images/hero/h2-rev-img-2.png",
+      "size": 9446,
+      "sha256": "dc6d1ef684f8f332d001f294ffee9faac04b34a683fee269443469cc498b1003",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 330,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-11.jpg",
+      "path": "public/assets/images/services/services-list-img-11.jpg",
+      "size": 119819,
+      "sha256": "30a78cff67e8b46619ba574d2fba79950149dc8c4eada3972fa9506c029e9fd5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 329,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-13.jpg",
+      "path": "public/assets/images/services/services-list-img-13.jpg",
+      "size": 119618,
+      "sha256": "78e2c8acc6583c3bc30137141288425621d35d6f89325bde984d1f729e55d2a5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 332,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-rev-background-img-1.jpg",
+      "path": "public/assets/images/hero/h2-rev-background-img-1.jpg",
+      "size": 63363,
+      "sha256": "edd087e129d9ddb9b3f7a4817217781ea77bd390e36b61f02532ce7b84bcc830",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 327,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-rev-img-2.jpg",
+      "path": "public/assets/images/hero/h1-rev-img-2.jpg",
+      "size": 135957,
+      "sha256": "89addec58b5bcdd45902db4ee65530d48ef52cd3891938eac9bb38676f79d9dc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 328,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-12.jpg",
+      "path": "public/assets/images/services/services-list-img-12.jpg",
+      "size": 142667,
+      "sha256": "c030976d620a906c0178d55eae13832c8dd990d4835cacea20a47e5f3a3b2418",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 337,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/contact-us-img-2.jpg",
+      "path": "public/assets/images/services/contact-us-img-2.jpg",
+      "size": 33595,
+      "sha256": "8a312daad9c8a8ca39435bad5cf52493051a2136d37eda24e780997cdf29d9fd",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 336,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/pricing-plans-image-1.jpg",
+      "path": "public/assets/images/services/pricing-plans-image-1.jpg",
+      "size": 150471,
+      "sha256": "efea0c0276beaee47f53ac0f557f962cdb4e959d239e7087db76f5c6997aa6c2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 335,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/pricing-plans-title-image-1.jpg",
+      "path": "public/assets/images/services/pricing-plans-title-image-1.jpg",
+      "size": 135068,
+      "sha256": "928e1c2faa5c3b752050738228edd3a1573e137b38fd58cc254b6c7ed14c7247",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 339,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/user-image-2.jpg",
+      "path": "public/assets/images/about/user-image-2.jpg",
+      "size": 7974,
+      "sha256": "6ccc5057aa685bcb2e65aacd94804e27656d914c52b515957cebd1e810b0cb34",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 341,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-rev-icon.png",
+      "path": "public/assets/images/icons/h1-rev-icon.png",
+      "size": 1111,
+      "sha256": "bd681b771cbf4e6f7d3e053b35827d2166063c01d4bb3c051916c14cd3f7af9e",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 334,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/get-in-touch-img-1.jpg",
+      "path": "public/assets/images/services/get-in-touch-img-1.jpg",
+      "size": 124012,
+      "sha256": "39df5a41b4de6bbdb20f8516e7aa013eb1cac95b251101057e40110c44423bad",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 333,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-rev-img-1.png",
+      "path": "public/assets/images/hero/h2-rev-img-1.png",
+      "size": 174394,
+      "sha256": "d81ac4eac7cfad280660ae9adf1190a3721a231bed2d4fb38e1b48337a9cdf3f",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 340,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/shop-sidebar-image-1.jpg",
+      "path": "public/assets/images/services/shop-sidebar-image-1.jpg",
+      "size": 80344,
+      "sha256": "b0151655f27d16b4877f8e1e0ad470a140a285afb9c0fa31436760c46b0ea916",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 338,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/contact-us-img-1.jpg",
+      "path": "public/assets/images/services/contact-us-img-1.jpg",
+      "size": 174577,
+      "sha256": "92447ef41cc6c9af312966d54a341512c3fb608b3856a7fd2ce6d941862ff8c5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 342,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-img-4.jpg",
+      "path": "public/assets/images/about/about-us-img-4.jpg",
+      "size": 126084,
+      "sha256": "510f0676a6c62179c3d1ca2a33478966806e385e329bdcbd18b9adba214035f5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 344,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/user-image-1.jpg",
+      "path": "public/assets/images/about/user-image-1.jpg",
+      "size": 23645,
+      "sha256": "040dce530f93aeb29b398088ab259c005451d078ce9980a3dfd0a4323006d539",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 345,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-list-img-9.jpg",
+      "path": "public/assets/images/services/service-list-img-9.jpg",
+      "size": 144719,
+      "sha256": "81c780a0bfe11387759af911cb650fda47bf66021d44920be74617f44f178719",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 349,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/main-sidebar-img-1.jpg",
+      "path": "public/assets/images/blog/main-sidebar-img-1.jpg",
+      "size": 92911,
+      "status": "CACHED"
+    },
+    {
+      "id": 347,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/coming-soon-image-1.jpg",
+      "path": "public/assets/images/services/coming-soon-image-1.jpg",
+      "size": 138859,
+      "sha256": "61ae4db7def63c79e745f1d8ea549f4879138b280694571f23dc1e1db6a9e713",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 346,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/service-img-11.jpg",
+      "path": "public/assets/images/services/service-img-11.jpg",
+      "size": 149009,
+      "sha256": "b4adcd543aedb7613718159751d3f688d0057c025b7ca42f0b8add2ad71187e6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 348,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/calculator-img-2.jpg",
+      "path": "public/assets/images/services/calculator-img-2.jpg",
+      "size": 128544,
+      "sha256": "ea0b0a4d261e388efda41327a3e6f91c3a6d3761883bb4e94122fdf6bdf169a7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 352,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-6.jpg",
+      "path": "public/assets/images/blog/blog-img-6.jpg",
+      "size": 166743,
+      "sha256": "7fd73b55d7df1ca53709e7a8fd8cd085fd72ed0da2cdebe0fb2befdc5f15125d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 354,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/calculator-title-img-1.jpg",
+      "path": "public/assets/images/services/calculator-title-img-1.jpg",
+      "size": 136069,
+      "sha256": "391960aef0e063a2a94dcea2eac3da2ed23ad5a4402be02b5574a51d6fd795c8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 350,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-image-5-1.jpg",
+      "path": "public/assets/images/blog/blog-image-5-1.jpg",
+      "size": 151844,
+      "sha256": "824f4fc02bb535173945ceb4362cd12407aead673cd4024294048f55ff4291c7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 351,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/b-audio-everytings-nice-1.mp3",
+      "path": "public/assets/audio/b-audio-everytings-nice-1.mp3",
+      "size": 488180,
+      "sha256": "d9181589b2d4ee48b81f3838126a5d6eaee0c98804446290c7f72af3877e6963",
+      "contentType": "audio/mpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 355,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-4.jpg",
+      "path": "public/assets/images/blog/blog-img-4.jpg",
+      "size": 111546,
+      "sha256": "72b81314ebe9e1c79d6f9cc8a2896f3864224d7aa200105b07df499a7f677650",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 358,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-1.jpg",
+      "path": "public/assets/images/blog/blog-img-1.jpg",
+      "size": 168759,
+      "status": "CACHED"
+    },
+    {
+      "id": 359,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-background-img-1.jpg",
+      "path": "public/assets/images/about/about-us-background-img-1.jpg",
+      "size": 44872,
+      "sha256": "8aba8d0757911bd44554f636e2e3303b83fa8bf4939356ac7767de447981a0c3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 357,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-2.jpg",
+      "path": "public/assets/images/blog/blog-img-2.jpg",
+      "size": 133883,
+      "sha256": "cb70935c7109cff3675711b895fa2fe3cce42e2e2242b33fae804db76811c8ae",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 353,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-5-1.jpg",
+      "path": "public/assets/images/blog/blog-img-5-1.jpg",
+      "size": 176876,
+      "sha256": "2ed8cd7699455d34d6d3443489a24bb1cf8023cdabe895cfb498d3590b48a979",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 360,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/about-us-title-img-1.jpg",
+      "path": "public/assets/images/about/about-us-title-img-1.jpg",
+      "size": 151449,
+      "sha256": "bb268b9a60c12847b9bdeee06e09bdc96689eda586c840c145f9b8999cd558b5",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 361,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-title-img-1.jpg",
+      "path": "public/assets/images/about/team-title-img-1.jpg",
+      "size": 134053,
+      "sha256": "3da5938633404359af9f66f64e4084011f4b0a7a5bee37e6843fe1f6a15637b8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 362,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-8.jpg",
+      "path": "public/assets/images/about/team-img-8.jpg",
+      "size": 131101,
+      "sha256": "3f9dad286d276ffe5d276b57d49d78559b7dade4f9d6304eaf44d1a3807707b1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 356,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/blog-img-3.jpg",
+      "path": "public/assets/images/blog/blog-img-3.jpg",
+      "size": 117418,
+      "sha256": "76d8815dabe520303514d75ff503cedefb3b0333e4fdaf1b5e7db165ed935945",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 364,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-6.jpg",
+      "path": "public/assets/images/about/team-img-6.jpg",
+      "size": 160113,
+      "sha256": "024a4ba70e384a87d90eaf4acbdf47eaab46785d602752dfecdfeb7bffebba34",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 363,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-7.jpg",
+      "path": "public/assets/images/about/team-img-7.jpg",
+      "size": 153439,
+      "sha256": "412e9de2d2e5ad8923108552250c45cecf10a7fd9cc30dde5ab6b7012f212f24",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 365,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-5.jpg",
+      "path": "public/assets/images/about/team-img-5.jpg",
+      "size": 148044,
+      "sha256": "e49c31dbe8e18febc64ea3ddc1d7e8f103b9e5bebaa0d3ab8a59df76f06979f7",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 367,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-icon-1-1.png",
+      "path": "public/assets/images/icons/home-3-icon-1-1.png",
+      "size": 363,
+      "sha256": "12e28c3b0d01f77b07a3a208673c65338e9a96e097c4b2ff2bbaad83104bbd64",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 368,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/Path-543.png",
+      "path": "public/assets/images/icons/Path-543.png",
+      "size": 468,
+      "sha256": "e8bc4fd8c193c847df45435c0d7b9d73f737076dfc55eb40c0f40c5b9c4df74c",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 369,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-icon-2.png",
+      "path": "public/assets/images/icons/home-3-icon-2.png",
+      "size": 333,
+      "sha256": "8d5256c00ba2a90eace3c3be62e1442b6eabfcc786dc5641f021ea16bc17796a",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 370,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-icon-1.png",
+      "path": "public/assets/images/icons/home-3-icon-1.png",
+      "size": 557,
+      "sha256": "a0b9fb3d8ff7db933bab466dc9e1e0e56c4ca1f6a3c2685f27208758ebe65785",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 371,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-banner.jpg",
+      "path": "public/assets/images/hero/home-3-banner.jpg",
+      "size": 115620,
+      "sha256": "c31725291fd2ec9bede899029f14dba5b7a9414e463fdb0a91b77312de875a7c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 372,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-8.jpg",
+      "path": "public/assets/images/services/services-list-img-8.jpg",
+      "size": 121928,
+      "sha256": "7075f3c4d82bc3aee3a436f7b3eebcb09e11a638db990eaa5e9278a840c8dd6b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 374,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-6.jpg",
+      "path": "public/assets/images/services/services-list-img-6.jpg",
+      "size": 152543,
+      "sha256": "a88170f12ba4a395a6f4292e3025c9253c570bddce89d4005ad979a8baa37dd0",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 375,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-5.jpg",
+      "path": "public/assets/images/services/services-list-img-5.jpg",
+      "size": 131218,
+      "sha256": "5b9210adbc672c0076045f410c9cd234251124a596a0341d34ef08fd89a4c2da",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 366,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/FAQ-title-img-1.jpg",
+      "path": "public/assets/images/services/FAQ-title-img-1.jpg",
+      "size": 152307,
+      "sha256": "ff114f758814366505e96f6c07b98f75d7de0ad6beaf6eb10e0dde9d856c1599",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 373,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-7.jpg",
+      "path": "public/assets/images/services/services-list-img-7.jpg",
+      "size": 132450,
+      "sha256": "ccc529a3141da49b1bbd53e9898e11b4492b503e98c8b9b5d9772f8838b6f3db",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 376,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-10.jpg",
+      "path": "public/assets/images/services/services-img-10.jpg",
+      "size": 119267,
+      "sha256": "66237782d8f38ec711959a1ae6e8e3c536d544e7acc310d27829b2692869869f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 379,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-banner-img-4.jpg",
+      "path": "public/assets/images/hero/home-3-banner-img-4.jpg",
+      "size": 46989,
+      "sha256": "780ef8d68d40723a90bbcd69caaee30ae544de61b89addc056cd92350cc5c09b",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 377,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-9.jpg",
+      "path": "public/assets/images/services/services-img-9.jpg",
+      "size": 157381,
+      "sha256": "fa905d5bb87bacf574a28d69ce362c6b27ed20385468ede5cecf46978ceaca46",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 380,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-banner-3.jpg",
+      "path": "public/assets/images/hero/home-3-banner-3.jpg",
+      "size": 38622,
+      "sha256": "ffd6f1b4978ed58b897a85967e73a9485c95ccd6236d85048a390c314ca364e9",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 381,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-img-2.jpg",
+      "path": "public/assets/images/services/home-3-img-2.jpg",
+      "size": 189383,
+      "sha256": "a6ff5882460f3306f8b5d51a2f111b97554c0417b0e3dbfd31f3920fa40cd2d3",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 383,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-9.jpg",
+      "path": "public/assets/images/services/product-single-9.jpg",
+      "size": 59897,
+      "sha256": "054322eba54ac103b09a3c865cc308713ffd5de774257916e1efbf13c7281030",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 382,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/home-3-image-1.jpg",
+      "path": "public/assets/images/services/home-3-image-1.jpg",
+      "size": 136731,
+      "sha256": "c79943ba72076901e1671f09945cc067925ebb4f74d5a196a803478aec4df219",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 384,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-8.jpg",
+      "path": "public/assets/images/services/product-single-8.jpg",
+      "size": 61849,
+      "sha256": "1ef3539366c1ee2ce237bdfe8b214391d103d59b897a3f23442a6681959f9245",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 385,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-7.jpg",
+      "path": "public/assets/images/services/product-single-7.jpg",
+      "size": 55314,
+      "sha256": "094808afde0f6ec6352b377724573753576b7c8b911fcbf1572c47e554678322",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 386,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-6-2.jpg",
+      "path": "public/assets/images/services/product-single-6-2.jpg",
+      "size": 54512,
+      "sha256": "c1998589a1680918b1264ec5e8f1a4e23763897692559db7e7747e2d624b2b3c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 388,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-4.jpg",
+      "path": "public/assets/images/services/product-single-4.jpg",
+      "size": 53761,
+      "sha256": "acfac7c4dcd7667212a476616c963ede3f732f3533400d0dc2dc80213143b02e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 378,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-7.jpg",
+      "path": "public/assets/images/services/services-img-7.jpg",
+      "size": 106628,
+      "sha256": "6300ebd6d78a899408886944fe61c9f86f0fbd3781850a38e22c480f4358c271",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 390,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-2.jpg",
+      "path": "public/assets/images/services/product-single-2.jpg",
+      "size": 53032,
+      "sha256": "4bb5bb830f79c43f99159fa82804b81a91bf09df1861b619987b1a8807a2a587",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 389,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-3.jpg",
+      "path": "public/assets/images/services/product-single-3.jpg",
+      "size": 54983,
+      "sha256": "e598960e141759dc479c8995c3fab4b4ac1cc74f6381ab994efb484887ff3aa0",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 391,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-1.jpg",
+      "path": "public/assets/images/services/product-single-1.jpg",
+      "size": 47008,
+      "sha256": "29ab926723347d1b40a241db10d3afed0ba749770a12d0f0aa84a50cbe6aba3c",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 392,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-background-img-1-1.jpg",
+      "path": "public/assets/images/services/h2-background-img-1-1.jpg",
+      "size": 153339,
+      "sha256": "4db453f6cecc8930fcd3e16070203b3a072c8867e800f9711ed6f88a864b3ea6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 394,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-3.jpg",
+      "path": "public/assets/images/about/team-img-3.jpg",
+      "size": 143840,
+      "sha256": "ffe837ece68596dcae3c3f65d5eb08cf86100c6e16b6388fb8ad4fc7c4ffae99",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 387,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/product-single-5.jpg",
+      "path": "public/assets/images/services/product-single-5.jpg",
+      "size": 53452,
+      "sha256": "ed49c95bc07c25cfe75b9b0f8b345100df94e040c8051bdfa1ea46a88d7184ae",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 393,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-4.jpg",
+      "path": "public/assets/images/about/team-img-4.jpg",
+      "size": 118458,
+      "sha256": "8b6f54e864856d9c9cbaead58399eb6aac28c621de246926e110f85834144bda",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 396,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-1.jpg",
+      "path": "public/assets/images/about/team-img-1.jpg",
+      "size": 121225,
+      "sha256": "eead8ab56ae6c0b371a354fc4ac59ce10849eddab66d55d4fdfe728aa6781379",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 399,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-animated-img-1.jpg",
+      "path": "public/assets/images/hero/h2-animated-img-1.jpg",
+      "size": 148031,
+      "sha256": "b4424e6784d3a4b6b55fc72c427d51c7998bb3100077d1422a53950f8368dc2a",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 395,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/team-img-2.jpg",
+      "path": "public/assets/images/about/team-img-2.jpg",
+      "size": 144356,
+      "sha256": "15d5d7284827548925cf1a755093606954092b9c1b69a7f089c760493b4f080e",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 400,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-background-img-2.png",
+      "path": "public/assets/images/services/h2-background-img-2.png",
+      "size": 40220,
+      "sha256": "b6866d1eac42c0cba045a7bcc694477a75f0cf193b4a47c9e689d143da1a5cad",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 401,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/sidea-area-img.jpg",
+      "path": "public/assets/images/about/sidea-area-img.jpg",
+      "size": 14979,
+      "sha256": "e13c6add85ef5f86c06f30bc23ba64a9be6975437a1537d25b92c33ccaa2bbda",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 397,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-img-1.jpg",
+      "path": "public/assets/images/services/h2-img-1.jpg",
+      "size": 127727,
+      "sha256": "ea558625359a440c824fd16dc68896393e69858cf373e835fdb21138efbf9ece",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 398,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h2-parallax-img-1.jpg",
+      "path": "public/assets/images/hero/h2-parallax-img-1.jpg",
+      "size": 158420,
+      "sha256": "d6e06dd939f46db00998278e924b9c34c7fdd0c476248c4fcd65d30190728d38",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 402,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-4.jpg",
+      "path": "public/assets/images/services/services-list-img-4.jpg",
+      "size": 167762,
+      "sha256": "458c535423fbb32abd0bf8a5a721b540732b5ae19a1cd2e673a10e19973f416d",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 404,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-3.jpg",
+      "path": "public/assets/images/services/services-list-img-3.jpg",
+      "size": 116307,
+      "sha256": "5c4f926b93a08cac2b646e42e542a63a55c52179551e115c6bed3bb86a44a1e2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 406,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-4.jpg",
+      "path": "public/assets/images/services/services-img-4.jpg",
+      "size": 140108,
+      "sha256": "cd259b3b5b4695a762c6b0875cc420bb10f0216bf266bc9a4a07af14041604a2",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 403,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-6.jpg",
+      "path": "public/assets/images/services/services-img-6.jpg",
+      "size": 140438,
+      "sha256": "e7cd5d2ca6c64724606ddcbc6cd2e162ba537c7024200bcf32c92166bab58ac1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 405,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-5.jpg",
+      "path": "public/assets/images/services/services-img-5.jpg",
+      "size": 126193,
+      "sha256": "089a4893b8805dbfbbbc311a7d7d0c1ce52cd1c301fdadb84252d3bc282c1588",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 407,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-list-img-1.jpg",
+      "path": "public/assets/images/services/services-list-img-1.jpg",
+      "size": 131024,
+      "sha256": "5edc224f5263d9d559a007e546889bf9005f93971b7369eafc2c628854f825b8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 408,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-after-img-1.jpg",
+      "path": "public/assets/images/services/services-after-img-1.jpg",
+      "size": 126535,
+      "sha256": "2cae5070c34568b6ba1514c645dfb6e59482bbe70dc835c5f1978513bc5ae7f6",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 411,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-1.jpg",
+      "path": "public/assets/images/services/services-img-1.jpg",
+      "size": 116685,
+      "sha256": "e32d3dc8267f9847dd38dbfd5ae39dcd695f18e49bdff792aa9ba4271f7dc708",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 412,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/footer-logo-1.png",
+      "path": "public/assets/images/logo/footer-logo-1.png",
+      "size": 5551,
+      "sha256": "2ac9cafd6f6479ca3c0038bf27e3ede58473880ea671871c027e3ceb06b15622",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 410,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-img-3.jpg",
+      "path": "public/assets/images/services/services-img-3.jpg",
+      "size": 123051,
+      "sha256": "469d2c6c975fa524d7e7e023a7fe71364bfacd37492f695a6f49a3d589bf7ff8",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 409,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/services-before-img-1.jpg",
+      "path": "public/assets/images/services/services-before-img-1.jpg",
+      "size": 147634,
+      "sha256": "9646c511bca3bd3fd6c1a1bb945460e15aa09a73f297b68f54fbe7f645198f36",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 416,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-client-img-1.png",
+      "path": "public/assets/images/clients/h1-client-img-1.png",
+      "size": 20667,
+      "sha256": "c28942fc6949a1aa8cbc94ca71c70ee83370088434006d6ea69a3de967a2534e",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 417,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-client-img-3.png",
+      "path": "public/assets/images/clients/h1-client-img-3.png",
+      "size": 60111,
+      "sha256": "5a8105f3a3b57f1c6f5fc113c2ce8dccb1c3917e6d06b2bb3cc72f51a681f1e2",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 415,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-client-img-4.png",
+      "path": "public/assets/images/clients/h1-client-img-4.png",
+      "size": 7006,
+      "sha256": "cf0a7ff5ed39b5b47b0f9c146c61c48045d381b84b6d593b6e25240efe931229",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 413,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-client-img-2.png",
+      "path": "public/assets/images/clients/h1-client-img-2.png",
+      "size": 73494,
+      "sha256": "d7b5cd6418462d755c24a3a12e8e5b28d9fc1a8b9f19be5ea71aa91b214ae15e",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 420,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-6.png",
+      "path": "public/assets/images/icons/h1-icon-img-6.png",
+      "size": 1004,
+      "sha256": "7adf9562104be07959e4e75039e10491da4a092c01237ff32101f440b448837b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 419,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-icon-img-7.png",
+      "path": "public/assets/images/icons/h1-icon-img-7.png",
+      "size": 333,
+      "sha256": "8d5256c00ba2a90eace3c3be62e1442b6eabfcc786dc5641f021ea16bc17796a",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 343,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/main-home-video-1.mp4",
+      "path": "public/assets/videos/main-home-video-1.mp4",
+      "size": 3011877,
+      "sha256": "feb168de92adee410853fbeb3234d935ae216eb2edca3cb523131fa7474cb407",
+      "contentType": "video/mp4",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 414,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-client-img-5.png",
+      "path": "public/assets/images/clients/h1-client-img-5.png",
+      "size": 47670,
+      "sha256": "4252fec7aa4a3969daf9d1d7543869d817cdeed70456a4da154e80c3c7548e9a",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 418,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-video-button-img-2.jpg",
+      "path": "public/assets/images/hero/h1-video-button-img-2.jpg",
+      "size": 204661,
+      "sha256": "c8a59c1ef5d644fdcf9c796b4e5f636826d19e80c6f384a43e4a85c5f1dbccbb",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 422,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-button-img-3.png",
+      "path": "public/assets/images/about/h1-button-img-3.png",
+      "size": 14995,
+      "sha256": "f2d549c9fd9b72e1e371869aee970295fa71ca84ac248633e9501ecac8ee0b20",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 421,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-button-img-4.png",
+      "path": "public/assets/images/about/h1-button-img-4.png",
+      "size": 13415,
+      "sha256": "ef44b1dd23c9af8e457c63259416dc6aa3fcf429bdadac8b40653cb7898e98ee",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 424,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-thumbnail-img-4.png",
+      "path": "public/assets/images/about/h1-thumbnail-img-4.png",
+      "size": 9670,
+      "sha256": "82da8521adc336ae7a2fa2f2f6277e2322bc83179596c2440258b0da9072c38e",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 425,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-thumbnail-img-3.png",
+      "path": "public/assets/images/about/h1-thumbnail-img-3.png",
+      "size": 12568,
+      "sha256": "9a9151627e76d912e4ea458cd1acb6958e3c103c82e54ca62577666a0a26b346",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 426,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-thumbnail-img-2.png",
+      "path": "public/assets/images/about/h1-thumbnail-img-2.png",
+      "size": 13127,
+      "sha256": "00eeee47c206ee4f66f814a968551796f5ac0997f2b77db038301dd815c25f83",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 428,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-thumbnail-img-1.png",
+      "path": "public/assets/images/about/h1-thumbnail-img-1.png",
+      "size": 6238,
+      "sha256": "fa12f8d085c9ab6481093ee97aad6c1dcf25cbbd6d99ab992221ad790688faf7",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 423,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-img-10-1.jpg",
+      "path": "public/assets/images/about/h1-img-10-1.jpg",
+      "size": 128697,
+      "sha256": "77447329aad4eec756e6dac22ae23f3de92ea95f9a424fe578a6e190f83a82e4",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 431,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/light-logo-myaide.png",
+      "path": "public/assets/images/logo/light-logo-myaide.png",
+      "size": 5542,
+      "sha256": "f9d2856a03a77cbc9d82d4e82d0133aacd7f5ee59888a7ffd01e847a4de6bedb",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 429,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-animated-img-4-.jpg",
+      "path": "public/assets/images/about/h1-animated-img-4-.jpg",
+      "size": 155426,
+      "sha256": "627b3a3e4475fd75f513afac7c729b7e37b5cbc523509bbfb7314a12e90f16fa",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 430,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-rev-img-1.jpg",
+      "path": "public/assets/images/hero/h1-rev-img-1.jpg",
+      "size": 155487,
+      "sha256": "a1ac4a45ba9e4bc1385f232652e634aa004654c8f04e6e00dc2a150137a5fc22",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 427,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2022/11/h1-parallax-img-1.jpg",
+      "path": "public/assets/images/hero/h1-parallax-img-1.jpg",
+      "size": 168907,
+      "sha256": "dd5a08db7f7fe5db8373ff891ac6e2fe8e3a5a52b2f3a63bbe8f5b0514ace874",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 244,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/promo-video-1.mp4",
+      "path": "public/assets/videos/promo-video-1.mp4",
+      "size": 13009720,
+      "sha256": "b428c9cd282eee8a77b9d72868a37182e491842397ab61c2fa766c585e7cfbcd",
+      "contentType": "video/mp4",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 243,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/promo-video-2.mp4",
+      "path": "public/assets/videos/promo-video-2.mp4",
+      "size": 12493527,
+      "sha256": "f4e8ffea4d4ce81e05dd80fa1cabfe20583ba2c9dc4eb4ea7c64a92897139016",
+      "contentType": "video/mp4",
+      "status": "DOWNLOADED"
+    },
+    {
+      "id": 242,
+      "url": "https://sfcleaningconcepts.com/wp-content/uploads/2023/05/bg_video.mp4",
+      "path": "public/assets/videos/bg_video.mp4",
+      "size": 12628811,
+      "sha256": "5a2892d7f59f1eccfdab4ac031d07f45e4157b16c566878d2ff53d33abed6573",
+      "contentType": "video/mp4",
+      "status": "DOWNLOADED"
+    }
+  ],
+  "errors": []
+}

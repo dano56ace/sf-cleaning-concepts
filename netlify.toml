@@ -1,0 +1,140 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24.21.0"
+
+# Security & Performance Edge Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' data: https:; connect-src 'self';"
+
+# Long-term immutable caching for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Clean URLs & 301 Redirects for Legacy WordPress URLs
+[[redirects]]
+  from = "/about-us"
+  to = "/about-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/about-us/"
+  to = "/about-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/our-services"
+  to = "/our-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/our-services/"
+  to = "/our-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact-us/"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/faqs"
+  to = "/faqs.html"
+  status = 200
+
+[[redirects]]
+  from = "/faqs/"
+  to = "/faqs.html"
+  status = 200
+
+[[redirects]]
+  from = "/our-publications"
+  to = "/our-publications.html"
+  status = 200
+
+[[redirects]]
+  from = "/our-publications/"
+  to = "/our-publications.html"
+  status = 200
+
+[[redirects]]
+  from = "/service"
+  to = "/our-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/service/"
+  to = "/our-services.html"
+  status = 301
+
+# Legacy WordPress Blog Post Slugs -> Rebuilt Blog URLs
+[[redirects]]
+  from = "/revitalize-your-office-space-with-south-florida-cleaning-concepts-unleashing-the-power-of-a-pristine-workspace/"
+  to = "/blog/revitalize-your-office-space.html"
+  status = 301
+
+[[redirects]]
+  from = "/south-florida-cleaning-concepts-complete-guide-to-home-cleaning-tips-and-tricks/"
+  to = "/blog/complete-guide-to-home-cleaning.html"
+  status = 301
+
+[[redirects]]
+  from = "/shining-a-light-on-clean-how-restaurant-and-bar-cleaning-services-enhance-your-business/"
+  to = "/blog/restaurant-and-bar-cleaning-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/office-cleaning-made-easy-with-south-florida-cleaning-concepts/"
+  to = "/blog/office-cleaning-made-easy.html"
+  status = 301
+
+[[redirects]]
+  from = "/short-term-rental-cleaning-with-south-florida-cleaning-concepts-the-ultimate-guide/"
+  to = "/blog/short-term-rental-cleaning-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/high-quality-cleaning-services-south-florida-with-south-florida-cleaning-concepts/"
+  to = "/blog/high-quality-cleaning-services-south-florida.html"
+  status = 301
+
+[[redirects]]
+  from = "/medical-office-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/"
+  to = "/blog/medical-office-cleaning-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/deep-cleaning-for-homes-and-offices-with-south-florida-cleaning-concepts/"
+  to = "/blog/deep-cleaning-for-homes-and-offices.html"
+  status = 301
+
+[[redirects]]
+  from = "/post-construction-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/"
+  to = "/blog/post-construction-cleaning-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts/"
+  to = "/blog/south-florida-home-maintenance-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services/"
+  to = "/blog/residential-cleaning-services-journey.html"
+  status = 301
