@@ -102,6 +102,73 @@ async function prerenderAllRoutes() {
       if (footerMatch) extractedFooter = footerMatch[0];
     }
 
+    if (route.path === '/') {
+      extractedHeader = `
+    <header class="site-header">
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="/" class="brand-logo" aria-label="South Florida Cleaning Concepts Home">
+          <img src="/assets/images/logo/logo.svg" alt="South Florida Cleaning Concepts Logo" width="160" height="40" />
+        </a>
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/about-us" class="nav-link">About Us</a></li>
+          <li><a href="/our-services" class="nav-link">Our Services</a></li>
+          <li><a href="/faqs" class="nav-link">FAQs</a></li>
+          <li><a href="/our-publications" class="nav-link">Publications</a></li>
+          <li><a href="/contact-us" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="tel:5617045303" class="btn btn-phone">(561) 704-5303</a>
+      </nav>
+      <div class="mobile-controls">
+        <a href="tel:5617045303" class="mobile-call-btn" aria-label="Call South Florida Cleaning Concepts">Call</a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation menu">Menu</button>
+      </div>
+    </header>`;
+
+      extractedMain = `
+    <main id="main-content">
+      <section class="hero-banner" style="overflow: hidden; position: relative;">
+        <video autoplay muted playsinline loop poster="/assets/videos/bg_video_13.jpeg" width="1280" height="720" style="max-width: 100%; height: auto; object-fit: cover;">
+          <source src="/assets/videos/bg_video.mp4" type="video/mp4" />
+        </video>
+        <div class="container">
+          <h1>Commercial Cleaning - Pros | South Florida Cleaning Concepts</h1>
+          <p>Premier commercial and residential cleaning across South Florida. From medical office terminal sterilization to luxury residential rotation cleaning in Palm Beach &amp; Broward counties. Call (561) 704-5303 for a free quote.</p>
+          <a href="/contact-us" class="btn btn-primary">Request Free Quote</a>
+          <a href="tel:5617045303" class="btn btn-phone">Call (561) 704-5303</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Specialized Commercial &amp; Residential Cleaning Solutions</h2>
+          <p>South Florida Cleaning Concepts provides 10 specialized cleaning services backed by our 100% Satisfaction Guarantee and our exclusive Rotation Cleaning System.</p>
+          <ul>
+            <li><a href="/service/office-cleaning">Commercial Office Cleaning Services</a></li>
+            <li><a href="/service/medical-office-cleaning">Specialized Medical Office Cleaning</a></li>
+            <li><a href="/service/bars-and-restaurant-cleaning">Commercial Cleaning for Bars and Restaurants</a></li>
+            <li><a href="/service/short-term-rentals">Short-Term Rental &amp; Airbnb Turnover</a></li>
+            <li><a href="/service/post-construction-cleaning">Post-Construction Cleaning</a></li>
+            <li><a href="/service/move-in-out-cleaning">Move In / Move Out Cleaning</a></li>
+            <li><a href="/service/home-maintenance">Comprehensive Home Maintenance Services</a></li>
+            <li><a href="/service/school-cleaning">School &amp; Daycare Cleaning Services</a></li>
+            <li><a href="/service/home-watching">Professional Home Watching Service</a></li>
+            <li><a href="/service/covid-19-disinfection">COVID-19 Disinfection &amp; Electrostatic Spraying</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>`;
+
+      extractedFooter = `
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 South Florida Cleaning Concepts. All Rights Reserved. Licensed &amp; Insured Commercial &amp; Residential Cleaning Services in Palm Beach and Broward counties.</p>
+        <p>Telephone: <a href="tel:5617045303">(561) 704-5303</a> | Email: <a href="mailto:Sflcleaningco@gmail.com">Sflcleaningco@gmail.com</a> | Headquarters: Boynton Beach, FL 33435</p>
+        <p><a href="/contact-us">Privacy &amp; Terms</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/robots.txt">Robots.txt</a></p>
+      </div>
+    </footer>`;
+    }
+
     let routeHtml = templateHtml;
 
     // 1. Replace Title
@@ -158,12 +225,16 @@ async function prerenderAllRoutes() {
       );
     }
 
-    // 6. Inject Schema.org JSON-LD Structured Data
+    // 6. Inject Schema.org JSON-LD Structured Data & Robots Policy
     if (route.path === '/404') {
-      // 404 should have no schema block or error schema
+      // 404 should have no schema block and must have noindex robots policy
       routeHtml = routeHtml.replace(
         /<script\s+id="dynamic-jsonld"\s+type="application\/ld\+json">[\s\S]*?<\/script>/i,
         ''
+      );
+      routeHtml = routeHtml.replace(
+        /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i,
+        '<meta name="robots" content="noindex, nofollow" />'
       );
     } else if (extractedSchema) {
       routeHtml = routeHtml.replace(
@@ -230,10 +301,23 @@ async function prerenderAllRoutes() {
     </nav>
     ${extractedFooter || ''}
 `;
-      routeHtml = routeHtml.replace(
-        /<div id="root">[\s\S]*?<\/div>/i,
-        `<div id="root">\n${crawlerFallback}\n  </div>`
-      );
+      if (routeHtml.includes('<!-- ROOT_START -->')) {
+        routeHtml = routeHtml.replace(
+          /<!-- ROOT_START -->[\s\S]*?<!-- ROOT_END -->/i,
+          `<!-- ROOT_START -->\n  <div id="root">\n${crawlerFallback}\n  </div>\n  <!-- ROOT_END -->`
+        );
+      } else {
+        routeHtml = routeHtml.replace(
+          /<div id="root">[\s\S]*?<\/div>/i,
+          `<div id="root">\n${crawlerFallback}\n  </div>`
+        );
+        if (!routeHtml.includes('<div id="root">\n')) {
+          routeHtml = routeHtml.replace(
+            '<div id="root"></div>',
+            `<div id="root">\n${crawlerFallback}\n  </div>`
+          );
+        }
+      }
     }
 
     // 8. Write static physical HTML files

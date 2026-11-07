@@ -171,6 +171,12 @@
 # ==============================================================================
 # 4. SPA REWRITE FALLBACK
 # ==============================================================================
+# Missing static assets return 404 rather than fallback HTML
+[[redirects]]
+  from = "/assets/*"
+  to = "/404.html"
+  status = 404
+
 # Prerendered HTML files (e.g., dist/about-us/index.html) shadow this rule.
 # Any dynamic/unmatched routes smoothly fall back to the React SPA index.html.
 [[redirects]]
