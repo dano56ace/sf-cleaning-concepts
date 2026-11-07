@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, FileText } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
 
@@ -36,14 +37,14 @@ export const MobileActionBar: React.FC<MobileActionBarProps> = ({ onOpenQuoteMod
             <span>Free Quote</span>
           </button>
         ) : (
-          <a
-            href="/contact-us"
+          <Link
+            to="/contact-us"
             className="bottom-bar-btn bottom-bar-quote flex items-center justify-center gap-2 min-h-[48px] py-3 px-4 rounded-xl bg-[#12582e] text-white font-bold text-sm shadow-sm hover:bg-[#0d4222] transition-all duration-200"
             aria-label="Request a Free Cleaning Quote"
           >
             <FileText className="w-5 h-5 shrink-0" />
             <span>Free Quote</span>
-          </a>
+          </Link>
         )}
       </div>
     </nav>

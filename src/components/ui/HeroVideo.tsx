@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Play, Pause, ShieldCheck, Phone, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
 
@@ -107,12 +108,12 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 Request Free Quote
               </button>
             ) : (
-              <a
-                href="/contact-us"
+              <Link
+                to="/contact-us"
                 className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-extrabold py-4 px-8 rounded-xl text-base shadow-lg hover:shadow-xl transition-all duration-200 text-center"
               >
                 Request Free Quote
-              </a>
+              </Link>
             )}
 
             <a

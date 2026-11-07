@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -32,23 +32,6 @@ export default function App() {
     setQuoteModalOpen(false);
     setModalServiceTitle(undefined);
   };
-
-  // Global image error fallback guard (capture phase)
-  useEffect(() => {
-    const handleGlobalImageError = (event: Event) => {
-      const target = event.target as HTMLImageElement;
-      if (target && target.tagName === 'IMG') {
-        const currentSrc = target.getAttribute('src') || '';
-        // Prevent infinite loops if fallback fails
-        if (!currentSrc.includes('service-img-12.jpg') && !currentSrc.includes('logo.svg')) {
-          target.src = '/assets/images/services/service-img-12.jpg';
-        }
-      }
-    };
-
-    window.addEventListener('error', handleGlobalImageError, true);
-    return () => window.removeEventListener('error', handleGlobalImageError, true);
-  }, []);
 
   return (
     <BrowserRouter>

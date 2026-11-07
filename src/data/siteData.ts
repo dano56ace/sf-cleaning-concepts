@@ -143,7 +143,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Specialized Medical Office Cleaning',
     shortDesc: 'OSHA and CDC-compliant medical facility terminal sanitization for clinics, surgical centers, and dental offices.',
     fullDesc: 'Hospital-grade medical office cleaning across South Florida. Our certified healthcare cleaners execute terminal sterilization, pathogen defense protocols, and biohazard compliance to ensure zero cross-contamination.',
-    image: '/assets/images/services/service-img-13.jpg',
+    image: '/assets/images/services/services-img-1.jpg',
     iconName: 'ShieldAlert',
     features: [
       'EPA List N hospital-grade disinfectant protocols',
@@ -170,7 +170,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Commercial Bar & Restaurant Cleaning',
     shortDesc: '24/7 commercial kitchen degreasing, dining room detailing, and health inspection prep for South Florida eateries.',
     fullDesc: 'Commercial bar and restaurant cleaning services in South Florida. We eliminate grease buildup, scrub commercial cooking hoods, sanitize bar wells, pressure wash kitchen mats, and prepare your establishment for flawless health inspections.',
-    image: '/assets/images/services/service-img-14.jpg',
+    image: '/assets/images/services/services-img-4.jpg',
     iconName: 'Utensils',
     features: [
       'Nightly post-close deep cleaning schedules',
@@ -197,7 +197,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Short-Term Rental & Airbnb Turnover',
     shortDesc: 'Rapid 5-star turnover cleaning, hotel-grade staging, linen laundering, and guest inventory replenishment.',
     fullDesc: 'Rapid short-term rental and Airbnb turnover cleaning across Palm Beach and Broward counties. We guarantee hotel-standard presentation, luxury linen washing, restock reporting, and same-day turnover turnaround between guest check-outs.',
-    image: '/assets/images/services/service-img-15.jpg',
+    image: '/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg',
     iconName: 'Home',
     features: [
       'Guaranteed same-day turnover windows (10 AM - 4 PM)',
@@ -224,7 +224,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Post-Construction Cleanup',
     shortDesc: '3-phase rough, deep, and final polish cleaning for South Florida general contractors and luxury renovations.',
     fullDesc: 'Comprehensive post-construction cleaning for builders, architects, and luxury homeowners in South Florida. We remove construction debris, extract airborne drywall dust, scrape paint and silicone from glass, and deliver move-in ready perfection.',
-    image: '/assets/images/services/service-img-16.jpg',
+    image: '/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg',
     iconName: 'HardHat',
     features: [
       'Rough clean: Heavy debris removal, initial sweeping, and framing clearance',
@@ -251,7 +251,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Move In / Move Out Cleaning Services',
     shortDesc: 'Top-to-bottom deep sanitization guaranteeing full security deposit returns and fresh beginnings.',
     fullDesc: 'Detailed move-in and move-out cleaning in Palm Beach and Broward County. We deep-clean every square inch of your home or apartment, including inside ovens, refrigerators, kitchen cabinets, closets, and baseboards.',
-    image: '/assets/images/services/service-img-17.jpg',
+    image: '/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg',
     iconName: 'Truck',
     features: [
       '100% Security deposit return guarantee for tenants',
@@ -278,7 +278,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Comprehensive Home Maintenance',
     shortDesc: 'Ongoing residential cleaning and proactive upkeep for South Florida luxury homes and coastal estates.',
     fullDesc: 'Comprehensive home maintenance and recurring residential cleaning across Palm Beach & Broward. We defend your estate against Florida humidity, mold, salt air corrosion, and dust through our systematic Rotation Cleaning System.',
-    image: '/assets/images/services/service-img-18.jpg',
+    image: '/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg',
     iconName: 'Wrench',
     features: [
       'Weekly, bi-weekly, or monthly recurring maintenance plans',
@@ -305,7 +305,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'School & Daycare Cleaning Services',
     shortDesc: 'Certified child-safe green disinfection for educational facilities, private academies, and learning centers.',
     fullDesc: 'Certified educational facility and daycare cleaning in South Florida. We use child-safe, non-toxic green disinfectants to eliminate viruses, bacteria, and allergens from classrooms, cafeterias, gymnasiums, and restrooms.',
-    image: '/assets/images/services/service-img-19.jpg',
+    image: '/assets/images/services/services-img-6.jpg',
     iconName: 'GraduationCap',
     features: [
       'Non-toxic, fume-free EPA-registered child-safe disinfectants',
@@ -332,7 +332,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'Professional Home Watching Services',
     shortDesc: 'Vigilant estate oversight, storm preparation, and absentee homeowner monitoring in Palm Beach County.',
     fullDesc: 'Professional home watching and absentee estate oversight in Palm Beach County. Designed for snowbirds and traveling executives, our certified property watchers perform weekly physical inspections, check for AC leaks, test plumbing, and verify home security.',
-    image: '/assets/images/services/service-img-20.jpg',
+    image: '/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg',
     iconName: 'Eye',
     features: [
       'Weekly or bi-weekly interior and exterior physical inspections',
@@ -359,7 +359,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     title: 'COVID-19 Disinfection & Electrostatic Spraying',
     shortDesc: 'EPA-registered electrostatic surface misting and broad-spectrum pathogen defense for businesses and homes.',
     fullDesc: 'EPA-registered COVID-19 electrostatic spraying and surface disinfection across South Florida businesses and residences. We utilize hospital-grade electrostatic sprayers that wrap 360 degrees around surfaces, neutralizing 99.99% of airborne and surface pathogens.',
-    image: '/assets/images/services/service-img-21.jpg',
+    image: '/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg',
     iconName: 'Biohazard',
     features: [
       'Electrostatic fogging technology providing complete 360-degree coverage',
@@ -506,7 +506,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     date: 'February 2, 2026',
     readTime: '8 min read',
     category: 'Rental Management',
-    image: '/assets/images/blog/blog-img-5.jpg',
+    image: '/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg',
     sections: [
       {
         heading: 'The 5-Star Cleanliness Standard on Airbnb',
@@ -606,7 +606,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     date: 'January 16, 2026',
     readTime: '7 min read',
     category: 'Construction Services',
-    image: '/assets/images/blog/blog-img-9.jpg',
+    image: '/assets/images/blog/Post-Construction-Clean-1.jpeg',
     sections: [
       {
         heading: 'Phase 1: The Rough Clean',
@@ -635,7 +635,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     date: 'January 12, 2026',
     readTime: '8 min read',
     category: 'Estate Maintenance',
-    image: '/assets/images/blog/blog-img-10.jpg',
+    image: '/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg',
     sections: [
       {
         heading: 'The Unique Environmental Threats of Coastal Florida',

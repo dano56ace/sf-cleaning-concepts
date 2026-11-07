@@ -77,7 +77,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Medical Cleaning - Clinics | South Florida Cleaning Concepts',
     description: 'Hospital-grade medical office cleaning in South Florida. Terminal sterilization, biohazard compliance, and pathogen defense. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/medical-office-cleaning',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-13.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/services-img-1.jpg',
     schemaType: 'Service'
   },
   '/service/bars-and-restaurant-cleaning': {
@@ -85,7 +85,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Restaurant Cleaning - Bars | South Florida Cleaning Concepts',
     description: '24/7 commercial bar and restaurant cleaning in South Florida. Kitchen degreasing, dining sanitization, and health inspection prep. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-14.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/services-img-4.jpg',
     schemaType: 'Service'
   },
   '/service/short-term-rentals': {
@@ -93,7 +93,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Airbnb Cleaning - Turnover | South Florida Cleaning Concepts',
     description: 'Rapid short-term rental & Airbnb turnover cleaning in Palm Beach & Broward. Hotel-grade staging, linen laundering, and restock. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/short-term-rentals',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-15.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg',
     schemaType: 'Service'
   },
   '/service/post-construction-cleaning': {
@@ -101,7 +101,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Post-Construction - Clean | South Florida Cleaning Concepts',
     description: 'Comprehensive post-construction cleanup for South Florida builders. Debris removal, drywall dust extraction, and final polish. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/post-construction-cleaning',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-16.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg',
     schemaType: 'Service'
   },
   '/service/move-in-out-cleaning': {
@@ -109,7 +109,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Move In Out - Deep Clean | South Florida Cleaning Concepts',
     description: 'Top-to-bottom move-in and move-out cleaning in Palm Beach County. Deep sanitization of kitchens, baseboards, and living spaces. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/move-in-out-cleaning',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-17.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg',
     schemaType: 'Service'
   },
   '/service/home-maintenance': {
@@ -117,7 +117,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Home Maintenance - Upkeep | South Florida Cleaning Concepts',
     description: 'Comprehensive residential home maintenance and deep cleaning services across Palm Beach & Broward. Protect your estate. Call (561) 704-5303 for an estimate.',
     canonical: 'https://sfcleaningconcepts.com/service/home-maintenance',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-18.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg',
     schemaType: 'Service'
   },
   '/service/school-cleaning': {
@@ -125,7 +125,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'School Cleaning - Campuses | South Florida Cleaning Concepts',
     description: 'Certified educational facility and daycare cleaning in South Florida. Child-safe green disinfectants, germ control, and classrooms. Call (561) 704-5303.',
     canonical: 'https://sfcleaningconcepts.com/service/school-cleaning',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-19.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/services-img-6.jpg',
     schemaType: 'Service'
   },
   '/service/home-watching': {
@@ -133,7 +133,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Home Watching - Property | South Florida Cleaning Concepts',
     description: 'Professional home watching & absentee estate oversight in Palm Beach County. Storm prep, leak checks, and AC monitoring. Call (561) 704-5303 for security.',
     canonical: 'https://sfcleaningconcepts.com/service/home-watching',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-20.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg',
     schemaType: 'Service'
   },
   '/service/covid-19-disinfection': {
@@ -141,7 +141,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'COVID-19 - Disinfection | South Florida Cleaning Concepts',
     description: 'EPA-registered COVID-19 electrostatic spraying and surface disinfection across South Florida businesses and residences. Stay safe. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/covid-19-disinfection',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-21.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg',
     schemaType: 'Service'
   },
   '/blog/revitalize-your-office-space': {
@@ -181,7 +181,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Airbnb Clean - Host Guide | South Florida Cleaning Concepts',
     description: 'Essential turnover checklist for South Florida Airbnb & VRBO hosts. Earn 5-star cleanliness ratings and automate guest turnovers. Call (561) 704-5303.',
     canonical: 'https://sfcleaningconcepts.com/blog/short-term-rental-cleaning-guide',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/blog/blog-img-5.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg',
     schemaType: 'BlogPosting'
   },
   '/blog/high-quality-cleaning-services-south-florida': {
@@ -213,7 +213,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Remodel Clean - Full Guide | South Florida Cleaning Concepts',
     description: 'The 3 crucial phases of post-construction cleaning: rough, deep, and final detailing. Prepare South Florida remodels for move-in. Call (561) 704-5303.',
     canonical: 'https://sfcleaningconcepts.com/blog/post-construction-cleaning-guide',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/blog/blog-img-9.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/blog/Post-Construction-Clean-1.jpeg',
     schemaType: 'BlogPosting'
   },
   '/blog/south-florida-home-maintenance-services': {
@@ -221,7 +221,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     title: 'Home Care - Florida Upkeep | South Florida Cleaning Concepts',
     description: 'Protect your Florida property from tropical humidity, algae, and salt air damage. Complete exterior and interior upkeep guide. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/blog/south-florida-home-maintenance-services',
-    ogImage: 'https://sfcleaningconcepts.com/assets/images/blog/blog-img-10.jpg',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-2.jpeg',
     schemaType: 'BlogPosting'
   },
   '/blog/residential-cleaning-services-journey': {
