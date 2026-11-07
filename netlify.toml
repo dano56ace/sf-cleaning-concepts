@@ -1,141 +1,179 @@
+# Netlify Configuration for South Florida Cleaning Concepts
+# Production: https://sfcleaningconcepts.com
+# Staging: https://sf-cleaning-concepts.netlify.app
+
 [build]
   command = "npm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "24.21.0"
+  NODE_VERSION = "24"
 
-# Security & Performance Edge Headers
+# ==============================================================================
+# 1. SECURITY & EDGE HEADERS
+# ==============================================================================
+
+# Global security headers for all routes
 [[headers]]
   for = "/*"
   [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; media-src 'self' data: https:; connect-src 'self';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' data: https: blob:; connect-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; frame-ancestors 'none';"
 
-# Long-term immutable caching for static assets
+# HTML Navigation & Root Caching: Always revalidate to prevent stale chunk errors
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Service Worker: Immediate update check, never cache long-term
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+# PWA Web Manifest
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+# Static SEO & Discovery Files
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+# Static Hashed Assets (JS, CSS, Media): Immutable 1-year cache
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Clean URLs & 301 Redirects for Legacy WordPress URLs
-[[redirects]]
-  from = "/about-us"
-  to = "/about-us.html"
-  status = 200
+# ==============================================================================
+# 2. CANONICAL 301 REDIRECTS (Domain Apex & HTTP -> HTTPS)
+# ==============================================================================
 
 [[redirects]]
-  from = "/about-us/"
-  to = "/about-us.html"
-  status = 200
-
-[[redirects]]
-  from = "/our-services"
-  to = "/our-services.html"
-  status = 200
-
-[[redirects]]
-  from = "/our-services/"
-  to = "/our-services.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact-us"
-  to = "/contact-us.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact-us/"
-  to = "/contact-us.html"
-  status = 200
-
-[[redirects]]
-  from = "/faqs"
-  to = "/faqs.html"
-  status = 200
-
-[[redirects]]
-  from = "/faqs/"
-  to = "/faqs.html"
-  status = 200
-
-[[redirects]]
-  from = "/our-publications"
-  to = "/our-publications.html"
-  status = 200
-
-[[redirects]]
-  from = "/our-publications/"
-  to = "/our-publications.html"
-  status = 200
-
-[[redirects]]
-  from = "/service"
-  to = "/our-services.html"
+  from = "https://www.sfcleaningconcepts.com/*"
+  to = "https://sfcleaningconcepts.com/:splat"
   status = 301
+  force = true
 
 [[redirects]]
-  from = "/service/"
-  to = "/our-services.html"
+  from = "http://sfcleaningconcepts.com/*"
+  to = "https://sfcleaningconcepts.com/:splat"
   status = 301
+  force = true
 
-# Legacy WordPress Blog Post Slugs -> Rebuilt Blog URLs
+[[redirects]]
+  from = "http://www.sfcleaningconcepts.com/*"
+  to = "https://sfcleaningconcepts.com/:splat"
+  status = 301
+  force = true
+
+# ==============================================================================
+# 3. LEGACY URL 301 REDIRECTS (Preserving Backlinks & Search Index)
+# ==============================================================================
+
+# Legacy WordPress Blog Post Slugs -> Rebuilt Clean Blog URLs
 [[redirects]]
   from = "/revitalize-your-office-space-with-south-florida-cleaning-concepts-unleashing-the-power-of-a-pristine-workspace/"
-  to = "/blog/revitalize-your-office-space.html"
+  to = "/blog/revitalize-your-office-space"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/south-florida-cleaning-concepts-complete-guide-to-home-cleaning-tips-and-tricks/"
-  to = "/blog/complete-guide-to-home-cleaning.html"
+  to = "/blog/complete-guide-to-home-cleaning"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/shining-a-light-on-clean-how-restaurant-and-bar-cleaning-services-enhance-your-business/"
-  to = "/blog/restaurant-and-bar-cleaning-services.html"
+  to = "/blog/restaurant-and-bar-cleaning-services"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/office-cleaning-made-easy-with-south-florida-cleaning-concepts/"
-  to = "/blog/office-cleaning-made-easy.html"
+  to = "/blog/office-cleaning-made-easy"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/short-term-rental-cleaning-with-south-florida-cleaning-concepts-the-ultimate-guide/"
-  to = "/blog/short-term-rental-cleaning-guide.html"
+  to = "/blog/short-term-rental-cleaning-guide"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/high-quality-cleaning-services-south-florida-with-south-florida-cleaning-concepts/"
-  to = "/blog/high-quality-cleaning-services-south-florida.html"
+  to = "/blog/high-quality-cleaning-services-south-florida"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/medical-office-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/"
-  to = "/blog/medical-office-cleaning-guide.html"
+  to = "/blog/medical-office-cleaning-guide"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/deep-cleaning-for-homes-and-offices-with-south-florida-cleaning-concepts/"
-  to = "/blog/deep-cleaning-for-homes-and-offices.html"
+  to = "/blog/deep-cleaning-for-homes-and-offices"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/post-construction-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/"
-  to = "/blog/post-construction-cleaning-guide.html"
+  to = "/blog/post-construction-cleaning-guide"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts/"
-  to = "/blog/south-florida-home-maintenance-services.html"
+  to = "/blog/south-florida-home-maintenance-services"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services/"
-  to = "/blog/residential-cleaning-services-journey.html"
+  to = "/blog/residential-cleaning-services-journey"
   status = 301
+  force = true
+
+# ==============================================================================
+# 4. SPA REWRITE FALLBACK
+# ==============================================================================
+# Prerendered HTML files (e.g., dist/about-us/index.html) shadow this rule.
+# Any dynamic/unmatched routes smoothly fall back to the React SPA index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

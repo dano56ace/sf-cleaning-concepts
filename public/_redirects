@@ -1,0 +1,20 @@
+# Canonical 301 Single-Host Redirects
+https://www.sfcleaningconcepts.com/* https://sfcleaningconcepts.com/:splat 301!
+http://sfcleaningconcepts.com/*      https://sfcleaningconcepts.com/:splat 301!
+http://www.sfcleaningconcepts.com/*  https://sfcleaningconcepts.com/:splat 301!
+
+# Legacy WordPress Blog Slugs
+/revitalize-your-office-space-with-south-florida-cleaning-concepts-unleashing-the-power-of-a-pristine-workspace/ /blog/revitalize-your-office-space 301!
+/south-florida-cleaning-concepts-complete-guide-to-home-cleaning-tips-and-tricks/                                /blog/complete-guide-to-home-cleaning 301!
+/shining-a-light-on-clean-how-restaurant-and-bar-cleaning-services-enhance-your-business/                      /blog/restaurant-and-bar-cleaning-services 301!
+/office-cleaning-made-easy-with-south-florida-cleaning-concepts/                                                /blog/office-cleaning-made-easy 301!
+/short-term-rental-cleaning-with-south-florida-cleaning-concepts-the-ultimate-guide/                            /blog/short-term-rental-cleaning-guide 301!
+/high-quality-cleaning-services-south-florida-with-south-florida-cleaning-concepts/                            /blog/high-quality-cleaning-services-south-florida 301!
+/medical-office-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/                           /blog/medical-office-cleaning-guide 301!
+/deep-cleaning-for-homes-and-offices-with-south-florida-cleaning-concepts/                                      /blog/deep-cleaning-for-homes-and-offices 301!
+/post-construction-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide/                         /blog/post-construction-cleaning-guide 301!
+/maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts/ /blog/south-florida-home-maintenance-services 301!
+/revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services/             /blog/residential-cleaning-services-journey 301!
+
+# SPA Routing Fallback (prerendered files shadow automatically)
+/*                      /index.html        200

@@ -3,13 +3,19 @@
  * Responsive Navigation, Zero-CLS Video Hero, Video Modal, Form Validation & FAQ Accordions
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAll() {
   initMobileNavigation();
   initHeroVideo();
   initVideoModals();
   initLeadQuoteForm();
   initFaqAccordions();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
 
 /**
  * 1. Mobile Navigation & Drawer Controller

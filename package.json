@@ -1,17 +1,36 @@
 {
   "name": "south-florida-cleaning-concepts",
   "version": "1.0.0",
-  "description": "Blazing-fast responsive website and SEO rebuild for South Florida Cleaning Concepts",
+  "description": "Premier commercial and residential cleaning services in South Florida - SPA & PWA Architecture",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsx scripts/prerender-routes.ts",
+    "prerender": "tsx scripts/prerender-routes.ts",
     "preview": "vite preview",
-    "test": "vite build"
+    "lint": "tsc --noEmit",
+    "test": "node tests/responsive-stress-test.mjs"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.546.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-router-dom": "^7.14.2",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "vite": "^6.2.0"
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
   },
   "engines": {
     "node": ">=20.0.0"

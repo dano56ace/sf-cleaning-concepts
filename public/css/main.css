@@ -1792,3 +1792,16 @@ a:hover, a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Drawer image hiding when closed to prevent off-screen overflow measurements */
+.mobile-nav-drawer:not(.is-active) img {
+  display: none !important;
+}
+
+/* Ensure mobile accordion sublinks meet touch target standard */
+.mobile-accordion-content li a {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 48px !important;
+}
+

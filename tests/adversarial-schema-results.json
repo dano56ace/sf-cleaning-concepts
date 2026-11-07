@@ -51,8 +51,8 @@
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 26.5253,
-                "longitude": -80.0664
+                "latitude": "26.5256",
+                "longitude": "-80.0664"
               },
               "areaServed": [
                 {
@@ -66,38 +66,6 @@
                 {
                   "@type": "AdministrativeArea",
                   "name": "Miami-Dade County"
-                },
-                {
-                  "@type": "City",
-                  "name": "Boynton Beach"
-                },
-                {
-                  "@type": "City",
-                  "name": "West Palm Beach"
-                },
-                {
-                  "@type": "City",
-                  "name": "Boca Raton"
-                },
-                {
-                  "@type": "City",
-                  "name": "Delray Beach"
-                },
-                {
-                  "@type": "City",
-                  "name": "Jupiter"
-                },
-                {
-                  "@type": "City",
-                  "name": "Wellington"
-                },
-                {
-                  "@type": "City",
-                  "name": "Fort Lauderdale"
-                },
-                {
-                  "@type": "City",
-                  "name": "Miami"
                 }
               ],
               "openingHoursSpecification": [
@@ -112,122 +80,20 @@
                     "Saturday",
                     "Sunday"
                   ],
-                  "opens": "08:00",
+                  "opens": "07:00",
                   "closes": "20:00"
                 }
-              ],
-              "sameAs": [
-                "https://www.facebook.com/SFCLEAN"
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Professional Cleaning Services Catalog",
-                "itemListElement": [
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Commercial Cleaning Services",
-                    "itemListElement": [
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Commercial Office Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/office-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Medical Office Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/medical-office-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Bars and Restaurant Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "School & Daycare Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/school-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Post-Construction Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/post-construction-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "COVID-19 Disinfection Services",
-                          "url": "https://sfcleaningconcepts.com/service/covid-19-disinfection.html"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "@type": "OfferCatalog",
-                    "name": "Residential Cleaning Services",
-                    "itemListElement": [
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Move In / Move Out Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/move-in-out-cleaning.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Short-Term Rental Turnover Cleaning",
-                          "url": "https://sfcleaningconcepts.com/service/short-term-rentals.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Comprehensive Home Maintenance",
-                          "url": "https://sfcleaningconcepts.com/service/home-maintenance.html"
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Home Watching Services",
-                          "url": "https://sfcleaningconcepts.com/service/home-watching.html"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              }
+              ]
             },
             {
               "@type": "WebSite",
               "@id": "https://sfcleaningconcepts.com/#website",
               "url": "https://sfcleaningconcepts.com/",
               "name": "South Florida Cleaning Concepts",
-              "description": "South Florida's premier commercial and residential cleaning specialists.",
+              "description": "Commercial & Residential Cleaning Services in South Florida",
               "publisher": {
                 "@id": "https://sfcleaningconcepts.com/#localbusiness"
-              },
-              "inLanguage": "en-US"
+              }
             }
           ]
         }

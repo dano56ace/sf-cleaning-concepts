@@ -1,0 +1,68 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { SEO_ROUTES_MAP } from '../../data/seoRegistry';
+
+export function SEOHead() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Clean trailing slashes except for root
+    const normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+    const meta = SEO_ROUTES_MAP[normalized] || SEO_ROUTES_MAP['/404'] || SEO_ROUTES_MAP['/'];
+
+    if (meta) {
+      document.title = meta.title;
+
+      // Update meta description
+      let descEl = document.querySelector('meta[name="description"]');
+      if (!descEl) {
+        descEl = document.createElement('meta');
+        descEl.setAttribute('name', 'description');
+        document.head.appendChild(descEl);
+      }
+      descEl.setAttribute('content', meta.description);
+
+      // Update canonical link
+      let canonEl = document.querySelector('link[rel="canonical"]');
+      if (!canonEl) {
+        canonEl = document.createElement('link');
+        canonEl.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonEl);
+      }
+      canonEl.setAttribute('href', meta.canonical);
+
+      // Update Open Graph tags
+      const updateOg = (property: string, content: string) => {
+        let el = document.querySelector(`meta[property="${property}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('property', property);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+      };
+
+      updateOg('og:title', meta.title);
+      updateOg('og:description', meta.description);
+      updateOg('og:url', meta.canonical);
+      updateOg('og:image', meta.ogImage);
+
+      // Update Twitter tags
+      const updateTwitter = (name: string, content: string) => {
+        let el = document.querySelector(`meta[name="${name}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('name', name);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+      };
+
+      updateTwitter('twitter:title', meta.title);
+      updateTwitter('twitter:description', meta.description);
+      updateTwitter('twitter:image', meta.ogImage);
+    }
+  }, [pathname]);
+
+  return null;
+}
