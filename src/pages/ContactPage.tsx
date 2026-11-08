@@ -1,149 +1,162 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, ShieldCheck, CheckCircle2, Award, Sparkles } from 'lucide-react';
-import { BUSINESS_NAP } from '../data/siteData';
 import { QuoteForm } from '../components/ui/QuoteForm';
+import { BUSINESS_NAP } from '../data/siteData';
+import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
-    <article className="contact-page">
-      {/* Subpage Hero Header */}
-      <section className="page-hero relative bg-[#071536] text-white py-20 overflow-hidden" aria-label="Contact Header">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <img
-            src="/assets/images/about/about-us-img-4.jpg"
-            alt="Contact South Florida Cleaning Concepts"
-            width="1920"
-            height="600"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            Interested in Cleaning Services?
-          </h1>
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6">
-            Fill out our dedicated contact form below and take the first step towards a cleaner home or workplace today!
-          </p>
-          <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-semibold text-slate-300" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span aria-current="page" className="text-[#a3e6be]">Contact Us</span>
-          </nav>
+    <div className="bg-[#f8fafc] min-h-screen">
+      {/* Subpage Hero */}
+      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl">
+            <div className="editorial-kicker-light mb-4">
+              Get in Touch · Tri-County Dispatch
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
+              Interested in Cleaning Services?
+            </h1>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Reach out to South Florida Cleaning Concepts for a customized residential or commercial quote. Our management team responds promptly to all inquiries across Palm Beach, Broward, and Miami-Dade counties.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 2-Column Contact & Lead Form Section */}
-      <section className="section py-20 bg-white" aria-labelledby="contact-heading">
+      {/* Main Content */}
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Column 1: 4-Field Lead Quote Form (7 cols) */}
+            {/* Form Column */}
             <div className="lg:col-span-7">
-              <div className="quote-card-container bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-sm">
-                <div className="quote-card-header mb-8">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e8f5ee] text-[#12582e] text-xs font-bold uppercase tracking-wider mb-2">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Free Estimate</span>
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg">
+                <div className="mb-7 pb-5 border-b border-slate-100">
+                  <div className="editorial-kicker mb-2">
+                    Personalized Proposal
                   </div>
-                  <h2 id="contact-heading" className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-2">
-                    Contact Us Today
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-1.5 tracking-tight">
+                    Request Your Free Quote
                   </h2>
-                  <p className="text-slate-600 text-sm sm:text-base">
-                    We will give you a call to finish up your personalized estimate.
+                  <p className="text-slate-500 text-sm">
+                    Complete the 4 quick fields below and an estimator will contact you promptly to finalize your customized scope.
                   </p>
                 </div>
-
-                <QuoteForm source="ContactPage" />
+                <QuoteForm source="Contact Page" />
               </div>
             </div>
 
-            {/* Column 2: Direct Contact NAP & Trust Guarantees (5 cols) */}
-            <div className="lg:col-span-5 space-y-8">
-              {/* Direct NAP Info Card */}
-              <div className="bg-slate-50 rounded-3xl border border-slate-200/80 p-8 shadow-xs">
-                <h3 className="text-xl font-bold text-[#071536] mb-6">
+            {/* NAP & Service Area Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-[#07111a] text-white rounded-3xl p-8 shadow-xl border border-white/10">
+                <div className="editorial-kicker-light mb-3">
+                  Direct Channels
+                </div>
+                <h2 className="text-2xl font-extrabold mb-6 text-white">
                   Direct Contact Information
-                </h3>
-                <ul className="space-y-5 text-sm text-slate-700 p-0 m-0 list-none">
-                  <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] text-[#12582e] flex items-center justify-center shrink-0">
-                      <Phone className="w-5 h-5" />
+                </h2>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center shrink-0 text-[#4fd18b]">
+                      <Phone className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900 text-base">Telephone</div>
-                      <a href={`tel:${BUSINESS_NAP.phoneRaw}`} className="text-[#12582e] hover:underline font-semibold">
+                      <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
+                        Phone Dispatch
+                      </p>
+                      <a
+                        href={`tel:${BUSINESS_NAP.phoneRaw}`}
+                        className="text-xl font-mono font-bold text-white hover:text-[#4fd18b] transition-colors block mt-1 tabular-nums"
+                      >
                         {BUSINESS_NAP.phone}
                       </a>
-                      <div className="text-xs text-slate-500 mt-0.5">Direct Dispatch &amp; Client Inquiries</div>
+                      <p className="text-xs text-slate-400 mt-1">
+                        Available for urgent commercial &amp; turnover dispatch
+                      </p>
                     </div>
-                  </li>
+                  </div>
 
-                  <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] text-[#12582e] flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center shrink-0 text-[#4fd18b]">
+                      <Mail className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900 text-base">Email</div>
-                      <a href={`mailto:${BUSINESS_NAP.email}`} className="text-[#12582e] hover:underline font-semibold">
+                      <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
+                        Email Address
+                      </p>
+                      <a
+                        href={`mailto:${BUSINESS_NAP.email}`}
+                        className="text-base font-bold text-white hover:text-[#4fd18b] transition-colors block mt-1 break-all"
+                      >
                         {BUSINESS_NAP.email}
                       </a>
-                      <div className="text-xs text-slate-500 mt-0.5">Estimates &amp; Invoicing Support</div>
+                      <p className="text-xs text-slate-400 mt-1">
+                        Send floor plans, RFP specs, or scope requests
+                      </p>
                     </div>
-                  </li>
+                  </div>
 
-                  <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] text-[#12582e] flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.06] border border-white/15 flex items-center justify-center shrink-0 text-[#4fd18b]">
+                      <Clock className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="font-bold text-slate-900 text-base">Regional Headquarters</div>
-                      <div>Boynton Beach, FL 33435</div>
-                      <div className="text-xs text-slate-500 mt-0.5">Serving Palm Beach &amp; Broward Counties</div>
+                      <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
+                        Operating Hours
+                      </p>
+                      <p className="text-sm font-mono font-bold text-white mt-1 tabular-nums leading-snug">
+                        {BUSINESS_NAP.hours}
+                      </p>
                     </div>
-                  </li>
-
-                  <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] text-[#12582e] flex items-center justify-center shrink-0">
-                      <Clock className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-slate-900 text-base">Operating Hours</div>
-                      <div>{BUSINESS_NAP.hours}</div>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
 
-              {/* 100% Satisfaction Guarantee Card */}
-              <div className="bg-[#071536] text-white rounded-3xl p-8 shadow-xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <ShieldCheck className="w-8 h-8 text-[#a3e6be]" />
-                  <h3 className="text-xl font-bold text-white m-0">
-                    100% Satisfaction Guarantee
-                  </h3>
+              <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm">
+                <div className="editorial-kicker mb-2">
+                  Headquarters &amp; Coverage
                 </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                  {BUSINESS_NAP.guarantee}
+                <h3 className="text-lg font-extrabold text-[#0b1926] mb-3 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-[#2a8655]" />
+                  {BUSINESS_NAP.addressLocality}, {BUSINESS_NAP.addressRegion} Headquarters
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-5">
+                  We deploy mobile commercial and residential teams throughout {BUSINESS_NAP.areasServed.join(', ')}, and surrounding South Florida communities.
                 </p>
-                <div className="space-y-2 text-xs text-[#a3e6be]">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Background-checked &amp; bonded professionals</span>
+                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 text-center">
+                  <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
+                    <span className="block text-[11px] font-mono font-bold text-[#2a8655]">PALM BEACH</span>
+                    <span className="text-[11px] text-slate-500">Primary Hub</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Commercial general liability insured</span>
+                  <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
+                    <span className="block text-[11px] font-mono font-bold text-[#2a8655]">BROWARD</span>
+                    <span className="text-[11px] text-slate-500">Full Dispatch</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Over 20 years serving South Florida</span>
+                  <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
+                    <span className="block text-[11px] font-mono font-bold text-[#2a8655]">MIAMI-DADE</span>
+                    <span className="text-[11px] text-slate-500">Full Dispatch</span>
                   </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#e8f5ee] text-[#2a8655] flex items-center justify-center shrink-0 font-mono font-bold text-sm tabular-nums">
+                  100%
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-[#0b1926] mb-1">
+                    Satisfaction Guarantee
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {BUSINESS_NAP.guarantee}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </article>
+    </div>
   );
 };

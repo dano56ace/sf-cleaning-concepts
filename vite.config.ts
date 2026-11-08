@@ -4,7 +4,42 @@ import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    {
+      name: 'spa-route-rewrite',
+      configureServer(server) {
+        server.middlewares.use((req, _res, next) => {
+          if (req.url) {
+            const pathname = req.url.split('?')[0];
+            const isSpaRoute =
+              pathname === '/about-us' ||
+              pathname === '/about-us.html' ||
+              pathname === '/our-services' ||
+              pathname === '/our-services.html' ||
+              pathname === '/contact-us' ||
+              pathname === '/contact-us.html' ||
+              pathname === '/faqs' ||
+              pathname === '/faqs.html' ||
+              pathname === '/our-publications' ||
+              pathname === '/our-publications.html' ||
+              pathname === '/404' ||
+              pathname === '/404.html' ||
+              pathname === '/service' ||
+              pathname === '/service/' ||
+              pathname === '/service/index.html' ||
+              pathname.startsWith('/service/') ||
+              pathname.startsWith('/blog/');
+            if (isSpaRoute && !pathname.match(/\.(js|ts|tsx|css|png|jpg|jpeg|svg|gif|webp|mp4|mp3|woff2?|xml|txt|json)$/i)) {
+              req.url = '/index.html';
+            }
+          }
+          next();
+        });
+      },
+    },
+    react(),
+    tailwindcss(),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

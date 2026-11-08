@@ -1,71 +1,68 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HelpCircle, Phone, ArrowRight, ShieldCheck } from 'lucide-react';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { FAQS_LIST, BUSINESS_NAP } from '../data/siteData';
 
 export const FaqsPage: React.FC = () => {
   return (
-    <article className="faqs-page">
-      {/* Subpage Hero Header */}
-      <section className="page-hero relative bg-[#071536] text-white py-20 overflow-hidden" aria-label="FAQs Header">
-        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            Have Questions?
-          </h1>
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6">
-            Get answers to common cleaning questions in South Florida. Learn about our rotation cleaning system, green products, and bonding.
-          </p>
-          <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-semibold text-slate-300" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span aria-current="page" className="text-[#a3e6be]">FAQs</span>
-          </nav>
+    <div className="bg-[#f8fafc] min-h-screen">
+      {/* Subpage Hero */}
+      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl">
+            <div className="editorial-kicker-light mb-4">
+              Support &amp; Knowledge Base
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
+              Have Questions?
+            </h1>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Find clear, transparent answers about our residential and commercial cleaning protocols, eco-friendly sanitization products, insurance coverage, and flexible scheduling across South Florida.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Main FAQs Accordion Section */}
-      <section className="section py-20 bg-white" aria-labelledby="faqs-list-heading">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e8f5ee] text-[#12582e] text-xs font-bold uppercase tracking-wider mb-3">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Everything You Need to Know</span>
-            </div>
-            <h2 id="faqs-list-heading" className="text-2xl sm:text-3xl font-extrabold text-[#071536]">
-              Frequently Asked Questions &amp; Answers
-            </h2>
-          </div>
-
+      {/* Accordion Section */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FaqAccordion items={FAQS_LIST} showCategoryFilters={true} />
+        </div>
+      </section>
 
-          {/* Have More Questions Callout */}
-          <div className="mt-16 bg-slate-50 border border-slate-200 rounded-3xl p-8 text-center max-w-2xl mx-auto">
-            <ShieldCheck className="w-10 h-10 text-[#12582e] mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-[#071536] mb-2">
-              Have a Question Not Listed Here?
-            </h3>
-            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-              Our customer care team is available 7 days a week to discuss your property specifications, special requests, or customized janitorial schedules.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3 px-6 rounded-xl text-sm transition-colors inline-flex items-center gap-2"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call (561) 704-5303</span>
-              </a>
+      {/* Still Have Questions CTA */}
+      <section className="py-16 bg-white border-t border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#07111a] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <div className="editorial-kicker-light mb-3">
+                Direct Supervisor Assistance
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
+                Didn&apos;t Find the Answer You Were Looking For?
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+                Our management team is happy to walk through your facility requirements, custom scheduling needs, or specialized sanitization requests.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
               <Link
                 to="/contact-us"
-                className="btn btn-outline border border-slate-300 text-slate-700 hover:bg-slate-100 font-bold py-3 px-6 rounded-xl text-sm transition-colors"
+                className="bg-[#2a8655] hover:bg-[#1f6840] text-white font-bold px-6 py-4 rounded-xl transition-all shadow-md text-center whitespace-nowrap"
               >
-                Send Online Inquiry
+                Contact Our Team
               </Link>
+              <a
+                href={`tel:${BUSINESS_NAP.phoneRaw}`}
+                className="bg-white/10 hover:bg-white/15 text-white border border-white/20 font-mono font-bold px-6 py-4 rounded-xl transition-all text-center whitespace-nowrap tabular-nums"
+              >
+                {BUSINESS_NAP.phone}
+              </a>
             </div>
           </div>
         </div>
       </section>
-    </article>
+    </div>
   );
 };

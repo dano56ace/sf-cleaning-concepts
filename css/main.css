@@ -2,6 +2,7 @@
    South Florida Cleaning Concepts - Master Responsive Design System
    ========================================================================== */
 
+@layer base {
 :root {
   /* --------------------------------------------------------------------------
      1. Color Palette Tokens
@@ -53,8 +54,8 @@
   /* --------------------------------------------------------------------------
      2. Fluid Typography Tokens (375px mobile -> 1440px desktop)
      -------------------------------------------------------------------------- */
-  --font-family-heading: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-body: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Plus Jakarta Sans', 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --font-size-display: clamp(2.25rem, 1.63rem + 2.63vw, 4rem);    /* 36px -> 64px */
   --font-size-h1: clamp(1.875rem, 1.39rem + 2.07vw, 3.25rem);      /* 30px -> 52px */
@@ -1804,4 +1805,4 @@ a:hover, a:focus-visible {
   align-items: center !important;
   min-height: 48px !important;
 }
-
+}

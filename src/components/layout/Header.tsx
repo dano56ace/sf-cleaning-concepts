@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, ArrowUpRight, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { BUSINESS_NAP, SERVICES_CATALOG } from '../../data/siteData';
 
 interface HeaderProps {
@@ -12,9 +12,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
   const location = useLocation();
 
+  const syncDrawerDom = (nextOpen: boolean) => {
+    setDrawerOpen(nextOpen);
+    const drawers = document.querySelectorAll('.mobile-nav-drawer');
+    drawers.forEach((d) => d.classList.toggle('is-active', nextOpen));
+    const overlays = document.querySelectorAll('.mobile-nav-overlay');
+    overlays.forEach((o) => o.classList.toggle('is-active', nextOpen));
+    const toggles = document.querySelectorAll('.mobile-nav-toggle');
+    toggles.forEach((t) => t.setAttribute('aria-expanded', String(nextOpen)));
+  };
+
   // Close drawer on route change
   useEffect(() => {
-    setDrawerOpen(false);
+    syncDrawerDom(false);
     setServicesAccordionOpen(false);
   }, [location.pathname]);
 
@@ -22,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && drawerOpen) {
-        setDrawerOpen(false);
+        syncDrawerDom(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -49,26 +59,65 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
 
   return (
     <>
-      <header className="site-header sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link to="/" className="brand-logo flex items-center gap-3 shrink-0" aria-label="South Florida Cleaning Concepts Home">
+      {/* Desktop Executive Utility Bar */}
+      <div className="hidden lg:block bg-[#071536] text-slate-300 border-b border-white/10 text-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <span className="inline-flex items-center gap-1.5 text-slate-200 font-medium">
+              <MapPin className="w-3.5 h-3.5 text-[#a3e6be]" />
+              <span>Palm Beach · Broward · Miami-Dade</span>
+            </span>
+            <span className="text-slate-600" aria-hidden="true">|</span>
+            <span className="inline-flex items-center gap-1.5 text-slate-300">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#a3e6be]" />
+              <span>Licensed, Insured &amp; Bonded · 100% Satisfaction Guarantee</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-6 font-mono tabular-nums">
+            <span className="inline-flex items-center gap-1.5 text-slate-300">
+              <Clock className="w-3.5 h-3.5 text-[#a3e6be]" />
+              <span>Mon–Sun: 7:00 AM – 8:00 PM (24/7 Commercial)</span>
+            </span>
+            <span className="text-slate-600" aria-hidden="true">|</span>
+            <a
+              href={`mailto:${BUSINESS_NAP.email}`}
+              className="text-slate-200 hover:text-[#a3e6be] transition-colors font-sans font-medium"
+            >
+              {BUSINESS_NAP.email}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Sticky Header */}
+      <header className="site-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+          {/* Zone 1: Brand Logo */}
+          <Link
+            to="/"
+            className="brand-logo flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-[#12582e]"
+            aria-label="South Florida Cleaning Concepts Home"
+          >
             <img
               src="/assets/images/logo/logo.svg"
               alt="South Florida Cleaning Concepts Logo"
-              width="160"
-              height="40"
-              className="h-10 w-auto object-contain"
+              width="112"
+              height="56"
+              className="h-12 sm:h-14 w-24 sm:w-28 object-contain"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="desktop-nav hidden lg:flex items-center gap-7" aria-label="Main Navigation">
-            <ul className="nav-list flex items-center gap-6 m-0 p-0 list-none font-medium text-slate-700 text-sm">
+          {/* Zone 2: Desktop Navigation */}
+          <nav className="desktop-nav hidden lg:flex items-center" aria-label="Main Navigation">
+            <ul className="nav-list flex items-center gap-7 m-0 p-0 list-none text-sm font-semibold text-slate-700">
               <li className="nav-item">
                 <Link
                   to="/"
-                  className={`nav-link hover:text-[#12582e] transition-colors py-2 ${isActive('/') && location.pathname === '/' ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/') && location.pathname === '/'
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   Home
                 </Link>
@@ -76,41 +125,78 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li className="nav-item">
                 <Link
                   to="/about-us"
-                  className={`nav-link hover:text-[#12582e] transition-colors py-2 ${isActive('/about-us') ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/about-us')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   About Us
                 </Link>
               </li>
 
-              {/* Services Dropdown */}
+              {/* Services Architectural Mega-Dropdown */}
               <li className="nav-item relative group">
                 <Link
                   to="/our-services"
-                  className={`nav-link flex items-center gap-1.5 hover:text-[#12582e] transition-colors py-2 ${isActive('/our-services') || isActive('/service') ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/our-services') || isActive('/service')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   <span>Services</span>
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#12582e]" />
                 </Link>
-                <div className="nav-dropdown absolute top-full left-0 w-72 bg-white rounded-xl shadow-xl border border-slate-100 py-3 hidden group-hover:block transition-all duration-200 z-50">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 px-4 py-1.5">
-                    Commercial & Residential
-                  </div>
-                  {SERVICES_CATALOG.map((svc) => (
-                    <Link
-                      key={svc.slug}
-                      to={`/service/${svc.slug}`}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-[#e8f5ee] hover:text-[#12582e] transition-colors"
-                    >
-                      {svc.title}
-                    </Link>
-                  ))}
-                  <div className="border-t border-slate-100 mt-2 pt-2">
-                    <Link
-                      to="/our-services"
-                      className="block px-4 py-2 text-sm font-bold text-[#12582e] hover:bg-[#e8f5ee] transition-colors"
-                    >
-                      View All Services →
-                    </Link>
+
+                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 overflow-hidden">
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                      <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+                        10 Specialized Cleaning Divisions · South Florida
+                      </span>
+                      <Link
+                        to="/our-services"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#12582e] hover:text-[#0d4222]"
+                      >
+                        <span>Full Catalog Overview</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {SERVICES_CATALOG.map((svc, idx) => (
+                        <Link
+                          key={svc.slug}
+                          to={`/service/${svc.slug}`}
+                          className="group/item flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
+                        >
+                          <span className="font-mono text-xs font-bold text-[#12582e]/70 group-hover/item:text-[#12582e] mt-0.5 tabular-nums">
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                          <div className="min-w-0">
+                            <div className="text-sm font-bold text-[#071536] group-hover/item:text-[#12582e] transition-colors truncate">
+                              {svc.title}
+                            </div>
+                            <div className="text-xs text-slate-500 truncate">
+                              {svc.shortDesc}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between bg-slate-50/70 -mx-5 -mb-5 px-5 py-3">
+                      <span className="text-xs text-slate-600 font-medium">
+                        Every service includes our <strong className="text-[#071536]">100% Satisfaction Guarantee</strong>
+                      </span>
+                      <Link
+                        to="/service"
+                        className="text-xs font-bold text-[#071536] hover:text-[#12582e] transition-colors"
+                      >
+                        Service Directory →
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -118,7 +204,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li className="nav-item">
                 <Link
                   to="/faqs"
-                  className={`nav-link hover:text-[#12582e] transition-colors py-2 ${isActive('/faqs') ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/faqs')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   FAQs
                 </Link>
@@ -126,7 +216,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li className="nav-item">
                 <Link
                   to="/our-publications"
-                  className={`nav-link hover:text-[#12582e] transition-colors py-2 ${isActive('/our-publications') || isActive('/blog') ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/our-publications') || isActive('/blog')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   Publications
                 </Link>
@@ -134,7 +228,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li className="nav-item">
                 <Link
                   to="/contact-us"
-                  className={`nav-link hover:text-[#12582e] transition-colors py-2 ${isActive('/contact-us') ? 'text-[#12582e] font-bold' : ''}`}
+                  className={`nav-link whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/contact-us')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
                 >
                   Contact
                 </Link>
@@ -142,11 +240,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
             </ul>
           </nav>
 
-          {/* Desktop CTA Buttons */}
-          <div className="header-cta hidden lg:flex items-center gap-4">
+          {/* Zone 3: Desktop CTA Actions */}
+          <div className="header-cta hidden lg:flex items-center gap-3 shrink-0">
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="btn btn-phone flex items-center gap-2 text-slate-800 hover:text-[#12582e] font-semibold text-sm py-2 px-3 rounded-lg border border-slate-200 hover:border-[#12582e] transition-colors"
+              className="btn btn-phone inline-flex items-center gap-2 text-[#071536] hover:text-[#12582e] bg-slate-50 hover:bg-slate-100 font-mono font-semibold text-sm py-2.5 px-3.5 rounded-xl border border-slate-200/90 transition-colors whitespace-nowrap shrink-0 tabular-nums"
               aria-label={`Call ${BUSINESS_NAP.phone}`}
             >
               <Phone className="w-4 h-4 text-[#12582e]" />
@@ -156,44 +254,37 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <button
                 type="button"
                 onClick={onOpenQuoteModal}
-                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold py-2.5 px-5 rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
+                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold py-2.5 px-5 rounded-xl shadow-xs hover:shadow-md transition-all duration-150 cursor-pointer whitespace-nowrap shrink-0"
               >
                 Free Quote
               </button>
             ) : (
               <Link
                 to="/contact-us"
-                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold py-2.5 px-5 rounded-lg shadow-sm hover:shadow transition-all duration-200"
+                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold py-2.5 px-5 rounded-xl shadow-xs hover:shadow-md transition-all duration-150 whitespace-nowrap shrink-0"
               >
                 Free Quote
               </Link>
             )}
           </div>
 
-          {/* Mobile Controls (Phone Call + Hamburger Toggle) */}
-          <div className="mobile-controls flex lg:hidden items-center gap-2">
+          {/* Mobile & Tablet Controls (< 1024px) */}
+          <div className="mobile-controls flex lg:hidden items-center gap-2.5">
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="mobile-call-btn w-12 h-12 flex items-center justify-center rounded-lg bg-[#e8f5ee] text-[#12582e] hover:bg-[#12582e] hover:text-white transition-colors"
+              className="mobile-call-btn w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl bg-[#e8f5ee] text-[#12582e] border border-[#12582e]/20 hover:bg-[#12582e] hover:text-white transition-colors"
               aria-label="Call South Florida Cleaning Concepts"
             >
               <Phone className="w-5 h-5" />
             </a>
             <button
               type="button"
-              className="mobile-nav-toggle w-12 h-12 flex items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              data-react-managed="true"
+              className="mobile-nav-toggle mobile-menu-toggle w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl border border-slate-200 bg-white text-[#071536] hover:bg-slate-50 transition-colors cursor-pointer"
               aria-expanded={drawerOpen}
               aria-controls="mobile-nav-drawer"
               aria-label="Toggle navigation menu"
-              onClick={(e) => {
-                const nextState = !drawerOpen;
-                setDrawerOpen(nextState);
-                const drawers = document.querySelectorAll('.mobile-nav-drawer');
-                drawers.forEach(d => d.classList.toggle('is-active', nextState));
-                const overlays = document.querySelectorAll('.mobile-nav-overlay');
-                overlays.forEach(o => o.classList.toggle('is-active', nextState));
-                e.currentTarget.setAttribute('aria-expanded', String(nextState));
-              }}
+              onClick={() => syncDrawerDom(!drawerOpen)}
             >
               {drawerOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -201,66 +292,56 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer & Overlay */}
+      {/* Mobile Navigation Drawer Overlay */}
       <div
-        className={`mobile-nav-overlay fixed inset-0 bg-black/50 z-50 backdrop-blur-xs transition-opacity duration-200 ${
-          drawerOpen ? 'is-active opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`mobile-nav-overlay fixed inset-0 bg-[#071536]/60 z-50 backdrop-blur-xs transition-opacity duration-200 ${
+          drawerOpen ? 'is-active is-open opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'
         }`}
         aria-hidden="true"
-        onClick={() => {
-          setDrawerOpen(false);
-          const drawers = document.querySelectorAll('.mobile-nav-drawer');
-          drawers.forEach(d => d.classList.remove('is-active'));
-          const overlays = document.querySelectorAll('.mobile-nav-overlay');
-          overlays.forEach(o => o.classList.remove('is-active'));
-          const toggles = document.querySelectorAll('.mobile-nav-toggle');
-          toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
-        }}
+        onClick={() => syncDrawerDom(false)}
       />
 
+      {/* Mobile Navigation Drawer */}
       <aside
         id="mobile-nav-drawer"
-        className={`mobile-nav-drawer fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out ${
-          drawerOpen ? 'translate-x-0 is-active' : 'translate-x-full'
+        className={`mobile-nav-drawer fixed top-0 right-0 w-80 max-w-[86vw] h-full bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out ${
+          drawerOpen ? 'translate-x-0 is-active is-open visible' : 'translate-x-full invisible'
         }`}
         aria-label="Mobile Navigation Drawer"
       >
         <div className="drawer-content overflow-y-auto flex-grow p-6">
-          <div className="drawer-header flex items-center justify-between pb-6 border-b border-slate-100">
-            <Link to="/" className="brand-logo" onClick={() => setDrawerOpen(false)} aria-label="South Florida Cleaning Concepts Home">
+          <div className="drawer-header flex items-center justify-between pb-5 border-b border-slate-200/80">
+            <Link
+              to="/"
+              className="brand-logo inline-flex items-center"
+              onClick={() => syncDrawerDom(false)}
+              aria-label="South Florida Cleaning Concepts Home"
+            >
               <img
                 src="/assets/images/logo/logo.svg"
                 alt="South Florida Cleaning Concepts Logo"
-                width="140"
-                height="35"
-                className="h-8 w-auto object-contain"
+                width="160"
+                height="80"
+                className="w-20 h-10 object-contain block"
               />
             </Link>
             <button
               type="button"
-              className="drawer-close-btn w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="drawer-close-btn w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl text-slate-500 hover:text-[#071536] hover:bg-slate-100 transition-colors cursor-pointer"
               aria-label="Close navigation menu"
-              onClick={() => {
-                setDrawerOpen(false);
-                const drawers = document.querySelectorAll('.mobile-nav-drawer');
-                drawers.forEach(d => d.classList.remove('is-active'));
-                const overlays = document.querySelectorAll('.mobile-nav-overlay');
-                overlays.forEach(o => o.classList.remove('is-active'));
-                const toggles = document.querySelectorAll('.mobile-nav-toggle');
-                toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
-              }}
+              onClick={() => syncDrawerDom(false)}
             >
               <X className="w-6 h-6" />
             </button>
           </div>
 
-          <nav className="drawer-nav mt-6">
-            <ul className="drawer-nav-list flex flex-col gap-2 list-none p-0 m-0 text-base font-semibold text-slate-800">
+          <nav className="drawer-nav mt-5" aria-label="Mobile Navigation">
+            <ul className="drawer-nav-list flex flex-col gap-1.5 list-none p-0 m-0 text-base font-bold text-[#071536]">
               <li>
                 <Link
                   to="/"
-                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
+                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                  onClick={() => syncDrawerDom(false)}
                 >
                   Home
                 </Link>
@@ -268,8 +349,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li>
                 <Link
                   to="/about-us"
-                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
+                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                  onClick={() => syncDrawerDom(false)}
                 >
                   About Us
                 </Link>
@@ -277,33 +358,33 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li>
                 <button
                   type="button"
-                  className="mobile-accordion-toggle w-full flex items-center justify-between min-h-[48px] py-3 px-4 rounded-lg hover:bg-slate-50 text-left font-semibold text-slate-800 cursor-pointer"
+                  className="mobile-accordion-toggle w-full flex items-center justify-between min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 text-left font-bold text-[#071536] cursor-pointer"
                   aria-expanded={servicesAccordionOpen}
                   onClick={(e) => {
                     const nextAcc = !servicesAccordionOpen;
                     setServicesAccordionOpen(nextAcc);
                     const contents = document.querySelectorAll('.mobile-accordion-content');
-                    contents.forEach(c => c.classList.toggle('is-open', nextAcc));
+                    contents.forEach((c) => c.classList.toggle('is-open', nextAcc));
                     e.currentTarget.setAttribute('aria-expanded', String(nextAcc));
                   }}
                 >
                   <span>Our Services</span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-transform duration-200 ${
-                      servicesAccordionOpen ? 'rotate-180' : ''
+                    className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
+                      servicesAccordionOpen ? 'rotate-180 text-[#12582e]' : ''
                     }`}
                   />
                 </button>
                 <ul
-                  className={`mobile-accordion-content pl-4 py-2 flex flex-col gap-1 list-none m-0 border-l-2 border-[#12582e]/20 ml-4 overflow-hidden transition-all duration-300 ${
-                    servicesAccordionOpen ? 'is-open max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                  className={`mobile-accordion-content pl-3 py-1.5 flex flex-col gap-1 list-none m-0 border-l border-slate-200 ml-4 overflow-hidden transition-all duration-200 ${
+                    servicesAccordionOpen ? 'is-open max-h-[1200px] opacity-100 block' : 'max-h-0 opacity-0 hidden'
                   }`}
                 >
                   <li>
                     <Link
                       to="/our-services"
-                      className="drawer_sub_link flex items-center min-h-[48px] py-2 px-3 text-sm font-bold text-[#12582e] hover:bg-[#e8f5ee] rounded-md transition-colors"
-                      onClick={() => setDrawerOpen(false)}
+                      className="drawer_sub_link flex items-center min-h-[48px] py-2.5 px-3 text-sm font-bold text-[#12582e] hover:bg-[#e8f5ee] rounded-lg transition-colors"
+                      onClick={() => syncDrawerDom(false)}
                     >
                       All Services Overview →
                     </Link>
@@ -312,8 +393,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                     <li key={svc.slug}>
                       <Link
                         to={`/service/${svc.slug}`}
-                        className="drawer_sub_link flex items-center min-h-[48px] py-2 px-3 text-sm text-slate-600 hover:text-[#12582e] hover:bg-slate-50 rounded-md transition-colors"
-                        onClick={() => setDrawerOpen(false)}
+                        className="drawer_sub_link flex items-center min-h-[48px] py-2.5 px-3 text-sm font-medium text-slate-600 hover:text-[#12582e] hover:bg-slate-50 rounded-lg transition-colors"
+                        onClick={() => syncDrawerDom(false)}
                       >
                         {svc.title}
                       </Link>
@@ -324,8 +405,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li>
                 <Link
                   to="/faqs"
-                  className="nav-link block py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
+                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                  onClick={() => syncDrawerDom(false)}
                 >
                   FAQs
                 </Link>
@@ -333,8 +414,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li>
                 <Link
                   to="/our-publications"
-                  className="nav-link block py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
+                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                  onClick={() => syncDrawerDom(false)}
                 >
                   Publications
                 </Link>
@@ -342,8 +423,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               <li>
                 <Link
                   to="/contact-us"
-                  className="nav-link block py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
+                  className="nav-link flex items-center min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                  onClick={() => syncDrawerDom(false)}
                 >
                   Contact Us
                 </Link>
@@ -352,30 +433,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           </nav>
         </div>
 
-        <div className="drawer-footer p-6 border-t border-slate-100 flex flex-col gap-3 bg-slate-50/50">
+        <div className="drawer-footer p-6 border-t border-slate-200/80 flex flex-col gap-3 bg-slate-50">
           <a
             href={`tel:${BUSINESS_NAP.phoneRaw}`}
-            className="btn btn-phone w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg border border-slate-300 font-bold text-slate-800 hover:bg-slate-100 transition-colors"
+            className="btn btn-phone w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 bg-white font-mono font-bold text-[#071536] hover:bg-slate-100 transition-colors tabular-nums"
           >
             <Phone className="w-4 h-4 text-[#12582e]" />
-            <span>Call (561) 704-5303</span>
+            <span>Call {BUSINESS_NAP.phone}</span>
           </a>
           {onOpenQuoteModal ? (
             <button
               type="button"
               onClick={() => {
-                setDrawerOpen(false);
+                syncDrawerDom(false);
                 onOpenQuoteModal();
               }}
-              className="btn btn-primary w-full py-3 px-4 rounded-lg bg-[#12582e] hover:bg-[#0d4222] font-bold text-white text-center shadow-sm transition-colors cursor-pointer"
+              className="btn btn-primary w-full min-h-[48px] py-3 px-4 rounded-xl bg-[#12582e] hover:bg-[#0d4222] font-bold text-white text-center shadow-xs transition-colors cursor-pointer"
             >
               Get Free Quote
             </button>
           ) : (
             <Link
               to="/contact-us"
-              className="btn btn-primary w-full py-3 px-4 rounded-lg bg-[#12582e] hover:bg-[#0d4222] font-bold text-white text-center shadow-sm transition-colors"
-              onClick={() => setDrawerOpen(false)}
+              className="btn btn-primary w-full min-h-[48px] py-3 px-4 rounded-xl bg-[#12582e] hover:bg-[#0d4222] font-bold text-white text-center shadow-xs transition-colors flex items-center justify-center"
+              onClick={() => syncDrawerDom(false)}
             >
               Get Free Quote
             </Link>

@@ -1,101 +1,138 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, ArrowRight, BookOpen, Sparkles } from 'lucide-react';
 import { BLOG_POSTS } from '../data/siteData';
+import { ArrowRight } from 'lucide-react';
 
 export const PublicationsPage: React.FC = () => {
+  const uniqueCategories = Array.from(new Set(BLOG_POSTS.map((p) => p.category)));
+  const categories: string[] = ['All Guides', ...uniqueCategories];
+  const [selectedCategory, setSelectedCategory] = useState<string>('All Guides');
+
+  const filteredPosts =
+    selectedCategory === 'All Guides'
+      ? BLOG_POSTS
+      : BLOG_POSTS.filter((post) => post.category === selectedCategory);
+
   return (
-    <article className="publications-page">
-      {/* Subpage Hero Header */}
-      <section className="page-hero relative bg-[#071536] text-white py-20 overflow-hidden" aria-label="Publications Header">
-        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            Our Publications &amp; Cleaning Guides
-          </h1>
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6">
-            Read professional cleaning guides, OSHA sanitation insights, and property maintenance advice from South Florida Cleaning Concepts.
-          </p>
-          <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-semibold text-slate-300" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span aria-current="page" className="text-[#a3e6be]">Publications</span>
-          </nav>
+    <div className="bg-[#f8fafc] min-h-screen">
+      {/* Subpage Hero */}
+      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/images/blog/blog-img-1.jpg"
+            alt="Our Publications - South Florida Cleaning Concepts"
+            className="w-full h-full object-cover opacity-20"
+            width="1920"
+            height="600"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07111a] via-[#07111a]/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl">
+            <div className="editorial-kicker-light mb-4">
+              Expert Guides & Field Insights
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
+              Our Publications &amp; Cleaning Guides
+            </h1>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Explore our library of {BLOG_POSTS.length} in-depth cleaning guides, sanitation protocols, and property maintenance checklists tailored for South Florida homes and businesses.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Publications Listing Grid */}
-      <section className="section py-20 bg-white" aria-labelledby="articles-heading">
+      {/* Filter Bar & Blog Grid */}
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8f5ee] text-[#12582e] text-xs font-bold uppercase tracking-wider mb-4">
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Expert Knowledge Base</span>
+          {/* Segmented Category Filter */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-10 border-b border-slate-200">
+            <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter publications by category">
+              {categories.map((cat) => {
+                const isActive = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
+                      isActive
+                        ? 'bg-[#0b1926] text-white shadow-sm'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-[#0b1926]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
             </div>
-            <h2 id="articles-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-4">
-              11 Educational Cleaning Articles &amp; Advice
-            </h2>
-            <p className="text-slate-600 text-base leading-relaxed">
-              Written by experienced commercial janitorial supervisors and residential estate specialists to help you preserve your property’s beauty and hygiene.
+            <p className="text-xs font-mono uppercase tracking-[0.12em] text-slate-500 tabular-nums">
+              Showing {filteredPosts.length} of {BLOG_POSTS.length} Publications
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((post) => (
+            {filteredPosts.map((post, idx) => (
               <article
                 key={post.slug}
-                className="blog-card group rounded-2xl overflow-hidden border border-slate-200/80 bg-white hover:shadow-xl hover:border-[#12582e]/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#2a8655]/40 transition-all duration-300 flex flex-col group"
               >
-                <div>
-                  <div className="relative h-52 overflow-hidden bg-slate-100">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      width="600"
-                      height="380"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 left-4 bg-[#071536]/80 backdrop-blur-xs text-white text-xs font-semibold px-3 py-1 rounded-full">
-                      {post.category}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-slate-400 mb-3">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{post.date}</span>
+                <Link to={`/blog/${post.slug}`} className="relative h-56 overflow-hidden block bg-slate-900">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    width="600"
+                    height="400"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07111a]/70 via-transparent to-transparent"></div>
+                  <span className="absolute bottom-3 left-4 font-mono text-xs font-bold text-white/90 tracking-widest tabular-nums">
+                    ARTICLE {String(idx + 1).padStart(2, '0')}
+                  </span>
+                </Link>
+
+                <div className="p-6 sm:p-7 flex-grow flex flex-col justify-between">
+                  <div>
+                    {/* Unboxed inline metadata separated by middot */}
+                    <div className="text-xs font-mono text-slate-500 mb-3 flex flex-wrap items-center gap-1.5">
+                      <span className="font-semibold text-[#2a8655] uppercase tracking-wider">
+                        {post.category}
                       </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{post.readTime}</span>
-                      </span>
+                      <span aria-hidden="true">·</span>
+                      <span>{post.date}</span>
+                      <span aria-hidden="true">·</span>
+                      <span className="tabular-nums">{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#071536] mb-3 group-hover:text-[#12582e] transition-colors line-clamp-2">
-                      <Link to={`/blog/${post.slug}`} className="hover:underline">
-                        {post.title}
-                      </Link>
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-6">
+
+                    <h2 className="text-xl font-extrabold text-[#0b1926] mb-3 group-hover:text-[#2a8655] transition-colors leading-snug">
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h2>
+
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
                       {post.summary}
                     </p>
                   </div>
-                </div>
 
-                <div className="p-6 pt-0">
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#12582e] group-hover:text-[#0d4222] transition-colors"
-                  >
-                    <span>Read Full Article</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0b1926] group-hover:text-[#2a8655] transition-colors"
+                    >
+                      Read Full Guide
+                      <ArrowRight className="w-4 h-4 text-[#2a8655] group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
-    </article>
+    </div>
   );
 };

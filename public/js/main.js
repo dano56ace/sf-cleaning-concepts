@@ -29,6 +29,7 @@ function initMobileNavigation() {
   const accordionContent = document.querySelector('.mobile-accordion-content');
 
   if (!toggleBtn || !drawer) return;
+  if (toggleBtn.getAttribute('data-react-managed') === 'true') return;
 
   function openDrawer() {
     toggleBtn.setAttribute('aria-expanded', 'true');
@@ -180,6 +181,7 @@ function initVideoModals() {
 function initLeadQuoteForm() {
   const form = document.getElementById('lead-quote-form') || document.getElementById('quote-form');
   if (!form) return;
+  if (form.getAttribute('data-react-managed') === 'true') return;
 
   const nameInput = form.querySelector('input[name="name"]') || form.querySelector('input[name="your-name"]');
   const emailInput = form.querySelector('input[name="email"]') || form.querySelector('input[name="your-email"]');

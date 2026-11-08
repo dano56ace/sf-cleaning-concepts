@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { FaqItem } from '../../data/siteData';
 
 interface FaqAccordionProps {
@@ -9,7 +9,7 @@ interface FaqAccordionProps {
 
 export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryFilters = true }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [openIndices, setOpenIndices] = useState<number[]>([0]); // Open first item by default
+  const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
   const toggleIndex = (idx: number) => {
     setOpenIndices((prev) =>
@@ -24,37 +24,46 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryF
 
   return (
     <div className="faq-accordion-container max-w-4xl mx-auto">
-      {/* Category Tabs */}
+      {/* Interactive Segmented Category Filter Controls */}
       {showCategoryFilters && (
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <div
+          className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-slate-100 rounded-xl border border-slate-200/80 mb-10 w-fit mx-auto"
+          role="tablist"
+          aria-label="Filter FAQs by category"
+        >
           {[
             { id: 'all', label: 'All FAQs' },
             { id: 'rotation', label: 'Rotation System' },
             { id: 'commercial', label: 'Commercial' },
             { id: 'residential', label: 'Residential' },
             { id: 'general', label: 'Policies & Staff' }
-          ].map((cat) => (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => {
-                setActiveCategory(cat.id);
-                setOpenIndices([0]);
-              }}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                activeCategory === cat.id
-                  ? 'bg-[#12582e] text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+          ].map((cat) => {
+            const isSelected = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  setOpenIndices([0]);
+                }}
+                className={`px-4 py-2.5 min-h-[44px] rounded-lg text-xs sm:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                  isSelected
+                    ? 'bg-[#071536] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#071536] hover:bg-white/60'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
         </div>
       )}
 
       {/* Accordion Items List */}
-      <div className="space-y-4">
+      <div className="space-y-3.5">
         {filteredItems.map((faq, idx) => {
           const isOpen = openIndices.includes(idx);
           const headingId = `faq-heading-${idx}`;
@@ -64,20 +73,24 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryF
             <div
               key={idx}
               className={`faq-item rounded-2xl border transition-all duration-200 overflow-hidden bg-white ${
-                isOpen ? 'border-[#12582e]/40 shadow-md ring-1 ring-[#12582e]/20' : 'border-slate-200 hover:border-slate-300'
+                isOpen
+                  ? 'border-[#12582e]/50 shadow-md'
+                  : 'border-slate-200/90 hover:border-slate-300'
               }`}
             >
-              <h3>
+              <h3 className="m-0">
                 <button
                   type="button"
                   id={headingId}
                   aria-expanded={isOpen}
                   aria-controls={contentId}
                   onClick={() => toggleIndex(idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-slate-900 text-base sm:text-lg hover:text-[#12582e] transition-colors cursor-pointer"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-[#071536] text-base sm:text-lg hover:text-[#12582e] transition-colors cursor-pointer"
                 >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#12582e] shrink-0" />
+                  <span className="flex items-start sm:items-center gap-3.5">
+                    <span className="font-mono text-xs font-bold text-[#12582e] mt-1 sm:mt-0 shrink-0 tabular-nums">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
                     <span>{faq.question}</span>
                   </span>
                   <ChevronDown
@@ -92,7 +105,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryF
                 role="region"
                 aria-labelledby={headingId}
                 hidden={!isOpen}
-                className="px-6 pb-6 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100/60"
+                className="px-6 pb-6 pt-2 pl-6 sm:pl-14 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100"
               >
                 {faq.answer}
               </div>

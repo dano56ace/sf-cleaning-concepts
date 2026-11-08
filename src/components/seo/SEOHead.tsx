@@ -6,8 +6,11 @@ export function SEOHead() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Clean trailing slashes except for root
-    const normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+    // Clean trailing slashes and .html extensions
+    let normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+    if (normalized === '/index.html') normalized = '/';
+    else if (normalized.endsWith('/index.html')) normalized = normalized.replace(/\/index\.html$/, '') || '/';
+    else if (normalized.endsWith('.html')) normalized = normalized.replace(/\.html$/, '');
     const meta = SEO_ROUTES_MAP[normalized] || SEO_ROUTES_MAP['/404'] || SEO_ROUTES_MAP['/'];
 
     if (meta) {

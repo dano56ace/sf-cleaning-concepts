@@ -2,8 +2,9 @@
 @import "../css/main.css";
 
 @theme inline {
-  --font-heading: 'Raleway', system-ui, -apple-system, sans-serif;
-  --font-body: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Raleway', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-brand-green: #12582e;
   --color-brand-green-hover: #0d4222;
@@ -21,51 +22,137 @@
   --color-brand-bg: #f8fafc;
 }
 
-:root {
-  --color-primary: #12582e;
-  --color-primary-hover: #0d4222;
-  --color-primary-light: #e8f5ee;
-  --color-accent: #61997a;
-  --color-navy: #071536;
-  --color-sky: #2680eb;
+@layer base {
+  :root {
+    --color-primary: #12582e;
+    --color-primary-hover: #0d4222;
+    --color-primary-light: #e8f5ee;
+    --color-accent: #61997a;
+    --color-navy: #071536;
+    --color-sky: #2680eb;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #f8fafc;
+    color: #334155;
+    overflow-x: hidden;
+    overflow-x: clip;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: #071536;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: var(--font-body);
+/* Architectural editorial kicker (unboxed, zero-pill discipline) */
+.editorial-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #12582e;
 }
 
-body {
-  font-family: var(--font-body);
-  background-color: #f8fafc;
-  color: #334155;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+.editorial-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: #12582e;
+  flex-shrink: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: #071536;
-  font-weight: 700;
+.editorial-kicker-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a3e6be;
 }
 
-/* Ensure all images scale fluidly with no overflow */
-img {
-  max-width: 100% !important;
-  height: auto;
+.editorial-kicker-light::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: #a3e6be;
+  flex-shrink: 0;
 }
 
-/* Mobile bottom bar visibility constraints */
-@media (min-width: 1024px) {
+/* Subtle architectural grid texture for dark executive sections */
+.bg-architectural-grid {
+  background-image: radial-gradient(rgba(163, 230, 190, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Ensure all images scale within their container without overriding Tailwind height utilities */
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile bottom bar visibility constraints (< 768px visible, >= 768px hidden) */
+@media (min-width: 768px) {
   .mobile-bottom-bar {
     display: none !important;
   }
 }
 
 @media (max-width: 767px) {
+  .mobile-bottom-bar {
+    display: flex !important;
+  }
   body {
-    padding-bottom: 72px;
+    padding-bottom: 76px;
+  }
+}
+
+/* Desktop vs Mobile Header Navigation visibility */
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .header-cta {
+    display: flex !important;
+  }
+  .mobile-controls {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .header-cta {
+    display: none !important;
+  }
+  .mobile-controls {
+    display: flex !important;
   }
 }
 
@@ -74,7 +161,7 @@ img {
   display: none !important;
 }
 
-/* Ensure mobile accordion sublinks meet touch target standard */
+/* Ensure mobile accordion sublinks meet 48x48px touch target standard */
 .mobile-accordion-content li a {
   display: flex !important;
   align-items: center !important;

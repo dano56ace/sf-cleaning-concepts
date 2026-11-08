@@ -129,7 +129,7 @@ async function prerenderAllRoutes() {
     <main id="main-content">
       <section class="hero-banner" style="overflow: hidden; position: relative;">
         <video autoplay muted playsinline loop poster="/assets/videos/bg_video_13.jpeg" width="1280" height="720" style="max-width: 100%; height: auto; object-fit: cover;">
-          <source src="/assets/videos/bg_video.mp4" type="video/mp4" />
+          <source src="/assets/videos/main-home-video-1.mp4" type="video/mp4" />
         </video>
         <div class="container">
           <h1>Commercial Cleaning - Pros | South Florida Cleaning Concepts</h1>
