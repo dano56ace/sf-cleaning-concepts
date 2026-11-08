@@ -29,7 +29,7 @@ export const ContactPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Form Column */}
-            <div className="lg:col-span-7">
+            <div id="quote" className="lg:col-span-7 scroll-mt-24">
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg">
                 <div className="mb-7 pb-5 border-b border-slate-100">
                   <div className="editorial-kicker mb-2">

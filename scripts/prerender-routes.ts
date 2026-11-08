@@ -3,6 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SEO_ROUTES_MAP } from '../src/data/seoRegistry';
 import { serviceAreas, serviceAreasBySlug } from '../src/data/serviceAreas';
+import { getBlogPostSchema } from '../src/data/blogSchemaData';
+import { writeLlmsFiles } from './generate-llms-docs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,11 +70,27 @@ function escapeHtml(str: string): string {
 }
 
 async function prerenderAllRoutes() {
+  // Generate and synchronize LLMs documentation
+  writeLlmsFiles();
+
   if (!fs.existsSync(BASE_TEMPLATE)) {
     throw new Error(`Compiled template ${BASE_TEMPLATE} not found. Run 'vite build' first.`);
   }
 
   const templateHtml = fs.readFileSync(BASE_TEMPLATE, 'utf-8');
+
+  // Build-time validation: Ensure Netlify Form registration exists in templateHtml
+  const requiredFormSignatures = [
+    'name="quote-request"',
+    'data-netlify="true"',
+    'data-netlify-honeypot="bot-field"'
+  ];
+  for (const sig of requiredFormSignatures) {
+    if (!templateHtml.includes(sig)) {
+      throw new Error(`[prerender-routes] Missing required Netlify form attribute in ${BASE_TEMPLATE}: ${sig}`);
+    }
+  }
+
   let generatedCount = 0;
 
   const standardHeader = `
@@ -85,6 +103,7 @@ async function prerenderAllRoutes() {
           <li><a href="/" class="nav-link">Home</a></li>
           <li><a href="/about-us" class="nav-link">About Us</a></li>
           <li><a href="/our-services" class="nav-link">Our Services</a></li>
+          <li><a href="/service" class="nav-link">Service Directory</a></li>
           <li><a href="/service-areas" class="nav-link">Service Areas</a></li>
           <li><a href="/faqs" class="nav-link">FAQs</a></li>
           <li><a href="/our-publications" class="nav-link">Publications</a></li>
@@ -98,12 +117,99 @@ async function prerenderAllRoutes() {
       </div>
     </header>`;
 
+  const staticGlobalCta = `
+    <section class="global-cta global-cta-section" data-testid="global-cta" aria-labelledby="global-cta-heading" style="position: relative; overflow: hidden; background: #071536; color: #ffffff; padding: 4.5rem 1rem; border-top: 1px solid rgba(51, 65, 85, 0.8);">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 10;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0.85rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.75rem; font-family: monospace; color: #cbd5e1;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #4fd18b;"></span>
+            <strong style="color: #ffffff;">Active Regional Dispatch:</strong>
+            <span style="color: #a3e6be;">Palm Beach · Broward · Miami-Dade (Jupiter to Miami)</span>
+          </div>
+          <span style="font-size: 0.75rem; font-family: monospace; color: #94a3b8;">
+            📍 Central Operations: Boynton Beach, FL 33435
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center; margin-bottom: 3.5rem;">
+          <div style="max-width: 650px;">
+            <div style="display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4fd18b; margin-bottom: 0.75rem;">
+              Commercial &amp; Residential Excellence · Tri-County Dispatch
+            </div>
+            <h2 id="global-cta-heading" style="font-size: 2.25rem; font-weight: 800; line-height: 1.15; color: #ffffff; margin-bottom: 1rem; letter-spacing: -0.02em;">
+              Ready for an Impeccably Clean Property?
+            </h2>
+            <p style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 0;">
+              Experience 20+ years of family-owned excellence. From clinical disinfection and corporate offices to luxury coastal estates, our bonded specialists deliver transparent rates and our ironclad 100% Satisfaction Guarantee.
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 2rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-family: monospace; font-size: 0.75rem;">
+              <span style="color: #a3e6be; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Fast Personalized Estimates</span>
+              <span style="color: #94a3b8;">✨ Zero Obligation</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <a href="/contact#quote" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 1.5rem; border-radius: 0.75rem; background: #12582e; color: #ffffff; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(18, 88, 46, 0.4); text-align: center;">
+                📄 Request Free Quote &rarr;
+              </a>
+              <a href="tel:+15617045303" class="btn btn-phone" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.85rem 1.5rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-family: monospace; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center;">
+                📞 Call Direct: (561) 704-5303
+              </a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.75rem;">
+              <a href="/our-services" style="color: #a3e6be; font-weight: 600; text-decoration: none;">Explore 10 Divisions &rarr;</a>
+              <a href="/service-areas" style="color: #cbd5e1; text-decoration: none;">All 56 Service Areas &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">🛡️</span>
+              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">01</span>
+            </div>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Licensed &amp; Insured</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">$2M+ commercial liability &amp; bonding across South Florida</p>
+          </div>
+
+          <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">⭐</span>
+              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">02</span>
+            </div>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">100% Satisfaction Guarantee</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">If you are not thrilled, we re-clean free or you do not pay</p>
+          </div>
+
+          <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">⚡</span>
+              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">03</span>
+            </div>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Same-Day Commercial Dispatch</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Rapid mobile crews for commercial facilities &amp; emergencies</p>
+          </div>
+
+          <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">🌿</span>
+              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">04</span>
+            </div>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Green Seal Certified Products</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Hospital-grade EPA List N bio-safe, eco-friendly chemistry</p>
+          </div>
+        </div>
+      </div>
+    </section>`;
+
   const standardFooter = `
     <footer class="site-footer">
       <div class="container">
         <p>&copy; 2026 South Florida Cleaning Concepts. All Rights Reserved. Licensed &amp; Insured Commercial &amp; Residential Cleaning Services in Palm Beach and Broward counties.</p>
         <p>Telephone: <a href="tel:5617045303">(561) 704-5303</a> | Email: <a href="mailto:Sflcleaningco@gmail.com">Sflcleaningco@gmail.com</a> | Headquarters: Boynton Beach, FL 33435</p>
-        <p><a href="/service-areas">Service Areas Directory</a> | <a href="/service-area/jupiter">Jupiter</a> | <a href="/service-area/boca-raton">Boca Raton</a> | <a href="/service-area/west-palm-beach">West Palm Beach</a> | <a href="/service-area/delray-beach">Delray Beach</a></p>
+        <p><a href="/service">All Services Directory</a> | <a href="/service-areas">Service Areas Directory</a> | <a href="/service-area/jupiter">Jupiter</a> | <a href="/service-area/boca-raton">Boca Raton</a> | <a href="/service-area/west-palm-beach">West Palm Beach</a> | <a href="/service-area/delray-beach">Delray Beach</a></p>
         <p><a href="/blog/complete-guide-to-home-cleaning">Home Cleaning</a> | <a href="/blog/deep-cleaning-for-homes-and-offices">Deep Cleaning</a> | <a href="/blog/medical-office-cleaning-guide">Medical Cleaning</a> | <a href="/blog/office-cleaning-made-easy">Office Cleaning</a> | <a href="/blog/post-construction-cleaning-guide">Post-Construction</a> | <a href="/blog/residential-cleaning-services-journey">Residential Journey</a> | <a href="/blog/restaurant-and-bar-cleaning-services">Restaurant Cleaning</a> | <a href="/blog/revitalize-your-office-space">Office Refresh</a> | <a href="/blog/short-term-rental-cleaning-guide">Airbnb Guide</a> | <a href="/blog/south-florida-home-maintenance-services">Home Maintenance</a> | <a href="/blog/high-quality-cleaning-services-south-florida">Quality Cleaning</a></p>
         <p><a href="/contact-us">Privacy &amp; Terms</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/robots.txt">Robots.txt</a></p>
       </div>
@@ -225,6 +331,33 @@ async function prerenderAllRoutes() {
         '@context': 'https://schema.org',
         '@graph': [
           {
+            '@type': ['CleaningService', 'LocalBusiness'],
+            '@id': 'https://sfcleaningconcepts.com/#localbusiness',
+            name: 'South Florida Cleaning Concepts',
+            image: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
+            telephone: '(561) 704-5303',
+            email: 'Sflcleaningco@gmail.com',
+            priceRange: '$',
+            url: 'https://sfcleaningconcepts.com/service-areas',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Boynton Beach',
+              addressRegion: 'FL',
+              postalCode: '33435',
+              addressCountry: 'US'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 26.5256,
+              longitude: -80.0664
+            },
+            areaServed: [
+              { '@type': 'AdministrativeArea', name: 'Palm Beach County' },
+              { '@type': 'AdministrativeArea', name: 'Broward County' },
+              { '@type': 'AdministrativeArea', name: 'Miami-Dade County' }
+            ]
+          },
+          {
             '@type': 'CollectionPage',
             '@id': 'https://sfcleaningconcepts.com/service-areas#webpage',
             name: 'South Florida Cleaning Concepts Service Areas Directory',
@@ -294,9 +427,10 @@ async function prerenderAllRoutes() {
               <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem;"><a href="/service-area/${area.slug}" style="color: #071536; text-decoration: none;">${area.name}, FL</a></h2>
               <div style="font-family: monospace; font-size: 0.75rem; color: #64748b; margin-bottom: 0.75rem;">${area.geo ? `${Number(area.geo.latitude).toFixed(4)}°N, ${Math.abs(Number(area.geo.longitude)).toFixed(4)}°W` : ''}</div>
               <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 1rem;">${escapeHtml(area.description.slice(0, 160))}...</p>
-              <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">
+              <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem;">
                 <strong>Neighborhoods:</strong> ${area.neighborhoods.slice(0, 3).join(', ')}
               </div>
+              ${area.stats ? `<div style="font-size: 0.75rem; font-family: monospace; color: #12582e; font-weight: 700; margin-bottom: 1rem;">Pop: ${escapeHtml(area.stats.population)} · Land: ${escapeHtml(area.stats.landArea)}</div>` : ''}
               <a href="/service-area/${area.slug}" style="display: inline-block; color: #12582e; font-weight: 700; font-size: 0.875rem; text-decoration: none;">Explore ${area.name} Services &rarr;</a>
             </article>`).join('')}
           </div>
@@ -321,6 +455,7 @@ async function prerenderAllRoutes() {
               description: area.description,
               provider: {
                 '@type': 'LocalBusiness',
+                '@id': 'https://sfcleaningconcepts.com/#localbusiness',
                 name: 'South Florida Cleaning Concepts',
                 telephone: '(561) 704-5303',
                 email: 'Sflcleaningco@gmail.com',
@@ -335,12 +470,62 @@ async function prerenderAllRoutes() {
               },
               areaServed: {
                 '@type': 'City',
-                name: `${area.name}, FL`,
+                name: area.name,
+                containedInPlace: {
+                  '@type': 'State',
+                  name: 'Florida'
+                },
                 geo: {
                   '@type': 'GeoCoordinates',
                   latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
                   longitude: area.geo ? Number(area.geo.longitude) : -80.0534
                 }
+              },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: `Commercial & Residential Cleaning Services in ${area.name}`,
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: `Commercial Office Cleaning in ${area.name}`,
+                      description: `Nightly janitorial care, day porter service, sanitized workstations, and HEPA floor care for ${area.name} corporate suites.`
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: `Medical Facility Disinfection in ${area.name}`,
+                      description: `OSHA and CDC-compliant terminal sanitization and EPA List N pathogen defense for clinics and dental practices in ${area.name}.`
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: `Airbnb & Vacation Rental Turnover in ${area.name}`,
+                      description: `Guaranteed same-day turnover windows (10 AM - 4 PM), hotel-grade staging, linen laundering, and restock reporting in ${area.name}.`
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: `Luxury Residential Maid Service in ${area.name}`,
+                      description: `Our exclusive 4-Phase Rotation Cleaning System defending ${area.name} estates against humidity, dust, and coastal salt air.`
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: `Post-Construction Cleanup in ${area.name}`,
+                      description: `3-phase rough, deep, and final polish cleaning for builders, architects, and luxury renovations throughout ${area.name}.`
+                    }
+                  }
+                ]
               }
             },
             {
@@ -350,7 +535,7 @@ async function prerenderAllRoutes() {
               image: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
               telephone: '(561) 704-5303',
               email: 'Sflcleaningco@gmail.com',
-              priceRange: '$$',
+              priceRange: '$',
               url: `https://sfcleaningconcepts.com/service-area/${area.slug}`,
               address: {
                 '@type': 'PostalAddress',
@@ -365,7 +550,16 @@ async function prerenderAllRoutes() {
               },
               areaServed: {
                 '@type': 'City',
-                name: `${area.name}, FL`
+                name: area.name,
+                containedInPlace: {
+                  '@type': 'State',
+                  name: 'Florida'
+                },
+                geo: {
+                  '@type': 'GeoCoordinates',
+                  latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
+                  longitude: area.geo ? Number(area.geo.longitude) : -80.0534
+                }
               },
               description: area.description
             },
@@ -476,6 +670,36 @@ async function prerenderAllRoutes() {
             ${area.neighborhoods.map((n) => `<span style="padding: 0.35rem 0.85rem; border-radius: 9999px; background: #e8f5ee; color: #12582e; font-size: 0.85rem; font-weight: 600;">${escapeHtml(n)}</span>`).join('')}
           </div>
 
+          ${area.stats ? `
+          <div class="community-stats-bar" style="margin-bottom: 2.5rem; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 1rem; background: #f8fafc;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #071536; margin: 0;">Executive Community Statistics · ${escapeHtml(area.name)}, FL</h3>
+              <span style="font-size: 0.75rem; font-family: monospace; text-transform: uppercase; color: #12582e; font-weight: 700;">U.S. Census &amp; Municipal Data</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff;">
+                <span style="font-size: 0.75rem; font-family: monospace; text-transform: uppercase; color: #64748b; display: block; margin-bottom: 0.25rem;">Population</span>
+                <strong style="font-size: 1.35rem; font-family: monospace; color: #071536;">${escapeHtml(area.stats.population)}</strong>
+              </div>
+              <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff;">
+                <span style="font-size: 0.75rem; font-family: monospace; text-transform: uppercase; color: #64748b; display: block; margin-bottom: 0.25rem;">Total Households</span>
+                <strong style="font-size: 1.35rem; font-family: monospace; color: #071536;">${escapeHtml(area.stats.households)}</strong>
+              </div>
+              <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff;">
+                <span style="font-size: 0.75rem; font-family: monospace; text-transform: uppercase; color: #12582e; display: block; margin-bottom: 0.25rem;">Land Area</span>
+                <strong style="font-size: 1.35rem; font-family: monospace; color: #12582e;">${escapeHtml(area.stats.landArea)}</strong>
+              </div>
+              <div style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff;">
+                <span style="font-size: 0.75rem; font-family: monospace; text-transform: uppercase; color: #64748b; display: block; margin-bottom: 0.25rem;">Economic Profile</span>
+                <span style="font-size: 0.85rem; font-weight: 600; color: #334155; line-height: 1.4; display: block;">${escapeHtml(area.stats.commercialGrowth)}</span>
+              </div>
+            </div>
+            ${area.stats.geographyType ? `
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b;">
+              <strong style="color: #334155;">Geographic Setting:</strong> ${escapeHtml(area.stats.geographyType)}
+            </div>` : ''}
+          </div>` : ''}
+
           ${area.keyCorridors && area.keyCorridors.length > 0 ? `
           <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: #071536;">Key Commercial &amp; Transit Corridors</h3>
           <p style="color: #475569; margin-bottom: 2rem;">${area.keyCorridors.join(' · ')}</p>` : ''}
@@ -559,8 +783,28 @@ async function prerenderAllRoutes() {
           </div>
 
           <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #071536;">Our Location &amp; Service Radius in ${area.name}, FL</h2>
-          <div class="map-embed" style="margin-bottom: 3rem; border-radius: 1rem; overflow: hidden; border: 1px solid #e2e8f0;">
-            <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(area.name + ', FL')}&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Google Map of ${area.name}, FL" width="100%" height="400" style="border:0;" loading="lazy"></iframe>
+          <div class="service-area-map map-embed" data-testid="service-area-map" aria-label="Interactive map of ${escapeHtml(area.name)}, Florida service area" style="margin-bottom: 3rem; border-radius: 1.5rem; overflow: hidden; border: 1px solid #e2e8f0; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+            <div style="padding: 0.85rem 1.25rem; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 0.5rem; background: rgba(18, 88, 46, 0.1); color: #12582e; font-size: 0.85rem;">📍</span>
+                <span style="font-weight: 700; color: #07111a;">${escapeHtml(area.name)}, Florida</span>
+                <span style="color: #94a3b8;">·</span>
+                <span style="color: #64748b; font-size: 0.8rem;">Service Area Coverage</span>
+              </div>
+              ${area.geo ? `
+              <span style="font-family: monospace; font-size: 0.75rem; color: #475569; background: #ffffff; padding: 0.25rem 0.6rem; border-radius: 0.375rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.04);">
+                🧭 ${Number(area.geo.latitude).toFixed(4)}° N, ${Math.abs(Number(area.geo.longitude)).toFixed(4)}° W
+              </span>` : ''}
+            </div>
+            <div class="relative w-full overflow-hidden bg-slate-100" style="position: relative; width: 100%; background: #f1f5f9;">
+              <div class="relative w-full aspect-[4/3] sm:aspect-video md:h-[340px]">
+                <iframe src="https://maps.google.com/maps?q=${encodeURIComponent(area.name + ', FL')}&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Interactive Google Map showing service area for ${escapeHtml(area.name)}, Florida" aria-label="Interactive Google Map showing service area for ${escapeHtml(area.name)}, Florida" class="absolute inset-0 w-full h-full border-0" style="border:0; display: block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div style="padding: 0.85rem 1.25rem; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; font-size: 0.8rem;">
+              <span style="color: #64748b; font-size: 0.8rem;">Immediate commercial &amp; residential cleaning dispatch throughout <strong style="color: #07111a;">${escapeHtml(area.name)}</strong></span>
+              <a href="https://maps.google.com/?q=${encodeURIComponent(area.name + ', FL')}" target="_blank" rel="noopener noreferrer" style="color: #12582e; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; background: #ecfdf5; padding: 0.4rem 0.85rem; border-radius: 0.5rem; border: 1px solid #a7f3d0;" aria-label="Open ${escapeHtml(area.name)}, FL in Google Maps (opens in new tab)">Open in Google Maps &rarr;</a>
+            </div>
           </div>
 
           <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #071536;">Explore Other South Florida Service Areas</h2>
@@ -571,6 +815,12 @@ async function prerenderAllRoutes() {
         </div>
       </section>
     </main>`;
+      }
+    } else if (route.path.startsWith('/blog/')) {
+      const slug = route.path.replace('/blog/', '');
+      const blogSchema = getBlogPostSchema(slug);
+      if (blogSchema) {
+        extractedSchema = JSON.stringify(blogSchema, null, 2);
       }
     }
 
@@ -594,7 +844,12 @@ async function prerenderAllRoutes() {
       `<link rel="canonical" href="${meta.canonical}" />`
     );
 
-    // 4. Replace Open Graph Title, Description, URL, Image
+    // 4. Replace Open Graph Title, Description, URL, Image, Type
+    const targetOgType = meta.ogType || (route.path.startsWith('/blog/') ? 'article' : 'website');
+    routeHtml = routeHtml.replace(
+      /<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/i,
+      `<meta property="og:type" content="${targetOgType}" />`
+    );
     routeHtml = routeHtml.replace(
       /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
       `<meta property="og:title" content="${escapeHtml(meta.title)}" />`
@@ -661,35 +916,36 @@ async function prerenderAllRoutes() {
       <nav class="drawer-nav">
         <ul class="drawer-nav-list">
           <li><a href="/" class="nav-link">Home</a></li>
-          <li><a href="/about-us.html" class="nav-link">About Us</a></li>
+          <li><a href="/about-us" class="nav-link">About Us</a></li>
           <li>
             <button type="button" class="mobile-accordion-toggle" aria-expanded="false">
               <span>Our Services</span>
               <svg class="dropdown-indicator" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
             </button>
             <ul class="mobile-accordion-content">
-              <li><a href="/service/office-cleaning.html" class="drawer_sub_link">Office Cleaning</a></li>
-              <li><a href="/service/medical-office-cleaning.html" class="drawer_sub_link">Medical Facilities</a></li>
-              <li><a href="/service/bars-and-restaurant-cleaning.html" class="drawer_sub_link">Bars &amp; Restaurants</a></li>
-              <li><a href="/service/short-term-rentals.html" class="drawer_sub_link">Short-Term Rentals</a></li>
-              <li><a href="/service/post-construction-cleaning.html" class="drawer_sub_link">Post-Construction</a></li>
-              <li><a href="/service/move-in-out-cleaning.html" class="drawer_sub_link">Move In / Move Out</a></li>
-              <li><a href="/service/home-maintenance.html" class="drawer_sub_link">Home Maintenance</a></li>
-              <li><a href="/service/school-cleaning.html" class="drawer_sub_link">School Cleaning</a></li>
-              <li><a href="/service/home-watching.html" class="drawer_sub_link">Home Watching</a></li>
-              <li><a href="/service/covid-19-disinfection.html" class="drawer_sub_link">COVID-19 Disinfection</a></li>
-              <li><a href="/our-services.html" class="drawer_sub_link" style="font-weight: 700;">All Services Overview →</a></li>
+              <li><a href="/service/office-cleaning" class="drawer_sub_link">Office Cleaning</a></li>
+              <li><a href="/service/medical-office-cleaning" class="drawer_sub_link">Medical Facilities</a></li>
+              <li><a href="/service/bars-and-restaurant-cleaning" class="drawer_sub_link">Bars &amp; Restaurants</a></li>
+              <li><a href="/service/short-term-rentals" class="drawer_sub_link">Short-Term Rentals</a></li>
+              <li><a href="/service/post-construction-cleaning" class="drawer_sub_link">Post-Construction</a></li>
+              <li><a href="/service/move-in-out-cleaning" class="drawer_sub_link">Move In / Move Out</a></li>
+              <li><a href="/service/home-maintenance" class="drawer_sub_link">Home Maintenance</a></li>
+              <li><a href="/service/school-cleaning" class="drawer_sub_link">School Cleaning</a></li>
+              <li><a href="/service/home-watching" class="drawer_sub_link">Home Watching</a></li>
+              <li><a href="/service/covid-19-disinfection" class="drawer_sub_link">COVID-19 Disinfection</a></li>
+              <li><a href="/service" class="drawer_sub_link" style="font-weight: 700;">Services Directory →</a></li>
+              <li><a href="/our-services" class="drawer_sub_link" style="font-weight: 700;">All Services Overview →</a></li>
             </ul>
           </li>
           <li><a href="/service-areas" class="nav-link">Service Areas (56)</a></li>
-          <li><a href="/faqs.html" class="nav-link">FAQs</a></li>
-          <li><a href="/our-publications.html" class="nav-link">Publications</a></li>
-          <li><a href="/contact-us.html" class="nav-link">Contact Us</a></li>
+          <li><a href="/faqs" class="nav-link">FAQs</a></li>
+          <li><a href="/our-publications" class="nav-link">Publications</a></li>
+          <li><a href="/contact-us" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
       <div class="drawer-footer">
         <a href="tel:5617045303" class="btn btn-phone" style="width: 100%;">📞 Call (561) 704-5303</a>
-        <a href="/contact-us.html" class="btn btn-primary" style="width: 100%;">⚡ Get Free Quote</a>
+        <a href="/contact-us" class="btn btn-primary" style="width: 100%;">⚡ Get Free Quote</a>
       </div>
     </aside>`;
 
@@ -699,6 +955,7 @@ async function prerenderAllRoutes() {
     ${extractedOverlay || '<div class="mobile-nav-overlay" aria-hidden="true"></div>'}
     ${extractedDrawer || defaultDrawer}
     ${extractedMain}
+    ${staticGlobalCta}
     <nav class="mobile-bottom-bar" aria-label="Quick Actions">
       <div class="bottom-bar-grid">
         <a href="tel:5617045303" class="bottom-bar-btn bottom-bar-call">Call Now</a>
@@ -725,6 +982,17 @@ async function prerenderAllRoutes() {
         }
       }
     }
+
+    // Ensure quote anchor target exists on contact-us page
+    if (route.path === '/contact-us' && !routeHtml.includes('id="quote"')) {
+      routeHtml = routeHtml.replace('class="quote-card-container"', 'id="quote" class="quote-card-container"');
+    }
+
+    // Sanitize internal links to strip .html extensions for clean canonical URLs
+    routeHtml = routeHtml.replace(/href="\/([^"#?]+)\.html([#?][^"]*)?"/gi, (match, p1, p2) => {
+      if (p1 === 'sitemap' || p1 === 'robots') return match;
+      return `href="/${p1}${p2 || ''}"`;
+    });
 
     // 8. Write static physical HTML files
     const clean = route.path.replace(/^\/+|\/+$/g, '');
@@ -756,7 +1024,27 @@ async function prerenderAllRoutes() {
       fs.writeFileSync(path.join(DIST_DIR, '404.html'), routeHtml, 'utf-8');
     }
 
+    // Generate /contact aliases to ensure zero 404s when navigating to /contact#quote
+    if (route.path === '/contact-us') {
+      const contactDir = path.join(DIST_DIR, 'contact');
+      if (!fs.existsSync(contactDir)) {
+        fs.mkdirSync(contactDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(contactDir, 'index.html'), routeHtml, 'utf-8');
+      fs.writeFileSync(path.join(DIST_DIR, 'contact.html'), routeHtml, 'utf-8');
+    }
+
     generatedCount++;
+  }
+
+  // Ensure public discovery and manifest files are mirrored to dist
+  const publicFilesToMirror = ['sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt'];
+  for (const file of publicFilesToMirror) {
+    const src = path.join(ROOT_DIR, 'public', file);
+    const dest = path.join(DIST_DIR, file);
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, dest);
+    }
   }
 
   console.log(`[prerender-routes] Generated ${generatedCount} static pre-rendered routes in dist/.`);

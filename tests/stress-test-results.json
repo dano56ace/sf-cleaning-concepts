@@ -4,6 +4,208 @@
   "totalEvaluations": 112,
   "overflowFailures": [
     {
+      "page": "/",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/about-us.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/about-us.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/about-us.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/about-us.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-services.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-services.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
       "page": "/our-services.html",
       "viewport": "Mobile_375",
       "width": 375,
@@ -25,6 +227,22 @@
           "rectRight": 502,
           "winWidth": 375,
           "overflowPx": 127
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -58,6 +276,358 @@
           "rectRight": 502,
           "winWidth": 320,
           "overflowPx": 182
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/contact-us.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/contact-us.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/contact-us.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/contact-us.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/faqs.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/faqs.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/faqs.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/faqs.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-publications.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-publications.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-publications.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/our-publications.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/service/index.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/service/index.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/service/index.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/service/index.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -75,6 +645,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -92,6 +670,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -109,6 +695,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -126,6 +728,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -143,6 +761,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -160,6 +786,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -177,6 +811,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -194,6 +844,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -211,6 +877,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -228,6 +902,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -245,6 +927,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -262,6 +960,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -279,6 +993,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -296,6 +1018,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -313,6 +1043,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -330,6 +1076,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -347,6 +1109,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -364,6 +1134,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -381,6 +1159,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -398,6 +1192,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -415,6 +1225,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -432,6 +1250,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -449,6 +1275,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -466,6 +1308,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -483,6 +1341,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -500,6 +1366,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -517,6 +1391,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -534,6 +1424,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -551,6 +1457,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -568,6 +1482,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -585,6 +1507,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -602,6 +1540,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -619,6 +1573,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -636,6 +1598,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -653,6 +1623,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -670,6 +1656,22 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     },
@@ -687,6 +1689,14 @@
           "rectRight": 1476,
           "winWidth": 1440,
           "overflowPx": 36
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
         }
       ]
     },
@@ -704,6 +1714,14 @@
           "rectRight": 787,
           "winWidth": 768,
           "overflowPx": 19
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
         }
       ]
     },
@@ -721,6 +1739,22 @@
           "rectRight": 384,
           "winWidth": 375,
           "overflowPx": 9
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
         }
       ]
     },
@@ -738,6 +1772,946 @@
           "rectRight": 328,
           "winWidth": 320,
           "overflowPx": 8
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/revitalize-your-office-space.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/revitalize-your-office-space.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/revitalize-your-office-space.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/revitalize-your-office-space.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/complete-guide-to-home-cleaning.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/complete-guide-to-home-cleaning.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/complete-guide-to-home-cleaning.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/complete-guide-to-home-cleaning.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/restaurant-and-bar-cleaning-services.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/restaurant-and-bar-cleaning-services.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/restaurant-and-bar-cleaning-services.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/restaurant-and-bar-cleaning-services.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/office-cleaning-made-easy.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/office-cleaning-made-easy.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/office-cleaning-made-easy.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/office-cleaning-made-easy.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/short-term-rental-cleaning-guide.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/short-term-rental-cleaning-guide.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/short-term-rental-cleaning-guide.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/short-term-rental-cleaning-guide.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/high-quality-cleaning-services-south-florida.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/high-quality-cleaning-services-south-florida.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/high-quality-cleaning-services-south-florida.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/high-quality-cleaning-services-south-florida.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/medical-office-cleaning-guide.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/medical-office-cleaning-guide.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/medical-office-cleaning-guide.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/medical-office-cleaning-guide.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/deep-cleaning-for-homes-and-offices.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/deep-cleaning-for-homes-and-offices.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/deep-cleaning-for-homes-and-offices.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/deep-cleaning-for-homes-and-offices.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/post-construction-cleaning-guide.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/post-construction-cleaning-guide.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/post-construction-cleaning-guide.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/post-construction-cleaning-guide.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/south-florida-home-maintenance-services.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/south-florida-home-maintenance-services.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/south-florida-home-maintenance-services.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/south-florida-home-maintenance-services.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/residential-cleaning-services-journey.html",
+      "viewport": "Desktop",
+      "width": 1440,
+      "docScroll": 1440,
+      "bodyScroll": 1440,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 1536,
+          "winWidth": 1440,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/residential-cleaning-services-journey.html",
+      "viewport": "Tablet",
+      "width": 768,
+      "docScroll": 768,
+      "bodyScroll": 768,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 864,
+          "winWidth": 768,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/residential-cleaning-services-journey.html",
+      "viewport": "Mobile_375",
+      "width": 375,
+      "docScroll": 375,
+      "bodyScroll": 375,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 538,
+          "winWidth": 375,
+          "overflowPx": 163
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 471,
+          "winWidth": 375,
+          "overflowPx": 96
+        }
+      ]
+    },
+    {
+      "page": "/blog/residential-cleaning-services-journey.html",
+      "viewport": "SmallMobile_320",
+      "width": 320,
+      "docScroll": 320,
+      "bodyScroll": 320,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "className": "absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#2a8655]/20 via-[#4fd18b]/10 to-transparent blur-3xl rounded-full",
+          "id": "",
+          "rectRight": 510,
+          "winWidth": 320,
+          "overflowPx": 190
+        },
+        {
+          "tag": "div",
+          "className": "absolute -top-24 -right-24 w-80 h-80 bg-[#2680eb]/15 rounded-full blur-3xl",
+          "id": "",
+          "rectRight": 416,
+          "winWidth": 320,
+          "overflowPx": 96
         }
       ]
     }
@@ -14627,7 +16601,7 @@
   "summary": {
     "totalPages": 28,
     "totalViewports": 4,
-    "overflowFailuresCount": 42,
+    "overflowFailuresCount": 112,
     "imageScalingFailuresCount": 40,
     "touchTargetFailuresCount": 84,
     "stickyBarFailuresCount": 0,

@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { ArrowRight, Compass, MapPin } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Compass, 
+  MapPin, 
+  Users, 
+  Home, 
+  Maximize2, 
+  TrendingUp, 
+  BarChart3 
+} from 'lucide-react';
 import type { ServiceAreaItem } from '../../data/serviceAreas';
 
 interface ServiceAreaLocalGuideProps {
@@ -27,38 +36,120 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
       aria-labelledby="local-guide-heading"
       className="py-16 sm:py-24 px-4 sm:px-6 md:px-12 bg-[#07111a] text-white border-b border-white/10"
     >
-      <div className="max-w-7xl mx-auto space-y-14">
+      <div className="max-w-7xl mx-auto space-y-12">
+        {/* Section Header: Category, Title & Geography Badge */}
+        <div className="space-y-4 max-w-4xl">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-[#4fd18b] font-medium tracking-wide">
+            <span>Regional Market Profile</span>
+            <span aria-hidden="true">·</span>
+            <span>{area.name}, Florida</span>
+            {area.stats?.geographyType && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span className="text-slate-300 font-normal">{area.stats.geographyType}</span>
+              </>
+            )}
+            {area.geo && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span className="font-mono tabular-nums text-white/60">
+                  {Number(area.geo.latitude).toFixed(4)}°N,{' '}
+                  {Math.abs(Number(area.geo.longitude)).toFixed(4)}°W
+                </span>
+              </>
+            )}
+          </div>
+
+          <h2
+            id="local-guide-heading"
+            className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white [text-wrap:balance]"
+          >
+            Inside the {area.name} Community, Commercial Landscape &amp; Property Standards
+          </h2>
+        </div>
+
+        {/* Executive Community Stats Bar (Full-Width Responsive 2x2 to 4-Col Grid) */}
+        {area.stats && (
+          <div
+            data-testid="service-area-stats"
+            className="p-5 sm:p-7 rounded-3xl bg-white/[0.04] border border-white/10 space-y-4 shadow-xl"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#4fd18b] font-semibold">
+                <BarChart3 className="w-4 h-4 text-[#4fd18b] shrink-0" />
+                <span>Executive Community Profile · {area.name}, FL</span>
+              </div>
+              <span className="text-[11px] text-slate-400 font-mono">Verified U.S. Census &amp; Municipal Data</span>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {/* Stat 1: Population */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1.5 hover:border-[#4fd18b]/30 transition-colors flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  <Users className="w-3.5 h-3.5 text-[#4fd18b] shrink-0" />
+                  <span>Population</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono tabular-nums">
+                  {area.stats.population}
+                </div>
+              </div>
+
+              {/* Stat 2: Households */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1.5 hover:border-[#4fd18b]/30 transition-colors flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  <Home className="w-3.5 h-3.5 text-[#4fd18b] shrink-0" />
+                  <span>Total Households</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono tabular-nums">
+                  {area.stats.households}
+                </div>
+              </div>
+
+              {/* Stat 3: Land Area */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1.5 hover:border-[#4fd18b]/30 transition-colors flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  <Maximize2 className="w-3.5 h-3.5 text-[#4fd18b] shrink-0" />
+                  <span>Land Area</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#4fd18b] font-mono tabular-nums">
+                  {area.stats.landArea}
+                </div>
+              </div>
+
+              {/* Stat 4: Economic Profile */}
+              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1.5 hover:border-[#4fd18b]/30 transition-colors flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                  <TrendingUp className="w-3.5 h-3.5 text-[#4fd18b] shrink-0" />
+                  <span>Economic Profile</span>
+                </div>
+                <div className="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+                  {area.stats.commercialGrowth}
+                </div>
+              </div>
+            </div>
+
+            {area.stats.geographyType && (
+              <div className="pt-2.5 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#4fd18b] shrink-0" />
+                  <span className="font-semibold text-slate-300">Geographic Setting:</span>
+                  <span>{area.stats.geographyType}</span>
+                </div>
+                <span className="hidden sm:inline-block font-mono text-[11px] text-slate-400">
+                  EPA List N Sanitation Available Across Entire Municipal Footprint
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Top Row: Extended Location Copy + Corridors & Top Industries */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#4fd18b] font-medium tracking-wide">
-                <span>Regional Market Profile</span>
-                <span aria-hidden="true">·</span>
-                <span>{area.name}, Florida</span>
-                {area.geo && (
-                  <>
-                    <span aria-hidden="true">·</span>
-                    <span className="font-mono tabular-nums text-white/60">
-                      {Number(area.geo.latitude).toFixed(4)}°N,{' '}
-                      {Math.abs(Number(area.geo.longitude)).toFixed(4)}°W
-                    </span>
-                  </>
-                )}
-              </div>
-
-              <h2
-                id="local-guide-heading"
-                className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white [text-wrap:balance]"
-              >
-                Inside the {area.name} Community, Commercial Landscape &amp; Property Standards
-              </h2>
-
-              <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed max-w-[72ch]">
-                {localCopy.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
+            <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed max-w-[72ch]">
+              {localCopy.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">

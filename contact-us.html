@@ -323,15 +323,18 @@
                 id="lead-quote-form"
                 name="quote-request"
                 method="POST"
-                action="/contact-us.html?success=true"
+                action="/"
                 data-netlify="true"
+                netlify
+                data-netlify-honeypot="bot-field"
                 netlify-honeypot="bot-field"
                 novalidate
                 class="lead-form"
               >
                 <input type="hidden" name="form-name" value="quote-request" />
+                <input type="hidden" name="source" value="Contact Us Static" />
                 <p class="bot-field-container" style="display:none;" aria-hidden="true">
-                  <label>Do not fill this out if you are human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+                  <label>Do not fill this out if you are human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
                 </p>
 
                 <!-- Field 1: Full Name -->

@@ -1,4 +1,50 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# South Florida Cleaning Concepts — Production Robots Policy
+# Canonical Host: https://sfcleaningconcepts.com
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Default Crawlers
 User-agent: *
 Allow: /
+Disallow: /404
+Disallow: /404.html
+Disallow: /_netlify/
+Disallow: /api/
 
+# Major Search Engine Crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Disallow: /404
+Disallow: /404.html
+Disallow: /_netlify/
+Disallow: /api/
+
+# Generative AI & LLM Search Agents
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Google-Extended
+User-agent: AnthropicAI
+User-agent: Claude-Web
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /404
+Disallow: /404.html
+Disallow: /_netlify/
+Disallow: /api/
+
+# Sitemaps & LLM Discovery (https://llmstxt.org)
 Sitemap: https://sfcleaningconcepts.com/sitemap.xml
+LLMs: https://sfcleaningconcepts.com/llms.txt
+Host: sfcleaningconcepts.com
+
+# LLM Structured Documentation
+# Markdown Summary: https://sfcleaningconcepts.com/llms.txt
+# Comprehensive Corpus: https://sfcleaningconcepts.com/llms-full.txt

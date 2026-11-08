@@ -7,7 +7,7 @@
 
   <!-- Primary SEO Title & Metadata -->
   <title>Commercial Cleaning - Pros | South Florida Cleaning Concepts</title>
-  <meta name="description" content="Premier commercial &amp; residential cleaning across South Florida. From medical offices to luxury homes in Palm Beach &amp; Broward. Call (561) 704-5303 for a quote." />
+  <meta name="description" content="Premier commercial &amp; residential cleaning across South Florida. Medical offices to luxury estates in Palm Beach &amp; Broward. Call (561) 704-5303." />
   <link rel="canonical" href="https://sfcleaningconcepts.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
@@ -41,6 +41,7 @@
 
   <!-- Discovery Links -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="alternate" type="text/markdown" href="https://sfcleaningconcepts.com/llms.txt" title="LLMs Context" />
 
   <!-- Open Graph Protocol -->
   <meta property="og:site_name" content="South Florida Cleaning Concepts" />
@@ -48,13 +49,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sfcleaningconcepts.com/" />
   <meta property="og:title" content="Commercial Cleaning - Pros | South Florida Cleaning Concepts" />
-  <meta property="og:description" content="Premier commercial &amp; residential cleaning across South Florida. From medical offices to luxury homes in Palm Beach &amp; Broward. Call (561) 704-5303 for a quote." />
+  <meta property="og:description" content="Premier commercial &amp; residential cleaning across South Florida. Medical offices to luxury estates in Palm Beach &amp; Broward. Call (561) 704-5303." />
   <meta property="og:image" content="https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Commercial Cleaning - Pros | South Florida Cleaning Concepts" />
-  <meta name="twitter:description" content="Premier commercial &amp; residential cleaning across South Florida. From medical offices to luxury homes in Palm Beach &amp; Broward. Call (561) 704-5303 for a quote." />
+  <meta name="twitter:description" content="Premier commercial &amp; residential cleaning across South Florida. Medical offices to luxury estates in Palm Beach &amp; Broward. Call (561) 704-5303." />
   <meta name="twitter:image" content="https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg" />
 
   <!-- JSON-LD Structured Data Graph for Homepage -->
@@ -143,14 +144,25 @@
 </head>
 <body>
   <!-- Netlify Build-Time Form Registration (hidden) -->
-  <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <form
+    name="quote-request"
+    method="POST"
+    action="/"
+    data-netlify="true"
+    netlify
+    data-netlify-honeypot="bot-field"
+    netlify-honeypot="bot-field"
+    hidden
+    style="display: none;"
+    aria-hidden="true"
+  >
     <input type="hidden" name="form-name" value="quote-request" />
+    <input type="hidden" name="bot-field" />
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="phone" />
     <textarea name="message"></textarea>
     <input type="text" name="source" />
-    <input type="text" name="bot-field" />
   </form>
 
   <!-- ROOT_START -->

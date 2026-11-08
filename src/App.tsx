@@ -4,6 +4,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
 import { QuoteModal } from './components/ui/QuoteModal';
+import { GlobalCTA } from './components/ui/GlobalCTA';
 import { SEOHead } from './components/seo/SEOHead';
 import { ScrollToTop } from './components/seo/ScrollToTop';
 
@@ -55,6 +56,8 @@ export function App() {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact-us" element={<ContactPage />} />
             <Route path="/contact-us.html" element={<ContactPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact.html" element={<ContactPage />} />
             <Route path="/faqs" element={<FaqsPage />} />
             <Route path="/faqs.html" element={<FaqsPage />} />
             <Route path="/404" element={<NotFoundPage />} />
@@ -63,6 +66,7 @@ export function App() {
           </Routes>
         </main>
 
+        <GlobalCTA onOpenQuoteModal={() => handleOpenQuoteModal('')} />
         <Footer />
         <MobileActionBar onOpenQuoteModal={() => handleOpenQuoteModal('')} />
 

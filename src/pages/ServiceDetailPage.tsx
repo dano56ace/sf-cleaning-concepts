@@ -260,6 +260,47 @@ export const ServiceDetailPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Regional Service Area Cross-Links */}
+      <section className="py-12 bg-slate-50 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.14em] text-[#2a8655] block mb-1">
+                Regional Service Coverage
+              </span>
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#071536]">
+                {exactH1} Available Across Palm Beach &amp; Broward
+              </h2>
+            </div>
+            <Link
+              to="/service-areas"
+              className="text-xs font-bold text-[#2a8655] hover:text-[#12582e] inline-flex items-center gap-1 whitespace-nowrap"
+            >
+              All 56 Florida Locations &rarr;
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            {[
+              { name: 'Jupiter', slug: 'jupiter' },
+              { name: 'Palm Beach Gardens', slug: 'palm-beach-gardens' },
+              { name: 'West Palm Beach', slug: 'west-palm-beach' },
+              { name: 'Wellington', slug: 'wellington' },
+              { name: 'Boynton Beach', slug: 'boynton-beach' },
+              { name: 'Delray Beach', slug: 'delray-beach' },
+              { name: 'Boca Raton', slug: 'boca-raton' }
+            ].map((city) => (
+              <Link
+                key={city.slug}
+                to={`/service-area/${city.slug}`}
+                className="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:text-[#12582e] hover:border-[#2a8655] transition-colors"
+              >
+                {exactH1} in {city.name}, FL
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Related Services Cross-Links */}
       <section className="py-16 lg:py-20 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

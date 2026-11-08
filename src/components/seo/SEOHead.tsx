@@ -45,10 +45,12 @@ export function SEOHead() {
         el.setAttribute('content', content);
       };
 
+      const targetOgType = meta.ogType || (pathname.startsWith('/blog/') ? 'article' : 'website');
       updateOg('og:title', meta.title);
       updateOg('og:description', meta.description);
       updateOg('og:url', meta.canonical);
       updateOg('og:image', meta.ogImage);
+      updateOg('og:type', targetOgType);
 
       // Update Twitter tags
       const updateTwitter = (name: string, content: string) => {
@@ -61,9 +63,25 @@ export function SEOHead() {
         el.setAttribute('content', content);
       };
 
+      updateTwitter('twitter:card', 'summary_large_image');
       updateTwitter('twitter:title', meta.title);
       updateTwitter('twitter:description', meta.description);
       updateTwitter('twitter:image', meta.ogImage);
+
+      // Update meta robots tag
+      let robotsEl = document.querySelector('meta[name="robots"]');
+      if (!robotsEl) {
+        robotsEl = document.createElement('meta');
+        robotsEl.setAttribute('name', 'robots');
+        document.head.appendChild(robotsEl);
+      }
+      const isErrorPage = meta.schemaType === 'ErrorPage' || normalized === '/404' || !SEO_ROUTES_MAP[normalized];
+      robotsEl.setAttribute(
+        'content',
+        isErrorPage
+          ? 'noindex, nofollow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      );
     }
   }, [pathname]);
 

@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-11-08T16:39:05.448Z",
+  "timestamp": "2026-11-08T21:42:55.585Z",
   "baseUrl": "http://localhost:4180",
   "summary": {
-    "total": 39,
-    "passed": 39,
+    "total": 56,
+    "passed": 56,
     "failed": 0,
     "pending": 0,
-    "durationSeconds": 0.07
+    "durationSeconds": 0.15
   },
   "results": [
     {
@@ -15,7 +15,7 @@
       "id": "T1.R1.1",
       "title": "11 Live Blog Articles Catalog Completeness & Accessibility",
       "status": "PASS",
-      "duration": 21,
+      "duration": 22,
       "message": "All 11 live blog articles accessible via clean /blog/:slug routes with HTTP 200"
     },
     {
@@ -24,7 +24,7 @@
       "id": "T1.R1.2",
       "title": "Blog Article Content, Semantic Structure & Typography",
       "status": "PASS",
-      "duration": 3,
+      "duration": 2,
       "message": "Blog articles contain semantic H1s and rich editorial text content"
     },
     {
@@ -51,7 +51,7 @@
       "id": "T1.R1.5",
       "title": "Blog Snippet Navigation & Publications Hub Cross-Linking",
       "status": "PASS",
-      "duration": 0,
+      "duration": 1,
       "message": "Homepage blog snippet successfully cross-links to /our-publications hub"
     },
     {
@@ -60,7 +60,7 @@
       "id": "T1.R1.6",
       "title": "Legacy WordPress 301 URL Preservation & Redirect Map",
       "status": "PASS",
-      "duration": 1,
+      "duration": 0,
       "message": "All 11 legacy WordPress URLs mapped to /blog/:slug with 301 redirects"
     },
     {
@@ -69,7 +69,7 @@
       "id": "T1.R2.1",
       "title": "Service Area Template Architecture & Modular Section Roster",
       "status": "PASS",
-      "duration": 0,
+      "duration": 1,
       "message": "Service area landing page renders complete modular structure for Jupiter"
     },
     {
@@ -78,7 +78,7 @@
       "id": "T1.R2.2",
       "title": "Localized Headings, City Metadata & Geo Coordinates",
       "status": "PASS",
-      "duration": 3,
+      "duration": 2,
       "message": "Localized headings, titles, and descriptions verified across sample cities"
     },
     {
@@ -87,7 +87,7 @@
       "id": "T1.R2.3",
       "title": "Localized Neighborhood Highlights & Commercial Transit Corridors",
       "status": "PASS",
-      "duration": 2,
+      "duration": 5,
       "message": "Authentic local neighborhoods & corridors verified across service areas"
     },
     {
@@ -105,7 +105,7 @@
       "id": "T1.R2.5",
       "title": "Specialized Cleaning Services Catalog Grid Adaptation",
       "status": "PASS",
-      "duration": 1,
+      "duration": 0,
       "message": "Cleaning services catalog properly adapted on service area landing page"
     },
     {
@@ -114,7 +114,7 @@
       "id": "T1.R2.6",
       "title": "Localized FAQ Accordion & Responsive Google Maps Embed",
       "status": "PASS",
-      "duration": 0,
+      "duration": 1,
       "message": "Responsive Google Maps embed and localized FAQs verified on Jupiter page"
     },
     {
@@ -123,8 +123,17 @@
       "id": "T1.R2.7",
       "title": "Service Areas Directory Index Page (/service-areas)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 0,
       "message": "/service-areas directory lists 116 localized service area destinations"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.8",
+      "title": "Multi-City Google Maps Embed Verification Across Representative Service Areas",
+      "status": "PASS",
+      "duration": 3,
+      "message": "Responsive Google Maps embeds verified across all 6 representative service areas (Jupiter, Boca Raton, West Palm Beach, Palm Beach Gardens, Delray Beach, Boynton Beach)"
     },
     {
       "tier": 1,
@@ -132,7 +141,7 @@
       "id": "T1.R3.1",
       "title": "Desktop Header Navigation Links & Primary Telephony CTA",
       "status": "PASS",
-      "duration": 0,
+      "duration": 1,
       "message": "Desktop header navigation contains phone CTA, services dropdown, and publications links"
     },
     {
@@ -141,7 +150,7 @@
       "id": "T1.R3.2",
       "title": "Mobile Drawer Navigation Structure & Toggle Accessibility",
       "status": "PASS",
-      "duration": 1,
+      "duration": 0,
       "message": "Mobile drawer navigation structure verified with accessible toggle controls"
     },
     {
@@ -159,8 +168,8 @@
       "id": "T1.R3.4",
       "title": "Zero Broken Internal Links Across Representative Routes",
       "status": "PASS",
-      "duration": 22,
-      "message": "Crawled 59 unique internal links with 0 broken 404 targets"
+      "duration": 14,
+      "message": "Crawled 35 unique internal links with 0 broken 404 targets"
     },
     {
       "tier": 1,
@@ -169,7 +178,16 @@
       "title": "Actionable CTA & Quote Modal Triggers Wiring",
       "status": "PASS",
       "duration": 0,
-      "message": "Actionable CTAs verified (5 tel links, quote action triggers present)"
+      "message": "Actionable CTAs verified (6 tel links, quote action triggers present)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.6",
+      "title": "Universal Global CTA Component & Telephony Preceding Footer",
+      "status": "PASS",
+      "duration": 6,
+      "message": "Universal Global CTA verified across 15 representative canonical routes with data-testid=\"global-cta\", direct telephony, and physical DOM precedence preceding <footer"
     },
     {
       "tier": 1,
@@ -195,7 +213,7 @@
       "id": "T1.R4.3",
       "title": "JSON-LD Schema Strict Syntax & Absence of Corruption",
       "status": "PASS",
-      "duration": 2,
+      "duration": 1,
       "message": "JSON-LD blocks validated strictly with 0 syntax errors or trailing commas"
     },
     {
@@ -213,8 +231,125 @@
       "id": "T1.R4.5",
       "title": "BreadcrumbList & FAQPage Schema Alignment",
       "status": "PASS",
-      "duration": 0,
+      "duration": 1,
       "message": "FAQPage schema validated with 7 structured question-answer entities"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.6",
+      "title": "BlogPosting & Article Schema Presence and Required Properties Across 11 Blog Routes",
+      "status": "PASS",
+      "duration": 4,
+      "message": "All 11 blog routes verified with valid BlogPosting/Article schema, headline, author, publisher, and datePublished"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.7",
+      "title": "CleaningService, LocalBusiness, AreaServed, GeoCoordinates & FAQPage Schema Across 56 Service Areas",
+      "status": "PASS",
+      "duration": 18,
+      "message": "All 56 service area routes validated with CleaningService/LocalBusiness schema, areaServed, GeoCoordinates, and FAQPage with >=3 structured questions"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.8",
+      "title": "Zero JSON-LD Parse Errors and Trailing Commas Across 100% of 86 Routes",
+      "status": "PASS",
+      "duration": 25,
+      "message": "100% zero JSON-LD parse errors and zero trailing commas confirmed across 85 schema blocks on all 86 canonical routes"
+    },
+    {
+      "tier": 1,
+      "milestone": "M5",
+      "id": "T1.R5.1",
+      "title": "Netlify Form Discovery & Required HTML Attributes Compliance",
+      "status": "PASS",
+      "duration": 2,
+      "message": "Netlify form attributes (name=\"quote-request\", method=\"POST\", data-netlify=\"true\", honeypot=\"bot-field\") verified across all representative routes"
+    },
+    {
+      "tier": 1,
+      "milestone": "M5",
+      "id": "T1.R5.2",
+      "title": "Form Hidden Inputs, Anti-Spam Honeypot Field & Explicit Field Names Integrity",
+      "status": "PASS",
+      "duration": 1,
+      "message": "All required form fields ([form-name, bot-field, name, email, phone, message]) and hidden form-name value validated successfully"
+    },
+    {
+      "tier": 1,
+      "milestone": "M5",
+      "id": "T1.R5.3",
+      "title": "Static Netlify Form Registration Parity Across 100% of 86 Prerendered Routes in dist/",
+      "status": "PASS",
+      "duration": 4,
+      "message": "100% static Netlify build-time form registration confirmed across all 86 prerendered routes in dist/"
+    },
+    {
+      "tier": 1,
+      "milestone": "M5",
+      "id": "T1.R5.4",
+      "title": "Client-Side Form Submission Simulation (application/x-www-form-urlencoded POST with form-name)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Form submission simulation succeeded with HTTP 200 (application/x-www-form-urlencoded payload accepted)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M5",
+      "id": "T1.R5.5",
+      "title": "Anti-Spam Honeypot Bot Field Concealment & Component Guard Defense",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Honeypot bot trap guard and visual/assistive concealment confirmed in QuoteForm.tsx"
+    },
+    {
+      "tier": 1,
+      "milestone": "M6",
+      "id": "T1.R6.1",
+      "title": "On-Page SEO Integrity Across 100% of Routes in dist/",
+      "status": "PASS",
+      "duration": 5,
+      "message": "100% of 86 routes pass on-page SEO verification (single H1, unique branded titles, valid descriptions, OG/Twitter tags)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M6",
+      "id": "T1.R6.2",
+      "title": "Canonical Tags & Robots Meta Policies Across All Routes in dist/",
+      "status": "PASS",
+      "duration": 5,
+      "message": "All 86 routes have compliant canonical tags and strict robots directives (index/follow on 85, noindex on /404)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M6",
+      "id": "T1.R6.3",
+      "title": "Sitemap.xml Existence, XML Schema Validity & 85 Indexable Routes Completeness",
+      "status": "PASS",
+      "duration": 0,
+      "message": "sitemap.xml is structurally valid with all 85 indexable routes, excluding /404, referenced in robots.txt"
+    },
+    {
+      "tier": 1,
+      "milestone": "M6",
+      "id": "T1.R6.4",
+      "title": "llms.txt Standard Compliance, 5 Service Divisions & 56 Service Areas Summary",
+      "status": "PASS",
+      "duration": 1,
+      "message": "public/llms.txt meets llmstxt.org standards (H1, blockquote, 5 divisions, 56 cities up to Jupiter, links)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M6",
+      "id": "T1.R6.5",
+      "title": "llms-full.txt Knowledge Base (5 Divisions SOPs, 56 Community Profiles & Stats)",
+      "status": "PASS",
+      "duration": 2,
+      "message": "public/llms-full.txt verified with comprehensive 5-division SOPs, 56 authentic community profiles & statistics"
     },
     {
       "tier": 2,
@@ -271,12 +406,30 @@
       "message": "JSON-LD blocks free of script breakout vulnerabilities"
     },
     {
+      "tier": 2,
+      "milestone": "M5",
+      "id": "T2.B.7",
+      "title": "Form Submission Boundary Defense (Malformed Payload & Missing form-name)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Server gracefully handled empty and non-matching form submissions without unhandled exceptions"
+    },
+    {
+      "tier": 2,
+      "milestone": "M6",
+      "id": "T2.B.8",
+      "title": "LLMs Context Head Discovery, Robots Directive & XML Syntax Boundary Defense",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Robots.txt LLMs directive, HTML head discovery link, and sitemap XML boundaries successfully verified"
+    },
+    {
       "tier": 3,
       "milestone": "M4",
       "id": "T3.C.1",
       "title": "Full Customer Navigation Funnel (Home -> Blog -> Footer -> City -> Quote)",
       "status": "PASS",
-      "duration": 2,
+      "duration": 3,
       "message": "End-to-end customer navigation funnel verified: Home -> Blog -> City -> Quote CTA"
     },
     {

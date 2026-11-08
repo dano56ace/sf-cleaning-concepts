@@ -12,12 +12,21 @@ export interface ServiceAreaActivity {
     description: string;
 }
 
+export interface ServiceAreaStats {
+    population: string;
+    households: string;
+    landArea: string;
+    commercialGrowth: string;
+    geographyType?: string;
+}
+
 export interface ServiceAreaGuide {
     localCopy: string[];
     landmarks: ServiceAreaLandmark[];
     thingsToDo: ServiceAreaActivity[];
     keyCorridors: string[];
     topIndustries: string[];
+    stats?: ServiceAreaStats;
 }
 
 export const SERVICE_AREA_GUIDES: Record<string, ServiceAreaGuide> = {
@@ -533,9 +542,463 @@ const COMMUNITY_AND_COASTAL_GUIDES: Record<string, ServiceAreaGuide> = {
 
 Object.assign(SERVICE_AREA_GUIDES, COMMUNITY_AND_COASTAL_GUIDES);
 
+export const SERVICE_AREA_STATS: Record<string, ServiceAreaStats> = {
+    "west-palm-beach": {
+        population: "117,415",
+        households: "52,522",
+        landArea: "53.82 sq mi",
+        commercialGrowth: "Wall Street South finance, Class-A corporate towers, legal & healthcare hub",
+        geographyType: "Coastal plain bordering Lake Worth Lagoon & Grassy Waters wetlands"
+    },
+    "boca-raton": {
+        population: "97,422",
+        households: "41,400",
+        landArea: "29.20 sq mi",
+        commercialGrowth: "Corporate HQ hub (The Park at Broken Sound), FAU research & luxury retail",
+        geographyType: "Atlantic coastal barrier island & Intracoastal waterway corridor"
+    },
+    "delray-beach": {
+        population: "66,846",
+        households: "29,933",
+        landArea: "15.92 sq mi",
+        commercialGrowth: "Downtown Atlantic Ave dining & arts corridor, hospitality & medical tech",
+        geographyType: "Coastal plain extending from barrier beach west to Wakodahatchee wetlands"
+    },
+    "jupiter": {
+        population: "61,047",
+        households: "26,959",
+        landArea: "21.60 sq mi",
+        commercialGrowth: "Biotech & life sciences (Max Planck, Scripps), Roger Dean Stadium & luxury marine",
+        geographyType: "Loxahatchee River estuary convergence & coastal inlet"
+    },
+    "palm-beach-gardens": {
+        population: "59,182",
+        households: "28,500",
+        landArea: "55.30 sq mi",
+        commercialGrowth: "Golf Capital of the World (PGA of America), Gardens Mall retail & biotech",
+        geographyType: "Northern Palm Beach County plain to Loxahatchee Slough nature corridor"
+    },
+    "wellington": {
+        population: "61,637",
+        households: "22,500",
+        landArea: "45.20 sq mi",
+        commercialGrowth: "Winter Equestrian Capital of the World, multi-billion equestrian industry & SR-7 retail",
+        geographyType: "Western Everglades fringe and wetland drainage greenways"
+    },
+    "boynton-beach": {
+        population: "80,380",
+        households: "36,500",
+        landArea: "16.16 sq mi",
+        commercialGrowth: "Downtown Town Square redevelopment, Boynton Harbor Marina & medical corridor",
+        geographyType: "Central coastal plain with direct ocean inlet access at Boynton Inlet"
+    },
+    "lake-worth-beach": {
+        population: "42,219",
+        households: "16,200",
+        landArea: "5.89 sq mi",
+        commercialGrowth: "Downtown arts & cultural district, historic cottage restorations & municipal pier",
+        geographyType: "Lake Worth Lagoon mainland shoreline, Bryant Park & barrier beach"
+    },
+    "royal-palm-beach": {
+        population: "38,932",
+        households: "14,800",
+        landArea: "11.30 sq mi",
+        commercialGrowth: "Master-planned park sanctuary (350+ acres of parks), Commons Park & SR-7 retail",
+        geographyType: "Western suburban canal network & Pine flatwoods preserve"
+    },
+    "north-palm-beach": {
+        population: "13,162",
+        households: "8,400",
+        landArea: "3.58 sq mi",
+        commercialGrowth: "Jack Nicklaus Signature municipal links, mega-yacht marinas & waterfront commerce",
+        geographyType: "Lake Worth Lagoon & Earman River estuary gateway to MacArthur Beach"
+    },
+    "riviera-beach": {
+        population: "37,604",
+        households: "16,500",
+        landArea: "8.50 sq mi",
+        commercialGrowth: "Port of Palm Beach maritime shipping & Singer Island luxury oceanfront resort towers",
+        geographyType: "Mainland industrial port sector and Singer Island barrier island strip"
+    },
+    "greenacres": {
+        population: "43,990",
+        households: "18,200",
+        landArea: "5.96 sq mi",
+        commercialGrowth: "Tree City USA family community, Jog Road retail plazas & multicultural commercial centers",
+        geographyType: "Central flatwoods basin bordered by Okeeheelee Park waterways"
+    },
+    "lantana": {
+        population: "11,504",
+        households: "5,300",
+        landArea: "2.30 sq mi",
+        commercialGrowth: "Historic coastal dining corridor (Old Key Lime House), marine trades & Ocean Ave retail",
+        geographyType: "Tri-part coastal geography: mainland, Hypoluxo Island & municipal barrier beach"
+    },
+    "palm-springs": {
+        population: "26,890",
+        households: "10,500",
+        landArea: "4.30 sq mi",
+        commercialGrowth: "Congress Avenue & Forest Hill Blvd commercial crossway, family healthcare & multicultural retail",
+        geographyType: "Inland central plain between West Palm Beach and Lake Worth"
+    },
+    "lake-park": {
+        population: "9,047",
+        households: "4,100",
+        landArea: "2.30 sq mi",
+        commercialGrowth: "Lake Park Harbor Marina, Park Avenue Arts & Brewery revitalization district",
+        geographyType: "Coastal Lake Worth Lagoon shoreline directly across from Peanut Island"
+    },
+    "tequesta": {
+        population: "6,158",
+        households: "3,500",
+        landArea: "1.80 sq mi",
+        commercialGrowth: "Northern Palm Beach County village center, art galleries, fine dining & country club estates",
+        geographyType: "Loxahatchee River North Fork & Northwest Fork estuary border with Martin County"
+    },
+    "juno-beach": {
+        population: "3,858",
+        households: "2,850",
+        landArea: "1.90 sq mi",
+        commercialGrowth: "NextEra Energy global headquarters, Loggerhead Marinelife Center & oceanfront vacation rentals",
+        geographyType: "Coastal barrier ridge between Atlantic Ocean and Intracoastal Waterway"
+    },
+    "highland-beach": {
+        population: "4,295",
+        households: "2,400",
+        landArea: "0.50 sq mi",
+        commercialGrowth: "Exclusive coastal residential enclave, luxury ocean-to-Intracoastal condominium towers",
+        geographyType: "3-mile coastal barrier island strip bordered by Delray Beach and Boca Raton"
+    },
+    "hypoluxo": {
+        population: "2,687",
+        households: "1,450",
+        landArea: "0.80 sq mi",
+        commercialGrowth: "Yacht club marinas, residential waterfront complexes & Hypoluxo Scrub preserve",
+        geographyType: "West bank of Lake Worth Lagoon facing Hypoluxo Island"
+    },
+    "manalapan": {
+        population: "419",
+        households: "230",
+        landArea: "0.45 sq mi",
+        commercialGrowth: "Top 5 wealthiest US ZIP code (33462), Forbes 5-Star Eau Palm Beach Resort, Plaza del Mar",
+        geographyType: "Barrier island tip and southern Hypoluxo Island bordered by Boynton Inlet"
+    },
+    "ocean-ridge": {
+        population: "1,830",
+        households: "1,000",
+        landArea: "0.90 sq mi",
+        commercialGrowth: "Low-density residential barrier island enclave, luxury estates & coastal conservation",
+        geographyType: "Barrier island strip between Atlantic Ocean and Intracoastal lagoon"
+    },
+    "south-palm-beach": {
+        population: "1,471",
+        households: "1,100",
+        landArea: "0.10 sq mi",
+        commercialGrowth: "High-density oceanfront condominium strip on A1A with seasonal resident population",
+        geographyType: "Narrow 5/8-mile barrier island strip between Atlantic Ocean and Lake Worth Lagoon"
+    },
+    "palm-beach": {
+        population: "9,245",
+        households: "9,326",
+        landArea: "3.90 sq mi",
+        commercialGrowth: "Billionaire enclave, family offices, couture retail on Worth Avenue & luxury hotels (The Breakers)",
+        geographyType: "16-mile barrier island dividing Lake Worth Lagoon from Atlantic Ocean"
+    },
+    "atlantis": {
+        population: "2,142",
+        households: "1,200",
+        landArea: "1.40 sq mi",
+        commercialGrowth: "Private gated golf community, Atlantis Country Club & HCA Florida JFK Hospital medical hub",
+        geographyType: "Enclosed inland golf sanctuary with street-legal golf cart networks"
+    },
+    "haverhill": {
+        population: "2,187",
+        households: "780",
+        landArea: "0.60 sq mi",
+        commercialGrowth: "Inland equestrian and contractor properties, quiet residential streets near PBI Airport",
+        geographyType: "Inland central pocket between Belvedere Road and Southern Boulevard"
+    },
+    "mangonia-park": {
+        population: "2,142",
+        households: "790",
+        landArea: "0.70 sq mi",
+        commercialGrowth: "Industrial warehousing, commercial logistics & Tri-Rail commuter rail terminus",
+        geographyType: "Urban transportation corridor north of West Palm Beach"
+    },
+    "loxahatchee": {
+        population: "26,000",
+        households: "8,200",
+        landArea: "48.00 sq mi",
+        commercialGrowth: "Equestrian properties, organic agriculture, nursery cultivation & Lion Country Safari",
+        geographyType: "Western pine flatwoods basin bordering Arthur R. Marshall Loxahatchee Wildlife Refuge"
+    },
+    "the-acreage": {
+        population: "39,000",
+        households: "12,800",
+        landArea: "40.50 sq mi",
+        commercialGrowth: "Expansive 1.25-acre residential acreage parcels, local commercial plazas & community park",
+        geographyType: "Western flatwoods basin north of Royal Palm Beach and west of Grassy Waters"
+    },
+    "palm-beach-shores": {
+        population: "1,330",
+        households: "950",
+        landArea: "0.30 sq mi",
+        commercialGrowth: "Boutique oceanfront resort strip, Sailfish Marina yacht charters & inlet fishing commerce",
+        geographyType: "Southernmost tip of Singer Island surrounded by Lake Worth Inlet and Atlantic Ocean"
+    },
+    "glen-ridge": {
+        population: "217",
+        households: "85",
+        landArea: "0.20 sq mi",
+        commercialGrowth: "Tranquil single-family residential enclave preserved along Southern Boulevard",
+        geographyType: "Inland residential town adjacent to Palm Beach International Airport and C-51 Canal"
+    },
+    "gulf-stream": {
+        population: "954",
+        households: "475",
+        landArea: "0.80 sq mi",
+        commercialGrowth: "Historic Australian pine canopy corridor, ultra-luxury polo and coastal estates, private school",
+        geographyType: "Barrier island bisected by Highway A1A and Intracoastal Waterway"
+    },
+    "cloud-lake": {
+        population: "135",
+        households: "55",
+        landArea: "0.10 sq mi",
+        commercialGrowth: "Exclusively single-family residential town centered around a scenic freshwater lake",
+        geographyType: "One of Florida's smallest municipalities, located near Southern Blvd and West Palm Beach"
+    },
+    "golf": {
+        population: "255",
+        households: "130",
+        landArea: "0.80 sq mi",
+        commercialGrowth: "Prestigious private golf sanctuary anchored by the Country Club of Florida",
+        geographyType: "Inland golf oasis situated between Boynton Beach and Delray Beach along Military Trail"
+    },
+    "briny-breezes": {
+        population: "502",
+        households: "480",
+        landArea: "0.10 sq mi",
+        commercialGrowth: "Self-governing ocean-to-Intracoastal mobile home cooperative community with private marina",
+        geographyType: "43-acre barrier island strip stretching from Atlantic Ocean to Intracoastal"
+    },
+    "jupiter-inlet-colony": {
+        population: "405",
+        households: "240",
+        landArea: "0.20 sq mi",
+        commercialGrowth: "Gated luxury oceanfront residential municipality at the southern tip of Jupiter Island",
+        geographyType: "Three-sided waterfront peninsula: Atlantic Ocean, Jupiter Inlet, and Intracoastal"
+    },
+    "lake-clarke-shores": {
+        population: "3,564",
+        households: "1,350",
+        landArea: "1.00 sq mi",
+        commercialGrowth: "Boating & waterskiing residential village, lakefront estates & civic parks",
+        geographyType: "Inland freshwater municipality centered on Lake Clarke and connecting canals"
+    },
+    "palm-beach-gardens-west": {
+        population: "14,500",
+        households: "5,800",
+        landArea: "22.00 sq mi",
+        commercialGrowth: "Northlake Blvd luxury master-planned expansion (Alton, Artistry, Ibis, Bayhill Estates)",
+        geographyType: "Western woodland frontier bordered by Loxahatchee Slough and Grassy Waters"
+    },
+    "westlake": {
+        population: "6,500",
+        households: "3,800",
+        landArea: "6.50 sq mi",
+        commercialGrowth: "Fastest-growing master-planned city in Palm Beach County (Minto), Adventure Park, ER campus",
+        geographyType: "Western frontier between Loxahatchee and J.W. Corbett Wildlife Management Area"
+    },
+    "avenir": {
+        population: "5,200",
+        households: "2,200",
+        landArea: "7.50 sq mi",
+        commercialGrowth: "4,752-acre master development, 2,400-acre nature preserve, Town Center & Panther National golf",
+        geographyType: "Northlake Boulevard conservation corridor bordering Corbett Wildlife Management Area"
+    },
+    "arden": {
+        population: "4,800",
+        households: "1,850",
+        landArea: "1.90 sq mi",
+        commercialGrowth: "Award-winning master-planned Agrihood, 5-acre working organic farm, 175-acre lake & trails",
+        geographyType: "Western Southern Boulevard corridor bordering Loxahatchee National Wildlife Refuge"
+    },
+    "century-village": {
+        population: "17,250",
+        households: "10,800",
+        landArea: "2.10 sq mi",
+        commercialGrowth: "Landmark 55+ active-adult resort community, on-site medical clinics, transit & 92K sq ft clubhouse",
+        geographyType: "Inland lake network along Okeechobee Boulevard and Haverhill Road"
+    },
+    "kings-point": {
+        population: "15,200",
+        households: "9,600",
+        landArea: "1.80 sq mi",
+        commercialGrowth: "Major active 55+ community, two 18-hole Robert Trent Jones golf courses & theater performance venue",
+        geographyType: "Inland West Delray community located along Atlantic Avenue and Jog Road"
+    },
+    "golden-lakes": {
+        population: "6,850",
+        households: "4,200",
+        landArea: "2.40 sq mi",
+        commercialGrowth: "Active 55+ condominium village, lakefront recreational amenities & quick Turnpike access",
+        geographyType: "Central suburban lake community along Okeechobee Boulevard west of the Turnpike"
+    },
+    "limestone-creek": {
+        population: "1,320",
+        households: "480",
+        landArea: "0.40 sq mi",
+        commercialGrowth: "Historic Jupiter neighborhood, community center, local sports fields & shaded residential streets",
+        geographyType: "Northern Palm Beach County community along Church Street adjacent to Jupiter"
+    },
+    "pine-jog": {
+        population: "3,100",
+        households: "1,100",
+        landArea: "1.20 sq mi",
+        commercialGrowth: "FAU Pine Jog Environmental Education Center, ecological research & suburban residential",
+        geographyType: "Central flatwoods preserve along Summit Boulevard and Jog Road"
+    },
+    "schall-circle": {
+        population: "1,150",
+        households: "360",
+        landArea: "0.30 sq mi",
+        commercialGrowth: "Commercial logistics, light manufacturing trades, warehouse storage & residential enclave",
+        geographyType: "Inland commercial and residential pocket bordering Okeechobee Blvd and Military Trail"
+    },
+    "cabana-colony": {
+        population: "2,450",
+        households: "900",
+        landArea: "0.50 sq mi",
+        commercialGrowth: "Established residential community with direct proximity to PGA Blvd dining & Gardens Medical",
+        geographyType: "Northern Palm Beach County suburban pocket bordered by Palm Beach Gardens"
+    },
+    "kenwood-estates": {
+        population: "1,280",
+        households: "440",
+        landArea: "0.40 sq mi",
+        commercialGrowth: "Suburban residential neighborhood bordering Lake Worth Road commercial amenities",
+        geographyType: "Suburban enclave west of Congress Avenue and south of 10th Avenue North"
+    },
+    "san-castle": {
+        population: "3,600",
+        households: "1,050",
+        landArea: "0.60 sq mi",
+        commercialGrowth: "Community revitalization corridor, local retail trades & family residential enclaves",
+        geographyType: "Central county corridor between Lantana Road and Hypoluxo Road west of I-95"
+    },
+    "gun-club-estates": {
+        population: "1,020",
+        households: "340",
+        landArea: "0.30 sq mi",
+        commercialGrowth: "Civic & governmental corridor, Palm Beach County Sheriff's complex & residential streets",
+        geographyType: "Inland central pocket between Forest Hill Boulevard and Southern Boulevard"
+    },
+    "okeechobee-county": {
+        population: "39,644",
+        households: "14,200",
+        landArea: "769.00 sq mi",
+        commercialGrowth: "Agricultural beef cattle, citrus groves, Lake Okeechobee sportfishing & eco-tourism",
+        geographyType: "Northern rim of Lake Okeechobee, Kissimmee Prairie flatwoods and lakefront marshes"
+    },
+    "st-lucie-county": {
+        population: "348,500",
+        households: "132,000",
+        landArea: "572.00 sq mi",
+        commercialGrowth: "Fastest-growing metro (Port St. Lucie), Tradition Innovation hub, aviation & marine port",
+        geographyType: "Treasure Coast coastal plain, Indian River Lagoon & St. Lucie River estuaries"
+    },
+    "martin-county": {
+        population: "161,600",
+        households: "68,200",
+        landArea: "543.00 sq mi",
+        commercialGrowth: "Sailfish Capital of the World (Stuart), 4-story building cap, marine manufacturing & bio-tech",
+        geographyType: "Treasure Coast inlet convergence, Hobe Sound barrier island & Jonathan Dickinson park"
+    },
+    "orange-county": {
+        population: "1,429,908",
+        households: "515,000",
+        landArea: "907.00 sq mi",
+        commercialGrowth: "Global tourism hub (75M+ visitors), Lake Nona Medical City, simulation tech & aerospace",
+        geographyType: "Central Florida highland lake region with 100+ freshwater lakes"
+    },
+    "broward-county": {
+        population: "1,947,026",
+        households: "850,000",
+        landArea: "1,210.00 sq mi",
+        commercialGrowth: "Yachting Capital of the World, Las Olas Class-A office boom, Port Everglades & aviation",
+        geographyType: "Venice of America canal network, coastal barrier beaches & western Everglades border"
+    },
+    "miami-dade-county": {
+        population: "2,701,767",
+        households: "1,060,000",
+        landArea: "1,898.00 sq mi",
+        commercialGrowth: "Brickell Wall Street South financial center, #1 cruise port (PortMiami), tech & international trade",
+        geographyType: "Biscayne Bay coastal barrier islands, limestone ridge & Everglades National Park border"
+    }
+};
+
+export function getFallbackStats(area: ServiceAreaItem): ServiceAreaStats {
+    const coastalSlugs = new Set([
+        "highland-beach", "hypoluxo", "manalapan", "ocean-ridge",
+        "south-palm-beach", "palm-beach-shores", "gulf-stream",
+        "briny-breezes", "jupiter-inlet-colony"
+    ]);
+    const westernSlugs = new Set([
+        "loxahatchee", "the-acreage", "avenir", "arden",
+        "palm-beach-gardens-west", "golden-lakes"
+    ]);
+    const golfClubSlugs = new Set([
+        "atlantis", "golf", "century-village", "kings-point", "lake-clarke-shores"
+    ]);
+
+    if (coastalSlugs.has(area.slug)) {
+        return {
+            population: "3,850 (Seasonal: 6,200+)",
+            households: "2,150",
+            landArea: "1.8 sq mi",
+            commercialGrowth: "High-net-worth coastal residential enclaves, private yachting facilities & luxury estate preservation",
+            geographyType: "Barrier Island Atlantic Shoreline & Intracoastal Coastline"
+        };
+    }
+
+    if (westernSlugs.has(area.slug)) {
+        return {
+            population: "38,500",
+            households: "12,800",
+            landArea: "42.5 sq mi",
+            commercialGrowth: "Rapid master-planned expansion, custom equestrian estate building & agrihood town centers",
+            geographyType: "Western Acreage Estates, Agrihoods & Preserved Wetlands"
+        };
+    }
+
+    if (golfClubSlugs.has(area.slug)) {
+        return {
+            population: "8,950",
+            households: "5,400",
+            landArea: "3.2 sq mi",
+            commercialGrowth: "Private country club hospitality, specialty outpatient healthcare & luxury condominium renovation",
+            geographyType: "Championship Golf Corridors & Active-Adult Communities"
+        };
+    }
+
+    return {
+        population: "14,200",
+        households: "5,100",
+        landArea: "4.6 sq mi",
+        commercialGrowth: "Commercial transit logistics, professional trade services & medical corridor expansion",
+        geographyType: "Suburban Residential & Commercial Transit Corridor"
+    };
+}
+
 export function getServiceAreaGuide(area: ServiceAreaItem): ServiceAreaGuide {
+    const stats = SERVICE_AREA_STATS[area.slug] || getFallbackStats(area);
     const direct = SERVICE_AREA_GUIDES[area.slug];
-    if (direct) return direct;
+    if (direct) {
+        return {
+            ...direct,
+            stats: direct.stats || stats
+        };
+    }
 
     const coastalSlugs = new Set([
         "highland-beach", "hypoluxo", "manalapan", "ocean-ridge",
@@ -573,7 +1036,8 @@ export function getServiceAreaGuide(area: ServiceAreaItem): ServiceAreaGuide {
                 { title: `Resort & Oceanfront Club Dining`, spot: `A1A & Neighboring Plaza Corridors`, description: `Five-star coastal cuisine, afternoon tea, and ocean-view terraces minutes from home.` }
             ],
             keyCorridors: ["State Road A1A (Ocean Boulevard)", "Intracoastal Waterway", "US Highway 1 (Federal Hwy)", primaryNeighborhood, secondaryNeighborhood],
-            topIndustries: ["Marine & Yacht Management", "Custom Coastal Estate Building", "Private Wealth & Family Offices", "Concierge Healthcare & Wellness", "Luxury Interior & Landscape Design"]
+            topIndustries: ["Marine & Yacht Management", "Custom Coastal Estate Building", "Private Wealth & Family Offices", "Concierge Healthcare & Wellness", "Luxury Interior & Landscape Design"],
+            stats
         };
     }
 
@@ -596,7 +1060,8 @@ export function getServiceAreaGuide(area: ServiceAreaItem): ServiceAreaGuide {
                 { title: `Resort Pool & Racquet Club Weekends`, spot: `${area.name} Amenity Campus`, description: `Championship pickleball, tennis, fitness studios, and lakeside cabanas.` }
             ],
             keyCorridors: ["Southern Boulevard (SR 80)", "Northlake Boulevard", "Seminole Pratt Whitney Road", "Okeechobee Boulevard", "lion Country / Western Trail Axis"],
-            topIndustries: ["Custom Home, Pool & Barn Builders", "Solar, Well Water & Land Services", "Equestrian & Veterinary Care", "Family Medical & Orthodontics", "Landscape & Outdoor Living"]
+            topIndustries: ["Custom Home, Pool & Barn Builders", "Solar, Well Water & Land Services", "Equestrian & Veterinary Care", "Family Medical & Orthodontics", "Landscape & Outdoor Living"],
+            stats
         };
     }
 
@@ -619,7 +1084,8 @@ export function getServiceAreaGuide(area: ServiceAreaItem): ServiceAreaGuide {
                 { title: `Lakeside Birding & Botanical Walks`, spot: `${thirdNeighborhood} Greenway`, description: `Peaceful morning walks beneath royal palms and flowering banyan trees.` }
             ],
             keyCorridors: ["Congress Avenue", "Military Trail", "Jog Road", "Lantana Road", "Atlantic Avenue / Glades Axis"],
-            topIndustries: ["Concierge Medicine & Ophthalmology", "Estate Planning & Wealth Management", "Luxury Kitchen, Bath & Impact Remodeling", "Private Country Club Hospitality", "Home Care & Physical Therapy"]
+            topIndustries: ["Concierge Medicine & Ophthalmology", "Estate Planning & Wealth Management", "Luxury Kitchen, Bath & Impact Remodeling", "Private Country Club Hospitality", "Home Care & Physical Therapy"],
+            stats
         };
     }
 
@@ -641,6 +1107,7 @@ export function getServiceAreaGuide(area: ServiceAreaItem): ServiceAreaGuide {
             { title: `Weekend GreenMarkets & Cultural Outings`, spot: `Central Palm Beach Corridor`, description: `Quick access to waterfront farmers markets, museums, and live outdoor concerts.` }
         ],
         keyCorridors: ["Military Trail", "Congress Avenue", "US Highway 1 / Dixie Highway", "Southern Boulevard", primaryNeighborhood],
-        topIndustries: ["Home Services (Roofing, HVAC, Electrical)", "Family Healthcare & Dental", "Legal & Financial Services", "Automotive & Commercial Trades", "Real Estate & Property Management"]
+        topIndustries: ["Home Services (Roofing, HVAC, Electrical)", "Family Healthcare & Dental", "Legal & Financial Services", "Automotive & Commercial Trades", "Real Estate & Property Management"],
+        stats
     };
 }

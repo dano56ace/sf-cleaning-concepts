@@ -81,21 +81,71 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
 
   const schemaGraph = {
     '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    '@id': 'https://sfcleaningconcepts.com/service-areas#collection',
-    name: 'Service Areas | South Florida Cleaning Concepts',
-    description: 'Complete directory of 56 South Florida service areas extending north through Jupiter served by South Florida Cleaning Concepts.',
-    url: 'https://sfcleaningconcepts.com/service-areas',
-    mainEntity: {
-      '@type': 'ItemList',
-      numberOfItems: serviceAreas.length,
-      itemListElement: serviceAreas.map((area, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        url: `https://sfcleaningconcepts.com/service-area/${area.slug}`,
-        name: `${area.name}, FL`
-      }))
-    }
+    '@graph': [
+      {
+        '@type': ['CleaningService', 'LocalBusiness'],
+        '@id': 'https://sfcleaningconcepts.com/#localbusiness',
+        name: 'South Florida Cleaning Concepts',
+        image: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
+        telephone: BUSINESS_NAP.phone,
+        email: BUSINESS_NAP.email,
+        priceRange: BUSINESS_NAP.priceRange,
+        url: 'https://sfcleaningconcepts.com/service-areas',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Boynton Beach',
+          addressRegion: 'FL',
+          postalCode: '33435',
+          addressCountry: 'US'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 26.5256,
+          longitude: -80.0664
+        },
+        areaServed: [
+          { '@type': 'AdministrativeArea', name: 'Palm Beach County' },
+          { '@type': 'AdministrativeArea', name: 'Broward County' },
+          { '@type': 'AdministrativeArea', name: 'Miami-Dade County' }
+        ]
+      },
+      {
+        '@type': 'CollectionPage',
+        '@id': 'https://sfcleaningconcepts.com/service-areas#webpage',
+        name: 'South Florida Cleaning Concepts Service Areas Directory',
+        description: 'Complete directory of 56 South Florida service areas extending north through Jupiter served by South Florida Cleaning Concepts.',
+        url: 'https://sfcleaningconcepts.com/service-areas',
+        mainEntity: {
+          '@type': 'ItemList',
+          name: 'South Florida Cleaning Concepts Service Locations',
+          numberOfItems: serviceAreas.length,
+          itemListElement: serviceAreas.map((area, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: `${area.name}, FL`,
+            url: `https://sfcleaningconcepts.com/service-area/${area.slug}`
+          }))
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://sfcleaningconcepts.com/service-areas#breadcrumb',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://sfcleaningconcepts.com/'
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Service Areas',
+            item: 'https://sfcleaningconcepts.com/service-areas'
+          }
+        ]
+      }
+    ]
   };
 
   return (

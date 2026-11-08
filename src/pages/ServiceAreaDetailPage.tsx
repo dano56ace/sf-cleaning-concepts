@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { serviceAreas, serviceAreasBySlug } from '../data/serviceAreas';
 import { ServiceAreaLocalGuide } from '../components/service-areas/ServiceAreaLocalGuide';
+import { ServiceAreaMap } from '../components/service-areas/ServiceAreaMap';
 import { QuoteModal } from '../components/ui/QuoteModal';
 import { BUSINESS_NAP } from '../data/siteData';
 
@@ -121,6 +122,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
         description: area.description,
         provider: {
           '@type': 'LocalBusiness',
+          '@id': 'https://sfcleaningconcepts.com/#localbusiness',
           name: 'South Florida Cleaning Concepts',
           telephone: BUSINESS_NAP.phone,
           email: BUSINESS_NAP.email,
@@ -135,12 +137,28 @@ export const ServiceAreaDetailPage: React.FC = () => {
         },
         areaServed: {
           '@type': 'City',
-          name: `${area.name}, FL`,
+          name: area.name,
+          containedInPlace: {
+            '@type': 'State',
+            name: 'Florida'
+          },
           geo: {
             '@type': 'GeoCoordinates',
             latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
             longitude: area.geo ? Number(area.geo.longitude) : -80.0534
           }
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `Commercial & Residential Cleaning Services in ${area.name}`,
+          itemListElement: divisions.map((division) => ({
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: division.title,
+              description: division.shortDesc
+            }
+          }))
         }
       },
       {
@@ -165,7 +183,16 @@ export const ServiceAreaDetailPage: React.FC = () => {
         },
         areaServed: {
           '@type': 'City',
-          name: `${area.name}, FL`
+          name: area.name,
+          containedInPlace: {
+            '@type': 'State',
+            name: 'Florida'
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
+            longitude: area.geo ? Number(area.geo.longitude) : -80.0534
+          }
         },
         description: area.description
       },
@@ -623,31 +650,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
 
           {/* Right Column: Google Maps & Direct Contact Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white">
-              <iframe
-                title={`${area.name}, FL Service Area Map`}
-                width="100%"
-                height="320"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  area.name + ', FL'
-                )}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
-              />
-              <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-                <span className="font-bold text-[#07111a] inline-flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#12582e]" /> {area.name}, Florida
-                </span>
-                {area.geo && (
-                  <span className="font-mono text-[11px] text-slate-500">
-                    {Number(area.geo.latitude).toFixed(4)}° N,{' '}
-                    {Math.abs(Number(area.geo.longitude)).toFixed(4)}° W
-                  </span>
-                )}
-              </div>
-            </div>
+            <ServiceAreaMap area={area} />
 
             <div className="p-8 rounded-3xl bg-[#07111a] text-white border border-white/10 space-y-5 shadow-xl">
               <div className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold text-[#4fd18b]">

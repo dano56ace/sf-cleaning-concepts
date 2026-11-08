@@ -28,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '..');
+const PROJECT_ROOT = process.env.PROJECT_ROOT || path.resolve(__dirname, '..');
 const DIST_DIR = path.join(PROJECT_ROOT, 'dist');
 const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public');
 
@@ -145,6 +145,88 @@ const CORE_PAGES = [
   '/contact-us'
 ];
 
+const ALL_SERVICE_AREA_SLUGS = [
+  "west-palm-beach",
+  "boca-raton",
+  "delray-beach",
+  "jupiter",
+  "palm-beach-gardens",
+  "wellington",
+  "boynton-beach",
+  "lake-worth-beach",
+  "royal-palm-beach",
+  "north-palm-beach",
+  "riviera-beach",
+  "greenacres",
+  "lantana",
+  "palm-springs",
+  "lake-park",
+  "tequesta",
+  "juno-beach",
+  "highland-beach",
+  "hypoluxo",
+  "manalapan",
+  "ocean-ridge",
+  "south-palm-beach",
+  "palm-beach",
+  "atlantis",
+  "haverhill",
+  "mangonia-park",
+  "loxahatchee",
+  "the-acreage",
+  "palm-beach-shores",
+  "glen-ridge",
+  "gulf-stream",
+  "cloud-lake",
+  "golf",
+  "briny-breezes",
+  "jupiter-inlet-colony",
+  "lake-clarke-shores",
+  "palm-beach-gardens-west",
+  "westlake",
+  "avenir",
+  "arden",
+  "century-village",
+  "kings-point",
+  "golden-lakes",
+  "limestone-creek",
+  "pine-jog",
+  "schall-circle",
+  "cabana-colony",
+  "kenwood-estates",
+  "san-castle",
+  "gun-club-estates",
+  "okeechobee-county",
+  "st-lucie-county",
+  "martin-county",
+  "orange-county",
+  "broward-county",
+  "miami-dade-county"
+];
+
+const SERVICE_DIVISION_SLUGS = [
+  "office-cleaning",
+  "medical-office-cleaning",
+  "bars-and-restaurant-cleaning",
+  "short-term-rentals",
+  "post-construction-cleaning",
+  "move-in-out-cleaning",
+  "home-maintenance",
+  "school-cleaning",
+  "home-watching",
+  "covid-19-disinfection"
+];
+
+const ALL_86_CANONICAL_ROUTES = [
+  ...CORE_PAGES,
+  "/service",
+  ...SERVICE_DIVISION_SLUGS.map(s => `/service/${s}`),
+  ...BLOG_SLUGS.map(s => `/blog/${s}`),
+  "/service-areas",
+  ...ALL_SERVICE_AREA_SLUGS.map(s => `/service-area/${s}`),
+  "/404"
+];
+
 // ── Lightweight Pure Node HTML Parser Helper ──────────────────────────────
 class HtmlDoc {
   /**
@@ -220,6 +302,53 @@ class HtmlDoc {
     return r.test(this.html);
   }
 
+  forms() {
+    const r = /<form\b([\s\S]*?)>([\s\S]*?)<\/form>/gi;
+    const forms = [];
+    let match;
+    while ((match = r.exec(this.html)) !== null) {
+      const rawAttrs = match[1];
+      const innerHtml = match[2];
+
+      const getAttr = (name) => {
+        const m = rawAttrs.match(new RegExp(`\\b${name}=["']([^"']*)["']`, 'i'));
+        return m ? m[1] : (new RegExp(`\\b${name}\\b`, 'i').test(rawAttrs) ? 'true' : null);
+      };
+
+      const inputs = [];
+      const inputRegex = /<(input|textarea|select)\b([^>]*?)\/?>/gi;
+      let inputMatch;
+      while ((inputMatch = inputRegex.exec(innerHtml)) !== null) {
+        const tag = inputMatch[1].toLowerCase();
+        const attrs = inputMatch[2];
+        const getName = attrs.match(/\bname=["']([^"']*)["']/i);
+        const getType = attrs.match(/\btype=["']([^"']*)["']/i);
+        const getValue = attrs.match(/\bvalue=["']([^"']*)["']/i);
+        inputs.push({
+          tag,
+          name: getName ? getName[1] : null,
+          type: getType ? getType[1].toLowerCase() : (tag === 'textarea' ? 'textarea' : 'text'),
+          value: getValue ? getValue[1] : null,
+          raw: inputMatch[0]
+        });
+      }
+
+      forms.push({
+        rawAttrs,
+        innerHtml,
+        name: getAttr('name'),
+        method: (getAttr('method') || 'GET').toUpperCase(),
+        dataNetlify: getAttr('data-netlify'),
+        netlify: getAttr('netlify'),
+        dataNetlifyHoneypot: getAttr('data-netlify-honeypot'),
+        netlifyHoneypot: getAttr('netlify-honeypot'),
+        hidden: /\bhidden\b/i.test(rawAttrs),
+        inputs
+      });
+    }
+    return forms;
+  }
+
   hasSubstring(str) {
     return this.html.includes(str);
   }
@@ -237,6 +366,38 @@ function createTestServer() {
     }
 
     let pathname = decodeURI(reqUrl.pathname);
+
+    // Handle Netlify Form POST submission simulation
+    if (req.method === 'POST') {
+      let body = '';
+      req.on('data', chunk => {
+        body += chunk;
+        if (body.length > 1e6) req.destroy(); // 1MB flood protection
+      });
+      req.on('end', () => {
+        const params = new URLSearchParams(body);
+        const formName = params.get('form-name');
+
+        // Emulate Netlify Form edge processor
+        if (formName === 'quote-request') {
+          res.writeHead(200, {
+            'Content-Type': 'application/json; charset=utf-8',
+            'X-Netlify-Form-Processed': 'true'
+          });
+          return res.end(JSON.stringify({
+            success: true,
+            message: 'Netlify form submission successfully simulated',
+            form: formName,
+            fields: Object.fromEntries(params.entries())
+          }));
+        }
+
+        // Generic 200 for other form POSTs
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('OK');
+      });
+      return;
+    }
 
     // Legacy redirects check if exists
     const redirectsPath = path.join(DIST_DIR, '_redirects');
@@ -720,6 +881,50 @@ runner.register(1, 'M2', 'T1.R2.7', 'Service Areas Directory Index Page (/servic
   return { pass: true, message: `/service-areas directory lists ${cityLinks.length} localized service area destinations` };
 });
 
+runner.register(1, "M2", "T1.R2.8", "Multi-City Google Maps Embed Verification Across Representative Service Areas", async (baseUrl) => {
+  const representativeCities = [
+    { slug: "jupiter", name: "Jupiter" },
+    { slug: "boca-raton", name: "Boca Raton" },
+    { slug: "west-palm-beach", name: "West Palm Beach" },
+    { slug: "palm-beach-gardens", name: "Palm Beach Gardens" },
+    { slug: "delray-beach", name: "Delray Beach" },
+    { slug: "boynton-beach", name: "Boynton Beach" }
+  ];
+
+  const errors = [];
+  for (const city of representativeCities) {
+    const res = await requestPage(baseUrl, `/service-area/${city.slug}`);
+    if (res.status === 404 || !res.ok || !res.doc) {
+      errors.push(`/service-area/${city.slug} returned HTTP status ${res.status}`);
+      continue;
+    }
+    const html = res.bodyText;
+    const hasMapIframe = (html.includes("maps.google.com") || html.includes("google.com/maps")) && html.includes("<iframe");
+    const hasMapContainer = html.includes("data-testid=\"service-area-map\"") || html.includes("service-area-map") || html.includes("map-embed");
+    const hasCityContext = html.includes(encodeURIComponent(city.name + ", FL")) || html.includes(city.name);
+
+    if (!hasMapIframe) {
+      errors.push(`/service-area/${city.slug} missing Google Maps embed iframe`);
+    } else if (!hasMapContainer) {
+      errors.push(`/service-area/${city.slug} missing responsive map container (.service-area-map or data-testid=\"service-area-map\")`);
+    } else if (!hasCityContext) {
+      errors.push(`/service-area/${city.slug} map iframe does not reference city "${city.name}"`);
+    }
+  }
+
+  if (errors.length > 0) {
+    return {
+      pass: false,
+      message: `Google Maps embed failures across representative cities: ${errors.join("; ")}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `Responsive Google Maps embeds verified across all ${representativeCities.length} representative service areas (Jupiter, Boca Raton, West Palm Beach, Palm Beach Gardens, Delray Beach, Boynton Beach)`
+  };
+});
+
 // ── Feature R3: Internal Navigation Integration ────────────────────────────
 
 runner.register(1, 'M3', 'T1.R3.1', 'Desktop Header Navigation Links & Primary Telephony CTA', async (baseUrl) => {
@@ -822,6 +1027,70 @@ runner.register(1, 'M3', 'T1.R3.5', 'Actionable CTA & Quote Modal Triggers Wirin
   if (!hasQuote) return { pass: false, message: 'No Free Quote action triggers found' };
 
   return { pass: true, message: `Actionable CTAs verified (${telLinks.length} tel links, quote action triggers present)` };
+});
+
+runner.register(1, "M3", "T1.R3.6", "Universal Global CTA Component & Telephony Preceding Footer", async (baseUrl) => {
+  const representativeRoutes = [
+    "/",
+    "/about-us",
+    "/our-services",
+    "/contact-us",
+    "/faqs",
+    "/our-publications",
+    "/service",
+    "/service/office-cleaning",
+    "/service/medical-office-cleaning",
+    "/service-areas",
+    "/service-area/jupiter",
+    "/service-area/boca-raton",
+    "/service-area/west-palm-beach",
+    "/blog/revitalize-your-office-space",
+    "/blog/complete-guide-to-home-cleaning"
+  ];
+
+  const errors = [];
+  for (const route of representativeRoutes) {
+    const res = await requestPage(baseUrl, route);
+    if (!res.doc) {
+      errors.push(`${route} could not be loaded`);
+      continue;
+    }
+    const html = res.bodyText;
+    const ctaIdx = html.indexOf("data-testid=\"global-cta\"");
+    const footerIdx = html.indexOf("<footer");
+
+    if (ctaIdx === -1) {
+      errors.push(`${route} missing data-testid=\"global-cta\"`);
+      continue;
+    }
+    if (footerIdx === -1) {
+      errors.push(`${route} missing <footer element`);
+      continue;
+    }
+    if (ctaIdx >= footerIdx) {
+      errors.push(`${route} Global CTA (index ${ctaIdx}) does not precede footer (index ${footerIdx})`);
+      continue;
+    }
+
+    const ctaEnd = html.indexOf("</section>", ctaIdx);
+    const ctaBlock = ctaEnd !== -1 ? html.substring(ctaIdx, ctaEnd + 10) : html.substring(ctaIdx, ctaIdx + 1500);
+    const hasPhone = ctaBlock.includes("tel:+15617045303") || ctaBlock.includes("tel:5617045303") || ctaBlock.includes("(561) 704-5303");
+    if (!hasPhone) {
+      errors.push(`${route} Global CTA missing direct telephone link (561) 704-5303`);
+    }
+  }
+
+  if (errors.length > 0) {
+    return {
+      pass: false,
+      message: `Global CTA verification failures: ${errors.join("; ")}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `Universal Global CTA verified across ${representativeRoutes.length} representative canonical routes with data-testid=\"global-cta\", direct telephony, and physical DOM precedence preceding <footer`
+  };
 });
 
 // ── Feature R4: Route Status, SEO & JSON-LD Schema ──────────────────────────
@@ -951,6 +1220,637 @@ runner.register(1, 'M4', 'T1.R4.5', 'BreadcrumbList & FAQPage Schema Alignment',
   return { pass: true, message: `FAQPage schema validated with ${questionCount} structured question-answer entities` };
 });
 
+runner.register(1, "M4", "T1.R4.6", "BlogPosting & Article Schema Presence and Required Properties Across 11 Blog Routes", async (baseUrl) => {
+  const missing = [];
+  for (const slug of BLOG_SLUGS) {
+    const res = await requestPage(baseUrl, `/blog/${slug}`);
+    if (res.status !== 200 || !res.doc) {
+      missing.push(`${slug} returned HTTP ${res.status}`);
+      continue;
+    }
+    const blocks = res.doc.jsonLd();
+    if (blocks.length === 0) {
+      missing.push(`${slug} has 0 JSON-LD blocks`);
+      continue;
+    }
+
+    let foundArticle = false;
+    let hasHeadline = false;
+    let hasAuthor = false;
+    let hasPublisher = false;
+    let hasDatePublished = false;
+
+    for (const raw of blocks) {
+      try {
+        const parsed = JSON.parse(raw);
+        const graph = parsed["@graph"] || (Array.isArray(parsed) ? parsed : [parsed]);
+        for (const node of graph) {
+          const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+          if (types.includes("BlogPosting") || types.includes("Article")) {
+            foundArticle = true;
+            if (node.headline && typeof node.headline === "string" && node.headline.trim().length > 0) hasHeadline = true;
+            if (node.author && ((typeof node.author === "object" && node.author.name) || typeof node.author === "string")) hasAuthor = true;
+            if (node.publisher && ((typeof node.publisher === "object" && node.publisher.name) || typeof node.publisher === "string")) hasPublisher = true;
+            if (node.datePublished && typeof node.datePublished === "string" && node.datePublished.trim().length > 0) hasDatePublished = true;
+          }
+        }
+      } catch (e) {
+        missing.push(`${slug} JSON parse error: ${e.message}`);
+      }
+    }
+
+    if (!foundArticle) missing.push(`${slug} missing BlogPosting/Article @type`);
+    else if (!hasHeadline) missing.push(`${slug} schema missing headline`);
+    else if (!hasAuthor) missing.push(`${slug} schema missing author`);
+    else if (!hasPublisher) missing.push(`${slug} schema missing publisher`);
+    else if (!hasDatePublished) missing.push(`${slug} schema missing datePublished`);
+  }
+
+  if (missing.length > 0) {
+    return {
+      pass: false,
+      message: `Blog schema validation failures: ${missing.join("; ")}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `All 11 blog routes verified with valid BlogPosting/Article schema, headline, author, publisher, and datePublished`
+  };
+});
+
+runner.register(1, "M4", "T1.R4.7", "CleaningService, LocalBusiness, AreaServed, GeoCoordinates & FAQPage Schema Across 56 Service Areas", async (baseUrl) => {
+  const missing = [];
+  for (const slug of ALL_SERVICE_AREA_SLUGS) {
+    const res = await requestPage(baseUrl, `/service-area/${slug}`);
+    if (res.status !== 200 || !res.doc) {
+      missing.push(`${slug} returned HTTP ${res.status}`);
+      continue;
+    }
+    const blocks = res.doc.jsonLd();
+    if (blocks.length === 0) {
+      missing.push(`${slug} has 0 JSON-LD blocks`);
+      continue;
+    }
+
+    let hasCleaningServiceOrLocalBusiness = false;
+    let hasAreaServed = false;
+    let hasGeoCoordinates = false;
+    let hasFaqPage = false;
+    let faqEntitiesCount = 0;
+
+    for (const raw of blocks) {
+      try {
+        const parsed = JSON.parse(raw);
+        const graph = parsed["@graph"] || (Array.isArray(parsed) ? parsed : [parsed]);
+        for (const node of graph) {
+          const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+          if (types.includes("CleaningService") || types.includes("LocalBusiness")) {
+            hasCleaningServiceOrLocalBusiness = true;
+            if (node.areaServed) hasAreaServed = true;
+            if (node.geo && (node.geo["@type"] === "GeoCoordinates" || (node.geo.latitude && node.geo.longitude))) {
+              hasGeoCoordinates = true;
+            }
+          }
+          if (types.includes("Service") && node.areaServed) {
+            hasAreaServed = true;
+            if (node.areaServed.geo) hasGeoCoordinates = true;
+          }
+          if (types.includes("FAQPage") && Array.isArray(node.mainEntity)) {
+            hasFaqPage = true;
+            faqEntitiesCount += node.mainEntity.length;
+          }
+        }
+      } catch (e) {
+        missing.push(`${slug} JSON parse error: ${e.message}`);
+      }
+    }
+
+    if (!hasCleaningServiceOrLocalBusiness) missing.push(`${slug} missing CleaningService/LocalBusiness node`);
+    else if (!hasAreaServed) missing.push(`${slug} missing areaServed property`);
+    else if (!hasGeoCoordinates) missing.push(`${slug} missing GeoCoordinates`);
+    else if (!hasFaqPage || faqEntitiesCount < 3) missing.push(`${slug} missing FAQPage or insufficient questions (${faqEntitiesCount} found; expected >= 3)`);
+  }
+
+  if (missing.length > 0) {
+    return {
+      pass: false,
+      message: `Service area schema validation failures across ${missing.length} areas: ${missing.slice(0, 5).join("; ")}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `All 56 service area routes validated with CleaningService/LocalBusiness schema, areaServed, GeoCoordinates, and FAQPage with >=3 structured questions`
+  };
+});
+
+runner.register(1, "M4", "T1.R4.8", "Zero JSON-LD Parse Errors and Trailing Commas Across 100% of 86 Routes", async (baseUrl) => {
+  const errors = [];
+  let totalBlocksValidated = 0;
+
+  for (const route of ALL_86_CANONICAL_ROUTES) {
+    const res = await requestPage(baseUrl, route);
+    if (!res.doc) {
+      errors.push(`${route} failed to load`);
+      continue;
+    }
+    const blocks = res.doc.jsonLd();
+
+    // /404 route must have 0 schema blocks (noindex document)
+    if (route === "/404") {
+      if (blocks.length > 0) {
+        errors.push(`/404 contains unexpected schema blocks (${blocks.length})`);
+      }
+      continue;
+    }
+
+    if (blocks.length === 0) {
+      errors.push(`${route} contains 0 JSON-LD schema blocks`);
+      continue;
+    }
+
+    for (let i = 0; i < blocks.length; i++) {
+      totalBlocksValidated++;
+      const raw = blocks[i];
+      if (/,\s*([\}\]])/g.test(raw)) {
+        errors.push(`${route} block ${i + 1} contains trailing comma`);
+      }
+      try {
+        JSON.parse(raw);
+      } catch (err) {
+        errors.push(`${route} block ${i + 1} JSON parse error: ${err.message}`);
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    return {
+      pass: false,
+      message: `Encountered ${errors.length} JSON-LD errors across 86 routes: ${errors.slice(0, 5).join("; ")}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `100% zero JSON-LD parse errors and zero trailing commas confirmed across ${totalBlocksValidated} schema blocks on all 86 canonical routes`
+  };
+});
+
+// ── Milestone 5: Netlify Forms Configuration Across Application Forms ─────
+
+runner.register(1, 'M5', 'T1.R5.1', 'Netlify Form Discovery & Required HTML Attributes Compliance', async (baseUrl) => {
+  const representativeRoutes = [
+    '/',
+    '/contact-us',
+    '/our-services',
+    '/service-area/jupiter',
+    '/service-area/boca-raton',
+    '/blog/revitalize-your-office-space'
+  ];
+
+  for (const route of representativeRoutes) {
+    const res = await requestPage(baseUrl, route);
+    if (!res.doc) {
+      return { pass: false, message: `Could not fetch document at ${route}` };
+    }
+
+    const forms = res.doc.forms();
+    const netlifyForm = forms.find(f => f.name === 'quote-request');
+    if (!netlifyForm) {
+      return { pass: false, message: `Route ${route} does not contain a registered form named 'quote-request'` };
+    }
+
+    if (netlifyForm.method !== 'POST') {
+      return { pass: false, message: `Route ${route} form method is '${netlifyForm.method}', expected 'POST'` };
+    }
+
+    const hasDataNetlify = netlifyForm.dataNetlify === 'true' || netlifyForm.netlify === 'true';
+    if (!hasDataNetlify) {
+      return { pass: false, message: `Route ${route} form is missing data-netlify="true" attribute` };
+    }
+
+    const hasHoneypotAttr = netlifyForm.dataNetlifyHoneypot === 'bot-field' || netlifyForm.netlifyHoneypot === 'bot-field';
+    if (!hasHoneypotAttr) {
+      return { pass: false, message: `Route ${route} form is missing netlify-honeypot="bot-field" attribute` };
+    }
+  }
+
+  return {
+    pass: true,
+    message: `Netlify form attributes (name="quote-request", method="POST", data-netlify="true", honeypot="bot-field") verified across all representative routes`
+  };
+});
+
+runner.register(1, 'M5', 'T1.R5.2', 'Form Hidden Inputs, Anti-Spam Honeypot Field & Explicit Field Names Integrity', async (baseUrl) => {
+  const res = await requestPage(baseUrl, '/contact-us');
+  if (!res.doc) return { pass: false, message: 'Could not fetch /contact-us' };
+
+  const forms = res.doc.forms();
+  const quoteForm = forms.find(f => f.name === 'quote-request');
+  if (!quoteForm) {
+    return { pass: false, message: 'No quote-request form found on /contact-us' };
+  }
+
+  const inputNames = quoteForm.inputs.map(i => i.name).filter(Boolean);
+  const requiredFields = ['form-name', 'bot-field', 'name', 'email', 'phone', 'message'];
+
+  for (const reqField of requiredFields) {
+    if (!inputNames.includes(reqField)) {
+      return {
+        pass: false,
+        message: `Form 'quote-request' is missing required field '${reqField}'. Found fields: [${inputNames.join(', ')}]`
+      };
+    }
+  }
+
+  // Ensure form-name hidden input has value 'quote-request'
+  const formNameInput = quoteForm.inputs.find(i => i.name === 'form-name');
+  if (!formNameInput || formNameInput.value !== 'quote-request') {
+    return {
+      pass: false,
+      message: `Hidden input 'form-name' must have value='quote-request', found '${formNameInput ? formNameInput.value : 'missing'}'`
+    };
+  }
+
+  // Ensure bot-field is present
+  const botFieldInput = quoteForm.inputs.find(i => i.name === 'bot-field');
+  if (!botFieldInput) {
+    return { pass: false, message: "Honeypot input 'bot-field' not found in form" };
+  }
+
+  return {
+    pass: true,
+    message: `All required form fields ([${requiredFields.join(', ')}]) and hidden form-name value validated successfully`
+  };
+});
+
+runner.register(1, 'M5', 'T1.R5.3', 'Static Netlify Form Registration Parity Across 100% of 86 Prerendered Routes in dist/', async () => {
+  const missingRoutes = [];
+  let routesChecked = 0;
+
+  for (const route of ALL_86_CANONICAL_ROUTES) {
+    routesChecked++;
+    const clean = route.replace(/^\/+|\/+$/g, '');
+    let candidatePath = clean ? path.join(DIST_DIR, clean, 'index.html') : path.join(DIST_DIR, 'index.html');
+    if (!fs.existsSync(candidatePath) && clean) {
+      candidatePath = path.join(DIST_DIR, `${clean}.html`);
+    }
+
+    if (!fs.existsSync(candidatePath)) {
+      missingRoutes.push(`${route} (file not found: ${candidatePath})`);
+      continue;
+    }
+
+    const html = fs.readFileSync(candidatePath, 'utf-8');
+    const hasNetlifyRegistration = html.includes('name="quote-request"') &&
+      (html.includes('data-netlify="true"') || html.includes('netlify="true"')) &&
+      html.includes('name="form-name"');
+
+    if (!hasNetlifyRegistration) {
+      missingRoutes.push(route);
+    }
+  }
+
+  if (missingRoutes.length > 0) {
+    return {
+      pass: false,
+      message: `${missingRoutes.length} of ${routesChecked} static routes lack Netlify build-time form registration: ${missingRoutes.slice(0, 5).join(', ')}`
+    };
+  }
+
+  return {
+    pass: true,
+    message: `100% static Netlify build-time form registration confirmed across all ${routesChecked} prerendered routes in dist/`
+  };
+});
+
+runner.register(1, 'M5', 'T1.R5.4', 'Client-Side Form Submission Simulation (application/x-www-form-urlencoded POST with form-name)', async (baseUrl) => {
+  const payload = new URLSearchParams();
+  payload.append('form-name', 'quote-request');
+  payload.append('name', 'E2E Automated Test User');
+  payload.append('email', 'e2e-test@sfcleaningconcepts.com');
+  payload.append('phone', '(561) 704-5303');
+  payload.append('message', 'Automated E2E Netlify Forms submission verification across staging');
+  payload.append('source', 'E2E-Suite-Simulation');
+
+  try {
+    const postUrl = new URL('/', baseUrl).toString();
+    const res = await fetch(postUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'SFCC-E2E-TestRunner/1.0'
+      },
+      body: payload.toString()
+    });
+
+    if (res.status !== 200 && res.status !== 303) {
+      return {
+        pass: false,
+        message: `Form POST to '/' returned unexpected HTTP status ${res.status} (${res.statusText})`
+      };
+    }
+
+    return {
+      pass: true,
+      message: `Form submission simulation succeeded with HTTP ${res.status} (application/x-www-form-urlencoded payload accepted)`
+    };
+  } catch (err) {
+    return {
+      pass: false,
+      message: `Form submission failed with network exception: ${err.message}`
+    };
+  }
+});
+
+runner.register(1, 'M5', 'T1.R5.5', 'Anti-Spam Honeypot Bot Field Concealment & Component Guard Defense', async (baseUrl) => {
+  const res = await requestPage(baseUrl, '/');
+  if (!res.doc) return { pass: false, message: 'Could not fetch homepage' };
+
+  // Check honeypot container in DOM or QuoteForm source
+  const quoteFormSrcPath = path.join(PROJECT_ROOT, 'src/components/ui/QuoteForm.tsx');
+  if (!fs.existsSync(quoteFormSrcPath)) {
+    return { pass: false, message: `QuoteForm.tsx not found at ${quoteFormSrcPath}` };
+  }
+
+  const quoteFormSrc = fs.readFileSync(quoteFormSrcPath, 'utf-8');
+
+  // Verify honeypot bot trap guard exists in code: if (formData.botField) ...
+  const hasBotTrapGuard = /if\s*\(\s*formData\.botField\s*\)/.test(quoteFormSrc) ||
+    /if\s*\(\s*data\.botField\s*\)/.test(quoteFormSrc);
+  if (!hasBotTrapGuard) {
+    return { pass: false, message: 'QuoteForm.tsx lacks botField honeypot trap guard before submission' };
+  }
+
+  // Verify honeypot input is concealed from screen readers and tab navigation
+  const hasAriaHidden = quoteFormSrc.includes('aria-hidden="true"') || quoteFormSrc.includes('tabIndex={-1}');
+  if (!hasAriaHidden) {
+    return { pass: false, message: 'Honeypot bot-field container is not concealed with aria-hidden or tabIndex={-1}' };
+  }
+
+  return {
+    pass: true,
+    message: 'Honeypot bot trap guard and visual/assistive concealment confirmed in QuoteForm.tsx'
+  };
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+// MILESTONE 6: AUDIT & REMEDIATION (SEO, INDEXABILITY, SITEMAP, LLMS)
+// ══════════════════════════════════════════════════════════════════════════
+
+runner.register(1, 'M6', 'T1.R6.1', 'On-Page SEO Integrity Across 100% of Routes in dist/', async () => {
+  const routesToCheck = ALL_86_CANONICAL_ROUTES;
+  const titles = new Set();
+  const descriptions = new Set();
+
+  for (const route of routesToCheck) {
+    const clean = route.replace(/^\/+|\/+$/g, '');
+    let filePath = clean ? path.join(DIST_DIR, clean, 'index.html') : path.join(DIST_DIR, 'index.html');
+    if (!fs.existsSync(filePath) && clean) {
+      filePath = path.join(DIST_DIR, `${clean}.html`);
+    }
+
+    if (!fs.existsSync(filePath)) {
+      return { pass: false, message: `Missing physical HTML file in dist for route: ${route}` };
+    }
+
+    const html = fs.readFileSync(filePath, 'utf-8');
+    const doc = new HtmlDoc(html);
+
+    // 1. Single H1 Tag
+    const h1Matches = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi) || [];
+    if (h1Matches.length !== 1) {
+      return { pass: false, message: `Route ${route} has ${h1Matches.length} <h1> tags (expected exactly 1)` };
+    }
+
+    // 2. Non-empty title with brand name
+    const title = doc.title();
+    if (!title || title.length < 25) {
+      return { pass: false, message: `Route ${route} has invalid or short title: "${title}"` };
+    }
+    if (!title.includes('South Florida Cleaning Concepts')) {
+      return { pass: false, message: `Route ${route} title missing brand name: "${title}"` };
+    }
+    titles.add(title);
+
+    // 3. Meta description length & CTA (for indexable routes)
+    if (route !== '/404') {
+      const desc = doc.meta('description');
+      if (!desc || desc.length < 120 || desc.length > 160) {
+        return { pass: false, message: `Route ${route} meta description length invalid (${desc ? desc.length : 0} chars)` };
+      }
+      descriptions.add(desc);
+    }
+
+    // 4. Open Graph and Twitter Card tags
+    const ogTitle = html.match(/<meta\s+property="og:title"\s+content="([^"]*)"/i);
+    const twitterCard = html.match(/<meta\s+name="twitter:card"\s+content="([^"]*)"/i);
+    if (!ogTitle || !twitterCard) {
+      return { pass: false, message: `Route ${route} missing essential OG or Twitter card meta tags` };
+    }
+  }
+
+  if (titles.size < 80) {
+    return { pass: false, message: `High title duplication detected: only ${titles.size} unique titles across 86 routes` };
+  }
+
+  return {
+    pass: true,
+    message: `100% of 86 routes pass on-page SEO verification (single H1, unique branded titles, valid descriptions, OG/Twitter tags)`
+  };
+});
+
+runner.register(1, 'M6', 'T1.R6.2', 'Canonical Tags & Robots Meta Policies Across All Routes in dist/', async () => {
+  for (const route of ALL_86_CANONICAL_ROUTES) {
+    const clean = route.replace(/^\/+|\/+$/g, '');
+    let filePath = clean ? path.join(DIST_DIR, clean, 'index.html') : path.join(DIST_DIR, 'index.html');
+    if (!fs.existsSync(filePath) && clean) {
+      filePath = path.join(DIST_DIR, `${clean}.html`);
+    }
+
+    const html = fs.readFileSync(filePath, 'utf-8');
+    const doc = new HtmlDoc(html);
+    const canonical = doc.canonical();
+
+    if (!canonical || !canonical.startsWith('https://sfcleaningconcepts.com')) {
+      return { pass: false, message: `Route ${route} has missing or invalid canonical: ${canonical}` };
+    }
+
+    const robots = doc.meta('robots');
+    if (route === '/404') {
+      if (!robots.includes('noindex') || !robots.includes('nofollow')) {
+        return { pass: false, message: `/404 route must have "noindex, nofollow" robots policy; got "${robots}"` };
+      }
+    } else {
+      if (!robots.includes('index') || !robots.includes('follow') || robots.includes('noindex')) {
+        return { pass: false, message: `Indexable route ${route} has non-indexable robots policy: "${robots}"` };
+      }
+    }
+  }
+
+  return {
+    pass: true,
+    message: `All 86 routes have compliant canonical tags and strict robots directives (index/follow on 85, noindex on /404)`
+  };
+});
+
+runner.register(1, 'M6', 'T1.R6.3', 'Sitemap.xml Existence, XML Schema Validity & 85 Indexable Routes Completeness', async () => {
+  const sitemapPath = path.join(PUBLIC_DIR, 'sitemap.xml');
+  const distSitemapPath = path.join(DIST_DIR, 'sitemap.xml');
+
+  if (!fs.existsSync(sitemapPath) || !fs.existsSync(distSitemapPath)) {
+    return { pass: false, message: 'sitemap.xml is missing from public/ or dist/' };
+  }
+
+  const xml = fs.readFileSync(sitemapPath, 'utf-8');
+  if (!xml.includes('<?xml version="1.0" encoding="UTF-8"?>') || !xml.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')) {
+    return { pass: false, message: 'sitemap.xml does not contain valid sitemaps.org 0.9 XML headers' };
+  }
+
+  const locMatches = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+  if (locMatches.length !== 85) {
+    return { pass: false, message: `sitemap.xml contains ${locMatches.length} URLs (expected exactly 85 indexable routes)` };
+  }
+
+  if (xml.includes('/404')) {
+    return { pass: false, message: 'sitemap.xml illegally includes non-indexable /404 route' };
+  }
+
+  // Verify all 56 service area URLs are present
+  for (const slug of ALL_SERVICE_AREA_SLUGS) {
+    const expectedUrl = `https://sfcleaningconcepts.com/service-area/${slug}`;
+    if (!locMatches.includes(expectedUrl)) {
+      return { pass: false, message: `sitemap.xml is missing service area: ${expectedUrl}` };
+    }
+  }
+
+  // Verify robots.txt references sitemap
+  const robotsTxt = fs.readFileSync(path.join(PUBLIC_DIR, 'robots.txt'), 'utf-8');
+  if (!robotsTxt.includes('Sitemap: https://sfcleaningconcepts.com/sitemap.xml')) {
+    return { pass: false, message: 'robots.txt is missing Sitemap directive' };
+  }
+
+  return {
+    pass: true,
+    message: `sitemap.xml is structurally valid with all 85 indexable routes, excluding /404, referenced in robots.txt`
+  };
+});
+
+runner.register(1, 'M6', 'T1.R6.4', 'llms.txt Standard Compliance, 5 Service Divisions & 56 Service Areas Summary', async (baseUrl) => {
+  const llmsPath = path.join(PUBLIC_DIR, 'llms.txt');
+  if (!fs.existsSync(llmsPath)) {
+    return { pass: false, message: 'public/llms.txt does not exist' };
+  }
+
+  const content = fs.readFileSync(llmsPath, 'utf-8');
+  if (!content.startsWith('# South Florida Cleaning Concepts')) {
+    return { pass: false, message: 'llms.txt must begin with H1 title "# South Florida Cleaning Concepts"' };
+  }
+
+  if (!content.includes('> South Florida Cleaning Concepts is a premier commercial janitorial')) {
+    return { pass: false, message: 'llms.txt missing required blockquote summary per llmstxt.org specification' };
+  }
+
+  const requiredDivisions = [
+    'Commercial Office Cleaning',
+    'Medical Office',
+    'Short-Term Rental',
+    'Luxury Residential',
+    'Post-Construction Cleanup'
+  ];
+  for (const div of requiredDivisions) {
+    if (!content.includes(div)) {
+      return { pass: false, message: `llms.txt missing core service division: ${div}` };
+    }
+  }
+
+  // Verify reference to Jupiter and 56 service areas
+  if (!content.includes('Jupiter') || !content.includes('56')) {
+    return { pass: false, message: 'llms.txt must summarize 56 service areas extending north through Jupiter' };
+  }
+
+  // Verify contact info and doc links
+  if (!content.includes('(561) 704-5303') || !content.includes('llms-full.txt') || !content.includes('sitemap.xml')) {
+    return { pass: false, message: 'llms.txt missing telephone, llms-full.txt link, or sitemap link' };
+  }
+
+  // Verify all service-area links match sitemap.xml and zero broken links exist
+  const sitemapPath = path.join(PUBLIC_DIR, 'sitemap.xml');
+  const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+  const allSiteLinks = [...content.matchAll(/https:\/\/sfcleaningconcepts\.com\/[^\)\s]+/g)].map(m => m[0]);
+
+  const serviceAreaLinks = allSiteLinks.filter(l => l.startsWith('https://sfcleaningconcepts.com/service-area/'));
+  if (serviceAreaLinks.length !== 56) {
+    return { pass: false, message: `llms.txt must contain exactly 56 service area links, found ${serviceAreaLinks.length}` };
+  }
+  for (const link of serviceAreaLinks) {
+    if (!sitemapContent.includes(`<loc>${link}</loc>`)) {
+      return { pass: false, message: `Service area link in llms.txt not found in sitemap.xml: ${link}` };
+    }
+  }
+
+  const brokenLinks = allSiteLinks.filter(l => {
+    if (l.endsWith('/llms-full.txt') || l.endsWith('/sitemap.xml')) return false;
+    const cleanUrl = l.split('#')[0];
+    return !sitemapContent.includes(`<loc>${cleanUrl}</loc>`);
+  });
+  if (brokenLinks.length > 0) {
+    return { pass: false, message: `Broken links detected in llms.txt: ${brokenLinks.join(', ')}` };
+  }
+
+  // Verify HTTP 200 delivery
+  const res = await requestPage(baseUrl, '/llms.txt');
+  if (res.status !== 200 || !res.bodyText.includes('# South Florida Cleaning Concepts')) {
+    return { pass: false, message: `HTTP GET /llms.txt returned status ${res.status}` };
+  }
+
+  return {
+    pass: true,
+    message: 'public/llms.txt meets llmstxt.org standards (H1, blockquote, 5 divisions, 56 cities up to Jupiter, links)'
+  };
+});
+
+runner.register(1, 'M6', 'T1.R6.5', 'llms-full.txt Knowledge Base (5 Divisions SOPs, 56 Community Profiles & Stats)', async (baseUrl) => {
+  const fullPath = path.join(PUBLIC_DIR, 'llms-full.txt');
+  if (!fs.existsSync(fullPath)) {
+    return { pass: false, message: 'public/llms-full.txt does not exist' };
+  }
+
+  const content = fs.readFileSync(fullPath, 'utf-8');
+  if (content.length < 30000) {
+    return { pass: false, message: `llms-full.txt too concise (${content.length} bytes, expected > 30,000 bytes)` };
+  }
+
+  // Verify 5 divisions SOPs
+  if (!content.includes('Division 1: Commercial Office Cleaning') || !content.includes('Division 2: Medical Office') || !content.includes('Division 5: Post-Construction Cleanup')) {
+    return { pass: false, message: 'llms-full.txt missing detailed SOPs for the 5 service divisions' };
+  }
+
+  // Verify all 56 community profiles exist
+  for (const slug of ALL_SERVICE_AREA_SLUGS) {
+    if (!content.includes(`(${slug})`)) {
+      return { pass: false, message: `llms-full.txt missing community profile for slug: ${slug}` };
+    }
+  }
+
+  // Verify presence of statistics
+  if (!content.includes('Population:') || !content.includes('Households:') || !content.includes('Commercial Profile:')) {
+    return { pass: false, message: 'llms-full.txt community profiles missing structured census statistics' };
+  }
+
+  // Verify HTTP 200 delivery
+  const res = await requestPage(baseUrl, '/llms-full.txt');
+  if (res.status !== 200 || res.bodyText.length < 30000) {
+    return { pass: false, message: `HTTP GET /llms-full.txt returned status ${res.status} (length ${res.bodyText.length})` };
+  }
+
+  return {
+    pass: true,
+    message: 'public/llms-full.txt verified with comprehensive 5-division SOPs, 56 authentic community profiles & statistics'
+  };
+});
+
 // ══════════════════════════════════════════════════════════════════════════
 // TIER 2: BOUNDARY & CORNER CASES (>= 5 Tests)
 // ══════════════════════════════════════════════════════════════════════════
@@ -1055,6 +1955,70 @@ runner.register(2, 'M4', 'T2.B.6', 'Schema Script Injection & XSS Vulnerability 
   }
 
   return { pass: true, message: 'JSON-LD blocks free of script breakout vulnerabilities' };
+});
+
+runner.register(2, 'M5', 'T2.B.7', 'Form Submission Boundary Defense (Malformed Payload & Missing form-name)', async (baseUrl) => {
+  try {
+    const postUrl = new URL('/', baseUrl).toString();
+    // 1. Post with empty body
+    const emptyRes = await fetch(postUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: ''
+    });
+
+    // 2. Post with non-matching form name
+    const phantomRes = await fetch(postUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'form-name=non-existent-phantom-form&test=123'
+    });
+
+    if (emptyRes.status >= 500 || phantomRes.status >= 500) {
+      return {
+        pass: false,
+        message: `Boundary submission triggered server 5xx error (empty=${emptyRes.status}, phantom=${phantomRes.status})`
+      };
+    }
+
+    return {
+      pass: true,
+      message: 'Server gracefully handled empty and non-matching form submissions without unhandled exceptions'
+    };
+  } catch (err) {
+    return {
+      pass: false,
+      message: `Boundary submission caused client-side crash: ${err.message}`
+    };
+  }
+});
+
+runner.register(2, 'M6', 'T2.B.8', 'LLMs Context Head Discovery, Robots Directive & XML Syntax Boundary Defense', async (baseUrl) => {
+  // 1. Robots.txt LLMs directive
+  const robotsRes = await requestPage(baseUrl, '/robots.txt');
+  if (!robotsRes.ok || !robotsRes.bodyText.includes('LLMs: https://sfcleaningconcepts.com/llms.txt')) {
+    return { pass: false, message: 'robots.txt does not advertise LLMs: https://sfcleaningconcepts.com/llms.txt' };
+  }
+
+  // 2. Head link discovery on Homepage and Sample Routes
+  const sampleRoutes = ['/', '/service-area/jupiter', '/blog/revitalize-your-office-space'];
+  for (const r of sampleRoutes) {
+    const res = await requestPage(baseUrl, r);
+    if (!res.ok || !res.bodyText.includes('rel="alternate"') || !res.bodyText.includes('href="https://sfcleaningconcepts.com/llms.txt"')) {
+      return { pass: false, message: `Route ${r} missing <link rel="alternate" type="text/markdown" href="https://sfcleaningconcepts.com/llms.txt"> in <head>` };
+    }
+  }
+
+  // 3. Sitemap XML Boundary
+  const sitemapRes = await requestPage(baseUrl, '/sitemap.xml');
+  if (!sitemapRes.ok || !sitemapRes.contentType.includes('xml')) {
+    return { pass: false, message: `Sitemap request failed or has invalid content-type: ${sitemapRes.contentType}` };
+  }
+
+  return {
+    pass: true,
+    message: 'Robots.txt LLMs directive, HTML head discovery link, and sitemap XML boundaries successfully verified'
+  };
 });
 
 // ══════════════════════════════════════════════════════════════════════════

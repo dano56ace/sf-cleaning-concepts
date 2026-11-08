@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-11-08T20:45:16.948Z",
+  "totalHtmlFiles": 173,
+  "totalFilesChecked": 173,
+  "filesWithValidStaticForm": 173,
+  "fileFailuresCount": 0,
+  "canonicalRoutesCount": 86,
+  "routesPassed": 86,
+  "routesFailingCount": 0,
+  "contactResults": [
+    {
+      "file": "dist/contact-us.html",
+      "exists": true,
+      "leadFormFound": true,
+      "leadFormName": "quote-request",
+      "sourceValue": "Contact Us Static",
+      "valid": true,
+      "issues": [],
+      "inputs": [
+        "form-name (hidden=quote-request)",
+        "source (hidden=Contact Us Static)",
+        "bot-field (text)",
+        "name (text)",
+        "email (email)",
+        "phone (tel)",
+        "message (textarea)"
+      ]
+    },
+    {
+      "file": "dist/contact-us/index.html",
+      "exists": true,
+      "leadFormFound": true,
+      "leadFormName": "quote-request",
+      "sourceValue": "Contact Us Static",
+      "valid": true,
+      "issues": [],
+      "inputs": [
+        "form-name (hidden=quote-request)",
+        "source (hidden=Contact Us Static)",
+        "bot-field (text)",
+        "name (text)",
+        "email (email)",
+        "phone (tel)",
+        "message (textarea)"
+      ]
+    },
+    {
+      "file": "dist/contact.html",
+      "exists": true,
+      "leadFormFound": true,
+      "leadFormName": "quote-request",
+      "sourceValue": "Contact Us Static",
+      "valid": true,
+      "issues": [],
+      "inputs": [
+        "form-name (hidden=quote-request)",
+        "source (hidden=Contact Us Static)",
+        "bot-field (text)",
+        "name (text)",
+        "email (email)",
+        "phone (tel)",
+        "message (textarea)"
+      ]
+    },
+    {
+      "file": "dist/contact/index.html",
+      "exists": true,
+      "leadFormFound": true,
+      "leadFormName": "quote-request",
+      "sourceValue": "Contact Us Static",
+      "valid": true,
+      "issues": [],
+      "inputs": [
+        "form-name (hidden=quote-request)",
+        "source (hidden=Contact Us Static)",
+        "bot-field (text)",
+        "name (text)",
+        "email (email)",
+        "phone (tel)",
+        "message (textarea)"
+      ]
+    }
+  ],
+  "stressTests": {
+    "duplicateFields": 0,
+    "hasBotTrapCheck": true,
+    "hasPayloadAppend": true,
+    "hasDisabledInputs": true,
+    "hasErrorGuard": true,
+    "hasCatchHandling": true
+  },
+  "verdict": "APPROVE"
+}

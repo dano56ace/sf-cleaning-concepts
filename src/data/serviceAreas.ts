@@ -1,5 +1,5 @@
-import { getServiceAreaGuide, type ServiceAreaLandmark, type ServiceAreaActivity } from "./serviceAreaGuideData";
-export type { ServiceAreaLandmark, ServiceAreaActivity };
+import { getServiceAreaGuide, type ServiceAreaLandmark, type ServiceAreaActivity, type ServiceAreaStats } from "./serviceAreaGuideData";
+export type { ServiceAreaLandmark, ServiceAreaActivity, ServiceAreaStats };
 
 export interface ServiceAreaItem {
     name: string;
@@ -19,14 +19,15 @@ export interface ServiceAreaItem {
     thingsToDo?: ServiceAreaActivity[];
     keyCorridors?: string[];
     topIndustries?: string[];
+    stats?: ServiceAreaStats;
 }
 
 const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "West Palm Beach",
         "slug": "west-palm-beach",
-        "seoTitle": "West Palm Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in West Palm Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "West Palm Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in West Palm Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7153",
             "longitude": "-80.0534"
@@ -50,8 +51,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Boca Raton",
         "slug": "boca-raton",
-        "seoTitle": "Boca Raton Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Boca Raton, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Boca Raton Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Boca Raton, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.3683",
             "longitude": "-80.1289"
@@ -75,8 +76,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Delray Beach",
         "slug": "delray-beach",
-        "seoTitle": "Delray Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Delray Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Delray Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Delray Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.4615",
             "longitude": "-80.0728"
@@ -100,8 +101,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Jupiter",
         "slug": "jupiter",
-        "seoTitle": "Jupiter Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Jupiter, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Jupiter Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Jupiter, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.9342",
             "longitude": "-80.0942"
@@ -125,8 +126,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Palm Beach Gardens",
         "slug": "palm-beach-gardens",
-        "seoTitle": "Palm Beach Gardens Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Palm Beach Gardens, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Palm Beach Gardens Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Palm Beach Gardens, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8234",
             "longitude": "-80.1387"
@@ -150,8 +151,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Wellington",
         "slug": "wellington",
-        "seoTitle": "Wellington Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Wellington, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Wellington Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Wellington, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6618",
             "longitude": "-80.2684"
@@ -175,8 +176,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Boynton Beach",
         "slug": "boynton-beach",
-        "seoTitle": "Boynton Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Boynton Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Boynton Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Boynton Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5253",
             "longitude": "-80.0664"
@@ -200,8 +201,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Lake Worth Beach",
         "slug": "lake-worth-beach",
-        "seoTitle": "Lake Worth Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Lake Worth Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Lake Worth Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Lake Worth Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6168",
             "longitude": "-80.0684"
@@ -225,8 +226,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Royal Palm Beach",
         "slug": "royal-palm-beach",
-        "seoTitle": "Royal Palm Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Royal Palm Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Royal Palm Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Royal Palm Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7084",
             "longitude": "-80.2306"
@@ -250,8 +251,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "North Palm Beach",
         "slug": "north-palm-beach",
-        "seoTitle": "North Palm Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in North Palm Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "North Palm Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in North Palm Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8170",
             "longitude": "-80.0595"
@@ -275,8 +276,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Riviera Beach",
         "slug": "riviera-beach",
-        "seoTitle": "Riviera Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Riviera Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Riviera Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Riviera Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7753",
             "longitude": "-80.0581"
@@ -300,8 +301,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Greenacres",
         "slug": "greenacres",
-        "seoTitle": "Greenacres Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Greenacres, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Greenacres Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Greenacres, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6276",
             "longitude": "-80.1353"
@@ -325,8 +326,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Lantana",
         "slug": "lantana",
-        "seoTitle": "Lantana Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Lantana, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Lantana Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Lantana, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5865",
             "longitude": "-80.0520"
@@ -350,8 +351,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Palm Springs",
         "slug": "palm-springs",
-        "seoTitle": "Palm Springs Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Palm Springs, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Palm Springs Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Palm Springs, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6387",
             "longitude": "-80.0967"
@@ -375,8 +376,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Lake Park",
         "slug": "lake-park",
-        "seoTitle": "Lake Park Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Lake Park, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Lake Park Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Lake Park, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8003",
             "longitude": "-80.0617"
@@ -400,8 +401,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Tequesta",
         "slug": "tequesta",
-        "seoTitle": "Tequesta Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Tequesta, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Tequesta Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Tequesta, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.9634",
             "longitude": "-80.1067"
@@ -425,8 +426,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Juno Beach",
         "slug": "juno-beach",
-        "seoTitle": "Juno Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Juno Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Juno Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Juno Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8798",
             "longitude": "-80.0534"
@@ -450,8 +451,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Highland Beach",
         "slug": "highland-beach",
-        "seoTitle": "Highland Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Highland Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Highland Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Highland Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.3995",
             "longitude": "-80.0678"
@@ -475,8 +476,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Hypoluxo",
         "slug": "hypoluxo",
-        "seoTitle": "Hypoluxo Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Hypoluxo, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Hypoluxo Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Hypoluxo, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5606",
             "longitude": "-80.0514"
@@ -499,8 +500,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Manalapan",
         "slug": "manalapan",
-        "seoTitle": "Manalapan Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Manalapan, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Manalapan Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Manalapan, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5659",
             "longitude": "-80.0439"
@@ -524,8 +525,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Ocean Ridge",
         "slug": "ocean-ridge",
-        "seoTitle": "Ocean Ridge Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Ocean Ridge, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Ocean Ridge Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Ocean Ridge, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5262",
             "longitude": "-80.0520"
@@ -548,8 +549,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "South Palm Beach",
         "slug": "south-palm-beach",
-        "seoTitle": "South Palm Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in South Palm Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "South Palm Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in South Palm Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5928",
             "longitude": "-80.0381"
@@ -573,8 +574,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Palm Beach",
         "slug": "palm-beach",
-        "seoTitle": "Palm Beach Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Palm Beach, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Palm Beach Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Palm Beach, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7056",
             "longitude": "-80.0364"
@@ -598,8 +599,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Atlantis",
         "slug": "atlantis",
-        "seoTitle": "Atlantis Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Atlantis, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Atlantis Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Atlantis, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5942",
             "longitude": "-80.1039"
@@ -623,8 +624,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Haverhill",
         "slug": "haverhill",
-        "seoTitle": "Haverhill Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Haverhill, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Haverhill Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Haverhill, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6898",
             "longitude": "-80.1217"
@@ -647,8 +648,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Mangonia Park",
         "slug": "mangonia-park",
-        "seoTitle": "Mangonia Park Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Mangonia Park, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Mangonia Park Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Mangonia Park, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7573",
             "longitude": "-80.0762"
@@ -671,8 +672,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Loxahatchee",
         "slug": "loxahatchee",
-        "seoTitle": "Loxahatchee Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Loxahatchee, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Loxahatchee Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Loxahatchee, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7584",
             "longitude": "-80.2464"
@@ -695,8 +696,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "The Acreage",
         "slug": "the-acreage",
-        "seoTitle": "The Acreage Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in The Acreage, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "The Acreage Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in The Acreage, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7906",
             "longitude": "-80.2570"
@@ -719,8 +720,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Palm Beach Shores",
         "slug": "palm-beach-shores",
-        "seoTitle": "Palm Beach Shores Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Palm Beach Shores, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Palm Beach Shores Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Palm Beach Shores, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7792",
             "longitude": "-80.0389"
@@ -743,8 +744,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Glen Ridge",
         "slug": "glen-ridge",
-        "seoTitle": "Glen Ridge Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Glen Ridge, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Glen Ridge Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Glen Ridge, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6873",
             "longitude": "-80.0753"
@@ -767,8 +768,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Gulf Stream",
         "slug": "gulf-stream",
-        "seoTitle": "Gulf Stream Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Gulf Stream, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Gulf Stream Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Gulf Stream, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.4945",
             "longitude": "-80.0573"
@@ -792,8 +793,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Cloud Lake",
         "slug": "cloud-lake",
-        "seoTitle": "Cloud Lake Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Cloud Lake, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Cloud Lake Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Cloud Lake, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6812",
             "longitude": "-80.0717"
@@ -815,8 +816,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Golf",
         "slug": "golf",
-        "seoTitle": "Golf Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Golf, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Golf Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Golf, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5056",
             "longitude": "-80.1114"
@@ -839,8 +840,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Briny Breezes",
         "slug": "briny-breezes",
-        "seoTitle": "Briny Breezes Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Briny Breezes, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Briny Breezes Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Briny Breezes, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5090",
             "longitude": "-80.0528"
@@ -863,8 +864,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Jupiter Inlet Colony",
         "slug": "jupiter-inlet-colony",
-        "seoTitle": "Jupiter Inlet Colony Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Jupiter Inlet Colony, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Jupiter Inlet Colony Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Jupiter Inlet Colony, FL. Vetted staff, pristine results & 100% guarantee. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.9467",
             "longitude": "-80.0831"
@@ -887,8 +888,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Lake Clarke Shores",
         "slug": "lake-clarke-shores",
-        "seoTitle": "Lake Clarke Shores Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Lake Clarke Shores, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Lake Clarke Shores Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Lake Clarke Shores, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6570",
             "longitude": "-80.0767"
@@ -911,8 +912,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Palm Beach Gardens (West)",
         "slug": "palm-beach-gardens-west",
-        "seoTitle": "Palm Beach Gardens (West) Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Palm Beach Gardens (West), FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "PBG West Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in PBG West, FL. Offices, clinics & estates. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8350",
             "longitude": "-80.2000"
@@ -936,8 +937,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Westlake",
         "slug": "westlake",
-        "seoTitle": "Westlake Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Westlake, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Westlake Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Westlake, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7580",
             "longitude": "-80.3000"
@@ -960,8 +961,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Avenir",
         "slug": "avenir",
-        "seoTitle": "Avenir Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Avenir, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Avenir Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Avenir, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8400",
             "longitude": "-80.2200"
@@ -984,8 +985,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Arden",
         "slug": "arden",
-        "seoTitle": "Arden Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Arden, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Arden Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Arden, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6800",
             "longitude": "-80.3200"
@@ -1008,8 +1009,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Century Village",
         "slug": "century-village",
-        "seoTitle": "Century Village Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Century Village, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Century Village Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Century Village, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.7020",
             "longitude": "-80.1250"
@@ -1032,8 +1033,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Kings Point",
         "slug": "kings-point",
-        "seoTitle": "Kings Point Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Kings Point, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Kings Point Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Kings Point, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.4470",
             "longitude": "-80.1330"
@@ -1056,8 +1057,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Golden Lakes",
         "slug": "golden-lakes",
-        "seoTitle": "Golden Lakes Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Golden Lakes, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Golden Lakes Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Golden Lakes, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6850",
             "longitude": "-80.1450"
@@ -1080,8 +1081,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Limestone Creek",
         "slug": "limestone-creek",
-        "seoTitle": "Limestone Creek Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Limestone Creek, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Limestone Creek Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Limestone Creek, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.9380",
             "longitude": "-80.1150"
@@ -1104,8 +1105,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Pine Jog",
         "slug": "pine-jog",
-        "seoTitle": "Pine Jog Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Pine Jog, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Pine Jog Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Pine Jog, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6650",
             "longitude": "-80.1200"
@@ -1128,8 +1129,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Schall Circle",
         "slug": "schall-circle",
-        "seoTitle": "Schall Circle Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Schall Circle, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Schall Circle Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Schall Circle, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6780",
             "longitude": "-80.1000"
@@ -1152,8 +1153,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Cabana Colony",
         "slug": "cabana-colony",
-        "seoTitle": "Cabana Colony Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Cabana Colony, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Cabana Colony Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Cabana Colony, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.8300",
             "longitude": "-80.0900"
@@ -1176,8 +1177,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Kenwood Estates",
         "slug": "kenwood-estates",
-        "seoTitle": "Kenwood Estates Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Kenwood Estates, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Kenwood Estates Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Kenwood Estates, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6900",
             "longitude": "-80.0900"
@@ -1200,8 +1201,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "San Castle",
         "slug": "san-castle",
-        "seoTitle": "San Castle Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in San Castle, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "San Castle Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in San Castle, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.5800",
             "longitude": "-80.0800"
@@ -1224,8 +1225,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Gun Club Estates",
         "slug": "gun-club-estates",
-        "seoTitle": "Gun Club Estates Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Gun Club Estates, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Gun Club Estates Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Gun Club Estates, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.6750",
             "longitude": "-80.1100"
@@ -1248,8 +1249,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Okeechobee County",
         "slug": "okeechobee-county",
-        "seoTitle": "Okeechobee County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Okeechobee County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Okeechobee County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Okeechobee County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "27.2439",
             "longitude": "-80.8298"
@@ -1273,8 +1274,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "St. Lucie County",
         "slug": "st-lucie-county",
-        "seoTitle": "St. Lucie County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in St. Lucie County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "St. Lucie County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in St. Lucie County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "27.3853",
             "longitude": "-80.3847"
@@ -1298,8 +1299,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Martin County",
         "slug": "martin-county",
-        "seoTitle": "Martin County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Martin County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Martin County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Martin County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "27.1060",
             "longitude": "-80.2442"
@@ -1323,8 +1324,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Orange County",
         "slug": "orange-county",
-        "seoTitle": "Orange County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Orange County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Orange County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Orange County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "28.5124",
             "longitude": "-81.3316"
@@ -1349,8 +1350,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Broward County",
         "slug": "broward-county",
-        "seoTitle": "Broward County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Broward County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Broward County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Broward County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "26.1518",
             "longitude": "-80.2207"
@@ -1375,8 +1376,8 @@ const rawServiceAreas: ServiceAreaItem[] = [
     {
         "name": "Miami-Dade County",
         "slug": "miami-dade-county",
-        "seoTitle": "Miami-Dade County Commercial & Residential Cleaning Services | South Florida Cleaning Concepts",
-        "metaDescription": "Premier commercial office cleaning, medical facility sanitization, Airbnb turnover, and luxury maid services in Miami-Dade County, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.",
+        "seoTitle": "Miami-Dade County Cleaning | South Florida Cleaning Concepts",
+        "metaDescription": "Premier commercial & residential cleaning in Miami-Dade County, FL. Offices, clinics & homes. Vetted staff & 100% guaranteed. Call (561) 704-5303.",
         "geo": {
             "latitude": "25.6105",
             "longitude": "-80.4402"

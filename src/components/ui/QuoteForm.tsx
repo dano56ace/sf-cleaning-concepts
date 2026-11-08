@@ -89,17 +89,25 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
       payload.append('phone', formData.phone);
       payload.append('message', formData.message);
       payload.append('source', source);
+      payload.append('bot-field', formData.botField);
 
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: payload.toString()
       });
 
+      if (!response.ok) {
+        throw new Error(`Netlify form submission rejected with HTTP ${response.status}`);
+      }
+
       setIsSubmitted(true);
       if (onSuccess) onSuccess();
-    } catch {
-      setIsSubmitted(true);
+    } catch (err: unknown) {
+      console.error('[QuoteForm] Submission error:', err);
+      setSubmitError(
+        'Unable to submit your quote request online. Please try again or call us at (561) 704-5303.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -163,7 +171,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           <div>
             <h4 className="font-bold text-red-900 text-sm">Unable to submit online</h4>
             <p className="text-red-700 text-xs mt-1">
-              Please call us directly at <a href={`tel:${BUSINESS_NAP.phoneRaw}`} className="underline font-bold">{BUSINESS_NAP.phone}</a>.
+              {submitError} Please call us directly at <a href={`tel:${BUSINESS_NAP.phoneRaw}`} className="underline font-bold">{BUSINESS_NAP.phone}</a>.
             </p>
           </div>
         </div>
@@ -176,7 +184,9 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           data-react-managed="true"
           name="quote-request"
           method="POST"
+          action="/"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
           netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           noValidate
@@ -185,11 +195,12 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           <input type="hidden" name="form-name" value="quote-request" />
           <input type="hidden" name="source" value={source} />
 
-          {/* Honeypot for bots */}
-          <p className="bot-field-container hidden" aria-hidden="true">
+          {/* Honeypot for bots (hidden from human users) */}
+          <p className="bot-field-container hidden" style={{ display: 'none' }} aria-hidden="true">
             <label>
               Do not fill this out:
               <input
+                type="text"
                 name="bot-field"
                 value={formData.botField}
                 onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
@@ -211,6 +222,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 placeholder="Jane Doe"
                 required
                 minLength={2}
@@ -219,7 +231,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 aria-required="true"
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? 'name-error' : undefined}
-                className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                   errors.name
                     ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                     : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -247,6 +259,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled={isSubmitting}
                   placeholder="name@company.com"
                   required
                   maxLength={100}
@@ -254,7 +267,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                   aria-required="true"
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                  className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                     errors.email
                       ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                       : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -280,6 +293,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                   name="phone"
                   value={formData.phone}
                   onChange={handlePhoneChange}
+                  disabled={isSubmitting}
                   placeholder="(561) 000-0000"
                   required
                   maxLength={14}
@@ -287,7 +301,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                   aria-required="true"
                   aria-invalid={Boolean(errors.phone)}
                   aria-describedby={errors.phone ? 'phone-error' : undefined}
-                  className={`form-control w-full px-4 py-3 rounded-xl border font-mono text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all tabular-nums ${
+                  className={`form-control w-full px-4 py-3 rounded-xl border font-mono text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all tabular-nums disabled:bg-slate-100 disabled:cursor-not-allowed ${
                     errors.phone
                       ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                       : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -314,6 +328,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 placeholder="Tell us your property type (office, medical, restaurant, residence), approximate square footage, and preferred schedule..."
                 required
                 minLength={10}
@@ -321,7 +336,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 aria-required="true"
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? 'message-error' : undefined}
-                className={`form-control form-textarea w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                className={`form-control form-textarea w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                   errors.message
                     ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                     : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'

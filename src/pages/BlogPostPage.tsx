@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../data/siteData';
+import { getBlogPostSchema } from '../data/blogSchemaData';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
@@ -27,11 +28,28 @@ export const BlogPostPage: React.FC = () => {
     return <Navigate to="/404" replace />;
   }
 
+  const schemaGraph = useMemo(() => (slug ? getBlogPostSchema(slug) : null), [slug]);
+
+  useEffect(() => {
+    if (schemaGraph) {
+      const headScript = document.getElementById('dynamic-jsonld');
+      if (headScript) {
+        headScript.textContent = JSON.stringify(schemaGraph, null, 2);
+      }
+    }
+  }, [schemaGraph]);
+
   const exactH1 = (slug && EXACT_BLOG_H1_MAP[slug]) || post.title;
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
+      {schemaGraph && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+        />
+      )}
       {/* Article Header */}
       <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">

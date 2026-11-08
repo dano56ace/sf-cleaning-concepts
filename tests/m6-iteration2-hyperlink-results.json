@@ -1,0 +1,251 @@
+{
+  "timestamp": "2026-11-08T21:39:07.566Z",
+  "verdict": "APPROVE",
+  "summary": {
+    "total": 40,
+    "passed": 40,
+    "failed": 0
+  },
+  "auditLog": [
+    {
+      "suite": "Suite A",
+      "test": "public/llms.txt exists",
+      "passed": true,
+      "details": "Size: 9410 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "dist/llms.txt exists",
+      "passed": true,
+      "details": "Size: 9410 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "llms.txt public vs dist byte-identical",
+      "passed": true,
+      "details": "Hash / content match 100%"
+    },
+    {
+      "suite": "Suite A",
+      "test": "public/llms-full.txt exists",
+      "passed": true,
+      "details": "Size: 205016 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "dist/llms-full.txt exists",
+      "passed": true,
+      "details": "Size: 205016 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "llms-full.txt public vs dist byte-identical",
+      "passed": true,
+      "details": "Hash / content match 100%"
+    },
+    {
+      "suite": "Suite A",
+      "test": "public/sitemap.xml exists",
+      "passed": true,
+      "details": "Size: 16484 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "dist/sitemap.xml exists",
+      "passed": true,
+      "details": "Size: 16484 bytes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "sitemap.xml public vs dist byte-identical",
+      "passed": true,
+      "details": "Hash / content match 100%"
+    },
+    {
+      "suite": "Suite A",
+      "test": "sitemap.xml loc count",
+      "passed": true,
+      "details": "Found exactly 85 canonical routes"
+    },
+    {
+      "suite": "Suite A",
+      "test": "sitemap.xml excludes 404",
+      "passed": true,
+      "details": "404 is properly excluded from sitemap"
+    },
+    {
+      "suite": "Suite B",
+      "test": "Total Markdown hyperlinks count",
+      "passed": true,
+      "details": "Parsed 72 links (expected 72)"
+    },
+    {
+      "suite": "Suite B",
+      "test": "Domain specific links count",
+      "passed": true,
+      "details": "Found 70 domain links"
+    },
+    {
+      "suite": "Suite B",
+      "test": "Broken 404 links count is EXACTLY 0",
+      "passed": true,
+      "details": "Broken links detected: 0 (none)"
+    },
+    {
+      "suite": "Suite C",
+      "test": "src/data/serviceAreas.ts total count",
+      "passed": true,
+      "details": "Total defined service areas: 56"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Jupiter area defined in serviceAreas.ts",
+      "passed": true,
+      "details": "Jupiter object: Jupiter (jupiter)"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Service area links in llms.txt count",
+      "passed": true,
+      "details": "Found 56 service area links in llms.txt"
+    },
+    {
+      "suite": "Suite C",
+      "test": "All 56 service areas present in llms.txt",
+      "passed": true,
+      "details": "Missing slugs: none"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Jupiter link present in llms.txt",
+      "passed": true,
+      "details": "https://sfcleaningconcepts.com/service-area/jupiter"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Phantom unrouted cities count is EXACTLY 0",
+      "passed": true,
+      "details": "Phantom cities detected: 0 (none)"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Zero unrouted service area slugs in llms.txt",
+      "passed": true,
+      "details": "Unrouted slugs: none"
+    },
+    {
+      "suite": "Suite C",
+      "test": "Physical dist/ HTML files for all 56 service areas",
+      "passed": true,
+      "details": "Missing HTML count: 0"
+    },
+    {
+      "suite": "Suite D",
+      "test": "Total URLs in llms-full.txt",
+      "passed": true,
+      "details": "Found 57 URLs"
+    },
+    {
+      "suite": "Suite D",
+      "test": "llms-full.txt broken links count is 0",
+      "passed": true,
+      "details": "Broken links: 0 (none)"
+    },
+    {
+      "suite": "Suite D",
+      "test": "All 56 community profiles present in llms-full.txt",
+      "passed": true,
+      "details": "Missing profiles: none"
+    },
+    {
+      "suite": "Suite D",
+      "test": "All 56 community profiles have complete structured Census statistics",
+      "passed": true,
+      "details": "Missing stats profiles: none"
+    },
+    {
+      "suite": "Suite E",
+      "test": "tests/e2e-comprehensive-suite.mjs passes 56/56",
+      "passed": true,
+      "details": "All 56 tests passed with 0 failures"
+    },
+    {
+      "suite": "Suite G",
+      "test": "All raw HTML meta descriptions strictly between 120 and 160 chars",
+      "passed": true,
+      "details": "Audited 87 files. Min: 145, Max: 160, Violations: 0"
+    },
+    {
+      "suite": "Suite H",
+      "test": "robots.txt advertises llms.txt",
+      "passed": true,
+      "details": "Found LLMs: directive"
+    },
+    {
+      "suite": "Suite H",
+      "test": "robots.txt advertises sitemap.xml",
+      "passed": true,
+      "details": "Found Sitemap: directive"
+    },
+    {
+      "suite": "Suite H",
+      "test": "dist/index.html includes alternate link to llms.txt",
+      "passed": true,
+      "details": "Head link present"
+    },
+    {
+      "suite": "Suite H",
+      "test": "dist/service-area/jupiter includes alternate link to llms.txt",
+      "passed": true,
+      "details": "Head link present"
+    },
+    {
+      "suite": "Suite I",
+      "test": "Jupiter page rendered in dist/",
+      "passed": true,
+      "details": "Physical HTML verified"
+    },
+    {
+      "suite": "Suite I",
+      "test": "Jupiter page contains local landmarks",
+      "passed": true,
+      "details": "Landmarks found"
+    },
+    {
+      "suite": "Suite I",
+      "test": "Jupiter page contains local activities",
+      "passed": true,
+      "details": "Activities found"
+    },
+    {
+      "suite": "Suite J",
+      "test": "Oracle detects phantom unrouted city mutation",
+      "passed": true,
+      "details": "Detected 1 phantom links"
+    },
+    {
+      "suite": "Suite J",
+      "test": "Oracle detects omitted service area (Jupiter removed)",
+      "passed": true,
+      "details": "Detected missing area: jupiter"
+    },
+    {
+      "suite": "Suite J",
+      "test": "Oracle detects corrupted/missing anchor hash mutation",
+      "passed": true,
+      "details": "Detected nonexistent anchor ID"
+    },
+    {
+      "suite": "Suite J",
+      "test": "Oracle detects missing/corrupted community profile heading",
+      "passed": true,
+      "details": "Successfully identified profile corruption"
+    },
+    {
+      "suite": "Suite J",
+      "test": "Oracle detects meta description length overflow (>160 chars)",
+      "passed": true,
+      "details": "Length 194 correctly flagged as violation"
+    }
+  ]
+}

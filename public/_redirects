@@ -16,6 +16,9 @@ http://www.sfcleaningconcepts.com/*  https://sfcleaningconcepts.com/:splat 301!
 /maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts/ /blog/south-florida-home-maintenance-services 301!
 /revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services/             /blog/residential-cleaning-services-journey 301!
 
+# Canonical Route Aliases
+/contact                                                                                                       /contact-us 301!
+
 # Non-existent static assets return 404 rather than fallback HTML
 /assets/*               /404.html          404
 
