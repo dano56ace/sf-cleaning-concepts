@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-11-08T21:42:55.585Z",
-  "baseUrl": "http://localhost:4180",
+  "timestamp": "2026-11-08T21:52:50.788Z",
+  "baseUrl": "https://sf-cleaning-concepts.netlify.app",
   "summary": {
     "total": 56,
     "passed": 56,
     "failed": 0,
     "pending": 0,
-    "durationSeconds": 0.15
+    "durationSeconds": 19.07
   },
   "results": [
     {
@@ -15,7 +15,7 @@
       "id": "T1.R1.1",
       "title": "11 Live Blog Articles Catalog Completeness & Accessibility",
       "status": "PASS",
-      "duration": 22,
+      "duration": 1110,
       "message": "All 11 live blog articles accessible via clean /blog/:slug routes with HTTP 200"
     },
     {
@@ -24,7 +24,7 @@
       "id": "T1.R1.2",
       "title": "Blog Article Content, Semantic Structure & Typography",
       "status": "PASS",
-      "duration": 2,
+      "duration": 130,
       "message": "Blog articles contain semantic H1s and rich editorial text content"
     },
     {
@@ -42,7 +42,7 @@
       "id": "T1.R1.4",
       "title": "Homepage Recent Blog Snippets Component & Grid Layout",
       "status": "PASS",
-      "duration": 1,
+      "duration": 64,
       "message": "Homepage renders recent blog snippets with 17 article links"
     },
     {
@@ -51,7 +51,7 @@
       "id": "T1.R1.5",
       "title": "Blog Snippet Navigation & Publications Hub Cross-Linking",
       "status": "PASS",
-      "duration": 1,
+      "duration": 106,
       "message": "Homepage blog snippet successfully cross-links to /our-publications hub"
     },
     {
@@ -69,7 +69,7 @@
       "id": "T1.R2.1",
       "title": "Service Area Template Architecture & Modular Section Roster",
       "status": "PASS",
-      "duration": 1,
+      "duration": 89,
       "message": "Service area landing page renders complete modular structure for Jupiter"
     },
     {
@@ -78,7 +78,7 @@
       "id": "T1.R2.2",
       "title": "Localized Headings, City Metadata & Geo Coordinates",
       "status": "PASS",
-      "duration": 2,
+      "duration": 378,
       "message": "Localized headings, titles, and descriptions verified across sample cities"
     },
     {
@@ -87,7 +87,7 @@
       "id": "T1.R2.3",
       "title": "Localized Neighborhood Highlights & Commercial Transit Corridors",
       "status": "PASS",
-      "duration": 5,
+      "duration": 280,
       "message": "Authentic local neighborhoods & corridors verified across service areas"
     },
     {
@@ -96,7 +96,7 @@
       "id": "T1.R2.4",
       "title": "Interactive Local Guide (Landmarks & Activities Presentation)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 43,
       "message": "Interactive Local Guide renders authentic landmarks for Jupiter"
     },
     {
@@ -105,7 +105,7 @@
       "id": "T1.R2.5",
       "title": "Specialized Cleaning Services Catalog Grid Adaptation",
       "status": "PASS",
-      "duration": 0,
+      "duration": 48,
       "message": "Cleaning services catalog properly adapted on service area landing page"
     },
     {
@@ -114,7 +114,7 @@
       "id": "T1.R2.6",
       "title": "Localized FAQ Accordion & Responsive Google Maps Embed",
       "status": "PASS",
-      "duration": 1,
+      "duration": 82,
       "message": "Responsive Google Maps embed and localized FAQs verified on Jupiter page"
     },
     {
@@ -123,7 +123,7 @@
       "id": "T1.R2.7",
       "title": "Service Areas Directory Index Page (/service-areas)",
       "status": "PASS",
-      "duration": 0,
+      "duration": 67,
       "message": "/service-areas directory lists 116 localized service area destinations"
     },
     {
@@ -132,7 +132,7 @@
       "id": "T1.R2.8",
       "title": "Multi-City Google Maps Embed Verification Across Representative Service Areas",
       "status": "PASS",
-      "duration": 3,
+      "duration": 349,
       "message": "Responsive Google Maps embeds verified across all 6 representative service areas (Jupiter, Boca Raton, West Palm Beach, Palm Beach Gardens, Delray Beach, Boynton Beach)"
     },
     {
@@ -141,7 +141,7 @@
       "id": "T1.R3.1",
       "title": "Desktop Header Navigation Links & Primary Telephony CTA",
       "status": "PASS",
-      "duration": 1,
+      "duration": 40,
       "message": "Desktop header navigation contains phone CTA, services dropdown, and publications links"
     },
     {
@@ -150,7 +150,7 @@
       "id": "T1.R3.2",
       "title": "Mobile Drawer Navigation Structure & Toggle Accessibility",
       "status": "PASS",
-      "duration": 0,
+      "duration": 39,
       "message": "Mobile drawer navigation structure verified with accessible toggle controls"
     },
     {
@@ -159,7 +159,7 @@
       "id": "T1.R3.3",
       "title": "Footer Corporate NAP, Divisions & Publications Directory",
       "status": "PASS",
-      "duration": 0,
+      "duration": 41,
       "message": "Footer contains corporate NAP and directory strip with 17 blog links"
     },
     {
@@ -168,7 +168,7 @@
       "id": "T1.R3.4",
       "title": "Zero Broken Internal Links Across Representative Routes",
       "status": "PASS",
-      "duration": 14,
+      "duration": 2615,
       "message": "Crawled 35 unique internal links with 0 broken 404 targets"
     },
     {
@@ -177,7 +177,7 @@
       "id": "T1.R3.5",
       "title": "Actionable CTA & Quote Modal Triggers Wiring",
       "status": "PASS",
-      "duration": 0,
+      "duration": 42,
       "message": "Actionable CTAs verified (6 tel links, quote action triggers present)"
     },
     {
@@ -186,7 +186,7 @@
       "id": "T1.R3.6",
       "title": "Universal Global CTA Component & Telephony Preceding Footer",
       "status": "PASS",
-      "duration": 6,
+      "duration": 688,
       "message": "Universal Global CTA verified across 15 representative canonical routes with data-testid=\"global-cta\", direct telephony, and physical DOM precedence preceding <footer"
     },
     {
@@ -195,7 +195,7 @@
       "id": "T1.R4.1",
       "title": "HTTP 200 Status Across All Core Canonical Routes",
       "status": "PASS",
-      "duration": 2,
+      "duration": 336,
       "message": "All 6 core routes returned HTTP 200 OK"
     },
     {
@@ -204,7 +204,7 @@
       "id": "T1.R4.2",
       "title": "Unique SEO Titles & Meta Descriptions Compliance",
       "status": "PASS",
-      "duration": 2,
+      "duration": 326,
       "message": "All core routes have unique titles and descriptive meta tags"
     },
     {
@@ -213,7 +213,7 @@
       "id": "T1.R4.3",
       "title": "JSON-LD Schema Strict Syntax & Absence of Corruption",
       "status": "PASS",
-      "duration": 1,
+      "duration": 164,
       "message": "JSON-LD blocks validated strictly with 0 syntax errors or trailing commas"
     },
     {
@@ -222,7 +222,7 @@
       "id": "T1.R4.4",
       "title": "LocalBusiness & CleaningService Schema Graph Integrity",
       "status": "PASS",
-      "duration": 0,
+      "duration": 40,
       "message": "LocalBusiness / CleaningService schema verified with phone, address, and coordinates"
     },
     {
@@ -231,7 +231,7 @@
       "id": "T1.R4.5",
       "title": "BreadcrumbList & FAQPage Schema Alignment",
       "status": "PASS",
-      "duration": 1,
+      "duration": 50,
       "message": "FAQPage schema validated with 7 structured question-answer entities"
     },
     {
@@ -240,7 +240,7 @@
       "id": "T1.R4.6",
       "title": "BlogPosting & Article Schema Presence and Required Properties Across 11 Blog Routes",
       "status": "PASS",
-      "duration": 4,
+      "duration": 515,
       "message": "All 11 blog routes verified with valid BlogPosting/Article schema, headline, author, publisher, and datePublished"
     },
     {
@@ -249,7 +249,7 @@
       "id": "T1.R4.7",
       "title": "CleaningService, LocalBusiness, AreaServed, GeoCoordinates & FAQPage Schema Across 56 Service Areas",
       "status": "PASS",
-      "duration": 18,
+      "duration": 4078,
       "message": "All 56 service area routes validated with CleaningService/LocalBusiness schema, areaServed, GeoCoordinates, and FAQPage with >=3 structured questions"
     },
     {
@@ -258,7 +258,7 @@
       "id": "T1.R4.8",
       "title": "Zero JSON-LD Parse Errors and Trailing Commas Across 100% of 86 Routes",
       "status": "PASS",
-      "duration": 25,
+      "duration": 4272,
       "message": "100% zero JSON-LD parse errors and zero trailing commas confirmed across 85 schema blocks on all 86 canonical routes"
     },
     {
@@ -267,7 +267,7 @@
       "id": "T1.R5.1",
       "title": "Netlify Form Discovery & Required HTML Attributes Compliance",
       "status": "PASS",
-      "duration": 2,
+      "duration": 404,
       "message": "Netlify form attributes (name=\"quote-request\", method=\"POST\", data-netlify=\"true\", honeypot=\"bot-field\") verified across all representative routes"
     },
     {
@@ -276,7 +276,7 @@
       "id": "T1.R5.2",
       "title": "Form Hidden Inputs, Anti-Spam Honeypot Field & Explicit Field Names Integrity",
       "status": "PASS",
-      "duration": 1,
+      "duration": 55,
       "message": "All required form fields ([form-name, bot-field, name, email, phone, message]) and hidden form-name value validated successfully"
     },
     {
@@ -285,7 +285,7 @@
       "id": "T1.R5.3",
       "title": "Static Netlify Form Registration Parity Across 100% of 86 Prerendered Routes in dist/",
       "status": "PASS",
-      "duration": 4,
+      "duration": 15,
       "message": "100% static Netlify build-time form registration confirmed across all 86 prerendered routes in dist/"
     },
     {
@@ -294,7 +294,7 @@
       "id": "T1.R5.4",
       "title": "Client-Side Form Submission Simulation (application/x-www-form-urlencoded POST with form-name)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 111,
       "message": "Form submission simulation succeeded with HTTP 200 (application/x-www-form-urlencoded payload accepted)"
     },
     {
@@ -303,7 +303,7 @@
       "id": "T1.R5.5",
       "title": "Anti-Spam Honeypot Bot Field Concealment & Component Guard Defense",
       "status": "PASS",
-      "duration": 1,
+      "duration": 252,
       "message": "Honeypot bot trap guard and visual/assistive concealment confirmed in QuoteForm.tsx"
     },
     {
@@ -312,7 +312,7 @@
       "id": "T1.R6.1",
       "title": "On-Page SEO Integrity Across 100% of Routes in dist/",
       "status": "PASS",
-      "duration": 5,
+      "duration": 13,
       "message": "100% of 86 routes pass on-page SEO verification (single H1, unique branded titles, valid descriptions, OG/Twitter tags)"
     },
     {
@@ -321,7 +321,7 @@
       "id": "T1.R6.2",
       "title": "Canonical Tags & Robots Meta Policies Across All Routes in dist/",
       "status": "PASS",
-      "duration": 5,
+      "duration": 7,
       "message": "All 86 routes have compliant canonical tags and strict robots directives (index/follow on 85, noindex on /404)"
     },
     {
@@ -339,7 +339,7 @@
       "id": "T1.R6.4",
       "title": "llms.txt Standard Compliance, 5 Service Divisions & 56 Service Areas Summary",
       "status": "PASS",
-      "duration": 1,
+      "duration": 64,
       "message": "public/llms.txt meets llmstxt.org standards (H1, blockquote, 5 divisions, 56 cities up to Jupiter, links)"
     },
     {
@@ -348,7 +348,7 @@
       "id": "T1.R6.5",
       "title": "llms-full.txt Knowledge Base (5 Divisions SOPs, 56 Community Profiles & Stats)",
       "status": "PASS",
-      "duration": 2,
+      "duration": 112,
       "message": "public/llms-full.txt verified with comprehensive 5-division SOPs, 56 authentic community profiles & statistics"
     },
     {
@@ -357,7 +357,7 @@
       "id": "T2.B.1",
       "title": "Non-Existent Route 404 Error Handling & Fallback Document",
       "status": "PASS",
-      "duration": 1,
+      "duration": 211,
       "message": "Non-existent routes properly return 404 or serve designated 404 document"
     },
     {
@@ -366,7 +366,7 @@
       "id": "T2.B.2",
       "title": "Trailing Slash Route Normalization & Canonical Consistency",
       "status": "PASS",
-      "duration": 1,
+      "duration": 184,
       "message": "Trailing slash variants resolve cleanly without infinite redirect loops"
     },
     {
@@ -375,7 +375,7 @@
       "id": "T2.B.3",
       "title": "URL Case Sensitivity & Tracking Query String Immunity",
       "status": "PASS",
-      "duration": 0,
+      "duration": 108,
       "message": "Routes with tracking query parameters serve canonical document correctly"
     },
     {
@@ -384,7 +384,7 @@
       "id": "T2.B.4",
       "title": "Service Directory Search Filter Input Boundary Defense",
       "status": "PASS",
-      "duration": 1,
+      "duration": 50,
       "message": "Directory search input element present and handles boundary inputs safely"
     },
     {
@@ -393,7 +393,7 @@
       "id": "T2.B.5",
       "title": "Viewport Responsive Meta Tag & Standard Breakpoint Containers",
       "status": "PASS",
-      "duration": 0,
+      "duration": 52,
       "message": "Viewport meta tag and responsive breakpoint containers verified across layout"
     },
     {
@@ -402,7 +402,7 @@
       "id": "T2.B.6",
       "title": "Schema Script Injection & XSS Vulnerability Defense",
       "status": "PASS",
-      "duration": 0,
+      "duration": 53,
       "message": "JSON-LD blocks free of script breakout vulnerabilities"
     },
     {
@@ -411,7 +411,7 @@
       "id": "T2.B.7",
       "title": "Form Submission Boundary Defense (Malformed Payload & Missing form-name)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 193,
       "message": "Server gracefully handled empty and non-matching form submissions without unhandled exceptions"
     },
     {
@@ -420,7 +420,7 @@
       "id": "T2.B.8",
       "title": "LLMs Context Head Discovery, Robots Directive & XML Syntax Boundary Defense",
       "status": "PASS",
-      "duration": 1,
+      "duration": 524,
       "message": "Robots.txt LLMs directive, HTML head discovery link, and sitemap XML boundaries successfully verified"
     },
     {
@@ -429,7 +429,7 @@
       "id": "T3.C.1",
       "title": "Full Customer Navigation Funnel (Home -> Blog -> Footer -> City -> Quote)",
       "status": "PASS",
-      "duration": 3,
+      "duration": 137,
       "message": "End-to-end customer navigation funnel verified: Home -> Blog -> City -> Quote CTA"
     },
     {
@@ -438,7 +438,7 @@
       "id": "T3.C.2",
       "title": "Schema Graph Cross-Entity Integrity (Service -> Provider -> AreaServed)",
       "status": "PASS",
-      "duration": 0,
+      "duration": 45,
       "message": "Schema graph cross-links Service entity to Organization provider and City areaServed"
     },
     {
@@ -447,7 +447,7 @@
       "id": "T3.C.3",
       "title": "Directory to Detail Page Cross-Navigation & Reciprocal Breadcrumbs",
       "status": "PASS",
-      "duration": 1,
+      "duration": 86,
       "message": "Reciprocal cross-navigation verified: /service-areas <-> /service-area/jupiter"
     },
     {
@@ -456,7 +456,7 @@
       "id": "T3.C.4",
       "title": "Cross-Division Blog Content to Service Offerings Association",
       "status": "PASS",
-      "duration": 0,
+      "duration": 43,
       "message": "Blog content semantically references corresponding service divisions"
     },
     {
@@ -465,7 +465,7 @@
       "id": "T3.C.5",
       "title": "Interactive Cleaning Estimator / Quote Lead Capture Integration",
       "status": "PASS",
-      "duration": 1,
+      "duration": 44,
       "message": "Lead capture mechanisms (estimator, quote triggers, telephone) properly integrated"
     },
     {
@@ -474,7 +474,7 @@
       "id": "T4.J.1",
       "title": "Customer Journey 1: Jupiter Commercial Facility Manager (Office Cleaning)",
       "status": "PASS",
-      "duration": 0,
+      "duration": 43,
       "message": "Customer Journey 1: Jupiter facility manager successfully accesses commercial office cleaning"
     },
     {
@@ -483,7 +483,7 @@
       "id": "T4.J.2",
       "title": "Customer Journey 2: Boca Raton Luxury Homeowner (Recurring Maid Rotation)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 128,
       "message": "Customer Journey 2: Boca Raton luxury homeowner successfully verifies residential maid service"
     },
     {
@@ -492,7 +492,7 @@
       "id": "T4.J.3",
       "title": "Customer Journey 3: Palm Beach Gardens Medical Clinic (Terminal Disinfection)",
       "status": "PASS",
-      "duration": 0,
+      "duration": 48,
       "message": "Customer Journey 3: Palm Beach Gardens clinic manager successfully validates disinfection capabilities"
     },
     {
@@ -501,7 +501,7 @@
       "id": "T4.J.4",
       "title": "Customer Journey 4: Delray Beach Short-Term Rental Host (Same-Day Turnover)",
       "status": "PASS",
-      "duration": 1,
+      "duration": 43,
       "message": "Customer Journey 4: Delray Beach short-term rental host successfully books turnover turnover"
     },
     {
@@ -510,7 +510,7 @@
       "id": "T4.J.5",
       "title": "Customer Journey 5: West Palm Beach General Contractor (Post-Construction Cleanup)",
       "status": "PASS",
-      "duration": 0,
+      "duration": 43,
       "message": "Customer Journey 5: West Palm Beach contractor successfully schedules post-construction cleanup"
     }
   ]

@@ -22,5 +22,5 @@ http://www.sfcleaningconcepts.com/*  https://sfcleaningconcepts.com/:splat 301!
 # Non-existent static assets return 404 rather than fallback HTML
 /assets/*               /404.html          404
 
-# SPA Routing Fallback (prerendered files shadow automatically)
-/*                      /index.html        200
+# SPA Routing & 404 Fallback (prerendered files shadow automatically)
+/*                      /404.html          404

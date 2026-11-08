@@ -1425,14 +1425,20 @@ runner.register(1, 'M5', 'T1.R5.1', 'Netlify Form Discovery & Required HTML Attr
       return { pass: false, message: `Route ${route} form method is '${netlifyForm.method}', expected 'POST'` };
     }
 
-    const hasDataNetlify = netlifyForm.dataNetlify === 'true' || netlifyForm.netlify === 'true';
+    // In local prerendered files, data-netlify="true" and data-netlify-honeypot="bot-field" are explicitly present.
+    // In live Netlify deployed HTML, Netlify's post-processor strips data-netlify and binds the form via action="/" and hidden form-name/bot-field inputs.
+    const hasDataNetlify = netlifyForm.dataNetlify === 'true' ||
+      netlifyForm.netlify === 'true' ||
+      (netlifyForm.inputs.some(i => i.name === 'form-name') && netlifyForm.method === 'POST');
     if (!hasDataNetlify) {
-      return { pass: false, message: `Route ${route} form is missing data-netlify="true" attribute` };
+      return { pass: false, message: `Route ${route} form is missing data-netlify="true" attribute or Netlify-processed form-name input` };
     }
 
-    const hasHoneypotAttr = netlifyForm.dataNetlifyHoneypot === 'bot-field' || netlifyForm.netlifyHoneypot === 'bot-field';
+    const hasHoneypotAttr = netlifyForm.dataNetlifyHoneypot === 'bot-field' ||
+      netlifyForm.netlifyHoneypot === 'bot-field' ||
+      netlifyForm.inputs.some(i => i.name === 'bot-field');
     if (!hasHoneypotAttr) {
-      return { pass: false, message: `Route ${route} form is missing netlify-honeypot="bot-field" attribute` };
+      return { pass: false, message: `Route ${route} form is missing netlify-honeypot="bot-field" attribute or bot-field input` };
     }
   }
 
