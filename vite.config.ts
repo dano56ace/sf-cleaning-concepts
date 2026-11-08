@@ -28,6 +28,10 @@ export default defineConfig({
               pathname === '/service/' ||
               pathname === '/service/index.html' ||
               pathname.startsWith('/service/') ||
+              pathname === '/service-areas' ||
+              pathname === '/service-areas.html' ||
+              pathname === '/service-areas/' ||
+              pathname.startsWith('/service-area/') ||
               pathname.startsWith('/blog/');
             if (isSpaRoute && !pathname.match(/\.(js|ts|tsx|css|png|jpg|jpeg|svg|gif|webp|mp4|mp3|woff2?|xml|txt|json)$/i)) {
               req.url = '/index.html';

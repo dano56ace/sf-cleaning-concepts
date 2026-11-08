@@ -6,6 +6,7 @@ import { CleaningEstimator } from '../components/ui/CleaningEstimator';
 import { TestimonialsSlider } from '../components/ui/TestimonialsSlider';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { QuoteForm } from '../components/ui/QuoteForm';
+import { RecentBlogPosts } from '../components/ui/RecentBlogPosts';
 import { SERVICES_CATALOG, FAQS_LIST, BUSINESS_NAP } from '../data/siteData';
 import { ArrowRight, Phone, CheckCircle2, MapPin } from 'lucide-react';
 
@@ -211,7 +212,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
         </div>
       </section>
 
-      {/* 8. Bottom Lead Capture & Tri-County Dispatch Section */}
+      {/* 8. Recent Blog Posts & Expert Cleaning Guides */}
+      <RecentBlogPosts />
+
+      {/* 9. Bottom Lead Capture & Tri-County Dispatch Section */}
       <section className="section py-20 lg:py-24 bg-white border-t border-slate-200/80" aria-labelledby="cta-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#071536] rounded-2xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

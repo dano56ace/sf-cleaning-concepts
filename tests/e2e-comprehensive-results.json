@@ -1,0 +1,364 @@
+{
+  "timestamp": "2026-11-08T16:39:05.448Z",
+  "baseUrl": "http://localhost:4180",
+  "summary": {
+    "total": 39,
+    "passed": 39,
+    "failed": 0,
+    "pending": 0,
+    "durationSeconds": 0.07
+  },
+  "results": [
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.1",
+      "title": "11 Live Blog Articles Catalog Completeness & Accessibility",
+      "status": "PASS",
+      "duration": 21,
+      "message": "All 11 live blog articles accessible via clean /blog/:slug routes with HTTP 200"
+    },
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.2",
+      "title": "Blog Article Content, Semantic Structure & Typography",
+      "status": "PASS",
+      "duration": 3,
+      "message": "Blog articles contain semantic H1s and rich editorial text content"
+    },
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.3",
+      "title": "Blog Media Assets Physical Disk Resolution & Integrity",
+      "status": "PASS",
+      "duration": 0,
+      "message": "All blog featured imagery verified present on disk with valid file size"
+    },
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.4",
+      "title": "Homepage Recent Blog Snippets Component & Grid Layout",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Homepage renders recent blog snippets with 17 article links"
+    },
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.5",
+      "title": "Blog Snippet Navigation & Publications Hub Cross-Linking",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Homepage blog snippet successfully cross-links to /our-publications hub"
+    },
+    {
+      "tier": 1,
+      "milestone": "M1",
+      "id": "T1.R1.6",
+      "title": "Legacy WordPress 301 URL Preservation & Redirect Map",
+      "status": "PASS",
+      "duration": 1,
+      "message": "All 11 legacy WordPress URLs mapped to /blog/:slug with 301 redirects"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.1",
+      "title": "Service Area Template Architecture & Modular Section Roster",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Service area landing page renders complete modular structure for Jupiter"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.2",
+      "title": "Localized Headings, City Metadata & Geo Coordinates",
+      "status": "PASS",
+      "duration": 3,
+      "message": "Localized headings, titles, and descriptions verified across sample cities"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.3",
+      "title": "Localized Neighborhood Highlights & Commercial Transit Corridors",
+      "status": "PASS",
+      "duration": 2,
+      "message": "Authentic local neighborhoods & corridors verified across service areas"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.4",
+      "title": "Interactive Local Guide (Landmarks & Activities Presentation)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Interactive Local Guide renders authentic landmarks for Jupiter"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.5",
+      "title": "Specialized Cleaning Services Catalog Grid Adaptation",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Cleaning services catalog properly adapted on service area landing page"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.6",
+      "title": "Localized FAQ Accordion & Responsive Google Maps Embed",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Responsive Google Maps embed and localized FAQs verified on Jupiter page"
+    },
+    {
+      "tier": 1,
+      "milestone": "M2",
+      "id": "T1.R2.7",
+      "title": "Service Areas Directory Index Page (/service-areas)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "/service-areas directory lists 116 localized service area destinations"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.1",
+      "title": "Desktop Header Navigation Links & Primary Telephony CTA",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Desktop header navigation contains phone CTA, services dropdown, and publications links"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.2",
+      "title": "Mobile Drawer Navigation Structure & Toggle Accessibility",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Mobile drawer navigation structure verified with accessible toggle controls"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.3",
+      "title": "Footer Corporate NAP, Divisions & Publications Directory",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Footer contains corporate NAP and directory strip with 17 blog links"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.4",
+      "title": "Zero Broken Internal Links Across Representative Routes",
+      "status": "PASS",
+      "duration": 22,
+      "message": "Crawled 59 unique internal links with 0 broken 404 targets"
+    },
+    {
+      "tier": 1,
+      "milestone": "M3",
+      "id": "T1.R3.5",
+      "title": "Actionable CTA & Quote Modal Triggers Wiring",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Actionable CTAs verified (5 tel links, quote action triggers present)"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.1",
+      "title": "HTTP 200 Status Across All Core Canonical Routes",
+      "status": "PASS",
+      "duration": 2,
+      "message": "All 6 core routes returned HTTP 200 OK"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.2",
+      "title": "Unique SEO Titles & Meta Descriptions Compliance",
+      "status": "PASS",
+      "duration": 2,
+      "message": "All core routes have unique titles and descriptive meta tags"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.3",
+      "title": "JSON-LD Schema Strict Syntax & Absence of Corruption",
+      "status": "PASS",
+      "duration": 2,
+      "message": "JSON-LD blocks validated strictly with 0 syntax errors or trailing commas"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.4",
+      "title": "LocalBusiness & CleaningService Schema Graph Integrity",
+      "status": "PASS",
+      "duration": 0,
+      "message": "LocalBusiness / CleaningService schema verified with phone, address, and coordinates"
+    },
+    {
+      "tier": 1,
+      "milestone": "M4",
+      "id": "T1.R4.5",
+      "title": "BreadcrumbList & FAQPage Schema Alignment",
+      "status": "PASS",
+      "duration": 0,
+      "message": "FAQPage schema validated with 7 structured question-answer entities"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.1",
+      "title": "Non-Existent Route 404 Error Handling & Fallback Document",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Non-existent routes properly return 404 or serve designated 404 document"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.2",
+      "title": "Trailing Slash Route Normalization & Canonical Consistency",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Trailing slash variants resolve cleanly without infinite redirect loops"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.3",
+      "title": "URL Case Sensitivity & Tracking Query String Immunity",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Routes with tracking query parameters serve canonical document correctly"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.4",
+      "title": "Service Directory Search Filter Input Boundary Defense",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Directory search input element present and handles boundary inputs safely"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.5",
+      "title": "Viewport Responsive Meta Tag & Standard Breakpoint Containers",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Viewport meta tag and responsive breakpoint containers verified across layout"
+    },
+    {
+      "tier": 2,
+      "milestone": "M4",
+      "id": "T2.B.6",
+      "title": "Schema Script Injection & XSS Vulnerability Defense",
+      "status": "PASS",
+      "duration": 0,
+      "message": "JSON-LD blocks free of script breakout vulnerabilities"
+    },
+    {
+      "tier": 3,
+      "milestone": "M4",
+      "id": "T3.C.1",
+      "title": "Full Customer Navigation Funnel (Home -> Blog -> Footer -> City -> Quote)",
+      "status": "PASS",
+      "duration": 2,
+      "message": "End-to-end customer navigation funnel verified: Home -> Blog -> City -> Quote CTA"
+    },
+    {
+      "tier": 3,
+      "milestone": "M4",
+      "id": "T3.C.2",
+      "title": "Schema Graph Cross-Entity Integrity (Service -> Provider -> AreaServed)",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Schema graph cross-links Service entity to Organization provider and City areaServed"
+    },
+    {
+      "tier": 3,
+      "milestone": "M4",
+      "id": "T3.C.3",
+      "title": "Directory to Detail Page Cross-Navigation & Reciprocal Breadcrumbs",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Reciprocal cross-navigation verified: /service-areas <-> /service-area/jupiter"
+    },
+    {
+      "tier": 3,
+      "milestone": "M4",
+      "id": "T3.C.4",
+      "title": "Cross-Division Blog Content to Service Offerings Association",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Blog content semantically references corresponding service divisions"
+    },
+    {
+      "tier": 3,
+      "milestone": "M4",
+      "id": "T3.C.5",
+      "title": "Interactive Cleaning Estimator / Quote Lead Capture Integration",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Lead capture mechanisms (estimator, quote triggers, telephone) properly integrated"
+    },
+    {
+      "tier": 4,
+      "milestone": "M4",
+      "id": "T4.J.1",
+      "title": "Customer Journey 1: Jupiter Commercial Facility Manager (Office Cleaning)",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Customer Journey 1: Jupiter facility manager successfully accesses commercial office cleaning"
+    },
+    {
+      "tier": 4,
+      "milestone": "M4",
+      "id": "T4.J.2",
+      "title": "Customer Journey 2: Boca Raton Luxury Homeowner (Recurring Maid Rotation)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Customer Journey 2: Boca Raton luxury homeowner successfully verifies residential maid service"
+    },
+    {
+      "tier": 4,
+      "milestone": "M4",
+      "id": "T4.J.3",
+      "title": "Customer Journey 3: Palm Beach Gardens Medical Clinic (Terminal Disinfection)",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Customer Journey 3: Palm Beach Gardens clinic manager successfully validates disinfection capabilities"
+    },
+    {
+      "tier": 4,
+      "milestone": "M4",
+      "id": "T4.J.4",
+      "title": "Customer Journey 4: Delray Beach Short-Term Rental Host (Same-Day Turnover)",
+      "status": "PASS",
+      "duration": 1,
+      "message": "Customer Journey 4: Delray Beach short-term rental host successfully books turnover turnover"
+    },
+    {
+      "tier": 4,
+      "milestone": "M4",
+      "id": "T4.J.5",
+      "title": "Customer Journey 5: West Palm Beach General Contractor (Post-Construction Cleanup)",
+      "status": "PASS",
+      "duration": 0,
+      "message": "Customer Journey 5: West Palm Beach contractor successfully schedules post-construction cleanup"
+    }
+  ]
+}

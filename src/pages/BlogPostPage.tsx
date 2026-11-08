@@ -109,26 +109,41 @@ export const BlogPostPage: React.FC = () => {
 
               <div className="space-y-8 text-slate-700 leading-relaxed">
                 {post.sections.map((section, idx) => (
-                  <div key={idx} className="space-y-4">
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] tracking-tight">
-                      {section.heading}
-                    </h2>
-                    {section.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="text-base sm:text-lg leading-relaxed text-slate-700">
-                        {p}
-                      </p>
-                    ))}
-                    {section.bullets && section.bullets.length > 0 && (
-                      <ul className="space-y-2.5 pt-2">
-                        {section.bullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-3 text-sm sm:text-base text-slate-700">
-                            <CheckCircle2 className="w-5 h-5 text-[#2a8655] shrink-0 mt-0.5" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  <React.Fragment key={idx}>
+                    <div className="space-y-4">
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] tracking-tight">
+                        {section.heading}
+                      </h2>
+                      {section.paragraphs.map((p, pIdx) => (
+                        <p key={pIdx} className="text-base sm:text-lg leading-relaxed text-slate-700">
+                          {p}
+                        </p>
+                      ))}
+                      {section.bullets && section.bullets.length > 0 && (
+                        <ul className="space-y-2.5 pt-2">
+                          {section.bullets.map((bullet, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-3 text-sm sm:text-base text-slate-700">
+                              <CheckCircle2 className="w-5 h-5 text-[#2a8655] shrink-0 mt-0.5" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    {post.inlineImage && idx === Math.min(2, Math.max(1, Math.floor(post.sections.length / 3))) && (
+                      <figure className="my-8 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm">
+                        <img
+                          src={post.inlineImage}
+                          alt={`${exactH1} - Detail`}
+                          className="w-full h-64 sm:h-96 object-cover"
+                          width="900"
+                          height="500"
+                          loading="lazy"
+                        />
+                      </figure>
                     )}
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
 

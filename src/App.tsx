@@ -12,6 +12,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ServicesOverviewPage } from './pages/ServicesOverviewPage';
 import { ServiceDirectoryPage } from './pages/ServiceDirectoryPage';
 import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { ServiceAreaDirectoryPage } from './pages/ServiceAreaDirectoryPage';
+import { ServiceAreaDetailPage } from './pages/ServiceAreaDetailPage';
 import { PublicationsPage } from './pages/PublicationsPage';
 import { BlogPostPage } from './pages/BlogPostPage';
 import { ContactPage } from './pages/ContactPage';
@@ -45,6 +47,9 @@ export function App() {
             <Route path="/service" element={<ServiceDirectoryPage />} />
             <Route path="/service/index.html" element={<ServiceDirectoryPage />} />
             <Route path="/service/:slug" element={<ServiceDetailPage />} />
+            <Route path="/service-areas" element={<ServiceAreaDirectoryPage />} />
+            <Route path="/service-areas.html" element={<ServiceAreaDirectoryPage />} />
+            <Route path="/service-area/:slug" element={<ServiceAreaDetailPage />} />
             <Route path="/our-publications" element={<PublicationsPage />} />
             <Route path="/our-publications.html" element={<PublicationsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />

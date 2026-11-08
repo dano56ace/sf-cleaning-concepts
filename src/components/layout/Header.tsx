@@ -10,6 +10,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
+  const [serviceAreasAccordionOpen, setServiceAreasAccordionOpen] = useState(false);
   const location = useLocation();
 
   const syncDrawerDom = (nextOpen: boolean) => {
@@ -26,6 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   useEffect(() => {
     syncDrawerDom(false);
     setServicesAccordionOpen(false);
+    setServiceAreasAccordionOpen(false);
   }, [location.pathname]);
 
   // Handle ESC key to close mobile drawer
@@ -195,6 +197,69 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                         className="text-xs font-bold text-[#071536] hover:text-[#12582e] transition-colors"
                       >
                         Service Directory →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              {/* Service Areas Navigation & Dropdown */}
+              <li className="nav-item relative group">
+                <Link
+                  to="/service-areas"
+                  className={`nav-link inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 py-2 transition-colors relative ${
+                    isActive('/service-area')
+                      ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
+                      : 'hover:text-[#071536]'
+                  }`}
+                >
+                  <span>Service Areas</span>
+                  <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#12582e]" />
+                </Link>
+
+                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-4 overflow-hidden">
+                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+                      <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+                        Top Service Hubs
+                      </span>
+                      <Link
+                        to="/service-areas"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#12582e] hover:text-[#0d4222]"
+                      >
+                        <span>All 56 Areas</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                      {[
+                        { name: 'Jupiter', slug: 'jupiter' },
+                        { name: 'West Palm Beach', slug: 'west-palm-beach' },
+                        { name: 'Boca Raton', slug: 'boca-raton' },
+                        { name: 'Delray Beach', slug: 'delray-beach' },
+                        { name: 'Palm Beach Gardens', slug: 'palm-beach-gardens' },
+                        { name: 'Wellington', slug: 'wellington' },
+                        { name: 'Boynton Beach', slug: 'boynton-beach' }
+                      ].map((city) => (
+                        <Link
+                          key={city.slug}
+                          to={`/service-area/${city.slug}`}
+                          className="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-[#12582e] hover:bg-slate-50 transition-colors"
+                        >
+                          <span>{city.name}</span>
+                          <span className="text-xs text-slate-400 font-mono">FL</span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="mt-2 pt-2 border-t border-slate-100 bg-slate-50/70 -mx-4 -mb-4 px-4 py-2.5 flex items-center justify-between">
+                      <span className="text-[11px] text-slate-500">Palm Beach, Broward &amp; Miami-Dade</span>
+                      <Link
+                        to="/service-areas"
+                        className="text-xs font-bold text-[#12582e] hover:underline"
+                      >
+                        All 56 Service Areas →
                       </Link>
                     </div>
                   </div>
@@ -397,6 +462,59 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                         onClick={() => syncDrawerDom(false)}
                       >
                         {svc.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="mobile-accordion-toggle w-full flex items-center justify-between min-h-[48px] py-3 px-4 rounded-xl hover:bg-slate-50 text-left font-bold text-[#071536] cursor-pointer"
+                  aria-expanded={serviceAreasAccordionOpen}
+                  onClick={(e) => {
+                    const nextAcc = !serviceAreasAccordionOpen;
+                    setServiceAreasAccordionOpen(nextAcc);
+                    e.currentTarget.setAttribute('aria-expanded', String(nextAcc));
+                  }}
+                >
+                  <span>Service Areas</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
+                      serviceAreasAccordionOpen ? 'rotate-180 text-[#12582e]' : ''
+                    }`}
+                  />
+                </button>
+                <ul
+                  className={`mobile-accordion-content pl-3 py-1.5 flex flex-col gap-1 list-none m-0 border-l border-slate-200 ml-4 overflow-hidden transition-all duration-200 ${
+                    serviceAreasAccordionOpen ? 'is-open max-h-[800px] opacity-100 block' : 'max-h-0 opacity-0 hidden'
+                  }`}
+                >
+                  <li>
+                    <Link
+                      to="/service-areas"
+                      className="drawer_sub_link flex items-center min-h-[48px] py-2.5 px-3 text-sm font-bold text-[#12582e] hover:bg-[#e8f5ee] rounded-lg transition-colors"
+                      onClick={() => syncDrawerDom(false)}
+                    >
+                      All 56 Service Areas Overview →
+                    </Link>
+                  </li>
+                  {[
+                    { name: 'Jupiter', slug: 'jupiter' },
+                    { name: 'West Palm Beach', slug: 'west-palm-beach' },
+                    { name: 'Boca Raton', slug: 'boca-raton' },
+                    { name: 'Delray Beach', slug: 'delray-beach' },
+                    { name: 'Palm Beach Gardens', slug: 'palm-beach-gardens' },
+                    { name: 'Wellington', slug: 'wellington' },
+                    { name: 'Boynton Beach', slug: 'boynton-beach' }
+                  ].map((city) => (
+                    <li key={city.slug}>
+                      <Link
+                        to={`/service-area/${city.slug}`}
+                        className="drawer_sub_link flex items-center min-h-[48px] py-2.5 px-3 text-sm font-medium text-slate-600 hover:text-[#12582e] hover:bg-slate-50 rounded-lg transition-colors"
+                        onClick={() => syncDrawerDom(false)}
+                      >
+                        {city.name}, FL
                       </Link>
                     </li>
                   ))}

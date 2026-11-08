@@ -1,3 +1,5 @@
+import { serviceAreas } from './serviceAreas';
+
 export interface RouteSeoMeta {
   path: string;
   title: string;
@@ -239,5 +241,26 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
     canonical: 'https://sfcleaningconcepts.com/404',
     ogImage: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
     schemaType: 'ErrorPage'
+  },
+  '/service-areas': {
+    path: '/service-areas',
+    title: 'Service Areas - Florida Directory | South Florida Cleaning Concepts',
+    description: 'Explore all 56 South Florida service areas covered by South Florida Cleaning Concepts. Commercial and residential cleaning from Jupiter to Miami. Call (561) 704-5303.',
+    canonical: 'https://sfcleaningconcepts.com/service-areas',
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/services/service-img-12.jpg',
+    schemaType: 'CollectionPage'
   }
 };
+
+// Dynamically populate all 56 service area routes
+for (const area of serviceAreas) {
+  SEO_ROUTES_MAP[`/service-area/${area.slug}`] = {
+    path: `/service-area/${area.slug}`,
+    title: area.seoTitle || `${area.name} Commercial & Residential Cleaning Services | South Florida Cleaning Concepts`,
+    description: area.metaDescription || `Premier commercial office cleaning, medical facility sanitization, and luxury maid services in ${area.name}, FL. Bonded, insured, and 100% guaranteed. Call (561) 704-5303.`,
+    canonical: `https://sfcleaningconcepts.com/service-area/${area.slug}`,
+    ogImage: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
+    schemaType: 'Service'
+  };
+}
+

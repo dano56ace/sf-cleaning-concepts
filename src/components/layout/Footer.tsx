@@ -106,6 +106,9 @@ export const Footer: React.FC = () => {
                 <Link to="/service" className="hover:text-white transition-colors">Service Directory</Link>
               </li>
               <li>
+                <Link to="/service-areas" className="hover:text-white transition-colors">Service Areas (56)</Link>
+              </li>
+              <li>
                 <Link to="/faqs" className="hover:text-white transition-colors">FAQs &amp; Policies</Link>
               </li>
               <li>
@@ -190,6 +193,51 @@ export const Footer: React.FC = () => {
                   {post.title}
                 </Link>
                 {idx < BLOG_POSTS.length - 1 && (
+                  <span className="text-slate-700" aria-hidden="true">·</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Middle Row 2: Service Areas Corridors & Municipalities */}
+        <div className="py-8 border-b border-slate-800/80">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-[11px] font-mono font-semibold uppercase tracking-widest text-slate-400">
+              South Florida Service Corridors &amp; Municipalities (56 Locations)
+            </div>
+            <Link
+              to="/service-areas"
+              className="text-xs font-bold text-[#a3e6be] hover:underline"
+            >
+              All 56 Service Areas →
+            </Link>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-400">
+            {[
+              { name: 'Jupiter', slug: 'jupiter' },
+              { name: 'West Palm Beach', slug: 'west-palm-beach' },
+              { name: 'Boca Raton', slug: 'boca-raton' },
+              { name: 'Delray Beach', slug: 'delray-beach' },
+              { name: 'Palm Beach Gardens', slug: 'palm-beach-gardens' },
+              { name: 'Wellington', slug: 'wellington' },
+              { name: 'Boynton Beach', slug: 'boynton-beach' },
+              { name: 'Lake Worth Beach', slug: 'lake-worth-beach' },
+              { name: 'Tequesta', slug: 'tequesta' },
+              { name: 'Juno Beach', slug: 'juno-beach' },
+              { name: 'Royal Palm Beach', slug: 'royal-palm-beach' },
+              { name: 'North Palm Beach', slug: 'north-palm-beach' },
+              { name: 'Broward County', slug: 'broward-county' },
+              { name: 'Miami-Dade County', slug: 'miami-dade-county' }
+            ].map((city, idx, arr) => (
+              <React.Fragment key={city.slug}>
+                <Link
+                  to={`/service-area/${city.slug}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {city.name}
+                </Link>
+                {idx < arr.length - 1 && (
                   <span className="text-slate-700" aria-hidden="true">·</span>
                 )}
               </React.Fragment>
