@@ -82,6 +82,15 @@ export function SEOHead() {
           ? 'noindex, nofollow'
           : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
       );
+
+      // Notify Google Analytics (G-R1LCQWZJW0) on SPA route change
+      const win = window as Window & { gtag?: (...args: unknown[]) => void };
+      if (typeof win.gtag === 'function') {
+        win.gtag('config', 'G-R1LCQWZJW0', {
+          page_path: pathname,
+          page_title: meta.title
+        });
+      }
     }
   }, [pathname]);
 
