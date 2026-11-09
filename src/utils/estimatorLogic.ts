@@ -49,12 +49,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Office Cleaning Services',
     baseRatePerSqft: 0.11,
     sqftPerHourPerTech: 1200,
-    sanitizationTier: 'Corporate HEPA & High-Touch Protocol',
+    sanitizationTier: 'Fresh & Productive Workplace Clean',
     highlights: [
-      'Workstation & conference table microfiber detailing',
-      'HEPA-filter particulate vacuuming',
-      'Restroom sanitation & odor neutralization',
-      'Trash & recycling liner replacement'
+      'Desks, conference tables & lobbies wiped spotless',
+      'Deep-filter vacuuming for cleaner, fresher indoor air',
+      'Sparkling, sanitized restrooms & breakrooms',
+      'All trash & recycling bins emptied and relined'
     ]
   },
   medical: {
@@ -62,12 +62,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Specialized Medical Office Cleaning',
     baseRatePerSqft: 0.16,
     sqftPerHourPerTech: 850,
-    sanitizationTier: 'OSHA & CDC Terminal Sterilization (EPA List N)',
+    sanitizationTier: 'Hospital-Grade Patient-Safe Sanitization',
     highlights: [
-      'Exam table & clinical procedure zone sterilization',
-      'Color-coded microfiber cross-contamination defense',
-      'Waiting area & reception antimicrobial misting',
-      'Biohazard & sharps compliance protocol'
+      'Exam tables, chairs & treatment rooms sanitized',
+      'Color-coded cloths so bathroom tools never cross over',
+      'Welcoming, germ-free waiting room & front desk',
+      '100% compliant with Florida healthcare standards'
     ]
   },
   restaurant: {
@@ -75,12 +75,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Commercial Bar & Restaurant Cleaning',
     baseRatePerSqft: 0.15,
     sqftPerHourPerTech: 800,
-    sanitizationTier: 'Food-Safe Enzyme Degreasing & Front-of-House Polish',
+    sanitizationTier: 'Kitchen Degreasing & Front-of-House Shine',
     highlights: [
-      'Commercial kitchen line & quarry tile enzyme degreasing',
-      'Bar well, speed rail & tap sanitization',
-      'Dining booth, glass & entry detailing',
-      'Health inspection readiness checklist'
+      'Heavy-duty kitchen line & tile floor degreasing',
+      'Bar wells, speed rails & beer taps sanitized',
+      'Spotless dining booths, windows & guest restrooms',
+      'Health-inspection ready every single morning'
     ]
   },
   rental: {
@@ -88,12 +88,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Short-Term Rental & Airbnb Turnover',
     baseRatePerSqft: 0.14,
     sqftPerHourPerTech: 750,
-    sanitizationTier: '5-Star Hospitality Turnover & Linen Staging',
+    sanitizationTier: '5-Star Hotel-Style Guest Turnover',
     highlights: [
-      'Same-day 10 AM – 4 PM guaranteed turnover window',
-      'Complete linen & towel laundering + hotel staging',
-      'Kitchen appliance & glassware sanitization',
-      'Timestamped photo verification report for host'
+      'Guaranteed same-day 10 AM – 4 PM guest turnaround',
+      'Fresh laundry + crisp hotel-style bed & towel staging',
+      'Sparkling kitchen appliances, dishes & bathrooms',
+      'Photo report texted to you as soon as we finish'
     ]
   },
   residential: {
@@ -101,12 +101,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Comprehensive Home Maintenance',
     baseRatePerSqft: 0.13,
     sqftPerHourPerTech: 850,
-    sanitizationTier: '4-Phase Rotation Cleaning System (Eco-Safe)',
+    sanitizationTier: '4-Step Rotation Deep Clean (Kid & Pet Safe)',
     highlights: [
-      '4-Phase deep rotation across kitchen, baths & living areas',
-      'Non-toxic child & pet-safe botanical formulas',
-      'Baseboard, blind, ceiling fan & AC vent detailing',
-      'pH-balanced hardwood, marble & travertine floor care'
+      'Full-home clean + rotating deep scrub every visit',
+      'Gentle, non-toxic products safe for kids & pets',
+      'Baseboards, blinds, ceiling fans & AC vents dusted',
+      'Safe, streak-free care for wood, tile & stone floors'
     ]
   },
   construction: {
@@ -114,12 +114,12 @@ const CATEGORY_CONFIG: Record<
     title: 'Post-Construction Cleanup',
     baseRatePerSqft: 0.22,
     sqftPerHourPerTech: 550,
-    sanitizationTier: '3-Phase Rough, HEPA Silica Extraction & Final Polish',
+    sanitizationTier: 'Move-In Ready Remodel & New-Build Polish',
     highlights: [
-      'Multi-stage HEPA extraction of fine drywall & silica dust',
-      'Window sticker, paint & silicone adhesive removal',
-      'Custom cabinetry & drawer interior detailing',
-      'Final walkthrough buffing for Certificate of Occupancy'
+      'Every speck of fine drywall & sanding dust removed',
+      'Window stickers, tape & paint splatters safely cleared',
+      'Inside & outside of all new cabinets & drawers wiped',
+      'White-glove final polish so you can unpack right away'
     ]
   }
 };

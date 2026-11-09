@@ -62,28 +62,28 @@ export const BUSINESS_NAP = {
     'Jupiter',
     'Fort Lauderdale'
   ],
-  guarantee: '100% Satisfaction Guaranteed: If you are not completely thrilled with our clean, we return to re-clean for free or you do not pay. It is that simple.'
+  guarantee: '100% Love-Your-Clean Guarantee: If you aren’t completely thrilled with how your space looks and feels, let us know within 24 hours and we’ll come right back to re-clean for free—or you don’t pay a dime.'
 };
 
 export const TRUST_BADGES = [
   {
-    title: '100% Satisfaction Guarantee',
-    description: 'If you are not thrilled, you do not pay. We stand 100% behind every clean.',
+    title: '100% Love-It Guarantee',
+    description: 'Thrilled with your clean, or you don’t pay! If we ever miss a spot, we come right back and fix it for free.',
     icon: 'ShieldCheck'
   },
   {
     title: '20+ Years in South Florida',
-    description: 'Family-owned and operated with over two decades of cleaning excellence.',
+    description: 'Family-owned and proud to serve our local South Florida neighbors with honest, dependable care since 2004.',
     icon: 'Award'
   },
   {
-    title: 'Vetted & Bonded Staff',
-    description: 'Every specialist undergoes rigorous background checks and continuous training.',
+    title: 'Friendly, Vetted Cleaners',
+    description: 'Every cleaner on our team is background-checked, insured, and trained to treat your home like their own.',
     icon: 'UserCheck'
   },
   {
-    title: 'Hospital-Grade Disinfection',
-    description: 'EPA-registered hospital disinfectants and systematic cross-contamination defense.',
+    title: 'Safe for Kids & Pets',
+    description: 'We bring all our own supplies and gentle, eco-friendly products so your home smells fresh—never harsh.',
     icon: 'Sparkles'
   }
 ];
@@ -91,23 +91,23 @@ export const TRUST_BADGES = [
 export const ROTATION_SYSTEM_STEPS = [
   {
     step: '1',
-    title: 'Initial Deep Scrub',
-    description: 'A comprehensive, top-to-bottom deep sanitization establishing our pristine baseline across every room and surface.'
+    title: 'First-Visit Deep Refresh',
+    description: 'We kick things off with a thorough top-to-bottom scrub so every room, baseboard, and counter feels brand new.'
   },
   {
     step: '2',
-    title: 'Kitchen & Bath Focus',
-    description: 'Intensive degreasing, tile grout acid scrub, appliance detailing, and high-touch pathogen disinfection.'
+    title: 'Kitchen & Bath Sparkle',
+    description: 'We tackle baked-on grease, scrub shower tile and glass, polish sinks, and make your appliances shine inside and out.'
   },
   {
     step: '3',
-    title: 'Sleeping & Living Focus',
-    description: 'Deep upholstery extraction, under-furniture vacuuming, baseboards, vents, and detailed dusting.'
+    title: 'Bedrooms & Living Spaces',
+    description: 'We vacuum under cushions and furniture, hand-wipe blinds and ceiling fans, and clear away hidden dust and pet hair.'
   },
   {
     step: '4',
-    title: 'Continuous Detailing',
-    description: 'Every recurring visit rotates the deep-clean focus so your entire property stays perpetually spotless without extra fees.'
+    title: 'Always Company-Ready',
+    description: 'Every visit, we rotate our extra-deep focus from room to room so your whole place stays spotless—with zero extra fees.'
   }
 ];
 
@@ -115,271 +115,271 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     slug: 'office-cleaning',
     title: 'Office Cleaning Services',
-    shortDesc: 'Comprehensive commercial janitorial cleaning for South Florida corporate offices and professional suites.',
-    fullDesc: 'Tailored commercial office cleaning across Palm Beach and Broward County. We provide nightly janitorial services, day porter care, sanitized workstations, lobby detailing, conference room maintenance, and green floor care.',
+    shortDesc: 'Walk into a fresh, spotless workplace every morning that keeps your team happy and impresses every client who walks through the door.',
+    fullDesc: 'Nobody does their best work in a dusty office with overflowing trash cans and smudged glass. We take workplace cleaning completely off your plate across Palm Beach, Broward, and Miami-Dade. Whether you need us after hours, on weekends, or during the day, our reliable crew leaves your desks, breakroom, lobbies, and restrooms looking and smelling fresh.',
     image: '/assets/images/services/service-img-12.jpg',
     iconName: 'Building2',
     features: [
-      'Nightly and daytime flexible janitorial schedules',
-      'HEPA-filter particulate vacuuming for superior indoor air quality',
-      'High-touch surface sanitization (keyboards, phones, door handles)',
-      'Restroom sanitation with odor elimination systems',
-      'Trash removal, recycling management, and relining'
+      'Flexible evening, daytime, or weekend schedules that never interrupt your work',
+      'Deep-filtration vacuuming that clears out dust and allergens for fresher air',
+      'Sanitized desks, keyboards, phones, and door handles to help stop office colds',
+      'Sparkling, fresh-smelling restrooms stocked and ready for staff and guests',
+      'Breakroom counters, sinks, microwaves, and coffee stations wiped spotless'
     ],
     checklist: [
-      'Empty all wastebaskets and replace liners',
-      'Dust and wipe desks, monitors, and telephones with microfiber',
-      'Sanitize all light switches, conference room tables, and door pulls',
-      'Vacuum all carpeted areas and mop hard-surface flooring with neutral cleaner',
-      'Scrub and sanitize restrooms including toilets, urinals, mirrors, and sinks'
+      'Empty all trash and recycling bins and put in fresh liners',
+      'Dust and wipe desks, monitors, conference tables, and office phones',
+      'Sanitize light switches, door handles, and shared breakroom appliances',
+      'Vacuum all carpets and mop hard floors until they shine',
+      'Scrub and freshen restrooms—including toilets, sinks, mirrors, and floors'
     ],
     benefits: [
-      'Fewer sick days and higher workforce productivity',
-      'Impress clients and visitors with immaculate presentation',
-      'Consistent service managed by dedicated supervisor inspections'
+      'Fewer sick days and a happier, more energized team every Monday morning',
+      'Make an unforgettable first impression on visiting clients and partners',
+      'Dependable, lock-up-tight crews you never have to babysit or remind'
     ]
   },
   {
     slug: 'medical-office-cleaning',
     title: 'Specialized Medical Office Cleaning',
-    shortDesc: 'OSHA and CDC-compliant medical facility terminal sanitization for clinics, surgical centers, and dental offices.',
-    fullDesc: 'Hospital-grade medical office cleaning across South Florida. Our certified healthcare cleaners execute terminal sterilization, pathogen defense protocols, and biohazard compliance to ensure zero cross-contamination.',
+    shortDesc: 'Give patients instant peace of mind with a spotless, germ-free waiting room and exam suites cleaned to strict healthcare standards.',
+    fullDesc: 'When patients walk into your clinic, dental practice, or wellness center, the cleanliness of your space tells them everything about the quality of your care. Our trained healthcare cleaning specialists use hospital-grade disinfectants and separate color-coded cloths for every room—keeping your staff safe, your patients comfortable, and your practice 100% inspection-ready.',
     image: '/assets/images/services/services-img-1.jpg',
     iconName: 'ShieldAlert',
     features: [
-      'EPA List N hospital-grade disinfectant protocols',
-      'Color-coded microfiber and mop heads preventing cross-contamination',
-      'Strict adherence to OSHA bloodborne pathogen standards',
-      'Exam room detailing and waiting area sterilization',
-      'Sterile floor care and medical waste disposal handling'
+      'Hospital-grade disinfectants that wipe out 99.9% of germs without harsh fumes',
+      'Color-coded cloths and mops so bathroom tools never touch exam or waiting areas',
+      'Detailed cleaning for dental chairs, exam tables, and treatment rooms',
+      'Welcoming, spotless reception areas, kids’ corners, and patient restrooms',
+      'Fully trained, background-checked crews who respect patient privacy'
     ],
     checklist: [
-      'Disinfect patient exam tables with hospital-grade antimicrobial agents',
-      'Sterilize reception desks, waiting room seating, and check-in counters',
-      'Apply electrostatic disinfectant misting in clinical procedure zones',
-      'Deep clean and sanitize private consultation offices and restrooms',
-      'Replace sharps disposal liners according to regulatory guidelines'
+      'Sanitize patient exam tables, chairs, and counters between shifts',
+      'Disinfect reception desks, waiting room chairs, pens, and check-in tablets',
+      'Mist and wipe high-touch areas in treatment and procedure rooms',
+      'Scrub and sanitize staff lounges, private offices, and patient restrooms',
+      'Safely handle trash and line disposal bins according to health guidelines'
     ],
     benefits: [
-      'Prevent healthcare-associated infections (HAIs)',
-      '100% compliance with Florida Department of Health standards',
-      'Peace of mind for patients, physicians, and clinical staff'
+      'Protect patients, doctors, and front-desk staff from seasonal bugs and germs',
+      'Breeze through Florida health inspections with zero stress',
+      'Build instant patient trust the moment they step into your waiting room'
     ]
   },
   {
     slug: 'bars-and-restaurant-cleaning',
     title: 'Commercial Bar & Restaurant Cleaning',
-    shortDesc: '24/7 commercial kitchen degreasing, dining room detailing, and health inspection prep for South Florida eateries.',
-    fullDesc: 'Commercial bar and restaurant cleaning services in South Florida. We eliminate grease buildup, scrub commercial cooking hoods, sanitize bar wells, pressure wash kitchen mats, and prepare your establishment for flawless health inspections.',
+    shortDesc: 'Ace every health inspection and wow your guests with grease-free kitchens, sparkling bars, and spotless dining rooms.',
+    fullDesc: 'Running a busy restaurant or bar in South Florida is hard enough without worrying if the late-night closing crew actually scrubbed behind the fryers. Our overnight restaurant teams step in after last call to cut through tough kitchen grease, sanitize bar wells and taps, and make your dining room, windows, and restrooms shine before tomorrow’s lunch rush.',
     image: '/assets/images/services/services-img-4.jpg',
     iconName: 'Utensils',
     features: [
-      'Nightly post-close deep cleaning schedules',
-      'Commercial kitchen floor quarry tile scrubbing & degreasing',
-      'Bar well, speed rail, and beer tap area sanitization',
-      'Front-of-house dining room floor care, booth dusting, and window shine',
-      'Odor neutralization and dumpster pad pressure cleaning'
+      'Overnight after-hours crews so you open to a spotless restaurant every day',
+      'Heavy-duty kitchen floor scrubbing that cuts through slippery grease',
+      'Deep cleaning for bar wells, speed rails, soda guns, and draft beer taps',
+      'Streak-free front glass, clean dining booths, and fresh-smelling restrooms',
+      'Patio seating, entryways, and back-of-house areas washed and deodorized'
     ],
     checklist: [
-      'Degrease cooking line surfaces, stainless steel backsplashes, and fryers',
-      'Power scrub kitchen floors with enzyme-based grease cutting formulas',
-      'Disinfect bar tops, speed racks, glass wash stations, and bar mats',
-      'Vacuum and mop dining rooms, polish entrance glass, and sanitize menus',
-      'Sanitize public and employee restrooms thoroughly'
+      'Degrease cooklines, stainless steel prep tables, backsplashes, and fryer exteriors',
+      'Scrub kitchen tile and grout to remove built-up grease and food spills',
+      'Sanitize bar tops, speed racks, glass washers, and rubber bar mats',
+      'Vacuum and mop dining areas, wipe booths, and polish entryway glass',
+      'Deep clean and deodorize guest and staff restrooms from top to bottom'
     ],
     benefits: [
-      'Consistently pass health code inspections with top grades',
-      'Eliminate slip-and-fall hazards from greasy tile floors',
-      'Ensure a pristine dining atmosphere that drives repeat customer reviews'
+      'Stay 100% ready for surprise health inspections any day of the week',
+      'Keep kitchen and bar staff safer by eliminating slick, greasy floors',
+      'Win more 5-star diner reviews with a fresh, inviting atmosphere'
     ]
   },
   {
     slug: 'short-term-rentals',
     title: 'Short-Term Rental & Airbnb Turnover',
-    shortDesc: 'Rapid 5-star turnover cleaning, hotel-grade staging, linen laundering, and guest inventory replenishment.',
-    fullDesc: 'Rapid short-term rental and Airbnb turnover cleaning across Palm Beach and Broward counties. We guarantee hotel-standard presentation, luxury linen washing, restock reporting, and same-day turnover turnaround between guest check-outs.',
+    shortDesc: 'Earn more 5-star guest reviews with fast, hotel-style turnover cleaning, fresh laundry, and photo updates between check-outs.',
+    fullDesc: 'In the vacation rental game, one stray hair or smudged mirror can cost you a 5-star review. We help busy Airbnb and VRBO hosts across South Florida put their turnovers on autopilot. Between 10 AM check-out and 4 PM check-in, our team washes and stages crisp linens, makes the kitchen and baths sparkle, restocks essentials, and texts you photos so you know your property is guest-ready.',
     image: '/assets/images/services/Short-Term-Rental-Cleaning-1.jpeg',
     iconName: 'Home',
     features: [
-      'Guaranteed same-day turnover windows (10 AM - 4 PM)',
-      'Complete linen and towel laundering with fresh luxury staging',
-      'Photo inspection reporting sent directly to host dashboard',
-      'Restock of toiletries, coffee, paper goods, and welcome amenities',
-      'Deep patio, pool deck, and barbecue grill detailing'
+      'Reliable same-day turnarounds (10 AM – 4 PM) so you never miss a booking',
+      'Full bed stripping, laundry, and crisp hotel-style bed and towel staging',
+      'Photo confirmation sent straight to your phone after every single clean',
+      'Restocking of coffee, soaps, paper towels, and welcome goodies for guests',
+      'Patio furniture, sliding glass doors, and pool deck tidied for arrival'
     ],
     checklist: [
-      'Strip, launder, and stage all bed linens and bathroom towels',
-      'Sanitize kitchen appliances, wipe microwave inside/out, empty fridge',
-      'Scrub bathroom showers, tubs, sinks, mirrors, and toilets',
-      'Wipe down all light switches, remotes, thermostat, and door knobs',
-      'Perform detailed staging check and document property condition'
+      'Wash, dry, and neatly stage all bed sheets, pillowcases, and bath towels',
+      'Empty and wipe inside the fridge, microwave, oven, dishwasher, and coffee maker',
+      'Scrub showers, glass doors, tubs, sinks, and toilets until they gleam',
+      'Sanitize remotes, keyless entry pads, light switches, and door handles',
+      'Do a final "guest-eye" walkthrough and snap verification photos for the host'
     ],
     benefits: [
-      'Achieve and maintain Airbnb Superhost and VRBO Premier Host status',
-      'Zero cancellation risk due to cleanliness complaints',
-      'Hands-off automated turnover management for busy property owners'
+      'Rack up glowing 5-star cleanliness reviews and keep your Superhost badge',
+      'Manage your rental from anywhere without stressing over last-minute bookings',
+      'Catch guest damage or missing items right away with our post-clean photo reports'
     ]
   },
   {
     slug: 'post-construction-cleaning',
     title: 'Post-Construction Cleanup',
-    shortDesc: '3-phase rough, deep, and final polish cleaning for South Florida general contractors and luxury renovations.',
-    fullDesc: 'Comprehensive post-construction cleaning for builders, architects, and luxury homeowners in South Florida. We remove construction debris, extract airborne drywall dust, scrape paint and silicone from glass, and deliver move-in ready perfection.',
+    shortDesc: 'Turn your dusty remodel or new build into a move-in-ready showpiece—we clear every speck of drywall dust, paint, and sticker residue.',
+    fullDesc: 'Finishing a renovation or new build is exciting—until you see the fine layer of white drywall dust covering every cabinet, window track, and baseboard. Before you move your furniture in (or hand the keys to your client), our post-construction crew removes every trace of builder dust, peels off window labels, polishes fixtures, and makes your new space truly move-in ready.',
     image: '/assets/images/services/a-man-is-cleaning-the-room-during-repairs-using-a-2022-11-15-10-06-14-utc-Large.jpg',
     iconName: 'HardHat',
     features: [
-      'Rough clean: Heavy debris removal, initial sweeping, and framing clearance',
-      'Deep clean: Drywall dust filtration, fixture polishing, and cabinet interior wipedown',
-      'Final polish: Window label removal, glass buffing, and mirror gleam',
-      'High-filtration HEPA vacuuming capturing micro-fine silica dust',
-      'Fully insured with comprehensive liability coverage for high-end finishes'
+      'Three-step cleanup: debris sweep, deep dust removal, and final showroom polish',
+      'Inside-and-out wiping of all new cabinets, drawers, pantries, and closets',
+      'Safe removal of window stickers, painter’s tape, and stray paint splatters',
+      'Fine-filter HEPA vacuums that trap stubborn drywall and sanding dust',
+      'Gentle, scratch-free care for brand-new marble, quartz, hardwood, and tile'
     ],
     checklist: [
-      'Remove all stickers, protective film, and tape from windows and fixtures',
-      'Wipe inside and outside of all custom cabinetry, drawers, and closets',
-      'Scrub tile, grout, and marble surfaces with manufacturer-approved agents',
-      'Detail all trim, baseboards, door frames, switch plates, and vents',
-      'Perform final touch-up dusting immediately prior to owner walkthrough'
+      'Peel off all manufacturer stickers and protective film from windows and appliances',
+      'Vacuum and hand-wipe the inside and outside of every cabinet and drawer',
+      'Carefully clean new tile, grout, stone counters, and luxury flooring',
+      'Wipe down all baseboards, window sills, door frames, air vents, and light fixtures',
+      'Do a final white-glove touch-up right before your move-in or walkthrough'
     ],
     benefits: [
-      'Speed up certificate of occupancy (CO) approvals',
-      'Protect delicate marble, hardwood, and custom architectural finishes',
-      'Present custom renovations in their absolute best light'
+      'Unpack right away without having to wipe down dusty drawers and shelves yourself',
+      'Protect expensive new countertops, glass, and floors from accidental scratches',
+      'Make brand-new builds and remodels look like the pages of a magazine'
     ]
   },
   {
     slug: 'move-in-out-cleaning',
     title: 'Move In / Move Out Cleaning Services',
-    shortDesc: 'Top-to-bottom deep sanitization guaranteeing full security deposit returns and fresh beginnings.',
-    fullDesc: 'Detailed move-in and move-out cleaning in Palm Beach and Broward County. We deep-clean every square inch of your home or apartment, including inside ovens, refrigerators, kitchen cabinets, closets, and baseboards.',
+    shortDesc: 'Moving is stressful enough—let us handle the heavy scrubbing so you get your security deposit back or start fresh in your new home.',
+    fullDesc: 'Packing boxes and coordinating movers takes all your energy. The last thing you want to do is spend your final night on your hands and knees scrubbing an empty oven and shower. Whether you’re a renter aiming for a 100% security deposit refund, a homeowner prepping for listing photos, or a family moving into a new place, we scrub every empty room from ceiling fans to baseboards.',
     image: '/assets/images/services/South-Florida-Cleaning-Concepts-Reisdential-Cleaning-1.jpeg',
     iconName: 'Truck',
     features: [
-      '100% Security deposit return guarantee for tenants',
-      'Interior appliance deep cleaning (oven, refrigerator, dishwasher, microwave)',
-      'Cabinet and drawer interiors vacuumed and wiped clean',
-      'Baseboard, door casing, and crown molding detailing',
-      'Tile and grout deep scrubbing and carpet steam extraction available'
+      '100% Security Deposit Back Guarantee for tenants and renters',
+      'Deep interior scrubbing of ovens, refrigerators, microwaves, and dishwashers',
+      'Every empty kitchen cabinet, drawer, and closet shelf wiped clean',
+      'Hand-wiped baseboards, doors, window tracks, blinds, and ceiling fans',
+      'Deep bathroom tile, grout, tub, and shower glass restoration'
     ],
     checklist: [
-      'Clean inside and outside of all kitchen appliances',
-      'Scrub kitchen cabinets and pantry shelves',
-      'De-scale bathroom shower tile, tubs, glass doors, and fixtures',
-      'Dust ceiling fans, light fixtures, blinds, and window sills',
-      'Vacuum all closets, corners, edges, and mop all hard flooring'
+      'Deep clean inside and outside of the fridge, oven, stove, and microwave',
+      'Vacuum and wipe out all empty cabinets, drawers, and pantry shelves',
+      'Scrub away soap scum and hard-water buildup on showers, tubs, and sinks',
+      'Dust ceiling fans, blinds, window ledges, and baseboards in every room',
+      'Vacuum and mop all floors, closets, and corners on the way out the door'
     ],
     benefits: [
-      'Relieve moving stress with professional turnkey cleaning',
-      'Move into a completely sanitized, fresh, pathogen-free residence',
-      'Landlords can market vacancies faster to prospective tenants'
+      'Hand over the keys with total confidence and get your full deposit back',
+      'Unpack your family’s dishes and clothes into a fresh, 100% sanitized new home',
+      'Help homes and apartments sell or rent faster with spotless presentation'
     ]
   },
   {
     slug: 'home-maintenance',
     title: 'Comprehensive Home Maintenance',
-    shortDesc: 'Ongoing residential cleaning and proactive upkeep for South Florida luxury homes and coastal estates.',
-    fullDesc: 'Comprehensive home maintenance and recurring residential cleaning across Palm Beach & Broward. We defend your estate against Florida humidity, mold, salt air corrosion, and dust through our systematic Rotation Cleaning System.',
+    shortDesc: 'Reclaim your weekends and come home to a house that feels like a luxury resort—with weekly, bi-weekly, or monthly care.',
+    fullDesc: 'Life in South Florida is meant to be enjoyed at the beach, on the water, or with your family—not spent scrubbing toilets and dusting blinds every Saturday. Our recurring home cleaning service uses our 4-Step Rotation System to keep your entire house consistently spotless, while tackling Florida humidity, sand, pet hair, and dust using safe, kid- and pet-friendly products.',
     image: '/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg',
     iconName: 'Wrench',
     features: [
-      'Weekly, bi-weekly, or monthly recurring maintenance plans',
-      'Exclusive Rotation Cleaning System ensuring continuous deep-cleaning',
-      'AC vent and filter cleaning reducing allergens and dust circulation',
-      'Patio furniture, sliding glass door track, and entryway detailing',
-      'Eco-friendly non-toxic green cleaning products safe for kids and pets'
+      'Flexible weekly, bi-weekly, or monthly visits built around your schedule',
+      'Our 4-Step Rotation System keeps baseboards, fans, and grout clean with no extra fees',
+      'AC vent and ceiling fan dusting so your indoor air stays fresh and allergen-free',
+      'Sliding glass doors, patio tables, and entryways wiped free of salt and sand',
+      'Non-toxic, eco-friendly cleaning products that are 100% safe for kids and pets'
     ],
     checklist: [
-      'Rotate deep clean focus between Kitchen, Bathrooms, and Living Areas',
-      'Vacuum upholstery, under cushions, and beneath moveable furniture',
-      'Dust chandeliers, picture frames, decorative molding, and blinds',
-      'Scrub bathroom grout, polish chrome faucets, and sanitize toilets',
-      'Mop hard wood, travertine, or tile floors with pH-balanced formulas'
+      'Rotate deep-clean attention across Kitchens, Bathrooms, and Living Spaces each visit',
+      'Vacuum carpets, rugs, sofa cushions, and underneath accessible furniture',
+      'Dust blinds, ceiling fans, picture frames, lamps, and baseboards',
+      'Scrub showers, tubs, sinks, and toilets and polish mirrors and faucets',
+      'Mop hardwood, marble, travertine, or tile floors with gentle, pH-balanced cleaners'
     ],
     benefits: [
-      'Preserve the long-term value and beauty of your property',
-      'Enjoy pristine, resort-like living every single day without lifting a finger',
-      'Tailored schedules that work seamlessly around your family lifestyle'
+      'Get 5+ hours of your free time back every single week',
+      'Enjoy that "just-cleaned hotel feeling" every time you walk through the front door',
+      'Same friendly, familiar cleaning team who knows your home’s exact preferences'
     ]
   },
   {
     slug: 'school-cleaning',
     title: 'School & Daycare Cleaning Services',
-    shortDesc: 'Certified child-safe green disinfection for educational facilities, private academies, and learning centers.',
-    fullDesc: 'Certified educational facility and daycare cleaning in South Florida. We use child-safe, non-toxic green disinfectants to eliminate viruses, bacteria, and allergens from classrooms, cafeterias, gymnasiums, and restrooms.',
+    shortDesc: 'Keep classrooms, play areas, and cafeterias healthy and germ-free with gentle, kid-safe green cleaning.',
+    fullDesc: 'Classrooms and daycares are busy places where little hands touch everything—and germs spread fast. We partner with South Florida preschools, private academies, and learning centers to sanitize desks, cubbies, play mats, cafeterias, and restrooms every day using non-toxic, fume-free disinfectants that are tough on germs but completely gentle around children.',
     image: '/assets/images/services/services-img-6.jpg',
     iconName: 'GraduationCap',
     features: [
-      'Non-toxic, fume-free EPA-registered child-safe disinfectants',
-      'Daily disinfection of desks, toys, tables, and play mats',
-      'Cafeteria table degreasing and food prep sanitization',
-      'Gymnasium and locker room mildew and odor control',
-      'Strict background checks on all personnel assigned to school grounds'
+      'Kid-safe, non-toxic disinfectants with zero harsh chemical smells or residue',
+      'Daily wiping of desks, shared tables, toys, cubbies, and play mats',
+      'Cafeteria tables, lunch counters, and drinking fountains sanitized daily',
+      'Clean, fresh-smelling student restrooms and diaper-changing areas',
+      'Fully background-checked, vetted team members you can trust on campus'
     ],
     checklist: [
-      'Disinfect student desks, chairs, computer keyboards, and tablets',
-      'Sanitize all drinking fountains, handrails, and door knobs',
-      'Deep scrub and disinfect student restrooms and changing stations',
-      'Mop hallways and multi-purpose rooms with disinfectant cleaners',
-      'Empty all classroom wastebaskets and sanitize bins'
+      'Sanitize student desks, chairs, cubbies, keyboards, and shared learning tables',
+      'Wipe down drinking fountains, hallway handrails, push bars, and doorknobs',
+      'Deep clean and disinfect student restrooms, sinks, and changing stations',
+      'Sweep and mop hallways, classrooms, and gym floors with safe cleaners',
+      'Empty all classroom and lunchroom trash bins and replace liners'
     ],
     benefits: [
-      'Drastically reduce school-wide absenteeism from seasonal viruses',
-      'Give parents and educators confidence in child safety',
-      'Meet and exceed state child care licensing sanitization mandates'
+      'Cut down on classroom sick days for both students and teachers',
+      'Give parents peace of mind knowing their kids learn in a clean, healthy space',
+      'Exceed Florida school and childcare cleanliness standards effortlessly'
     ]
   },
   {
     slug: 'home-watching',
     title: 'Professional Home Watching Services',
-    shortDesc: 'Vigilant estate oversight, storm preparation, and absentee homeowner monitoring in Palm Beach County.',
-    fullDesc: 'Professional home watching and absentee estate oversight in Palm Beach County. Designed for snowbirds and traveling executives, our certified property watchers perform weekly physical inspections, check for AC leaks, test plumbing, and verify home security.',
+    shortDesc: 'Travel with total peace of mind—we check on your South Florida home every week, spot leaks early, and send you photo updates.',
+    fullDesc: 'Leaving your South Florida home empty for the summer or while traveling can be nerve-wracking. One clogged AC line, roof leak, or tripped breaker in Florida’s heat can cause thousands in mold damage within days. Our trusted Home Watch specialists walk your property inside and out, check your AC and plumbing, bring in packages, prep for storms, and send you a photo report after every visit.',
     image: '/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg',
     iconName: 'Eye',
     features: [
-      'Weekly or bi-weekly interior and exterior physical inspections',
-      'AC temperature, humidity, and condensate drain line monitoring',
-      'Plumbing system cycling: flush toilets, run faucets, verify water heaters',
-      'Severe weather and hurricane shutter preparation and post-storm inspection',
-      'Detailed digital inspection reports with timestamped photos sent to owner'
+      'Weekly or bi-weekly walkthroughs of your home’s interior and exterior',
+      'AC temperature, indoor humidity, and drain line checks to stop mold before it starts',
+      'Flushing toilets and running faucets so plumbing traps never dry out',
+      'Storm and hurricane prep plus fast post-storm property checks',
+      'Instant digital report with timestamped photos texted or emailed to you'
     ],
     checklist: [
-      'Inspect roofline, windows, and perimeter for intrusion or storm damage',
-      'Check ceilings and walls for water stains, mold, or moisture intrusion',
-      'Verify HVAC settings and replace air filters as needed',
-      'Run all faucets, garbage disposals, and flush all toilets to keep seals wet',
-      'Retrieve mail, packages, and verify landscaping / pool maintenance quality'
+      'Walk the exterior, windows, lanai, and doors to make sure everything is secure',
+      'Check ceilings, walls, under sinks, and water heaters for any sign of leaks',
+      'Verify AC thermostat and humidity levels and swap air filters when needed',
+      'Run all faucets, disposals, and flush toilets to keep drains fresh',
+      'Collect mail and packages and make sure pool and lawn crews are showing up'
     ],
     benefits: [
-      'Prevent catastrophic water damage and silent mold growth while away',
-      'Comply with homeowner insurance requirements for unoccupied properties',
-      'Complete peace of mind knowing vetted professionals are guarding your home'
+      'Catch small AC or plumbing leaks before they turn into costly repairs',
+      'Meet homeowner insurance check-in rules for seasonal or vacant homes',
+      'Enjoy your time away knowing a local team you trust is watching over your home'
     ]
   },
   {
     slug: 'covid-19-disinfection',
     title: 'COVID-19 Disinfection & Electrostatic Spraying',
-    shortDesc: 'EPA-registered electrostatic surface misting and broad-spectrum pathogen defense for businesses and homes.',
-    fullDesc: 'EPA-registered COVID-19 electrostatic spraying and surface disinfection across South Florida businesses and residences. We utilize hospital-grade electrostatic sprayers that wrap 360 degrees around surfaces, neutralizing 99.99% of airborne and surface pathogens.',
+    shortDesc: 'Fast, whole-room sanitizing mist that wraps around every surface to knock out 99.99% of viruses, flu bugs, and germs.',
+    fullDesc: 'Whether a family member or employee just recovered from an illness, or you simply want extra protection during cold and flu season, our electrostatic sanitizing service clears the air—literally. Using hospital-grade, eco-safe misting sprayers, we coat desks, couches, doorknobs, and hard-to-reach corners in minutes—killing 99.99% of viruses and bacteria without leaving sticky residue.',
     image: '/assets/images/services/disinfecting-to-prevent-covid-19-waiter-cleaning-2023-01-21-03-38-39-utc-Large.jpeg',
     iconName: 'Biohazard',
     features: [
-      'Electrostatic fogging technology providing complete 360-degree coverage',
-      'EPA List N certified hospital disinfectants with rapid dwell times',
-      'Safe on electronics, sensitive fabrics, and office paperwork',
-      'Immediate post-exposure emergency response decontamination',
-      'Certificate of Disinfection provided for employee and client assurance'
+      '360-degree sanitizing mist that reaches behind, under, and around every surface',
+      'Hospital-grade, EPA-approved disinfectants that knock out 99.99% of germs',
+      '100% safe for computers, TVs, couches, carpets, and delicate surfaces',
+      'Fast same-day or next-day visits when someone at home or work gets sick',
+      'Safe to walk back into your home or office in as little as 30 minutes'
     ],
     checklist: [
-      'Pre-clean and degrease all high-touch surfaces prior to application',
-      'Apply electrostatic mist across desks, keyboards, chairs, and doors',
-      'Allow manufacturer-mandated dwell time for 99.99% viral kill rate',
-      'Wipe down contact touchpoints with microfiber finishing cloths',
-      'Issue official verification certificate of facility disinfection'
+      'Wipe down and pre-clean heavily used counters, handles, and switches',
+      'Apply fine electrostatic sanitizing mist across all rooms, furniture, and fixtures',
+      'Give the formula proper time to neutralize 99.99% of surface germs and viruses',
+      'Buff glass, mirrors, and main touchpoints with clean microfiber cloths',
+      'Provide a completion certificate for your workplace or peace of mind'
     ],
     benefits: [
-      'Safely reopen facilities following confirmed illness exposure',
-      'Reassure staff and customers that health and safety is top priority',
-      'Fast turnaround with re-entry permitted in as little as 30 minutes'
+      'Stop a cold, flu, or virus from spreading through your whole family or office',
+      'Show employees and customers you genuinely care about their health',
+      'Quick, no-mess treatment that lets you get right back to your day'
     ]
   }
 ];
@@ -1780,73 +1780,73 @@ export const BLOG_POSTS: BlogPostItem[] = [
 export const FAQS_LIST: FaqItem[] = [
   {
     category: 'rotation',
-    question: 'What is the South Florida Cleaning Concepts Rotation System?',
-    answer: 'Our Rotation System is an exclusive cleaning methodology where every visit covers comprehensive maintenance throughout your entire property, while systematically rotating an intensive deep-scrub across designated zones (Kitchen, Bathrooms, Sleeping Areas, and Living Spaces). This prevents grime accumulation in overlooked corners and keeps your property in perpetual showroom condition without expensive one-off deep-cleaning fees.'
+    question: 'How does your 4-Step Rotation Cleaning System work?',
+    answer: 'Think of it as a deep clean that never stops! On every single visit, we clean and freshen your entire home or office. Then, we rotate our extra-deep scrubbing attention from zone to zone—Kitchens on one visit, Bathrooms on the next, then Bedrooms and Living Areas. That means baseboards, ceiling fans, shower grout, and appliances stay spotless year-round without you ever paying extra deep-cleaning fees.'
   },
   {
     category: 'general',
-    question: 'What is your 100% Satisfaction Guarantee policy?',
-    answer: 'We firmly believe that if we fail to make you happy, you should not be expected to pay. If any aspect of our clean does not meet your expectations, notify us within 24 hours and we will return immediately to re-clean the area free of charge. If you are still not completely satisfied, we cancel your invoice.'
+    question: 'What if I’m not 100% happy with my cleaning?',
+    answer: 'You don’t pay a dime unless you love it! Seriously—if we ever miss a spot or something isn’t up to your standards, just let us know within 24 hours. We’ll send our team right back out to make it shine for free. If you’re still not thrilled, you don’t pay.'
   },
   {
     category: 'general',
-    question: 'Are your cleaners vetted, insured, and bonded?',
-    answer: 'Yes, 100%. Every specialist on our team undergoes rigorous criminal background checks, multi-tiered interview vetting, and ongoing hands-on training. We carry full commercial liability and worker compensation insurance, giving you total security and peace of mind.'
+    question: 'Can I trust the cleaners in my home or business?',
+    answer: 'Absolutely. We’re a local, family-owned company, and we never use random day laborers. Every cleaner on our team passes a full background check, is fully insured and bonded, and is personally trained by our supervisors to treat your home, pets, and belongings with total respect.'
   },
   {
     category: 'general',
-    question: 'What cleaning supplies and equipment do you use?',
-    answer: 'We provide all commercial-grade equipment and supplies, including high-filtration HEPA vacuums, color-coded microfiber cloths, and EPA-registered hospital disinfectants. We also offer non-toxic, eco-friendly green cleaning solutions upon request for homes with infants and sensitive pets.'
+    question: 'Do I need to supply any cleaning products or vacuums?',
+    answer: 'Nope—we bring everything! Our crew arrives with our own deep-cleaning vacuums, fresh microfiber cloths, and gentle, eco-friendly cleaning sprays that are completely safe for kids and pets. Have a favorite marble polish or wood cleaner you’d like us to use? Just leave it out and we’ll happily use it.'
   },
   {
     category: 'commercial',
-    question: 'Do you offer after-hours and weekend commercial cleaning?',
-    answer: 'Yes. We customize janitorial schedules to ensure zero disruption to your daily operations. The majority of our commercial office, medical facility, and restaurant clients prefer nightly service after 6:00 PM or weekend scheduling.'
+    question: 'Can you clean our office or restaurant after hours or on weekends?',
+    answer: 'Yes! We work around your schedule so we never get in the way of your customers or staff. Most of our office, medical, and restaurant clients have us come in after 6:00 PM, overnight after closing, or on weekends.'
   },
   {
     category: 'residential',
-    question: 'Do I need to be home when the cleaning team arrives?',
-    answer: 'No. Many of our residential and absentee estate clients provide secure lockbox codes, garage keypad entries, or front-desk concierge clearance. Our bonded team arrives, completes the work according to your custom profile, locks up, and texts you a completion confirmation.'
+    question: 'Do I need to be home while you clean?',
+    answer: 'Not at all! Most of our homeowners give us a garage code, smart-lock pin, or lockbox key so they can run errands or head to work and come home to a sparkling house. We lock up tight when we finish and send you a quick text so you know everything is done.'
   },
   {
     category: 'commercial',
-    question: 'How do you prevent cross-contamination between restrooms and offices?',
-    answer: 'We enforce a strict color-coded microfiber and mop system. Red cloths and mops are used strictly in restrooms, blue for general office desks, and green for food prep areas. In clinical and medical settings, tools are sanitized with EPA-registered hospital disinfectants between rooms.'
+    question: 'How do you make sure bathroom sponges never touch my kitchen counters?',
+    answer: 'Great question! We use a strict color-coded cloth and mop system on every job. Cloths used in bathrooms never, ever touch kitchen counters, dining tables, or desks—and we load fresh, sanitized supplies for every single house and office we visit.'
   },
   {
     category: 'residential',
-    question: 'How do I get a free quote for my property?',
-    answer: 'Simply fill out our online quote form or call us directly at (561) 704-5303. We provide transparent, no-obligation estimates based on your square footage, room count, and desired service frequency.'
+    question: 'How fast can I get a free price quote?',
+    answer: 'In just a few minutes! Use our instant price calculator right on this page, fill out our quick 4-box quote form, or call/text us at (561) 704-5303. We’ll give you a clear, honest price with zero pressure and no hidden fees.'
   }
 ];
 
 export const CLIENT_TESTIMONIALS: TestimonialItem[] = [
   {
-    quote: 'I have used South Florida Cleaning Concepts for years for their professionalism and quality. They keep our medical offices spotless and compliant.',
+    quote: 'Walking into my house on cleaning day is honestly the best feeling in the world. Everything smells fresh, the shower glass actually sparkles, and I get my whole Saturday back with my kids!',
+    author: 'Elena & David Ross',
+    role: 'Homeowners',
+    location: 'Boynton Beach, FL',
+    rating: 5
+  },
+  {
+    quote: 'We’ve used South Florida Cleaning Concepts for years at our medical offices. Patients constantly compliment how clean and welcoming our waiting room feels, and their crew never misses a detail.',
     author: 'Lindsey J. Crowley',
     role: 'Medical Practice Director',
     location: 'West Palm Beach, FL',
     rating: 5
   },
   {
-    quote: 'Managing high-volume restaurants means health inspections can make or break us. South Florida Cleaning Concepts has been our secret weapon for 4 years.',
-    author: 'Marcus Vance',
-    role: 'General Manager, Hospitality Group',
-    location: 'Boca Raton, FL',
-    rating: 5
-  },
-  {
-    quote: 'Their Rotation Cleaning System is the real deal. Our home has never felt cleaner, and knowing they stand behind their work with a 100% guarantee gives total confidence.',
-    author: 'Elena & David Ross',
-    role: 'Luxury Homeowners',
-    location: 'Boynton Beach, FL',
-    rating: 5
-  },
-  {
-    quote: 'As an Airbnb host with multiple units in Delray, their rapid turnover service has earned me consecutive 5-star cleanliness reviews. Truly dependable partners.',
+    quote: 'I host three Airbnb condos in Delray Beach, and their same-day turnover crew is a total lifesaver. Fresh sheets, spotless kitchens, and photo updates every time—my guests rave about the cleanliness!',
     author: 'Carlos Mendez',
-    role: 'Superhost & Real Estate Investor',
+    role: 'Airbnb Superhost & Homeowner',
     location: 'Delray Beach, FL',
+    rating: 5
+  },
+  {
+    quote: 'In the restaurant business, a spotless kitchen and dining room is everything. Their night crew has been our secret weapon for 4 years straight—we open every morning to gleaming floors and a fresh bar.',
+    author: 'Marcus Vance',
+    role: 'Restaurant General Manager',
+    location: 'Boca Raton, FL',
     rating: 5
   }
 ];

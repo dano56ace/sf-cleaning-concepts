@@ -32,13 +32,13 @@ export const TestimonialsSlider: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>Verified Client Outcomes · 5.0 Average Rating</span>
+              <span>5-Star Local Reviews · Real South Florida Neighbors</span>
             </div>
             <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              Trusted by Commercial Leaders &amp; Estate Managers
+              See Why Your Neighbors Love Coming Home to Our Clean
             </h2>
             <p className="text-slate-600 text-base sm:text-lg m-0">
-              Direct feedback from medical directors, restaurant general managers, and South Florida homeowners relying on our crews.
+              Don’t just take our word for it—hear from local families, Airbnb hosts, and business owners who count on us every week.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export const TestimonialsSlider: React.FC = () => {
                   ))}
                 </div>
                 <span className="font-mono text-xs text-[#a3e6be] uppercase tracking-wider">
-                  Verified Account · {t.location}
+                  Verified Local Client · {t.location}
                 </span>
               </div>
 
@@ -100,7 +100,7 @@ export const TestimonialsSlider: React.FC = () => {
               </div>
               <div className="inline-flex items-center gap-1.5 text-xs font-mono text-[#a3e6be]">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>100% Satisfaction Verified</span>
+                <span>Happy Customer Guarantee</span>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@ export const TestimonialsSlider: React.FC = () => {
         <div className="mt-16 pt-12 border-t border-slate-200/80">
           <div className="text-center mb-8">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Trusted by National Hospitality, Medical &amp; Retail Brands Across South Florida
+              Also Trusted by Favorite Restaurants, Stores &amp; Local Businesses Across South Florida
             </span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 items-center">

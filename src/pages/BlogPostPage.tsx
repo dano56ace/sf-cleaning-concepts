@@ -81,7 +81,7 @@ export const BlogPostPage: React.FC = () => {
           </nav>
 
           <div className="editorial-kicker-light mb-4">
-            {post.category} · Technical Publication
+            {post.category} · Helpful Cleaning Guide
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 leading-[1.12] text-white">
@@ -115,10 +115,10 @@ export const BlogPostPage: React.FC = () => {
                 />
               </div>
 
-              {/* Clean all-around bordered Executive Summary box (zero border-l-4) */}
+              {/* Quick Takeaway box */}
               <div className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-6 mb-8">
                 <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#2a8655] font-bold block mb-2">
-                  Executive Summary
+                  Quick Takeaway
                 </span>
                 <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed">
                   {post.summary}
@@ -169,17 +169,17 @@ export const BlogPostPage: React.FC = () => {
               <div className="mt-10 p-6 sm:p-8 bg-[#07111a] text-white rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-white/10">
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#4fd18b] font-semibold block mb-1">
-                    Recommended Service Protocol
+                    Let Us Do the Heavy Lifting
                   </span>
                   <h3 className="text-lg font-bold text-white">
-                    Ready to schedule professional {post.category.toLowerCase()}?
+                    Want our friendly pros to handle your {post.category.toLowerCase()}?
                   </h3>
                 </div>
                 <Link
                   to="/our-services"
                   className="bg-[#2a8655] hover:bg-[#1f6840] text-white font-bold px-5 py-3 rounded-xl text-sm transition-colors shrink-0 whitespace-nowrap inline-flex items-center gap-1.5"
                 >
-                  Explore Services
+                  See Our Services
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

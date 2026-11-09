@@ -7,9 +7,15 @@ interface QuoteFormProps {
   onSuccess?: () => void;
   className?: string;
   source?: string;
+  idPrefix?: string;
 }
 
-export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '', source = 'General' }) => {
+export const QuoteForm: React.FC<QuoteFormProps> = ({
+  onSuccess,
+  className = '',
+  source = 'General',
+  idPrefix = ''
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +28,13 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const formId = idPrefix ? `${idPrefix}lead-quote-form` : 'lead-quote-form';
+  const nameId = idPrefix ? `${idPrefix}quote-name` : 'quote-name';
+  const emailId = idPrefix ? `${idPrefix}quote-email` : 'quote-email';
+  const phoneId = idPrefix ? `${idPrefix}quote-phone` : 'quote-phone';
+  const messageId = idPrefix ? `${idPrefix}quote-message` : 'quote-message';
+  const submitBtnId = idPrefix ? `${idPrefix}quote-submit-btn` : 'quote-submit-btn';
 
   // Auto-format phone as user types: (XXX) XXX-XXXX
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,21 +57,21 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      newErrors.name = 'Please enter your full name (minimum 2 characters).';
+      newErrors.name = 'Please enter your name (at least 2 characters).';
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Please provide a valid email address.';
+      newErrors.email = 'Please enter a valid email address.';
     }
 
     const rawPhone = formData.phone.replace(/\D/g, '');
     if (!rawPhone || rawPhone.length < 10) {
-      newErrors.phone = 'Please provide a valid 10-digit phone number.';
+      newErrors.phone = 'Please enter a valid 10-digit phone number.';
     }
 
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      newErrors.message = 'Please describe your space or cleaning needs (minimum 10 characters).';
+      newErrors.message = 'Tell us a little about your home or space (at least 10 characters).';
     }
 
     setErrors(newErrors);
@@ -106,7 +119,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
     } catch (err: unknown) {
       console.error('[QuoteForm] Submission error:', err);
       setSubmitError(
-        'Unable to submit your quote request online. Please try again or call us at (561) 704-5303.'
+        'We couldn’t send your request online right now. Please try again or give us a quick call at (561) 704-5303.'
       );
     } finally {
       setIsSubmitting(false);
@@ -125,7 +138,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
       {/* Success Banner */}
       {isSubmitted && (
         <div
-          id="quote-success-banner"
+          id={idPrefix ? `${idPrefix}quote-success-banner` : 'quote-success-banner'}
           className="form-feedback-banner form-feedback-success bg-[#e8f5ee] border border-[#12582e] rounded-2xl p-6 text-center block"
           role="alert"
           aria-live="polite"
@@ -134,10 +147,13 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
             <CheckCircle2 className="w-6 h-6" />
           </div>
           <h3 className="banner-title text-xl font-extrabold text-[#071536] mb-2">
-            Quote Request Received
+            We Got Your Quote Request!
           </h3>
-          <p id="quote-success-message" className="banner-message text-slate-700 text-sm max-w-md mx-auto mb-6 leading-relaxed">
-            Thank you, <strong>{formData.name}</strong>! Your cleaning request has been logged. Our dispatch team will review your property details and call you shortly at <strong className="font-mono">{formData.phone}</strong>.
+          <p
+            id={idPrefix ? `${idPrefix}quote-success-message` : 'quote-success-message'}
+            className="banner-message text-slate-700 text-sm max-w-md mx-auto mb-6 leading-relaxed"
+          >
+            Thanks so much, <strong>{formData.name}</strong>! Our friendly local team is reviewing your note right now and will call or text you shortly at <strong className="font-mono">{formData.phone}</strong>.
           </p>
           <div className="banner-cta flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -145,15 +161,15 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
               className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-2.5 px-5 rounded-xl text-sm inline-flex items-center gap-2 shadow-xs transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>Urgent Dispatch: {BUSINESS_NAP.phone}</span>
+              <span>Call Us Now: {BUSINESS_NAP.phone}</span>
             </a>
             <button
               type="button"
-              id="reset-quote-form"
+              id={idPrefix ? `${idPrefix}reset-quote-form` : 'reset-quote-form'}
               onClick={handleReset}
               className="btn btn-outline border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold py-2.5 px-4 rounded-xl text-sm transition-colors cursor-pointer"
             >
-              Submit Another Request
+              Send Another Request
             </button>
           </div>
         </div>
@@ -162,16 +178,16 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
       {/* Error Banner */}
       {submitError && (
         <div
-          id="quote-error-banner"
+          id={idPrefix ? `${idPrefix}quote-error-banner` : 'quote-error-banner'}
           className="form-feedback-banner form-feedback-error bg-red-50 border border-red-200 rounded-xl p-4 mb-6 flex items-start gap-3"
           role="alert"
           aria-live="assertive"
         >
           <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-bold text-red-900 text-sm">Unable to submit online</h4>
+            <h4 className="font-bold text-red-900 text-sm">Oops! Something went wrong</h4>
             <p className="text-red-700 text-xs mt-1">
-              {submitError} Please call us directly at <a href={`tel:${BUSINESS_NAP.phoneRaw}`} className="underline font-bold">{BUSINESS_NAP.phone}</a>.
+              {submitError} You can also reach us directly at <a href={`tel:${BUSINESS_NAP.phoneRaw}`} className="underline font-bold">{BUSINESS_NAP.phone}</a>.
             </p>
           </div>
         </div>
@@ -180,7 +196,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
       {/* Main Form */}
       {!isSubmitted && (
         <form
-          id="lead-quote-form"
+          id={formId}
           data-react-managed="true"
           name="quote-request"
           method="POST"
@@ -190,7 +206,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           noValidate
-          className="lead-form space-y-4"
+          className="lead-form space-y-3.5"
         >
           <input type="hidden" name="form-name" value="quote-request" />
           <input type="hidden" name="source" value={source} />
@@ -211,14 +227,14 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           </p>
 
           {/* Field 1: Full Name */}
-          <div className="form-group" id="group-name">
-            <label htmlFor="quote-name" className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1.5">
-              Full Name <span className="text-red-600" aria-hidden="true">*</span>
+          <div className="form-group" id={idPrefix ? `${idPrefix}group-name` : 'group-name'}>
+            <label htmlFor={nameId} className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1">
+              Your Name <span className="text-red-600" aria-hidden="true">*</span>
             </label>
             <div className="input-wrapper relative">
               <input
                 type="text"
-                id="quote-name"
+                id={nameId}
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -230,8 +246,8 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 autoComplete="name"
                 aria-required="true"
                 aria-invalid={Boolean(errors.name)}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-                className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
+                aria-describedby={errors.name ? `${nameId}-error` : undefined}
+                className={`form-control w-full px-3.5 py-2.5 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                   errors.name
                     ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                     : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -239,35 +255,35 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
               />
             </div>
             {errors.name && (
-              <span id="name-error" className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
+              <span id={`${nameId}-error`} className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
                 {errors.name}
               </span>
             )}
           </div>
 
           {/* Field 2 & 3 Grid on Desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {/* Field 2: Email */}
-            <div className="form-group" id="group-email">
-              <label htmlFor="quote-email" className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1.5">
+            <div className="form-group" id={idPrefix ? `${idPrefix}group-email` : 'group-email'}>
+              <label htmlFor={emailId} className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1">
                 Email Address <span className="text-red-600" aria-hidden="true">*</span>
               </label>
               <div className="input-wrapper relative">
                 <input
                   type="email"
-                  id="quote-email"
+                  id={emailId}
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  placeholder="name@company.com"
+                  placeholder="you@email.com"
                   required
                   maxLength={100}
                   autoComplete="email"
                   aria-required="true"
                   aria-invalid={Boolean(errors.email)}
-                  aria-describedby={errors.email ? 'email-error' : undefined}
-                  className={`form-control w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
+                  aria-describedby={errors.email ? `${emailId}-error` : undefined}
+                  className={`form-control w-full px-3.5 py-2.5 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                     errors.email
                       ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                       : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -275,21 +291,21 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 />
               </div>
               {errors.email && (
-                <span id="email-error" className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
+                <span id={`${emailId}-error`} className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
                   {errors.email}
                 </span>
               )}
             </div>
 
             {/* Field 3: Phone Number */}
-            <div className="form-group" id="group-phone">
-              <label htmlFor="quote-phone" className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1.5">
+            <div className="form-group" id={idPrefix ? `${idPrefix}group-phone` : 'group-phone'}>
+              <label htmlFor={phoneId} className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1">
                 Phone Number <span className="text-red-600" aria-hidden="true">*</span>
               </label>
               <div className="input-wrapper relative">
                 <input
                   type="tel"
-                  id="quote-phone"
+                  id={phoneId}
                   name="phone"
                   value={formData.phone}
                   onChange={handlePhoneChange}
@@ -300,8 +316,8 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                   autoComplete="tel"
                   aria-required="true"
                   aria-invalid={Boolean(errors.phone)}
-                  aria-describedby={errors.phone ? 'phone-error' : undefined}
-                  className={`form-control w-full px-4 py-3 rounded-xl border font-mono text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all tabular-nums disabled:bg-slate-100 disabled:cursor-not-allowed ${
+                  aria-describedby={errors.phone ? `${phoneId}-error` : undefined}
+                  className={`form-control w-full px-3.5 py-2.5 rounded-xl border font-mono text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all tabular-nums disabled:bg-slate-100 disabled:cursor-not-allowed ${
                     errors.phone
                       ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                       : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -309,7 +325,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
                 />
               </div>
               {errors.phone && (
-                <span id="phone-error" className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
+                <span id={`${phoneId}-error`} className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
                   {errors.phone}
                 </span>
               )}
@@ -317,26 +333,26 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
           </div>
 
           {/* Field 4: Space Description */}
-          <div className="form-group" id="group-message">
-            <label htmlFor="quote-message" className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1.5">
-              Property Scope &amp; Cleaning Requirements <span className="text-red-600" aria-hidden="true">*</span>
+          <div className="form-group" id={idPrefix ? `${idPrefix}group-message` : 'group-message'}>
+            <label htmlFor={messageId} className="form-label block text-xs font-bold text-[#071536] uppercase tracking-wider mb-1">
+              How Can We Help You Shine? <span className="text-red-600" aria-hidden="true">*</span>
             </label>
             <div className="input-wrapper relative">
               <textarea
-                id="quote-message"
+                id={messageId}
                 name="message"
-                rows={4}
+                rows={3}
                 value={formData.message}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                placeholder="Tell us your property type (office, medical, restaurant, residence), approximate square footage, and preferred schedule..."
+                placeholder="Tell us about your home or space (bedrooms/baths or approx. size) and what kind of clean you’re looking for..."
                 required
                 minLength={10}
                 maxLength={2000}
                 aria-required="true"
                 aria-invalid={Boolean(errors.message)}
-                aria-describedby={errors.message ? 'message-error' : undefined}
-                className={`form-control form-textarea w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
+                aria-describedby={errors.message ? `${messageId}-error` : undefined}
+                className={`form-control form-textarea w-full px-3.5 py-2.5 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all disabled:bg-slate-100 disabled:cursor-not-allowed ${
                   errors.message
                     ? 'border-red-500 focus:ring-red-200 bg-red-50/40'
                     : 'border-slate-300 focus:border-[#12582e] focus:ring-[#12582e]/20 bg-white'
@@ -344,35 +360,35 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onSuccess, className = '',
               />
             </div>
             {errors.message && (
-              <span id="message-error" className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
+              <span id={`${messageId}-error`} className="form-error-text block text-xs font-medium text-red-600 mt-1" role="alert">
                 {errors.message}
               </span>
             )}
           </div>
 
           {/* Submit Button */}
-          <div className="form-actions pt-2">
+          <div className="form-actions pt-1">
             <button
               type="submit"
-              id="quote-submit-btn"
+              id={submitBtnId}
               disabled={isSubmitting}
               className="btn btn-primary btn-submit w-full min-h-[48px] py-3.5 px-6 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white font-bold text-base shadow-sm hover:shadow-md flex items-center justify-center gap-2 transition-all duration-150 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Submitting Estimate...</span>
+                  <span>Sending Your Request...</span>
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4" />
-                  <span className="btn-text">Request Free Estimate</span>
+                  <span className="btn-text">Get My Free Quote Now</span>
                 </>
               )}
             </button>
-            <p className="privacy-note text-center text-xs text-slate-500 mt-3 flex items-center justify-center gap-1.5 m-0">
+            <p className="privacy-note text-center text-xs text-slate-500 mt-2.5 flex items-center justify-center gap-1.5 m-0">
               <ShieldCheck className="w-3.5 h-3.5 text-[#12582e] shrink-0" />
-              <span>100% Confidential · Same-Day Estimator Response</span>
+              <span>100% Free &amp; No Obligation · Fast Local Reply</span>
             </p>
           </div>
         </form>

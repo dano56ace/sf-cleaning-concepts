@@ -28,31 +28,31 @@ export interface GlobalCTAProps {
 
 export const GlobalCTA: React.FC<GlobalCTAProps> = ({
   onOpenQuoteModal,
-  title = 'Ready for an Impeccably Clean Property?',
-  subtitle = 'Experience 20+ years of family-owned excellence. From clinical disinfection and corporate offices to luxury coastal estates, our bonded specialists deliver transparent rates and our ironclad 100% Satisfaction Guarantee.',
-  kicker = 'Commercial & Residential Excellence · Tri-County Dispatch',
+  title = 'Ready to Come Home to a Place That Sparkles?',
+  subtitle = 'For over 20 years, South Florida families and local businesses have trusted our friendly, family-owned team to make their spaces shine. We bring all the eco-friendly supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee.',
+  kicker = 'Family-Owned Since 2004 · Serving Palm Beach, Broward & Miami-Dade',
   className = ''
 }) => {
   const trustBadges = [
     {
       icon: ShieldCheck,
-      title: 'Licensed & Insured',
-      description: '$2M+ commercial liability & bonding across South Florida'
+      title: 'Licensed, Insured & Vetted',
+      description: 'Friendly, background-checked pros you can feel great welcoming into your home'
     },
     {
       icon: Award,
-      title: '100% Satisfaction Guarantee',
-      description: 'If you are not thrilled, we re-clean free or you do not pay'
+      title: 'Love It or Don’t Pay',
+      description: 'Not 100% thrilled with a spot? We’ll re-clean it free or you don’t pay a dime'
     },
     {
       icon: Clock,
-      title: 'Same-Day Commercial Dispatch',
-      description: 'Rapid mobile crews for commercial facilities & emergencies'
+      title: 'Easy, Flexible Scheduling',
+      description: 'Weekly, bi-weekly, one-time deep cleans, or fast same-week availability'
     },
     {
       icon: Leaf,
-      title: 'Green Seal Certified Products',
-      description: 'Hospital-grade EPA List N bio-safe, eco-friendly chemistry'
+      title: 'Safe for Kids & Pets',
+      description: 'Fresh, non-toxic, eco-friendly products with zero harsh chemical fumes'
     }
   ];
 
@@ -83,13 +83,13 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4fd18b] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4fd18b]" />
             </span>
-            <span className="text-white font-semibold">Active Regional Dispatch:</span>
+            <span className="text-white font-semibold">Now Booking Across South Florida:</span>
             <span className="text-[#a3e6be]">Palm Beach · Broward · Miami-Dade (Jupiter to Miami)</span>
           </div>
 
           <div className="hidden md:flex items-center gap-2 text-xs font-mono text-slate-400">
             <MapPin className="w-3.5 h-3.5 text-[#4fd18b]" />
-            <span>Central Operations: {BUSINESS_NAP.addressLocality}, FL</span>
+            <span>Home Base: {BUSINESS_NAP.addressLocality}, FL</span>
           </div>
         </div>
 
@@ -118,10 +118,10 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
             <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-xs shadow-2xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
                 <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-[#a3e6be]">
-                  Fast Personalized Estimates
+                  Free, Honest Quotes in Minutes
                 </span>
                 <span className="font-mono text-xs text-slate-400 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-[#4fd18b]" /> Zero Obligation
+                  <Sparkles className="w-3 h-3 text-[#4fd18b]" /> No Contracts
                 </span>
               </div>
 
@@ -136,7 +136,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
                     aria-label="Request a Free Cleaning Quote"
                   >
                     <FileText className="w-5 h-5 text-[#a3e6be] shrink-0" />
-                    <span>Request Free Quote</span>
+                    <span>Get My Free Quote</span>
                     <ArrowRight className="w-4 h-4 text-[#a3e6be] transition-transform duration-150 group-hover:translate-x-1" />
                   </button>
                 ) : (
@@ -146,7 +146,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
                     aria-label="Request a Free Cleaning Quote"
                   >
                     <FileText className="w-5 h-5 text-[#a3e6be] shrink-0" />
-                    <span>Request Free Quote</span>
+                    <span>Get My Free Quote</span>
                     <ArrowRight className="w-4 h-4 text-[#a3e6be] transition-transform duration-150 group-hover:translate-x-1" />
                   </Link>
                 )}
@@ -168,14 +168,14 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
                   to="/our-services"
                   className="hover:text-white transition-colors inline-flex items-center gap-1 text-[#a3e6be] font-semibold"
                 >
-                  <span>Explore 10 Divisions</span>
+                  <span>Browse All 10 Services</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
                 <Link
                   to="/service-areas"
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
-                  <span>All 56 Service Areas</span>
+                  <span>See All 56 Local Cities</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -185,7 +185,7 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
 
         {/* ── 4-COLUMN TRUST & CREDIBILITY GRID ───────────────────────────── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-10 border-t border-white/10">
-          {trustBadges.map((badge, idx) => {
+          {trustBadges.map((badge) => {
             const Icon = badge.icon;
             return (
               <div
@@ -197,9 +197,6 @@ export const GlobalCTA: React.FC<GlobalCTAProps> = ({
                     <div className="w-10 h-10 rounded-xl bg-[#12582e]/60 border border-[#4fd18b]/30 text-[#4fd18b] flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="font-mono text-xs font-semibold text-slate-500 tabular-nums">
-                      0{idx + 1}
-                    </span>
                   </div>
                   <h3 className="text-sm font-bold text-white mb-1 tracking-tight">
                     {badge.title}

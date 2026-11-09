@@ -11,51 +11,51 @@ const ICONS_MAP: { [key: string]: React.ElementType } = {
 
 const ROTATION_ZONE_DETAILS = [
   {
-    phase: 'Phase 01',
-    zone: 'Comprehensive Initial Deep Scrub',
-    cadence: 'First Visit Baseline',
-    summary: 'Establishes hospital-grade cleanliness from ceiling fans to baseboards across every room prior to entering the recurring rotation cycle.',
+    phase: 'Step 01',
+    zone: 'The First-Visit Top-to-Bottom Refresh',
+    cadence: 'Your Starting Clean',
+    summary: 'On our very first visit, we roll up our sleeves and give your entire place a deep, resetting scrub from ceiling fans down to the baseboards—so every room feels fresh and brand new.',
     tasks: [
-      'Hand-wipe all baseboards, door frames, window sills, and switch plates',
-      'Remove scale, soap film, and mineral buildup from all shower glass and tile grout',
-      'Degrease kitchen range hood, cabinet exteriors, and appliance surfaces',
-      'Multi-stage HEPA vacuuming of all carpets, rugs, edges, and upholstery crevices'
+      'Hand-wipe all baseboards, door frames, window ledges, and light switches',
+      'Scrub away soap scum and hard-water spots on shower glass, tubs, and tile grout',
+      'Degrease stove hoods, wipe cabinet fronts, and polish every kitchen appliance',
+      'Deep-vacuum all carpets, area rugs, corners, and underneath sofa cushions'
     ]
   },
   {
-    phase: 'Phase 02',
-    zone: 'Kitchen & Culinary Core Rotation',
-    cadence: 'Recurring Deep Focus',
-    summary: 'While all rooms receive standard maintenance cleaning, Phase 02 dedicates intensive deep-scrub time to culinary surfaces and food-prep zones.',
+    phase: 'Step 02',
+    zone: 'Kitchen & Heart-of-the-Home Sparkle',
+    cadence: 'Rotating Deep Focus',
+    summary: 'Every visit includes a full-home clean, plus on Step 02 we spend extra time deep-cleaning the places where your family cooks, eats, and gathers.',
     tasks: [
-      'Deep interior & exterior detailing of microwave, oven door glass, and refrigerator seals',
-      'Backsplash grout scrubbing and under-counter lighting fixture polishing',
-      'Pantry shelf organization wipe-down and sink drain enzyme sanitization',
-      'Stainless steel grain polishing and high-touch cabinet pull disinfection'
+      'Clean inside and outside of the microwave, oven glass door, and fridge seals',
+      'Scrub kitchen backsplash grout and polish under-cabinet lighting',
+      'Wipe down pantry shelves, sanitize sink drains, and shine chrome faucets',
+      'Polish stainless steel appliances and sanitize all cabinet handles and pulls'
     ]
   },
   {
-    phase: 'Phase 03',
-    zone: 'Sanitary & Bath Deep Sterilization',
-    cadence: 'Recurring Deep Focus',
-    summary: 'Eliminates South Florida humidity mildew, bacteria, and hard-water deposits across master baths, guest powder rooms, and commercial restrooms.',
+    phase: 'Step 03',
+    zone: 'Spa-Fresh Bathrooms & Tile Care',
+    cadence: 'Rotating Deep Focus',
+    summary: 'South Florida humidity loves to build up mildew in bathrooms. While cleaning your whole home, Step 03 gives your master bath and powder rooms a true spa-level scrub.',
     tasks: [
-      'Acid-free tile & grout deep scrubbing across shower walls and bathroom floors',
-      'Exhaust fan grille dust extraction for optimal moisture ventilation',
-      'Vanity drawer exterior detailing, mirror edge polishing, and chrome descaling',
-      'Hospital-grade EPA List N disinfection of all lavatory touchpoints'
+      'Deep-scrub shower walls, tile grout, and bathroom floors until they gleam',
+      'Dust and clear bathroom exhaust fans so moisture and steam vent properly',
+      'Wipe vanity fronts, polish mirrors edge-to-edge, and descale faucets',
+      'Sanitize toilets, sinks, counters, and towel bars with fresh, safe cleaners'
     ]
   },
   {
-    phase: 'Phase 04',
-    zone: 'Living, Executive & Air Quality Focus',
-    cadence: 'Recurring Deep Focus',
-    summary: 'Targets hidden allergens, coastal dust accumulation, and architectural woodwork across bedrooms, offices, and living areas.',
+    phase: 'Step 04',
+    zone: 'Bedrooms, Living Spaces & Fresh Air',
+    cadence: 'Rotating Deep Focus',
+    summary: 'In Step 04, we maintain your whole property while targeting hidden dust, pet hair, and allergens in bedrooms, home offices, and living rooms.',
     tasks: [
-      'Vacuuming beneath moveable furniture, sofa cushions, and bed frames',
-      'Detailed slat-by-slat blind dusting, shutters, and sliding glass door tracks',
-      'HVAC return air vent washing and ceiling fan blade hand-wiping',
-      'Crown molding, picture frame, and decorative millwork detailing'
+      'Vacuum underneath beds, couches, cushions, and moveable furniture',
+      'Hand-wipe window blinds slat-by-slat and clean sliding glass door tracks',
+      'Wash AC return air vents and hand-wipe ceiling fan blades',
+      'Dust picture frames, lampshades, crown molding, and bookshelf decor'
     ]
   }
 ];
@@ -113,13 +113,13 @@ export const RotationSystemSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="editorial-kicker mb-3">
-            <span>Proprietary Methodology · Zero Extra Fees</span>
+            <span>Our Secret to a Forever-Spotless Home · No Extra Fees</span>
           </div>
           <h2 id="rotation-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-4">
-            The 4-Phase Rotation Cleaning System
+            How Our 4-Step Rotation Clean Works
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed m-0">
-            Unlike standard cleaners who only wipe visible surfaces, our systematic 4-phase rotation ensures every corner of your property receives a restorative deep scrub on a predictable, perpetual schedule.
+            Most cleaners just wipe the surfaces you can see and rush out the door. We do things differently. Every time we visit, we clean your entire space while rotating an extra-deep scrub from room to room—so nothing ever gets skipped.
           </p>
         </div>
 
@@ -152,7 +152,7 @@ export const RotationSystemSection: React.FC = () => {
                         isSelected ? 'text-[#a3e6be]' : 'text-[#12582e]'
                       }`}
                     >
-                      Phase 0{step.step}
+                      Step 0{step.step}
                     </span>
                     <span
                       className={`w-8 h-8 rounded-lg font-mono font-bold text-xs flex items-center justify-center tabular-nums ${
@@ -188,10 +188,10 @@ export const RotationSystemSection: React.FC = () => {
                 >
                   <span className="inline-flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Zero extra fees</span>
+                    <span>Included free</span>
                   </span>
                   <span className="font-mono text-[11px] uppercase">
-                    {isSelected ? 'Inspecting' : 'Inspect →'}
+                    {isSelected ? 'Viewing' : 'See Checklist →'}
                   </span>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export const RotationSystemSection: React.FC = () => {
             </div>
             <div className="lg:col-span-7 lg:border-l lg:border-slate-200 lg:pl-8">
               <div className="font-mono text-xs uppercase tracking-widest text-slate-400 font-semibold mb-4">
-                Included Deep-Rotation Deliverables:
+                What We Scrub in This Step:
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {activeZone.tasks.map((task, i) => (

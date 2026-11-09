@@ -12,13 +12,13 @@ export const FaqsPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div className="editorial-kicker-light mb-4">
-              Support &amp; Knowledge Base
+              Simple, Honest Answers
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
               Have Questions?
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
-              Find clear, transparent answers about our residential and commercial cleaning protocols, eco-friendly sanitization products, insurance coverage, and flexible scheduling across South Florida.
+              Here’s everything you need to know about how we clean, our kid- and pet-safe supplies, flexible scheduling, and our famous Love Your Clean or Don’t Pay guarantee.
             </p>
           </div>
         </div>
@@ -37,13 +37,13 @@ export const FaqsPage: React.FC = () => {
           <div className="bg-[#07111a] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div>
               <div className="editorial-kicker-light mb-3">
-                Direct Supervisor Assistance
+                We’re Here to Help
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-                Didn&apos;t Find the Answer You Were Looking For?
+                Still Have a Question? Just Ask!
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
-                Our management team is happy to walk through your facility requirements, custom scheduling needs, or specialized sanitization requests.
+                Give us a quick call or send us a note—our friendly local team is happy to answer any questions and put together a custom quote for your space.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
@@ -51,7 +51,7 @@ export const FaqsPage: React.FC = () => {
                 to="/contact-us"
                 className="bg-[#2a8655] hover:bg-[#1f6840] text-white font-bold px-6 py-4 rounded-xl transition-all shadow-md text-center whitespace-nowrap"
               >
-                Contact Our Team
+                Book My Free Quote
               </Link>
               <a
                 href={`tel:${BUSINESS_NAP.phoneRaw}`}

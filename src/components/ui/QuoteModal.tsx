@@ -50,15 +50,15 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, service
         <div className="modal-header bg-[#071536] text-white p-6 sm:p-8 flex items-start justify-between relative border-b border-white/10">
           <div>
             <div className="editorial-kicker-light mb-2">
-              <span>100% Guaranteed Estimate</span>
+              <span>Love Your Clean or Don’t Pay</span>
             </div>
             <h2 id="modal-quote-title" className="text-2xl font-extrabold text-white mb-1">
-              Request Your Free Quote
+              Get Your Free Cleaning Quote
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm m-0">
               {serviceTitle
-                ? `Personalized scope & pricing for ${serviceTitle}`
-                : 'Fast, transparent rates for Palm Beach, Broward & Miami-Dade properties.'}
+                ? `Quick, honest pricing for ${serviceTitle}—no obligation.`
+                : 'Fast, honest pricing for homes, rentals, and workplaces across South Florida.'}
             </p>
           </div>
           <button
@@ -74,6 +74,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, service
         {/* Scrollable Form Body */}
         <div className="modal-body overflow-y-auto p-6 sm:p-8">
           <QuoteForm
+            idPrefix="modal-"
             source={serviceTitle || 'Modal'}
             onSuccess={() => {
               // Keep modal open so user sees confirmation banner
@@ -83,7 +84,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, service
 
         {/* Modal Footer Call Helpline */}
         <div className="modal-footer bg-slate-50 px-6 py-4 border-t border-slate-200/80 text-center text-xs text-slate-600 flex items-center justify-center gap-2">
-          <span>Prefer to speak with an estimator immediately?</span>
+          <span>Want to chat with our friendly local team right now?</span>
           <a
             href={`tel:${BUSINESS_NAP.phoneRaw}`}
             className="font-mono font-bold text-[#12582e] hover:underline inline-flex items-center gap-1 tabular-nums"

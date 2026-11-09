@@ -12,13 +12,13 @@ export const ContactPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div className="editorial-kicker-light mb-4">
-              Get in Touch · Tri-County Dispatch
+              We’d Love to Hear From You · Fast Local Reply
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
               Interested in Cleaning Services?
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
-              Reach out to South Florida Cleaning Concepts for a customized residential or commercial quote. Our management team responds promptly to all inquiries across Palm Beach, Broward, and Miami-Dade counties.
+              Reach out for a fast, honest, no-obligation quote for your home, vacation rental, or workplace. Our friendly local team responds quickly across Palm Beach, Broward, and Miami-Dade counties.
             </p>
           </div>
         </div>
@@ -33,13 +33,13 @@ export const ContactPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg">
                 <div className="mb-7 pb-5 border-b border-slate-100">
                   <div className="editorial-kicker mb-2">
-                    Personalized Proposal
+                    Fast Online Booking &amp; Free Quote
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-1.5 tracking-tight">
-                    Request Your Free Quote
+                    Get Your Free Cleaning Quote
                   </h2>
                   <p className="text-slate-500 text-sm">
-                    Complete the 4 quick fields below and an estimator will contact you promptly to finalize your customized scope.
+                    Fill out the 4 quick fields below and our friendly local team will call or text you right back with an honest price.
                   </p>
                 </div>
                 <QuoteForm source="Contact Page" />
@@ -50,10 +50,10 @@ export const ContactPage: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-[#07111a] text-white rounded-3xl p-8 shadow-xl border border-white/10">
                 <div className="editorial-kicker-light mb-3">
-                  Direct Channels
+                  Reach Us Anytime
                 </div>
                 <h2 className="text-2xl font-extrabold mb-6 text-white">
-                  Direct Contact Information
+                  Call, Text, or Email Us
                 </h2>
 
                 <div className="space-y-6">
@@ -63,7 +63,7 @@ export const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
-                        Phone Dispatch
+                        Call or Text Us
                       </p>
                       <a
                         href={`tel:${BUSINESS_NAP.phoneRaw}`}
@@ -72,7 +72,7 @@ export const ContactPage: React.FC = () => {
                         {BUSINESS_NAP.phone}
                       </a>
                       <p className="text-xs text-slate-400 mt-1">
-                        Available for urgent commercial &amp; turnover dispatch
+                        Fast quotes &amp; same-day scheduling available
                       </p>
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export const ContactPage: React.FC = () => {
                         {BUSINESS_NAP.email}
                       </a>
                       <p className="text-xs text-slate-400 mt-1">
-                        Send floor plans, RFP specs, or scope requests
+                        Send us your questions or special cleaning requests
                       </p>
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
-                        Operating Hours
+                        Cleaning Hours
                       </p>
                       <p className="text-sm font-mono font-bold text-white mt-1 tabular-nums leading-snug">
                         {BUSINESS_NAP.hours}
@@ -115,27 +115,27 @@ export const ContactPage: React.FC = () => {
 
               <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm">
                 <div className="editorial-kicker mb-2">
-                  Headquarters &amp; Coverage
+                  Where We Clean
                 </div>
                 <h3 className="text-lg font-extrabold text-[#0b1926] mb-3 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-[#2a8655]" />
-                  {BUSINESS_NAP.addressLocality}, {BUSINESS_NAP.addressRegion} Headquarters
+                  Based in {BUSINESS_NAP.addressLocality}, {BUSINESS_NAP.addressRegion}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-5">
-                  We deploy mobile commercial and residential teams throughout {BUSINESS_NAP.areasServed.join(', ')}, and surrounding South Florida communities.
+                  Our friendly local crews clean homes, rentals, and workplaces throughout {BUSINESS_NAP.areasServed.join(', ')}, and nearby South Florida neighborhoods.
                 </p>
                 <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 text-center">
                   <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
                     <span className="block text-[11px] font-mono font-bold text-[#2a8655]">PALM BEACH</span>
-                    <span className="text-[11px] text-slate-500">Primary Hub</span>
+                    <span className="text-[11px] text-slate-500">Home Base</span>
                   </div>
                   <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
                     <span className="block text-[11px] font-mono font-bold text-[#2a8655]">BROWARD</span>
-                    <span className="text-[11px] text-slate-500">Full Dispatch</span>
+                    <span className="text-[11px] text-slate-500">Full Coverage</span>
                   </div>
                   <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
                     <span className="block text-[11px] font-mono font-bold text-[#2a8655]">MIAMI-DADE</span>
-                    <span className="text-[11px] text-slate-500">Full Dispatch</span>
+                    <span className="text-[11px] text-slate-500">Full Coverage</span>
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-extrabold text-[#0b1926] mb-1">
-                    Satisfaction Guarantee
+                    Love Your Clean or Don’t Pay
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {BUSINESS_NAP.guarantee}

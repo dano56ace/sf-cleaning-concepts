@@ -12,27 +12,27 @@ interface CleaningEstimatorProps {
 }
 
 const PROPERTY_CATEGORIES: { id: PropertyCategory; label: string; sub: string }[] = [
-  { id: 'office', label: 'Commercial Office', sub: 'Suites & Corporate HQ' },
-  { id: 'medical', label: 'Medical / Dental', sub: 'OSHA & Terminal Sterile' },
-  { id: 'restaurant', label: 'Bar & Restaurant', sub: 'Kitchen & Dining Room' },
-  { id: 'rental', label: 'Short-Term Rental', sub: 'Airbnb / VRBO Turnover' },
-  { id: 'residential', label: 'Luxury Residence', sub: '4-Phase Rotation Care' },
-  { id: 'construction', label: 'Post-Construction', sub: '3-Phase Builder Polish' }
+  { id: 'residential', label: 'Home & Condo', sub: 'Houses, Townhomes & Condos' },
+  { id: 'rental', label: 'Airbnb & Rental', sub: 'Same-Day Guest Turnovers' },
+  { id: 'office', label: 'Local Office', sub: 'Workplaces & Suites' },
+  { id: 'medical', label: 'Medical & Dental', sub: 'Clinics & Waiting Rooms' },
+  { id: 'restaurant', label: 'Bar & Restaurant', sub: 'Kitchens & Dining Rooms' },
+  { id: 'construction', label: 'Post-Renovation', sub: 'Remodel & New-Build Clean' }
 ];
 
 const FREQUENCIES: { id: CleaningFrequency; label: string; badge: string }[] = [
-  { id: 'nightly', label: 'Nightly / 5x Wk', badge: 'Save 25%' },
-  { id: 'weekly', label: 'Weekly Rotation', badge: 'Save 20%' },
-  { id: 'biweekly', label: 'Bi-Weekly', badge: 'Save 12%' },
-  { id: 'monthly', label: 'Monthly', badge: 'Save 5%' },
-  { id: 'onetime', label: 'One-Time Deep', badge: 'Standard' }
+  { id: 'nightly', label: '5x / Week', badge: 'Save 25%' },
+  { id: 'weekly', label: 'Every Week', badge: 'Save 20%' },
+  { id: 'biweekly', label: 'Every 2 Weeks', badge: 'Save 12%' },
+  { id: 'monthly', label: 'Once a Month', badge: 'Save 5%' },
+  { id: 'onetime', label: 'One-Time Clean', badge: 'Standard' }
 ];
 
 export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEstimate }) => {
-  const [category, setCategory] = useState<PropertyCategory>('office');
-  const [sqft, setSqft] = useState<number>(3500);
+  const [category, setCategory] = useState<PropertyCategory>('residential');
+  const [sqft, setSqft] = useState<number>(2500);
   const [restrooms, setRestrooms] = useState<number>(3);
-  const [frequency, setFrequency] = useState<CleaningFrequency>('weekly');
+  const [frequency, setFrequency] = useState<CleaningFrequency>('biweekly');
 
   const estimate = calculateCleaningEstimate({
     category,
@@ -43,19 +43,20 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
 
   return (
     <section
+      id="estimator-section"
       className="section py-20 lg:py-24 bg-[#071536] text-white border-y border-slate-800 bg-architectural-grid"
       aria-labelledby="estimator-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <div className="editorial-kicker-light mb-3">
-            <span>Interactive Scope &amp; Crew Calculator</span>
+            <span>Instant Price &amp; Time Calculator</span>
           </div>
           <h2 id="estimator-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Estimate Your Property’s Cleaning Scope &amp; Crew Allocation
+            See What Your Clean Will Cost in Seconds
           </h2>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            Configure your facility type, approximate square footage, and service frequency below to preview our recommended crew size, on-site hours, and transparent rate range.
+            Pick your space type, slide to your approximate size, and choose how often you’d like us to visit. You’ll see your estimated price range and crew size right away—no guesswork, no hidden fees.
           </p>
         </div>
 
@@ -66,7 +67,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Step 1: Property Type */}
               <div>
                 <label className="block font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
-                  01 · Select Property Classification
+                  01 · What Are We Cleaning?
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                   {PROPERTY_CATEGORIES.map((item) => {
@@ -97,7 +98,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <label htmlFor="estimator-sqft" className="font-mono text-xs uppercase tracking-widest text-[#a3e6be]">
-                      02 · Square Footage
+                      02 · Approx. Size
                     </label>
                     <span className="font-mono text-lg font-extrabold text-white tabular-nums">
                       {sqft.toLocaleString()} sq ft
@@ -123,7 +124,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <label htmlFor="estimator-restrooms" className="font-mono text-xs uppercase tracking-widest text-[#a3e6be] whitespace-nowrap">
-                      03 · Restrooms
+                      03 · Bathrooms
                     </label>
                     <span className="font-mono text-lg font-extrabold text-white tabular-nums whitespace-nowrap">
                       {restrooms} {restrooms === 1 ? 'Bath' : 'Baths'}
@@ -150,7 +151,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Step 3: Cleaning Schedule Frequency */}
               <div className="pt-6 border-t border-white/10">
                 <label className="block font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
-                  04 · Select Service Frequency (Rotation Discounts Applied)
+                  04 · How Often Should We Visit? (Save More on Regular Visits)
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                   {FREQUENCIES.map((freq) => {
@@ -178,8 +179,8 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
             </div>
 
             <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
-              <span>All supplies, HEPA vacuums &amp; EPA disinfectants included</span>
-              <span className="font-mono text-[#a3e6be] whitespace-nowrap">100% Bonded &amp; Insured</span>
+              <span>We bring all supplies, vacuums &amp; kid/pet-safe products</span>
+              <span className="font-mono text-[#a3e6be] whitespace-nowrap">100% Insured &amp; Bonded</span>
             </div>
           </div>
 
@@ -190,19 +191,19 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 <div className="flex items-center gap-2">
                   <Calculator className="w-4 h-4 text-[#12582e]" />
                   <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#12582e]">
-                    Recommended Allocation
+                    Your Custom Plan
                   </span>
                 </div>
                 {estimate.frequencyDiscountPercent > 0 && (
                   <span className="font-mono text-xs font-bold text-[#12582e] tabular-nums whitespace-nowrap">
-                    {estimate.frequencyDiscountPercent}% Recurring Savings
+                    You Save {estimate.frequencyDiscountPercent}%
                   </span>
                 )}
               </div>
 
               <div className="mb-6">
                 <div className="text-xs font-medium text-slate-500 mb-1">
-                  Assigned Specialist Division
+                  Recommended Service
                 </div>
                 <h3 className="text-2xl font-extrabold text-[#071536] mb-1">
                   {estimate.recommendedServiceTitle}
@@ -221,14 +222,14 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                   </div>
                 </div>
                 <div className="border-l border-slate-200 pl-2.5 sm:pl-3 min-w-0">
-                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Crew Size</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Team Size</div>
                   <div className="font-mono text-base sm:text-lg xl:text-xl font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1 whitespace-nowrap">
                     <Users className="w-3.5 h-3.5 text-[#12582e] shrink-0" />
                     <span>{estimate.estimatedCrewSize} Pros</span>
                   </div>
                 </div>
                 <div className="border-l border-slate-200 pl-2.5 sm:pl-3 min-w-0">
-                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">On-Site Time</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Clean Time</div>
                   <div className="font-mono text-base sm:text-lg xl:text-xl font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1 whitespace-nowrap">
                     <Clock className="w-3.5 h-3.5 text-[#12582e] shrink-0" />
                     <span>{estimate.estimatedHoursMin}–{estimate.estimatedHoursMax}h</span>
@@ -239,7 +240,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Included Protocol Highlights */}
               <div className="mb-6">
                 <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                  Included In Your Scope:
+                  What’s Included Every Visit:
                 </div>
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-700 list-none p-0 m-0">
                   {estimate.includedHighlights.map((hl, i) => (
@@ -259,7 +260,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                   onClick={() => onSelectEstimate(`${estimate.recommendedServiceTitle} (${sqft.toLocaleString()} sq ft)`)}
                   className="w-full py-3.5 px-6 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Lock In Personalized Quote</span>
+                  <span>Lock In My Free Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
@@ -267,7 +268,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                   to="/contact-us"
                   className="w-full py-3.5 px-6 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  <span>Lock In Personalized Quote</span>
+                  <span>Lock In My Free Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               )}
@@ -275,13 +276,13 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               <div className="flex items-center justify-between text-xs text-slate-500">
                 <span className="inline-flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#12582e]" />
-                  <span>100% Satisfaction Guarantee</span>
+                  <span>100% Love-It Guarantee</span>
                 </span>
                 <Link
                   to={`/service/${estimate.recommendedServiceSlug}`}
                   className="font-bold text-[#12582e] hover:underline"
                 >
-                  Full Division Specs →
+                  See Full Checklist →
                 </Link>
               </div>
             </div>

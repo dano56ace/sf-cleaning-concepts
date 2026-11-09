@@ -43,19 +43,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
       {/* 2. Architectural Standards & Trust Grid */}
       <TrustBadges />
 
-      {/* 3. Core Capabilities & 10 Specialized Divisions */}
+      {/* 3. Core Capabilities & 10 Specialized Services */}
       <section className="section py-20 lg:py-24 bg-white" aria-labelledby="services-overview-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
             <div className="max-w-2xl">
               <div className="editorial-kicker mb-3">
-                <span>10 Specialized Divisions · Commercial &amp; Residential</span>
+                <span>From Cozy Homes to Busy Workplaces</span>
               </div>
               <h2 id="services-overview-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-                Commercial &amp; Residential Cleaning Services
+                How Can We Make Your Space Shine?
               </h2>
               <p className="text-slate-600 text-base sm:text-lg m-0">
-                Explore our comprehensive catalog of 10 specialized cleaning solutions tailored for South Florida enterprises, clinical facilities, and luxury coastal residences.
+                Whether you want your weekends back at home, need a fast 5-star Airbnb turnover, or want a spotless office your team loves walking into, we’ve got you covered.
               </p>
             </div>
 
@@ -67,9 +67,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
             >
               {[
                 { id: 'all', label: 'All 10 Services' },
-                { id: 'commercial', label: 'Commercial & Clinical' },
-                { id: 'hospitality', label: 'Dining & Rentals' },
-                { id: 'residential', label: 'Estates & Homes' }
+                { id: 'residential', label: 'Homes & Condos' },
+                { id: 'hospitality', label: 'Airbnb & Dining' },
+                { id: 'commercial', label: 'Offices & Clinics' }
               ].map((tab) => {
                 const isSelected = serviceFilter === tab.id;
                 return (
@@ -94,7 +94,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {filteredServices.map((svc, idx) => {
-              const catalogIndex = SERVICES_CATALOG.findIndex((s) => s.slug === svc.slug) + 1;
               const isDesktopFullWidthBanner = filteredServices.length === 10 && idx === 9;
               return (
                 <div
@@ -114,8 +113,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071536]/75 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                      <span className="font-mono text-xs font-bold text-[#a3e6be] tabular-nums">
-                        DIVISION {String(catalogIndex).padStart(2, '0')}
+                      <span className="font-mono text-xs font-bold text-[#a3e6be]">
+                        All Supplies Included
                       </span>
                       <span className="font-mono text-[11px] text-slate-200 uppercase tracking-wider">
                         100% Guaranteed
@@ -150,7 +149,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                         to={`/service/${svc.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#12582e] hover:text-[#0d4222] transition-colors"
                       >
-                        <span>View Service Details</span>
+                        <span>See What’s Included</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
 
@@ -160,7 +159,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                           onClick={() => onOpenQuoteModal(svc.title)}
                           className="text-xs font-mono font-bold text-[#071536] hover:text-[#12582e] transition-colors cursor-pointer"
                         >
-                          Quick Quote →
+                          Free Quote →
                         </button>
                       )}
                     </div>
@@ -172,7 +171,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
 
           <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 m-0">
-              Need a customized multi-site commercial contract or residential maintenance plan?
+              Not sure which cleaning plan fits best? We’re happy to build a custom checklist just for you.
             </p>
             <Link
               to="/our-services"
@@ -199,13 +198,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="editorial-kicker mb-3">
-              <span>Policies, Bonding &amp; Process</span>
+              <span>Simple, Honest Answers</span>
             </div>
             <h2 id="home-faq-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              Frequently Asked Questions
+              Got Questions? We’ve Got Answers
             </h2>
             <p className="text-slate-600 text-base m-0">
-              Direct answers regarding our 4-phase rotation cleaning system, commercial insurance bonding, and hospital-grade disinfectants.
+              Everything you want to know about how we clean, our kid- and pet-safe supplies, and our Love It or You Don’t Pay guarantee.
             </p>
           </div>
           <FaqAccordion items={FAQS_LIST} showCategoryFilters={true} />
@@ -221,20 +220,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
           <div className="bg-[#071536] rounded-2xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-6">
               <div className="editorial-kicker-light mb-4">
-                <span>Free Personalized Estimate · Same-Day Response</span>
+                <span>Free, No-Obligation Quote · Fast Local Reply</span>
               </div>
               <h2 id="cta-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-                Ready for a Spotless Property in South Florida?
+                Ready to Come Home to a Spotless Space?
               </h2>
               <p className="text-slate-300 text-base leading-relaxed mb-8">
-                Tell us about your commercial facility or residence. We provide a transparent, itemized quote backed by our ironclad 100% Satisfaction Guarantee.
+                Tell us a little about your home, vacation rental, or workplace. We’ll get right back to you with simple, honest pricing—backed by our Love Your Clean or Don’t Pay Guarantee.
               </p>
 
               {/* Regional Service Area Matrix */}
               <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 mb-8">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
                   <MapPin className="w-4 h-4" />
-                  <span>Active South Florida Dispatch Corridors</span>
+                  <span>Proudly Cleaning Across South Florida</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-200 font-medium">
                   {BUSINESS_NAP.areasServed.map((area) => (
@@ -252,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                   className="inline-flex items-center gap-2.5 text-base font-mono font-bold text-[#a3e6be] hover:text-white transition-colors tabular-nums"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>Direct Dispatch: {BUSINESS_NAP.phone}</span>
+                  <span>Call or Text Us: {BUSINESS_NAP.phone}</span>
                 </a>
               </div>
             </div>
@@ -260,13 +259,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
             <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-8 lg:p-10 text-slate-800 shadow-xl">
               <div className="pb-4 mb-6 border-b border-slate-200/80">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#071536] mb-1">
-                  Request Your Free Quote
+                  Get Your Free Cleaning Quote
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 m-0">
-                  Complete the 4 quick fields below and an estimator will contact you promptly.
+                  Fill out the 4 quick fields below and our friendly local team will reach right out.
                 </p>
               </div>
-              <QuoteForm source="HomePage-Bottom" />
+              <QuoteForm idPrefix="bottom-" source="HomePage-Bottom" />
             </div>
           </div>
         </div>

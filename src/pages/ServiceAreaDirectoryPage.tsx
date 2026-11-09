@@ -178,7 +178,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
 
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.07] border border-white/15 text-[#4fd18b] text-xs font-mono uppercase tracking-[0.18em]">
-              <MapPin className="w-3.5 h-3.5" /> South Florida Coverage · Extending North Through Jupiter
+              <MapPin className="w-3.5 h-3.5" /> Local South Florida Cleaners · Jupiter to Miami
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] [text-wrap:balance]">
@@ -187,7 +187,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              South Florida Cleaning Concepts provides hospital-grade commercial office cleaning, terminal healthcare disinfection, same-day Airbnb turnovers, and luxury residential maid service across 56 Florida communities. Select your city below to explore localized cleaning services, rate packages, and local landmarks.
+              From family homes and waterfront condos to vacation rentals and local workplaces, our friendly, background-checked pros bring a spotless clean to 56 South Florida communities. Pick your neighborhood below to see how we can help!
             </p>
           </div>
 
@@ -197,7 +197,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               <Search className="w-5 h-5 text-[#4fd18b] shrink-0 mr-3" />
               <input
                 type="text"
-                placeholder="Search your Florida city, neighborhood, or roadway..."
+                placeholder="Search your city or neighborhood (e.g. Boca Raton, Jupiter)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-transparent text-white placeholder:text-slate-400 text-sm sm:text-base focus:outline-none"
@@ -227,7 +227,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               Palm Beach • Broward • Miami-Dade • Treasure Coast
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#07111a] mt-1">
-              {filteredAreas.length} Active Florida Service Locations
+              {filteredAreas.length} Neighborhoods &amp; Cities We Serve
             </h2>
           </div>
 
@@ -300,7 +300,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Adjacent Counties
+              Nearby Counties
             </button>
           </div>
         </div>
@@ -337,14 +337,14 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
 
                   {area.landmarks && area.landmarks.length > 0 && (
                     <div className="pt-2 text-[11px] text-slate-500 leading-snug">
-                      <span className="font-semibold text-slate-700">Landmarks:</span>{' '}
+                      <span className="font-semibold text-slate-700">Local Favorites:</span>{' '}
                       {area.landmarks.slice(0, 2).map((l) => l.name).join(' · ')}
                     </div>
                   )}
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#12582e]">
-                  <span>Explore {area.name}</span>
+                  <span>See {area.name} Services</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -356,7 +356,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               No South Florida locations found matching &ldquo;{searchQuery}&rdquo;
             </h3>
             <p className="text-sm text-slate-600">
-              Try searching for a nearby community, neighborhood name, or reset your search to view all 56 locations.
+              Try searching for a nearby city or neighborhood, or reset your search to see all 56 communities.
             </p>
             <button
               type="button"
@@ -366,7 +366,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               }}
               className="px-6 py-3 rounded-xl bg-[#07111a] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
             >
-              Reset Search &amp; Filters
+              Show All 56 Locations
             </button>
           </div>
         )}
@@ -375,13 +375,13 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
         <div className="rounded-3xl p-8 sm:p-12 bg-[#07111a] text-white border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#4fd18b]">
-              <Building2 className="w-4 h-4" /> Customized Commercial &amp; Residential Scope
+              <Building2 className="w-4 h-4" /> Homes, Condos, Rentals &amp; Workplaces
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Have a Facility or Estate in South Florida?
+              Want a Spotless Home or Office in South Florida?
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              We provide tailored commercial janitorial contracts, terminal medical cleaning, and recurring estate housekeeping across Palm Beach, Broward, and Miami-Dade. Speak directly with our operations team today.
+              We bring all the supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee. Get your free quote today!
             </p>
           </div>
 
@@ -391,7 +391,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               onClick={() => setIsQuoteOpen(true)}
               className="px-6 py-3 rounded-xl bg-[#4fd18b] hover:bg-[#3ec47c] text-[#07111a] text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-2 cursor-pointer shadow-md"
             >
-              Request Free Estimate <ArrowRight className="w-4 h-4" />
+              Get My Free Quote <ArrowRight className="w-4 h-4" />
             </button>
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}

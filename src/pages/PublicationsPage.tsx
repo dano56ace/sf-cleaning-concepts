@@ -32,13 +32,13 @@ export const PublicationsPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div className="editorial-kicker-light mb-4">
-              Expert Guides & Field Insights
+              Fresh Tips &amp; Home Care Guides
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
               Our Publications &amp; Cleaning Guides
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
-              Explore our library of {BLOG_POSTS.length} in-depth cleaning guides, sanitation protocols, and property maintenance checklists tailored for South Florida homes and businesses.
+              Browse {BLOG_POSTS.length} easy-to-follow cleaning guides, time-saving tips, and home care checklists written by our local South Florida team.
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export const PublicationsPage: React.FC = () => {
               })}
             </div>
             <p className="text-xs font-mono uppercase tracking-[0.12em] text-slate-500 tabular-nums">
-              Showing {filteredPosts.length} of {BLOG_POSTS.length} Publications
+              Showing {filteredPosts.length} of {BLOG_POSTS.length} Guides
             </p>
           </div>
 

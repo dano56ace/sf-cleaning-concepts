@@ -42,13 +42,13 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
         </div>
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="editorial-kicker-light mb-4 justify-center">
-            <span>10 Specialized Divisions · Palm Beach &amp; Broward</span>
+            <span>10 Ways We Make Your Space Shine · South Florida</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
             Services we provide with top quality Cleaning
           </h1>
           <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-            Explore specialized commercial, medical, restaurant, and luxury residential cleaning services across Palm Beach, Broward &amp; South Florida.
+            Whether you want a sparkling family home, a 5-star vacation rental turnover, or a fresh, welcoming workplace, our friendly local team brings all the supplies and guarantees you’ll love your clean.
           </p>
           <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-mono font-semibold text-slate-300" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -64,13 +64,13 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
               <div className="editorial-kicker mb-3">
-                <span>Full Service Spectrum</span>
+                <span>Tailored to Your Home or Business</span>
               </div>
               <h2 id="catalog-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-                10 Specialized Cleaning Services
+                Choose the Clean That Fits Your Life
               </h2>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed m-0">
-                Every service is delivered by vetted specialists using hospital-grade disinfectants, color-coded tools, and backed by our 100% Satisfaction Guarantee.
+                Every visit is handled by our friendly, background-checked pros using kid- and pet-safe supplies—and backed by our Love Your Clean or Don’t Pay Guarantee.
               </p>
             </div>
 
@@ -81,9 +81,9 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
               aria-label="Filter service divisions"
             >
               {[
-                { id: 'all', label: 'All 10 Divisions' },
-                { id: 'commercial', label: 'Commercial & Clinical (6)' },
-                { id: 'residential', label: 'Residential & Rentals (4)' }
+                { id: 'all', label: 'All 10 Services' },
+                { id: 'residential', label: 'Homes & Vacation Rentals (4)' },
+                { id: 'commercial', label: 'Offices, Clinics & Dining (6)' }
               ].map((tab) => {
                 const active = selectedCategory === tab.id;
                 return (
@@ -108,7 +108,6 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
 
           <div className="space-y-10">
             {filteredCatalog.map((svc) => {
-              const globalIdx = SERVICES_CATALOG.findIndex((s) => s.slug === svc.slug) + 1;
               return (
                 <div
                   key={svc.slug}
@@ -125,8 +124,8 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071536]/80 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                      <span className="font-mono text-xs font-bold text-[#a3e6be] tabular-nums">
-                        DIVISION {String(globalIdx).padStart(2, '0')}
+                      <span className="font-mono text-xs font-bold text-[#a3e6be]">
+                        All Supplies Included
                       </span>
                       <span className="font-mono text-xs text-white/90">
                         100% Guaranteed
@@ -137,7 +136,7 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                   <div className="lg:col-span-7 flex flex-col justify-between">
                     <div>
                       <div className="font-mono text-xs font-semibold uppercase tracking-widest text-[#12582e] mb-2">
-                        {String(globalIdx).padStart(2, '0')} · Standard Operational Protocol
+                        Custom Checklist · Kid &amp; Pet Safe
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-3">
                         {svc.title}
@@ -147,7 +146,7 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                       </p>
 
                       <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                        Key Capabilities &amp; Deliverables:
+                        What We Take Off Your Plate:
                       </h4>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-700 mb-8 p-0 m-0 list-none">
                         {svc.features.map((feature, fIdx) => (
@@ -164,7 +163,7 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                         to={`/service/${svc.slug}`}
                         className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3 px-6 rounded-xl text-sm shadow-xs inline-flex items-center gap-2 transition-colors"
                       >
-                        <span>Explore {svc.title}</span>
+                        <span>See Full Checklist</span>
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                       {onOpenQuoteModal ? (
@@ -173,14 +172,14 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                           onClick={() => onOpenQuoteModal(svc.title)}
                           className="btn btn-outline border border-slate-300 text-[#071536] hover:bg-slate-50 font-bold py-3 px-5 rounded-xl text-sm transition-colors cursor-pointer"
                         >
-                          Request Quote
+                          Book Free Quote
                         </button>
                       ) : (
                         <Link
                           to="/contact-us"
                           className="btn btn-outline border border-slate-300 text-[#071536] hover:bg-slate-50 font-bold py-3 px-5 rounded-xl text-sm transition-colors"
                         >
-                          Request Quote
+                          Book Free Quote
                         </Link>
                       )}
                     </div>
@@ -200,10 +199,10 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ShieldCheck className="w-10 h-10 text-[#12582e] mx-auto mb-3" />
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-3">
-            Every Service Backed by Our 100% Satisfaction Guarantee
+            Love Your Clean or You Don’t Pay—Period
           </h2>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8">
-            If we fail to make you happy, we do not expect you to pay. Call (561) 704-5303 today to schedule your personalized estimate.
+            If you aren’t completely thrilled when we finish, we’ll come right back and fix it for free—or you don’t pay. Call or text (561) 704-5303 today!
           </p>
           <a
             href={`tel:${BUSINESS_NAP.phoneRaw}`}

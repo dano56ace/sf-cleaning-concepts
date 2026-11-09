@@ -151,36 +151,48 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                   <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#12582e]" />
                 </Link>
 
-                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[680px] xl:w-[740px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 overflow-hidden">
-                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
-                      <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400">
-                        10 Specialized Cleaning Divisions · South Florida
-                      </span>
+                    <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
+                      <div>
+                        <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[#12582e] block">
+                          10 Ways We Make Your Space Shine
+                        </span>
+                        <span className="text-xs text-slate-500 font-normal">
+                          Pick a service below to see what’s included and get a fast quote
+                        </span>
+                      </div>
                       <Link
                         to="/our-services"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#12582e] hover:text-[#0d4222]"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#12582e] hover:bg-[#0d4222] px-3.5 py-2 rounded-lg transition-colors shadow-2xs"
                       >
-                        <span>Full Catalog Overview</span>
+                        <span>See All Services</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {SERVICES_CATALOG.map((svc, idx) => (
+                    <div className="grid grid-cols-2 gap-2">
+                      {SERVICES_CATALOG.map((svc) => (
                         <Link
                           key={svc.slug}
                           to={`/service/${svc.slug}`}
-                          className="group/item flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
+                          className="group/item flex items-center gap-3.5 p-2.5 rounded-xl border border-transparent hover:border-slate-200/90 hover:bg-slate-50/90 transition-all"
                         >
-                          <span className="font-mono text-xs font-bold text-[#12582e]/70 group-hover/item:text-[#12582e] mt-0.5 tabular-nums">
-                            {String(idx + 1).padStart(2, '0')}
-                          </span>
-                          <div className="min-w-0">
+                          <div className="w-14 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100 border border-slate-200/80 shadow-2xs">
+                            <img
+                              src={svc.image}
+                              alt={svc.title}
+                              width="56"
+                              height="48"
+                              className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="min-w-0 flex-1">
                             <div className="text-sm font-bold text-[#071536] group-hover/item:text-[#12582e] transition-colors truncate">
                               {svc.title}
                             </div>
-                            <div className="text-xs text-slate-500 truncate">
+                            <div className="text-xs text-slate-500 line-clamp-1 font-normal mt-0.5">
                               {svc.shortDesc}
                             </div>
                           </div>
@@ -188,15 +200,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                       ))}
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between bg-slate-50/70 -mx-5 -mb-5 px-5 py-3">
-                      <span className="text-xs text-slate-600 font-medium">
-                        Every service includes our <strong className="text-[#071536]">100% Satisfaction Guarantee</strong>
+                    <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between bg-slate-50/80 -mx-5 -mb-5 px-5 py-3.5">
+                      <span className="text-xs text-slate-600 font-medium flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-[#12582e] shrink-0" />
+                        <span>Backed by our <strong className="text-[#071536]">Love Your Clean or Don’t Pay Guarantee</strong></span>
                       </span>
                       <Link
                         to="/service"
-                        className="text-xs font-bold text-[#071536] hover:text-[#12582e] transition-colors"
+                        className="text-xs font-bold text-[#12582e] hover:text-[#0d4222] transition-colors"
                       >
-                        Service Directory →
+                        Compare All Services →
                       </Link>
                     </div>
                   </div>

@@ -11,21 +11,21 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 mb-14 border-b border-slate-800/80">
           <div>
             <div className="font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-1">
-              01 · Regional Headquarters
+              01 · Local Home Base
             </div>
             <div className="text-base font-bold text-white">Boynton Beach, FL 33435</div>
-            <div className="text-xs text-slate-400 mt-0.5">Central Dispatch &amp; Operations</div>
+            <div className="text-xs text-slate-400 mt-0.5">Family-Owned &amp; Operated Since 2004</div>
           </div>
           <div>
             <div className="font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-1">
-              02 · Primary Service Corridor
+              02 · Where We Clean
             </div>
-            <div className="text-base font-bold text-white">Palm Beach &amp; Broward</div>
+            <div className="text-base font-bold text-white">Palm Beach, Broward &amp; Miami</div>
             <div className="text-xs text-slate-400 mt-0.5">Boca Raton · West Palm · Fort Lauderdale</div>
           </div>
           <div>
             <div className="font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-1">
-              03 · Direct Estimator Line
+              03 · Call or Text Anytime
             </div>
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}
@@ -33,14 +33,14 @@ export const Footer: React.FC = () => {
             >
               {BUSINESS_NAP.phone}
             </a>
-            <div className="text-xs text-slate-400 mt-0.5">Same-Day Walk-Through Quotes</div>
+            <div className="text-xs text-slate-400 mt-0.5">Fast, Honest Quotes Same-Day</div>
           </div>
           <div>
             <div className="font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-1">
-              04 · Service Hours
+              04 · Flexible Scheduling
             </div>
             <div className="text-base font-bold text-white">7:00 AM – 8:00 PM Daily</div>
-            <div className="text-xs text-slate-400 mt-0.5">24/7 Commercial Night Crews Available</div>
+            <div className="text-xs text-slate-400 mt-0.5">Evening &amp; Weekend Visits Available</div>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-sm">
-              South Florida’s premier commercial and residential cleaning specialists. Trusted by medical facilities, hospitality groups, and coastal estates across Palm Beach, Broward, and Miami-Dade for over 20 years.
+              Your friendly local cleaning pros in South Florida. For over 20 years, we’ve helped busy families, vacation rental hosts, and local businesses across Palm Beach, Broward, and Miami-Dade enjoy spotless spaces without lifting a finger.
             </p>
             <ul className="footer-contact-list flex flex-col gap-3 text-sm text-slate-300 p-0 m-0 list-none">
               <li className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
           {/* Column 2: Core Navigation (2 cols) */}
           <div className="footer-col lg:col-span-2">
             <h3 className="text-white text-xs font-mono font-bold uppercase tracking-widest mb-5">
-              Navigation
+              Quick Links
             </h3>
             <ul className="footer-links flex flex-col gap-3 text-sm text-slate-300 p-0 m-0 list-none">
               <li>
@@ -100,32 +100,32 @@ export const Footer: React.FC = () => {
                 <Link to="/about-us" className="hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/our-services" className="hover:text-white transition-colors">Services Overview</Link>
+                <Link to="/our-services" className="hover:text-white transition-colors">Our Services</Link>
               </li>
               <li>
-                <Link to="/service" className="hover:text-white transition-colors">Service Directory</Link>
+                <Link to="/service" className="hover:text-white transition-colors">Compare Services</Link>
               </li>
               <li>
-                <Link to="/service-areas" className="hover:text-white transition-colors">Service Areas (56)</Link>
+                <Link to="/service-areas" className="hover:text-white transition-colors">Neighborhoods We Serve</Link>
               </li>
               <li>
-                <Link to="/faqs" className="hover:text-white transition-colors">FAQs &amp; Policies</Link>
+                <Link to="/faqs" className="hover:text-white transition-colors">Common Questions</Link>
               </li>
               <li>
-                <Link to="/our-publications" className="hover:text-white transition-colors">Publications</Link>
+                <Link to="/our-publications" className="hover:text-white transition-colors">Cleaning Tips</Link>
               </li>
               <li>
                 <Link to="/contact-us" className="text-[#a3e6be] font-semibold hover:text-white transition-colors">
-                  Request Quote →
+                  Book My Free Quote →
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: 10 Specialized Divisions (3 cols) */}
+          {/* Column 3: 10 Cleaning Services (3 cols) */}
           <div className="footer-col lg:col-span-3">
             <h3 className="text-white text-xs font-mono font-bold uppercase tracking-widest mb-5">
-              Cleaning Divisions
+              Popular Services
             </h3>
             <ul className="footer-links flex flex-col gap-2.5 text-sm text-slate-300 p-0 m-0 list-none">
               {SERVICES_CATALOG.slice(0, 8).map((svc) => (
@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
                   to="/our-services"
                   className="text-[#a3e6be] font-semibold hover:text-white transition-colors inline-flex items-center gap-1 text-xs uppercase tracking-wider font-mono"
                 >
-                  <span>View All 10 Divisions</span>
+                  <span>See All 10 Services</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -150,20 +150,20 @@ export const Footer: React.FC = () => {
           {/* Column 4: 100% Satisfaction Guarantee (3 cols) */}
           <div className="footer-col lg:col-span-3">
             <h3 className="text-white text-xs font-mono font-bold uppercase tracking-widest mb-5">
-              Our Ironclad Pledge
+              Our Promise to You
             </h3>
             <div className="footer-guarantee-box bg-white/[0.04] border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-2.5 mb-3">
                 <ShieldCheck className="w-5 h-5 text-[#a3e6be] shrink-0" />
-                <span className="font-bold text-white text-sm">100% Satisfaction Guarantee</span>
+                <span className="font-bold text-white text-sm">Love It or You Don’t Pay</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed mb-5">
-                If we fail to make you happy, we do not expect you to pay. Notify us within 24 hours and our team returns promptly to re-clean free of charge.
+                If you aren’t smiling when you walk through the door, you don’t pay. Just let us know within 24 hours and we’ll come right back to make it spotless for free.
               </p>
               <ul className="space-y-2 text-xs text-[#a3e6be] list-none p-0 m-0">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>Background-Checked Specialists</span>
+                  <span>Friendly, Background-Checked Pros</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -171,7 +171,7 @@ export const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>EPA List N Hospital Disinfectants</span>
+                  <span>Kid-Safe &amp; Pet-Friendly Supplies</span>
                 </li>
               </ul>
             </div>
@@ -181,7 +181,7 @@ export const Footer: React.FC = () => {
         {/* Middle Row: Educational Publications Directory */}
         <div className="py-8 border-b border-slate-800/80">
           <div className="text-[11px] font-mono font-semibold uppercase tracking-widest text-slate-400 mb-3">
-            Published Cleaning Guides &amp; Technical Protocols
+            Helpful Home &amp; Workplace Cleaning Guides
           </div>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-400">
             {BLOG_POSTS.map((post, idx) => (
@@ -204,13 +204,13 @@ export const Footer: React.FC = () => {
         <div className="py-8 border-b border-slate-800/80">
           <div className="flex items-center justify-between mb-3">
             <div className="text-[11px] font-mono font-semibold uppercase tracking-widest text-slate-400">
-              South Florida Service Corridors &amp; Municipalities (56 Locations)
+              South Florida Cities &amp; Neighborhoods We Serve (56 Locations)
             </div>
             <Link
               to="/service-areas"
               className="text-xs font-bold text-[#a3e6be] hover:underline"
             >
-              All 56 Service Areas →
+              See All 56 Cities →
             </Link>
           </div>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-400">

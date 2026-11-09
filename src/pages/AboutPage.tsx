@@ -21,13 +21,13 @@ export const AboutPage: React.FC = () => {
         </div>
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="editorial-kicker-light mb-4 justify-center">
-            <span>Est. 2004 · Family-Owned &amp; Operated</span>
+            <span>Family-Owned Since 2004 · Your Local South Florida Neighbors</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
             About Us
           </h1>
           <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-            Over 20 years of family-owned excellence, background-checked specialists, and our ironclad 100% satisfaction guarantee across Palm Beach, Broward &amp; Miami-Dade counties.
+            For over 20 years, our family-owned team has helped South Florida homeowners, vacation rental hosts, and local businesses enjoy spotless spaces—backed by our Love Your Clean or Don’t Pay guarantee.
           </p>
           <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-mono font-semibold text-slate-300" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -43,35 +43,35 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <div className="editorial-kicker mb-3">
-                <span>Our Heritage &amp; Accountability</span>
+                <span>Our Family Story &amp; Promise</span>
               </div>
               <h2 id="story-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-6">
-                20+ Years of Dedication to South Florida Properties
+                20+ Years of Making South Florida Homes &amp; Workplaces Sparkle
               </h2>
               <div className="space-y-4 text-slate-600 text-base leading-relaxed">
                 <p>
-                  South Florida Cleaning Concepts was founded with a singular commitment: to deliver an uncompromising standard of cleanliness backed by total accountability and personal supervision. Over the past two decades, our family-owned enterprise has grown into one of the region’s most trusted commercial janitorial and luxury residential cleaning teams.
+                  We started South Florida Cleaning Concepts over 20 years ago with a simple belief: when you invite someone into your home or business, you deserve a friendly team that treats your space with the exact same care they’d give their own family’s home.
                 </p>
                 <p>
-                  We treat every corporate headquarters, medical clinic, hospitality venue, and private coastal estate with the same meticulous care that we demand in our own home. Our team members are not transient subcontractors—they are background-checked, bonded, and trained employees who take pride in their craft.
+                  Unlike big national franchises that send random, revolving-door contractors, our cleaners are full-time, background-checked, and trained team members who genuinely love making your place shine. We bring all the supplies, show up on time, and never cut corners.
                 </p>
                 <p>
-                  We stand firmly behind our signature 100% Satisfaction Guarantee: if you are ever dissatisfied with any portion of our work, notify us within 24 hours and we will return promptly to re-clean for free—or you do not pay.
+                  Best of all, we stand behind every single visit with our famous <strong>Love Your Clean or Don’t Pay Guarantee</strong>: if anything isn’t 100% up to your standards, just let us know within 24 hours and we’ll come right back to make it right for free—or you don’t pay a dime.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-200/80">
                 <div>
                   <div className="font-mono text-2xl sm:text-3xl font-extrabold text-[#071536] tabular-nums">20+</div>
-                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Years Operating</div>
+                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Years in Business</div>
                 </div>
                 <div className="border-l border-slate-200 pl-4">
                   <div className="font-mono text-2xl sm:text-3xl font-extrabold text-[#12582e] tabular-nums">100%</div>
-                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Money-Back Pledge</div>
+                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Happy Home Pledge</div>
                 </div>
                 <div className="col-span-2 sm:col-span-1 sm:border-l sm:border-slate-200 sm:pl-4 pt-2 sm:pt-0">
                   <div className="font-mono text-2xl sm:text-3xl font-extrabold text-[#071536] tabular-nums">3 Counties</div>
-                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Tri-County Dispatch</div>
+                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1">Local Coverage</div>
                 </div>
               </div>
             </div>
@@ -99,10 +99,10 @@ export const AboutPage: React.FC = () => {
                   </div>
                   <div className="bg-[#071536] text-white p-6 rounded-2xl border border-slate-800">
                     <div className="font-mono text-xs text-[#a3e6be] uppercase tracking-widest mb-1.5">
-                      Direct Supervisor Oversight
+                      Personal Quality Check
                     </div>
                     <p className="text-sm font-medium text-slate-200 leading-relaxed m-0">
-                      Every commercial and residential account is inspected against our 50-point quality checklist.
+                      Every single clean is checked against our 50-point room-by-room sparkle checklist before we lock up.
                     </p>
                   </div>
                 </div>
@@ -117,13 +117,13 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <div className="editorial-kicker mb-3">
-              <span>Operational Standards</span>
+              <span>Why Families &amp; Businesses Love Us</span>
             </div>
             <h2 id="pillars-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              Our 4 Pillars of Cleaning Excellence
+              4 Reasons You’ll Love Coming Home to Our Clean
             </h2>
             <p className="text-slate-600 text-base sm:text-lg m-0">
-              The foundational standards that guide every member of our cleaning crew on every job.
+              Here’s how we make sure every visit is effortless, safe, and spotless from top to bottom.
             </p>
           </div>
 
@@ -132,26 +132,26 @@ export const AboutPage: React.FC = () => {
               {
                 num: '01',
                 icon: ShieldCheck,
-                title: '100% Guarantee',
-                desc: 'If we fail to make you happy, you do not pay. That unwavering commitment holds our team accountable on every pass.'
+                title: 'Love It or Don’t Pay',
+                desc: 'If you aren’t smiling when you walk through the door, you don’t pay. We’ll re-clean any spot for free within 24 hours.'
               },
               {
                 num: '02',
                 icon: Users,
-                title: 'Vetted Specialists',
-                desc: 'Every cleaner undergoes rigorous criminal background screening, reference verification, and intensive hands-on training.'
+                title: 'Friendly, Vetted Pros',
+                desc: 'Every cleaner is background-checked, insured, and trained by our family team so you always feel comfortable handing us the keys.'
               },
               {
                 num: '03',
                 icon: Heart,
-                title: 'Green Chemistry',
-                desc: 'We prioritize non-toxic, eco-friendly green cleaning products that protect indoor air quality, children, and pets.'
+                title: 'Kid & Pet Safe',
+                desc: 'We bring all our own gentle, eco-friendly cleaning supplies and fresh microfiber cloths—zero harsh chemical smells.'
               },
               {
                 num: '04',
                 icon: Award,
-                title: 'Rotation System',
-                desc: 'Our exclusive rotation schedule cycles deep-scrub tasks across visits so your entire property stays in showroom condition.'
+                title: '4-Step Rotation Clean',
+                desc: 'We rotate deep-detailing work across your kitchens, baths, bedrooms, and living areas so dust and grime never build up.'
               }
             ].map((pillar) => {
               const Icon = pillar.icon;
@@ -190,20 +190,20 @@ export const AboutPage: React.FC = () => {
       <section className="section py-20 bg-[#071536] text-white text-center border-t border-slate-800" aria-label="About Us Call to Action">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="editorial-kicker-light mb-4 justify-center">
-            <span>Schedule Your Walkthrough</span>
+            <span>Get Your Weekend Back</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Partner with South Florida’s Most Trusted Cleaners
+            Ready to Let Our Family Take Care of Your Clean?
           </h2>
           <p className="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-            Experience the difference of dedicated professionals backed by 20+ years of family-owned excellence.
+            See why hundreds of South Florida homeowners and businesses trust us every single week. Get your free, no-obligation quote in minutes!
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact-us"
               className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2"
             >
-              <span>Get Your Free Estimate</span>
+              <span>Book My Free Quote</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a

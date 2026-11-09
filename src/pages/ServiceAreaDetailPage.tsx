@@ -57,57 +57,57 @@ export const ServiceAreaDetailPage: React.FC = () => {
 
   const divisions: DivisionItem[] = [
     {
+      slug: 'home-maintenance',
+      title: `Recurring Home & Condo Cleaning in ${area.name}`,
+      shortDesc: `Our popular 4-Step Rotation Clean keeps ${area.name} homes fresh, dust-free, and sparkling week after week—with zero surprise fees.`,
+      icon: <Sparkles className="w-6 h-6 text-[#12582e]" />
+    },
+    {
+      slug: 'short-term-rentals',
+      title: `Airbnb & Vacation Rental Turnovers in ${area.name}`,
+      shortDesc: `Reliable same-day check-out to check-in cleans (10 AM - 4 PM), fresh hotel-style bed making, laundry, and photo updates in ${area.name}.`,
+      icon: <Home className="w-6 h-6 text-[#12582e]" />
+    },
+    {
       slug: 'office-cleaning',
-      title: `Commercial Office Cleaning in ${area.name}`,
-      shortDesc: `Nightly janitorial care, day porter service, sanitized workstations, and HEPA floor care for ${area.name} corporate suites.`,
+      title: `Office & Workplace Cleaning in ${area.name}`,
+      shortDesc: `Flexible evening or daytime cleaning, spotless restrooms, fresh breakrooms, and dust-free desks for ${area.name} businesses.`,
       icon: <Building2 className="w-6 h-6 text-[#12582e]" />
     },
     {
       slug: 'medical-office-cleaning',
-      title: `Medical Facility Disinfection in ${area.name}`,
-      shortDesc: `OSHA and CDC-compliant terminal sanitization and EPA List N pathogen defense for clinics and dental practices in ${area.name}.`,
+      title: `Medical & Dental Office Cleaning in ${area.name}`,
+      shortDesc: `Gentle, hospital-grade disinfection for waiting rooms and exam suites so patients and staff feel safe and cared for in ${area.name}.`,
       icon: <ShieldAlert className="w-6 h-6 text-[#12582e]" />
     },
     {
-      slug: 'short-term-rentals',
-      title: `Airbnb & Vacation Rental Turnover in ${area.name}`,
-      shortDesc: `Guaranteed same-day turnover windows (10 AM - 4 PM), hotel-grade staging, linen laundering, and restock reporting in ${area.name}.`,
-      icon: <Home className="w-6 h-6 text-[#12582e]" />
-    },
-    {
-      slug: 'home-maintenance',
-      title: `Luxury Residential Maid Service in ${area.name}`,
-      shortDesc: `Our exclusive 4-Phase Rotation Cleaning System defending ${area.name} estates against humidity, dust, and coastal salt air.`,
-      icon: <Sparkles className="w-6 h-6 text-[#12582e]" />
-    },
-    {
       slug: 'post-construction-cleaning',
-      title: `Post-Construction Cleanup in ${area.name}`,
-      shortDesc: `3-phase rough, deep, and final polish cleaning for builders, architects, and luxury renovations throughout ${area.name}.`,
+      title: `Post-Renovation & Remodel Cleanup in ${area.name}`,
+      shortDesc: `We clear away every speck of drywall dust, paint splatter, and sticker residue so your newly remodeled ${area.name} space is ready to enjoy.`,
       icon: <HardHat className="w-6 h-6 text-[#12582e]" />
     }
   ];
 
   const faqs = [
     {
-      q: `How often should my ${area.name} facility or office be professionally cleaned?`,
-      a: `Most commercial offices and healthcare clinics in ${area.name} benefit from daily or 3x-weekly evening janitorial maintenance. High-traffic retail spaces and dental practices typically schedule nightly disinfection, while corporate suites may choose custom 2x or 3x weekly rotations.`
+      q: `How often do most ${area.name} homeowners and offices schedule cleaning?`,
+      a: `Most families in ${area.name} love our weekly or every-other-week Rotation Clean so they never have to spend their weekends scrubbing. Local offices and clinics usually pick nightly or 2x–3x weekly evening visits after everyone heads home.`
     },
     {
-      q: `Do you provide same-day Airbnb and vacation rental turnover cleaning in ${area.name}?`,
-      a: `Yes! We specialize in rapid 10:00 AM to 4:00 PM turnaround windows across ${area.name}. Our service includes professional linen laundering, restocking guest consumables, complete bathroom and kitchen sanitization, and photo inspection verification.`
+      q: `Do you offer same-day Airbnb and vacation rental turnovers in ${area.name}?`,
+      a: `Yes! We specialize in tight 10:00 AM to 4:00 PM guest turnover windows across ${area.name}. We wash linens, stage beds like a boutique hotel, restock essentials, and text you photos as soon as your rental is guest-ready.`
     },
     {
-      q: `Are your cleaning solutions safe for children, pets, and sensitive environments in ${area.name}?`,
-      a: `Absolutely. We utilize EPA-registered hospital-grade disinfectants and eco-friendly, non-toxic cleaning agents that eliminate 99.9% of bacteria and viruses without harsh chemical fumes, making them safe for kids, pets, and healthcare environments.`
+      q: `Are your cleaning supplies safe for my kids and pets in ${area.name}?`,
+      a: `100% yes. We bring all our own eco-friendly, non-toxic cleaners and fresh color-coded microfiber cloths that wipe out germs without leaving harsh chemical fumes behind.`
     },
     {
-      q: `What is your 100% Satisfaction Guarantee policy for ${area.name} properties?`,
-      a: `We stand 100% behind every clean. If any aspect of our service does not meet your high expectations, notify us within 24 hours and our team will promptly return to re-clean the area for free. If you are still not completely thrilled, you do not pay.`
+      q: `How does your Love Your Clean or Don’t Pay guarantee work in ${area.name}?`,
+      a: `It’s simple: if you aren’t smiling when you walk into your freshly cleaned space, let us know within 24 hours and we’ll come right back to re-clean it for free. Still not happy? You don’t pay a dime.`
     },
     {
-      q: `How quickly can you start cleaning services at our ${area.name} property?`,
-      a: `We can often accommodate emergency or next-day cleaning across ${area.name}. For recurring commercial janitorial or residential maintenance, we provide a prompt on-site walkthrough within 24 hours and can begin service immediately upon scope approval.`
+      q: `How fast can I get a quote and book my first clean in ${area.name}?`,
+      a: `We can usually give you a free quote the very same day you reach out, and often have next-day or same-week openings across ${area.name}!`
     }
   ];
 

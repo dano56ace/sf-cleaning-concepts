@@ -20,16 +20,16 @@ export const RecentBlogPosts: React.FC<RecentBlogPostsProps> = ({ limit = 3 }) =
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>From Our Cleaning Journal</span>
+              <span>Fresh Tips for a Happier Home</span>
             </div>
             <h2
               id="recent-blog-heading"
               className="text-3xl sm:text-4xl font-extrabold text-[#071536] tracking-tight mb-3"
             >
-              Expert Cleaning Insights &amp; Guides
+              Helpful Cleaning Tips &amp; Home Care Guides
             </h2>
             <p className="text-slate-600 text-base m-0 leading-relaxed">
-              Practical sanitation protocols, commercial facility maintenance strategies, and residential cleaning advice from South Florida's leading specialists.
+              Simple, practical advice to keep your home, vacation rental, or workplace fresh between visits—straight from our local South Florida team.
             </p>
           </div>
           <div className="shrink-0">

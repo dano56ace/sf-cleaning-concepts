@@ -22,13 +22,13 @@ export const ServiceDirectoryPage: React.FC = () => {
       <section className="page-hero relative bg-[#071536] text-white py-20 lg:py-24 overflow-hidden border-b border-slate-800" aria-label="Directory Header">
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="editorial-kicker-light mb-4 justify-center">
-            <span>Master Specifications Index · 10 Divisions</span>
+            <span>All 10 Cleaning Services · Compare &amp; Choose</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
             Commercial &amp; Residential Services Directory
           </h1>
           <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-            Browse our complete directory of 10 specialized cleaning services across Palm Beach, Broward, and Miami-Dade counties.
+            Find the right clean for your home, vacation rental, or workplace across Palm Beach, Broward, and Miami-Dade counties.
           </p>
           <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-mono font-semibold text-slate-300" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -44,13 +44,13 @@ export const ServiceDirectoryPage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <div className="editorial-kicker mb-3">
-                <span>Technical Index</span>
+                <span>10 Ways We Help You Shine</span>
               </div>
               <h2 id="directory-list-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-2">
-                Complete Directory of Services
+                Browse All Cleaning Services
               </h2>
               <p className="text-slate-600 text-base m-0">
-                Select any cleaning division below to inspect full scope of work, quality checklists, and quote options.
+                Pick any service below to see our full room-by-room checklist and request your free quote.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export const ServiceDirectoryPage: React.FC = () => {
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filter by service or keyword..."
+                placeholder="Search services (e.g. home, Airbnb, office)..."
                 aria-label="Filter cleaning services"
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800 focus:outline-none focus:border-[#12582e] bg-slate-50/70 focus:bg-white transition-colors"
               />
@@ -69,7 +69,6 @@ export const ServiceDirectoryPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {filteredServices.map((svc) => {
-              const idx = SERVICES_CATALOG.findIndex((s) => s.slug === svc.slug) + 1;
               return (
                 <div
                   key={svc.slug}
@@ -85,8 +84,8 @@ export const ServiceDirectoryPage: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute bottom-3 left-3 bg-[#071536]/85 backdrop-blur-xs text-[#a3e6be] font-mono text-xs font-bold px-2.5 py-1 rounded-md tabular-nums">
-                        {String(idx).padStart(2, '0')}
+                      <div className="absolute bottom-3 left-3 bg-[#071536]/85 backdrop-blur-xs text-[#a3e6be] font-mono text-xs font-bold px-2.5 py-1 rounded-md">
+                        100% Guaranteed
                       </div>
                     </div>
                     <h3 className="text-xl font-extrabold text-[#071536] mb-2 group-hover:text-[#12582e] transition-colors">
@@ -103,11 +102,11 @@ export const ServiceDirectoryPage: React.FC = () => {
                       to={`/service/${svc.slug}`}
                       className="inline-flex items-center gap-1.5 text-sm font-bold text-[#12582e] hover:text-[#0d4222] transition-colors"
                     >
-                      <span>View Specifications</span>
+                      <span>See What’s Included</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </Link>
                     <span className="font-mono text-xs text-slate-400 tabular-nums">
-                      {svc.checklist.length} Checkpoints
+                      {svc.checklist.length}-Point Clean
                     </span>
                   </div>
                 </div>

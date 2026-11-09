@@ -67,7 +67,7 @@ export const ServiceDetailPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8">
               <div className="editorial-kicker-light mb-4">
-                Protocol Specification · Division {formattedIndex}
+                100% Satisfaction Guaranteed · Service {formattedIndex}
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-[1.08] text-white">
@@ -82,7 +82,7 @@ export const ServiceDetailPage: React.FC = () => {
             <div className="lg:col-span-4 flex lg:justify-end">
               <div className="w-full sm:w-auto bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-2xl p-5">
                 <p className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#4fd18b] font-semibold mb-2">
-                  Direct Dispatch & Estimates
+                  Call or Text for a Free Quote
                 </p>
                 <a
                   href={`tel:${BUSINESS_NAP.phoneRaw}`}
@@ -109,10 +109,10 @@ export const ServiceDetailPage: React.FC = () => {
               {/* Overview Card */}
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm">
                 <div className="editorial-kicker mb-3">
-                  Executive Overview
+                  How We Make Your Space Shine
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1926] mb-5 tracking-tight">
-                  Comprehensive {exactH1} in South Florida
+                  Stress-Free {exactH1} in South Florida
                 </h2>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
                   {service.fullDesc}
@@ -133,13 +133,13 @@ export const ServiceDetailPage: React.FC = () => {
               {/* Scope Checklist */}
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm">
                 <div className="editorial-kicker mb-3">
-                  Operational Deliverables
+                  What We Do For You
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] mb-3 tracking-tight">
-                  What&apos;s Included in Our {exactH1} Scope
+                  What&apos;s Included in Your {exactH1}
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base mb-8 leading-relaxed">
-                  Every facility and residence is unique, which is why we customize our checklists to match your exact floor plan. Below are the core deliverables included in our standard {exactH1.toLowerCase()} protocol:
+                  Every home and workplace is a little different, so we tailor our checklist around what matters most to you. Here’s what our friendly team takes care of:
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -162,10 +162,10 @@ export const ServiceDetailPage: React.FC = () => {
               {/* Key Client Benefits */}
               <div className="bg-[#07111a] text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-white/10">
                 <div className="editorial-kicker-light mb-3">
-                  Verified Outcomes
+                  Why Neighbors Love Us
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold mb-6 tracking-tight text-white">
-                  Why South Florida Trusts Our {exactH1} Teams
+                  Why South Florida Loves Our {exactH1}
                 </h3>
                 <div className="space-y-4">
                   {service.benefits.map((benefit, idx) => (
@@ -187,13 +187,13 @@ export const ServiceDetailPage: React.FC = () => {
               {/* Standard Quality Inspection Checklist */}
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm">
                 <div className="editorial-kicker mb-3">
-                  Quality Assurance
+                  Our Room-by-Room Checklist
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] mb-3 tracking-tight">
-                  Our Standard Quality Inspection Checklist
+                  Our Sparkle Inspection Checklist
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base mb-6 leading-relaxed">
-                  Before any crew signs off on a shift, a dedicated team lead verifies all completed zones against our multi-point quality assurance checklist:
+                  Before our team wraps up, our team lead double-checks every item below so you walk into a spotless space every single time:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700">
                   {service.checklist.map((item, i) => (
@@ -211,13 +211,13 @@ export const ServiceDetailPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-lg">
                 <div className="mb-6 pb-4 border-b border-slate-100">
                   <div className="editorial-kicker mb-2">
-                    Same-Day Estimate
+                    Fast, Honest Pricing
                   </div>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#071536] mb-1 tracking-tight">
-                    Quote {exactH1}
+                    Get Your Free Quote
                   </h3>
                   <p className="text-slate-500 text-xs sm:text-sm">
-                    Request a customized walk-through or instant estimate for your property.
+                    Tell us a little about your space and we’ll get right back to you with a no-obligation quote.
                   </p>
                 </div>
                 <QuoteForm source={exactH1} />
@@ -227,10 +227,10 @@ export const ServiceDetailPage: React.FC = () => {
               <div className="bg-[#0b1926] rounded-2xl p-6 border border-slate-800 flex items-center justify-between gap-4 text-white">
                 <div>
                   <p className="text-[11px] font-mono font-bold uppercase tracking-[0.14em] text-[#4fd18b]">
-                    Need Urgent Dispatch?
+                    Need Help Right Away?
                   </p>
                   <p className="text-base font-bold text-white mt-0.5">
-                    Speak directly with our supervisor
+                    Chat directly with our friendly local team
                   </p>
                 </div>
                 <a
@@ -248,7 +248,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs font-extrabold text-[#0b1926] uppercase tracking-wider mb-1">
-                    100% Satisfaction Guarantee
+                    Love Your Clean or Don’t Pay
                   </p>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {BUSINESS_NAP.guarantee}
@@ -266,17 +266,17 @@ export const ServiceDetailPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <span className="text-[11px] font-mono font-bold uppercase tracking-[0.14em] text-[#2a8655] block mb-1">
-                Regional Service Coverage
+                Neighborhoods We Serve
               </span>
               <h2 className="text-xl sm:text-2xl font-extrabold text-[#071536]">
-                {exactH1} Available Across Palm Beach &amp; Broward
+                {exactH1} Across Palm Beach, Broward &amp; Miami-Dade
               </h2>
             </div>
             <Link
               to="/service-areas"
               className="text-xs font-bold text-[#2a8655] hover:text-[#12582e] inline-flex items-center gap-1 whitespace-nowrap"
             >
-              All 56 Florida Locations &rarr;
+              See All 56 Cities &rarr;
             </Link>
           </div>
           <div className="flex flex-wrap gap-2.5">
@@ -307,10 +307,10 @@ export const ServiceDetailPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
               <div className="editorial-kicker mb-2">
-                Complementary Capabilities
+                More Ways We Can Help
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1926] tracking-tight">
-                Explore Other Specialized Services
+                Explore Other Cleaning Services
               </h2>
             </div>
             <Link
@@ -331,7 +331,7 @@ export const ServiceDetailPage: React.FC = () => {
               >
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#2a8655] font-semibold block mb-2">
-                    Service Protocol
+                    100% Guaranteed Clean
                   </span>
                   <h3 className="text-lg font-extrabold text-[#0b1926] group-hover:text-[#2a8655] transition-colors mb-2">
                     {rel.title}
@@ -341,7 +341,7 @@ export const ServiceDetailPage: React.FC = () => {
                   </p>
                 </div>
                 <span className="text-xs font-bold text-[#2a8655] inline-flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
-                  Explore Protocol
+                  See What’s Included
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </Link>
