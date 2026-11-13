@@ -95,7 +95,7 @@ export const SEO_ROUTES_MAP: { [path: string]: RouteSeoMeta } = {
   '/service/bars-and-restaurant-cleaning': {
     path: '/service/bars-and-restaurant-cleaning',
     title: 'Restaurant Cleaning - Bars | South Florida Cleaning Concepts',
-    description: '24/7 commercial bar and restaurant cleaning in South Florida. Kitchen degreasing, dining sanitization, and health inspection prep. Call (561) 704-5303 today.',
+    description: 'Premier bar and restaurant cleaning in South Florida. Kitchen degreasing, dining room shine, and health inspection prep. Call (561) 704-5303 today.',
     canonical: 'https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning',
     ogImage: 'https://sfcleaningconcepts.com/assets/images/services/services-img-4.jpg',
     ogType: 'website',

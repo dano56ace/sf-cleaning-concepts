@@ -794,19 +794,32 @@ a:hover, a:focus-visible {
   border-color: var(--color-white);
 }
 
-/* Page Standard Subpage Hero */
+/* Page Standard Subpage Hero (Static Pre-Hydration Parallax + Brand Color Overlay) */
 .page-hero {
   position: relative;
   background-color: var(--color-navy);
+  background-image:
+    linear-gradient(135deg, rgba(7, 21, 54, 0.82) 0%, rgba(9, 34, 68, 0.72) 55%, rgba(18, 88, 46, 0.68) 100%),
+    url('/assets/images/services/home-cleaning-2022-11-16-22-05-50-utc-Large.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: var(--color-white);
   padding: 4.5rem 0 3.5rem 0;
   overflow: hidden;
 }
 
+@media (prefers-reduced-motion: reduce), (max-width: 767px) {
+  .page-hero {
+    background-attachment: scroll;
+  }
+}
+
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 21, 54, 0.82) 0%, rgba(7, 21, 54, 0.94) 100%);
+  background: linear-gradient(135deg, rgba(7, 21, 54, 0.82) 0%, rgba(9, 34, 68, 0.72) 55%, rgba(18, 88, 46, 0.68) 100%);
   z-index: 1;
 }
 

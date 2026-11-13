@@ -1,28 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
+import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import { FAQS_LIST, BUSINESS_NAP } from '../data/siteData';
 
 export const FaqsPage: React.FC = () => {
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {/* Subpage Hero */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <div className="editorial-kicker-light mb-4">
-              Simple, Honest Answers
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
-              Have Questions?
-            </h1>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Here’s everything you need to know about how we clean, our kid- and pet-safe supplies, flexible scheduling, and our famous Love Your Clean or Don’t Pay guarantee.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InteriorHero
+        ariaLabel="Frequently Asked Questions Header"
+        kicker="Simple, Honest Answers"
+        title="Have Questions?"
+        description="Here’s everything you need to know about how we clean, our kid- and pet-safe supplies, flexible scheduling, and our famous Love Your Clean or Don’t Pay guarantee."
+        imageSrc={INTERIOR_HERO_IMAGES.coastalLiving}
+        imageAlt="Spotless airy South Florida coastal living room interior"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'FAQs' }
+        ]}
+      />
 
       {/* Accordion Section */}
       <section className="py-16 lg:py-24">

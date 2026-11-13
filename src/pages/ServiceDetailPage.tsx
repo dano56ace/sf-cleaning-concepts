@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SERVICES_CATALOG, BUSINESS_NAP } from '../data/siteData';
 import { QuoteForm } from '../components/ui/QuoteForm';
+import { InteriorHero, getServiceInteriorHero } from '../components/ui/InteriorHero';
 import { Phone, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 const EXACT_H1_MAP: Record<string, string> = {
@@ -30,75 +31,40 @@ export const ServiceDetailPage: React.FC = () => {
   const serviceIndex = SERVICES_CATALOG.findIndex((s) => s.slug === service.slug) + 1;
   const formattedIndex = String(serviceIndex > 0 ? serviceIndex : 1).padStart(2, '0');
   const relatedServices = SERVICES_CATALOG.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const heroInteriorImg = getServiceInteriorHero(service.slug);
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {/* Architectural Hero Banner */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={service.image}
-            alt={exactH1}
-            className="w-full h-full object-cover opacity-25 scale-105"
-            width="1920"
-            height="800"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07111a] via-[#07111a]/90 to-[#07111a]/75"></div>
-          <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumbs */}
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-slate-400 mb-6"
-          >
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-slate-600">/</span>
-            <Link to="/our-services" className="hover:text-white transition-colors">
-              Our Services
-            </Link>
-            <span className="text-slate-600">/</span>
-            <span className="text-[#4fd18b] font-semibold">{exactH1}</span>
-          </nav>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-8">
-              <div className="editorial-kicker-light mb-4">
-                100% Satisfaction Guaranteed · Service {formattedIndex}
-              </div>
-
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 leading-[1.08] text-white">
-                {exactH1}
-              </h1>
-
-              <p className="text-lg sm:text-xl text-slate-200 leading-relaxed max-w-2xl font-normal">
-                {service.shortDesc}
-              </p>
-            </div>
-
-            <div className="lg:col-span-4 flex lg:justify-end">
-              <div className="w-full sm:w-auto bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-2xl p-5">
-                <p className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#4fd18b] font-semibold mb-2">
-                  Call or Text for a Free Quote
-                </p>
-                <a
-                  href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="inline-flex items-center gap-2.5 text-xl font-mono font-bold text-white hover:text-[#4fd18b] transition-colors tabular-nums"
-                >
-                  <Phone className="w-5 h-5 text-[#4fd18b] shrink-0" />
-                  {BUSINESS_NAP.phone}
-                </a>
-                <p className="text-xs text-slate-300 mt-1.5">
-                  Palm Beach · Broward · Miami-Dade
-                </p>
-              </div>
-            </div>
+      <InteriorHero
+        ariaLabel={`${exactH1} Header`}
+        kicker={`100% Satisfaction Guaranteed · Service ${formattedIndex}`}
+        title={exactH1}
+        description={service.shortDesc}
+        imageSrc={heroInteriorImg}
+        imageAlt={`${exactH1} spotless South Florida interior`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Our Services', to: '/our-services' },
+          { label: exactH1 }
+        ]}
+        aside={
+          <div className="w-full sm:w-auto bg-[#071536]/65 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-xl">
+            <p className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#a3e6be] font-semibold mb-2">
+              Call or Text for a Free Quote
+            </p>
+            <a
+              href={`tel:${BUSINESS_NAP.phoneRaw}`}
+              className="inline-flex items-center gap-2.5 text-xl font-mono font-bold text-white hover:text-[#a3e6be] transition-colors tabular-nums"
+            >
+              <Phone className="w-5 h-5 text-[#a3e6be] shrink-0" />
+              {BUSINESS_NAP.phone}
+            </a>
+            <p className="text-xs text-slate-200 mt-1.5 m-0">
+              Palm Beach · Broward · Miami-Dade
+            </p>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       {/* Main Content & Sticky Sidebar */}
       <section className="py-16 lg:py-24">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldCheck, Phone } from 'lucide-react';
 import { SERVICES_CATALOG, BUSINESS_NAP } from '../data/siteData';
 import { CleaningEstimator } from '../components/ui/CleaningEstimator';
+import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 
 interface ServicesOverviewPageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
@@ -28,35 +29,19 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
 
   return (
     <article className="services-overview-page">
-      {/* Subpage Hero Header */}
-      <section className="page-hero relative bg-[#071536] text-white py-20 lg:py-24 overflow-hidden border-b border-slate-800" aria-label="Services Overview Header">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <img
-            src="/assets/images/services/service-img-12.jpg"
-            alt="South Florida Cleaning Concepts Commercial and Residential Overview"
-            width="1920"
-            height="600"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071536] via-[#071536]/80 to-[#071536]/60" />
-        </div>
-        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="editorial-kicker-light mb-4 justify-center">
-            <span>10 Ways We Make Your Space Shine · South Florida</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            Services we provide with top quality Cleaning
-          </h1>
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-            Whether you want a sparkling family home, a 5-star vacation rental turnover, or a fresh, welcoming workplace, our friendly local team brings all the supplies and guarantees you’ll love your clean.
-          </p>
-          <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-mono font-semibold text-slate-300" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span aria-current="page" className="text-[#a3e6be]">Our Services</span>
-          </nav>
-        </div>
-      </section>
+      <InteriorHero
+        ariaLabel="Services Overview Header"
+        align="center"
+        kicker="10 Ways We Make Your Space Shine · South Florida"
+        title="Cleaning Services for Your Home, Rental & Workplace"
+        description="Whether you want a sparkling family home, a 5-star vacation rental turnover, or a fresh, welcoming workplace, our friendly local team brings all the supplies and guarantees you’ll love your clean."
+        imageSrc={INTERIOR_HERO_IMAGES.modernOffice}
+        imageAlt="Pristine South Florida modern executive office and glass conference interior"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Our Services' }
+        ]}
+      />
 
       {/* Services Grid Catalog */}
       <section className="section py-20 lg:py-24 bg-white" aria-labelledby="catalog-heading">

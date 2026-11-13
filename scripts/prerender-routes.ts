@@ -79,15 +79,23 @@ async function prerenderAllRoutes() {
 
   const templateHtml = fs.readFileSync(BASE_TEMPLATE, 'utf-8');
 
-  // Build-time validation: Ensure Netlify Form registration exists in templateHtml
+  // Build-time validation: Ensure Netlify Form registration & full field schema exist in templateHtml
   const requiredFormSignatures = [
     'name="quote-request"',
     'data-netlify="true"',
-    'data-netlify-honeypot="bot-field"'
+    'data-netlify-honeypot="bot-field"',
+    'name="form-name"',
+    'name="bot-field"',
+    'name="name"',
+    'name="email"',
+    'name="phone"',
+    'name="message"',
+    'name="source"',
+    'name="page_url"'
   ];
   for (const sig of requiredFormSignatures) {
     if (!templateHtml.includes(sig)) {
-      throw new Error(`[prerender-routes] Missing required Netlify form attribute in ${BASE_TEMPLATE}: ${sig}`);
+      throw new Error(`[prerender-routes] Missing required Netlify form attribute/field in ${BASE_TEMPLATE}: ${sig}`);
     }
   }
 
@@ -123,43 +131,43 @@ async function prerenderAllRoutes() {
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
           <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.35rem 0.85rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.75rem; font-family: monospace; color: #cbd5e1;">
             <span style="display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #4fd18b;"></span>
-            <strong style="color: #ffffff;">Active Regional Dispatch:</strong>
+            <strong style="color: #ffffff;">Now Booking Across South Florida:</strong>
             <span style="color: #a3e6be;">Palm Beach · Broward · Miami-Dade (Jupiter to Miami)</span>
           </div>
           <span style="font-size: 0.75rem; font-family: monospace; color: #94a3b8;">
-            📍 Central Operations: Boynton Beach, FL 33435
+            📍 Home Base: Boynton Beach, FL 33435
           </span>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center; margin-bottom: 3.5rem;">
           <div style="max-width: 650px;">
             <div style="display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4fd18b; margin-bottom: 0.75rem;">
-              Commercial &amp; Residential Excellence · Tri-County Dispatch
+              Family-Owned Since 2004 · Serving Palm Beach, Broward &amp; Miami-Dade
             </div>
             <h2 id="global-cta-heading" style="font-size: 2.25rem; font-weight: 800; line-height: 1.15; color: #ffffff; margin-bottom: 1rem; letter-spacing: -0.02em;">
-              Ready for an Impeccably Clean Property?
+              Ready to Come Home to a Place That Sparkles?
             </h2>
             <p style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 0;">
-              Experience 20+ years of family-owned excellence. From clinical disinfection and corporate offices to luxury coastal estates, our bonded specialists deliver transparent rates and our ironclad 100% Satisfaction Guarantee.
+              For over 20 years, South Florida families and local businesses have trusted our friendly, family-owned team to make their spaces shine. We bring all the eco-friendly supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee.
             </p>
           </div>
 
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 2rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-family: monospace; font-size: 0.75rem;">
-              <span style="color: #a3e6be; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Fast Personalized Estimates</span>
-              <span style="color: #94a3b8;">✨ Zero Obligation</span>
+              <span style="color: #a3e6be; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Free, Honest Quotes in Minutes</span>
+              <span style="color: #94a3b8;">✨ No Contracts</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 0.75rem;">
               <a href="/contact#quote" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 1.5rem; border-radius: 0.75rem; background: #12582e; color: #ffffff; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(18, 88, 46, 0.4); text-align: center;">
-                📄 Request Free Quote &rarr;
+                📄 Get My Free Quote &rarr;
               </a>
               <a href="tel:+15617045303" class="btn btn-phone" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.85rem 1.5rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-family: monospace; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center;">
-                📞 Call Direct: (561) 704-5303
+                📞 Call (561) 704-5303
               </a>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.75rem;">
-              <a href="/our-services" style="color: #a3e6be; font-weight: 600; text-decoration: none;">Explore 10 Divisions &rarr;</a>
-              <a href="/service-areas" style="color: #cbd5e1; text-decoration: none;">All 56 Service Areas &rarr;</a>
+              <a href="/our-services" style="color: #a3e6be; font-weight: 600; text-decoration: none;">Browse All 10 Services &rarr;</a>
+              <a href="/service-areas" style="color: #cbd5e1; text-decoration: none;">See All 56 Local Cities &rarr;</a>
             </div>
           </div>
         </div>
@@ -168,37 +176,33 @@ async function prerenderAllRoutes() {
           <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.25rem;">🛡️</span>
-              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">01</span>
             </div>
-            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Licensed &amp; Insured</h3>
-            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">$2M+ commercial liability &amp; bonding across South Florida</p>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Licensed, Insured &amp; Vetted</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Friendly, background-checked pros you can feel great welcoming into your home</p>
           </div>
 
           <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.25rem;">⭐</span>
-              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">02</span>
             </div>
-            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">100% Satisfaction Guarantee</h3>
-            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">If you are not thrilled, we re-clean free or you do not pay</p>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Love It or Don’t Pay</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Not 100% thrilled with a spot? We’ll re-clean it free or you don’t pay a dime</p>
           </div>
 
           <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.25rem;">⚡</span>
-              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">03</span>
             </div>
-            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Same-Day Commercial Dispatch</h3>
-            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Rapid mobile crews for commercial facilities &amp; emergencies</p>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Easy, Flexible Scheduling</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Weekly, bi-weekly, one-time deep cleans, or fast same-week availability</p>
           </div>
 
           <div style="padding: 1.25rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.25rem;">🌿</span>
-              <span style="font-family: monospace; font-size: 0.75rem; color: #64748b; font-weight: 700;">04</span>
             </div>
-            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Green Seal Certified Products</h3>
-            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Hospital-grade EPA List N bio-safe, eco-friendly chemistry</p>
+            <h3 style="font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem;">Safe for Kids &amp; Pets</h3>
+            <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0; line-height: 1.4;">Fresh, non-toxic, eco-friendly products with zero harsh chemical fumes</p>
           </div>
         </div>
       </div>
@@ -262,25 +266,25 @@ async function prerenderAllRoutes() {
           <source src="/assets/videos/main-home-video-1.mp4" type="video/mp4" />
         </video>
         <div class="container">
-          <h1>Commercial Cleaning - Pros | South Florida Cleaning Concepts</h1>
-          <p>Premier commercial and residential cleaning across South Florida. From medical office terminal sterilization to luxury residential rotation cleaning in Palm Beach &amp; Broward counties. Call (561) 704-5303 for a free quote.</p>
-          <a href="/contact-us" class="btn btn-primary">Request Free Quote</a>
+          <h1>Commercial &amp; Residential Cleaning Pros</h1>
+          <p>Take back your weekends and come home to a house that truly sparkles. Whether it’s your family home, vacation rental, or local workplace, our friendly, background-checked team delivers a spotless clean across Palm Beach, Broward &amp; Miami-Dade—or you don’t pay a dime. Call (561) 704-5303 for a free quote.</p>
+          <a href="/contact-us" class="btn btn-primary">Book My Free Quote</a>
           <a href="tel:5617045303" class="btn btn-phone">Call (561) 704-5303</a>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
-          <h2>Specialized Commercial &amp; Residential Cleaning Solutions</h2>
-          <p>South Florida Cleaning Concepts provides 10 specialized cleaning services backed by our 100% Satisfaction Guarantee and our exclusive Rotation Cleaning System.</p>
+          <h2>10 Ways We Make Your Space Shine</h2>
+          <p>South Florida Cleaning Concepts provides 10 tailored home, rental, and workplace cleaning services backed by our Love Your Clean or Don’t Pay Guarantee and our 4-Step Rotation System.</p>
           <ul>
-            <li><a href="/service/office-cleaning">Commercial Office Cleaning Services</a></li>
+            <li><a href="/service/office-cleaning">Office Cleaning Services</a></li>
             <li><a href="/service/medical-office-cleaning">Specialized Medical Office Cleaning</a></li>
-            <li><a href="/service/bars-and-restaurant-cleaning">Commercial Cleaning for Bars and Restaurants</a></li>
+            <li><a href="/service/bars-and-restaurant-cleaning">Commercial Bar &amp; Restaurant Cleaning</a></li>
             <li><a href="/service/short-term-rentals">Short-Term Rental &amp; Airbnb Turnover</a></li>
-            <li><a href="/service/post-construction-cleaning">Post-Construction Cleaning</a></li>
-            <li><a href="/service/move-in-out-cleaning">Move In / Move Out Cleaning</a></li>
-            <li><a href="/service/home-maintenance">Comprehensive Home Maintenance Services</a></li>
+            <li><a href="/service/post-construction-cleaning">Post-Construction Cleanup</a></li>
+            <li><a href="/service/move-in-out-cleaning">Move In / Move Out Cleaning Services</a></li>
+            <li><a href="/service/home-maintenance">Comprehensive Home Maintenance</a></li>
             <li><a href="/service/school-cleaning">School &amp; Daycare Cleaning Services</a></li>
             <li><a href="/service/home-watching">Professional Home Watching Service</a></li>
             <li><a href="/service/covid-19-disinfection">COVID-19 Disinfection &amp; Electrostatic Spraying</a></li>
@@ -291,32 +295,32 @@ async function prerenderAllRoutes() {
       <section class="section" aria-labelledby="home-blog-heading">
         <div class="container">
           <div class="section-header">
-            <span class="badge badge-primary">From Our Cleaning Journal</span>
-            <h2 id="home-blog-heading">Expert Cleaning Insights &amp; Guides</h2>
-            <p>Practical sanitation protocols, commercial facility maintenance strategies, and residential cleaning advice from South Florida's leading specialists.</p>
+            <span class="badge badge-primary">Helpful Tips &amp; Local Guides</span>
+            <h2 id="home-blog-heading">Fresh Cleaning Tips for South Florida Living</h2>
+            <p>Easy time-saving cleaning advice, Florida humidity hacks, and practical guides for keeping your home, vacation rental, or office looking its best.</p>
           </div>
           <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
             <article class="card" style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface); padding: 1.5rem;">
               <span class="badge badge-accent" style="margin-bottom: 0.5rem; display: inline-block;">Residential Cleaning</span>
               <h3 style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><a href="/blog/residential-cleaning-services-journey" style="color: var(--color-text-heading); text-decoration: none;">A Journey with South Florida Cleaning Concepts Residential Maid Service</a></h3>
-              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">What to expect when booking recurring maid service: customized walkthroughs, vetted teams, eco-friendly supplies, and the luxury of reclaimed time.</p>
-              <div style="margin-top: 1rem;"><a href="/blog/residential-cleaning-services-journey" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Full Article &rarr;</a></div>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">What to expect when booking recurring home cleaning: friendly walkthroughs, background-checked pros, kid-and-pet-safe supplies, and getting your weekends back.</p>
+              <div style="margin-top: 1rem;"><a href="/blog/residential-cleaning-services-journey" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Article &rarr;</a></div>
             </article>
             <article class="card" style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface); padding: 1.5rem;">
-              <span class="badge badge-accent" style="margin-bottom: 0.5rem; display: inline-block;">Estate Maintenance</span>
-              <h3 style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><a href="/blog/south-florida-home-maintenance-services" style="color: var(--color-text-heading); text-decoration: none;">South Florida Home Maintenance: Protecting Your Coastal Investment</a></h3>
-              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">Essential strategies for shielding Florida homes from tropical humidity, salt spray, mold intrusion, and seasonal weather changes.</p>
-              <div style="margin-top: 1rem;"><a href="/blog/south-florida-home-maintenance-services" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Full Article &rarr;</a></div>
+              <span class="badge badge-accent" style="margin-bottom: 0.5rem; display: inline-block;">Home Care</span>
+              <h3 style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><a href="/blog/south-florida-home-maintenance-services" style="color: var(--color-text-heading); text-decoration: none;">South Florida Home Maintenance: Protecting Your Coastal Home</a></h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">Simple ways to keep Florida humidity, salt air, and everyday dust from dulling your floors, tile, and fixtures.</p>
+              <div style="margin-top: 1rem;"><a href="/blog/south-florida-home-maintenance-services" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Article &rarr;</a></div>
             </article>
             <article class="card" style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface); padding: 1.5rem;">
-              <span class="badge badge-accent" style="margin-bottom: 0.5rem; display: inline-block;">Construction Services</span>
-              <h3 style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><a href="/blog/post-construction-cleaning-guide" style="color: var(--color-text-heading); text-decoration: none;">Post-Construction Cleaning: The 3-Phase Builder Guide</a></h3>
-              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">How architects, builders, and remodelers transition active job sites into immaculate, move-in-ready luxury properties through 3-phase cleanup.</p>
-              <div style="margin-top: 1rem;"><a href="/blog/post-construction-cleaning-guide" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Full Article &rarr;</a></div>
+              <span class="badge badge-accent" style="margin-bottom: 0.5rem; display: inline-block;">Remodel Cleanup</span>
+              <h3 style="font-size: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;"><a href="/blog/post-construction-cleaning-guide" style="color: var(--color-text-heading); text-decoration: none;">Post-Construction Cleaning: Turning Remodel Dust into Move-In Shine</a></h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">How our 3-step cleanup clears away fine drywall dust, paint splatters, and sticker residue so you can enjoy your newly remodeled space.</p>
+              <div style="margin-top: 1rem;"><a href="/blog/post-construction-cleaning-guide" style="color: var(--color-primary); font-weight: 700; text-decoration: none;">Read Article &rarr;</a></div>
             </article>
           </div>
           <div style="text-align: center; margin-top: 2rem;">
-            <a href="/our-publications" class="btn btn-primary">View All Articles &rarr;</a>
+            <a href="/our-publications" class="btn btn-primary">Read All Cleaning Tips &rarr;</a>
           </div>
         </div>
       </section>
@@ -403,11 +407,11 @@ async function prerenderAllRoutes() {
           <nav aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1rem; color: #94a3b8;">
             <a href="/" style="color: #cbd5e1; text-decoration: none;">Home</a> / <span style="color: #4fd18b;">Service Areas Directory</span>
           </nav>
-          <span class="badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(79, 209, 139, 0.15); color: #4fd18b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Regional Coverage · 56 Florida Locations</span>
+          <span class="badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(79, 209, 139, 0.15); color: #4fd18b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Neighborhoods We Serve · 56 Local Florida Cities</span>
           <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #fff;">South Florida Service Areas Directory</h1>
-          <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; line-height: 1.6;">Explore all 56 cities, towns, and master-planned communities across Palm Beach County, Broward County, and Miami-Dade County served by South Florida Cleaning Concepts. Hospital-grade disinfection, commercial janitorial, and luxury residential maid services.</p>
+          <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; line-height: 1.6;">Explore all 56 cities, beach towns, and local neighborhoods across Palm Beach, Broward, and Miami-Dade counties served by our friendly, background-checked cleaning pros—from recurring home cleaning and Airbnb turnovers to local offices.</p>
           <div style="margin-top: 1.5rem;">
-            <input type="search" placeholder="Search 56 Florida service areas by city, neighborhood, or roadway..." aria-label="Search service areas" style="width: 100%; max-width: 600px; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #334155; background: #0f172a; color: #fff; font-size: 1rem;" />
+            <input type="search" placeholder="Type your city, neighborhood, or zip area..." aria-label="Search service areas" style="width: 100%; max-width: 600px; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #334155; background: #0f172a; color: #fff; font-size: 1rem;" />
           </div>
         </div>
       </section>
@@ -643,29 +647,29 @@ async function prerenderAllRoutes() {
           <nav aria-label="Breadcrumb" style="font-size: 0.85rem; margin-bottom: 1rem; color: #94a3b8;">
             <a href="/" style="color: #cbd5e1; text-decoration: none;">Home</a> / <a href="/service-areas" style="color: #cbd5e1; text-decoration: none;">All 56 Service Areas</a> / <span style="color: #4fd18b;">${area.name}, FL</span>
           </nav>
-          <span class="badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(79, 209, 139, 0.15); color: #4fd18b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Serving ${area.name}, FL &amp; Surrounding Areas</span>
+          <span class="badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(79, 209, 139, 0.15); color: #4fd18b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">Your Local Cleaners in ${area.name}, FL</span>
           <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #fff;">Premier Commercial &amp; Residential Cleaning Services in <span style="color: #4fd18b;">${area.name}, FL</span></h1>
-          <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; line-height: 1.6;">${escapeHtml(area.description)} Backed by over 20 years of family-owned excellence, our bonded specialists deliver hospital-grade sanitization, EPA List N pathogen defense, and personalized cleaning rotations in ${area.name}.</p>
+          <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; line-height: 1.6;">${escapeHtml(area.description)} Backed by over 20 years of family-owned care, our friendly, background-checked pros bring kid-and-pet-safe supplies and our Love Your Clean or Don’t Pay Guarantee to every home and business in ${area.name}.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
-            <a href="/contact-us" class="btn btn-primary" style="padding: 0.75rem 1.5rem; border-radius: 0.75rem; background: #4fd18b; color: #07111a; font-weight: 700; text-decoration: none;">Request Free ${area.name} Quote &rarr;</a>
-            <a href="tel:5617045303" class="btn btn-phone" style="padding: 0.75rem 1.5rem; border-radius: 0.75rem; background: rgba(255,255,255,0.1); color: #fff; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">Call Dispatch: (561) 704-5303</a>
+            <a href="/contact-us" class="btn btn-primary" style="padding: 0.75rem 1.5rem; border-radius: 0.75rem; background: #4fd18b; color: #07111a; font-weight: 700; text-decoration: none;">Get My Free ${area.name} Quote &rarr;</a>
+            <a href="tel:5617045303" class="btn btn-phone" style="padding: 0.75rem 1.5rem; border-radius: 0.75rem; background: rgba(255,255,255,0.1); color: #fff; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">Call Us: (561) 704-5303</a>
           </div>
         </div>
       </section>
 
       <section class="section" style="padding: 3rem 1rem; background: #fff;">
         <div class="container" style="max-width: 1200px; margin: 0 auto;">
-          <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #071536;">Local Cleaning Excellence &amp; Trust in ${area.name}</h2>
+          <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #071536;">Why ${area.name} Neighbors Love Our Team</h2>
           <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; list-style: none; padding: 0; margin-bottom: 2rem;">
             ${area.highlights.map((h) => `<li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ ${escapeHtml(h)}</li>`).join('')}
-            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ 100% Satisfaction Guarantee: If not thrilled, you do not pay</li>
-            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Bonded, Insured &amp; Background-Checked Specialists</li>
-            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Hospital-Grade Disinfection &amp; EPA List N Sanitization in ${area.name}</li>
-            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Tailored Commercial Janitorial &amp; Recurring 4-Phase Residential Rotation</li>
+            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Love Your Clean or Don’t Pay Guarantee</li>
+            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Friendly, Insured &amp; Background-Checked Pros</li>
+            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Kid &amp; Pet Safe Eco-Friendly Supplies Included in ${area.name}</li>
+            <li style="padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #f8fafc; font-weight: 600; color: #1e293b;">✓ Flexible Home, Vacation Rental &amp; Office Cleaning Schedules</li>
           </ul>
 
           <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #071536;">Neighborhoods &amp; Communities Served in ${area.name}</h2>
-          <p style="color: #475569; margin-bottom: 1rem;">Providing specialized commercial office cleaning, medical sterilization, and luxury residential maid service across ${area.neighborhoods.join(', ')}.</p>
+          <p style="color: #475569; margin-bottom: 1rem;">Providing friendly home cleaning, Airbnb turnovers, and spotless office &amp; clinic care across ${area.neighborhoods.join(', ')}.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
             ${area.neighborhoods.map((n) => `<span style="padding: 0.35rem 0.85rem; border-radius: 9999px; background: #e8f5ee; color: #12582e; font-size: 0.85rem; font-weight: 600;">${escapeHtml(n)}</span>`).join('')}
           </div>

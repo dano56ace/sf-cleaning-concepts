@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
-  MapPin,
   Phone,
   ArrowRight,
   CheckCircle2,
@@ -12,15 +11,15 @@ import {
   Home,
   HardHat,
   Sparkles,
-  Award,
   Clock,
-  Mail,
-  ChevronLeft
+  Mail
 } from 'lucide-react';
 import { serviceAreas, serviceAreasBySlug } from '../data/serviceAreas';
 import { ServiceAreaLocalGuide } from '../components/service-areas/ServiceAreaLocalGuide';
 import { ServiceAreaMap } from '../components/service-areas/ServiceAreaMap';
 import { QuoteModal } from '../components/ui/QuoteModal';
+import { QuoteForm } from '../components/ui/QuoteForm';
+import { InteriorHero, getInteriorHeroForSlug } from '../components/ui/InteriorHero';
 import { BUSINESS_NAP } from '../data/siteData';
 
 interface DivisionItem {
@@ -42,11 +41,6 @@ export const ServiceAreaDetailPage: React.FC = () => {
 
   useEffect(() => {
     if (area) {
-      document.title = area.seoTitle || `${area.name} Commercial & Residential Cleaning Services | South Florida Cleaning Concepts`;
-      const descEl = document.querySelector('meta[name="description"]');
-      if (descEl && area.metaDescription) {
-        descEl.setAttribute('content', area.metaDescription);
-      }
       window.scrollTo(0, 0);
     }
   }, [area]);
@@ -238,102 +232,80 @@ export const ServiceAreaDetailPage: React.FC = () => {
   const nearbyAreas = serviceAreas.filter((a) => a.slug !== area.slug).slice(0, 16);
 
   return (
-    <main className="bg-[#f8fafc] min-h-screen text-slate-800">
+    <div className="bg-[#f8fafc] min-h-screen text-slate-800">
       {/* JSON-LD Schema Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      {/* SECTION 1: ARCHITECTURAL HERO BANNER */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07111a] via-[#07111a]/95 to-[#07111a]/80"></div>
-          <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
-          {/* Breadcrumbs */}
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-slate-400"
-          >
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-slate-600">/</span>
-            <Link to="/service-areas" className="hover:text-white transition-colors flex items-center gap-1">
-              <ChevronLeft className="w-3.5 h-3.5 text-[#4fd18b]" /> All 56 Service Areas
-            </Link>
-            <span className="text-slate-600">/</span>
-            <span className="text-[#4fd18b] font-semibold">{area.name}, FL</span>
-          </nav>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.07] border border-white/15 text-[#4fd18b] text-xs font-mono uppercase tracking-[0.18em]">
-                <MapPin className="w-3.5 h-3.5" /> Serving {area.name}, FL &amp; Surrounding Areas
-              </div>
-
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] [text-wrap:balance]">
-                Premier Commercial &amp; Residential Cleaning Services in{' '}
-                <span className="text-[#4fd18b]">{area.name}, FL</span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl font-normal">
-                {area.description} Backed by over 20 years of family-owned excellence, our bonded specialists deliver hospital-grade sanitization, EPA List N pathogen defense, and personalized cleaning rotations in {area.name}.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsQuoteOpen(true)}
-                  className="px-6 py-3.5 rounded-xl bg-[#4fd18b] hover:bg-[#3ec47c] text-[#07111a] text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2 cursor-pointer shadow-lg"
-                >
-                  Request Free {area.name} Quote <ArrowRight className="w-4 h-4" />
-                </button>
-                <a
-                  href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="px-6 py-3.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/20 text-sm font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2"
-                >
-                  <Phone className="w-4 h-4 text-[#4fd18b]" /> Call Dispatch: {BUSINESS_NAP.phone}
-                </a>
-              </div>
+      {/* SECTION 1: PARALLAX INTERIOR HERO BANNER */}
+      <InteriorHero
+        ariaLabel={`${area.name}, FL Cleaning Services Header`}
+        kicker={`Serving ${area.name}, FL & Surrounding Areas`}
+        title={
+          <>
+            Premier Commercial &amp; Residential Cleaning Services in{' '}
+            <span className="text-[#a3e6be]">{area.name}, FL</span>
+          </>
+        }
+        description={area.description}
+        imageSrc={getInteriorHeroForSlug(area.slug)}
+        imageAlt={`Spotless luxury South Florida interior in ${area.name}, FL`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'All 56 Service Areas', to: '/service-areas' },
+          { label: `${area.name}, FL` }
+        ]}
+        aside={
+          <div className="w-full sm:w-auto bg-[#071536]/65 backdrop-blur-md border border-white/20 rounded-2xl p-6 space-y-3 shadow-xl">
+            <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#a3e6be] font-semibold">
+              100% Satisfaction Guarantee
             </div>
-
-            <div className="lg:col-span-4 flex lg:justify-end">
-              <div className="w-full sm:w-auto bg-white/[0.05] backdrop-blur-md border border-white/15 rounded-2xl p-6 space-y-3">
-                <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#4fd18b] font-semibold">
-                  100% Satisfaction Guarantee
-                </div>
-                <div className="text-sm text-slate-200 leading-snug">
-                  If you are not completely thrilled with our clean, we return to re-clean for free or you do not pay.
-                </div>
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                  <span>Licensed &amp; Bonded</span>
-                  <span className="text-[#4fd18b] font-mono">20+ Yrs Exp</span>
-                </div>
-              </div>
+            <div className="text-sm text-slate-100 leading-snug">
+              If you are not completely thrilled with our clean, we return to re-clean for free or you do not pay.
+            </div>
+            <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs text-slate-300">
+              <span>Licensed &amp; Bonded</span>
+              <span className="text-[#a3e6be] font-mono tabular-nums">20+ Yrs Exp</span>
             </div>
           </div>
+        }
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setIsQuoteOpen(true)}
+            className="px-6 py-3.5 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold tracking-wide transition-all inline-flex items-center gap-2 cursor-pointer shadow-lg border border-white/15"
+          >
+            <span>Request Free {area.name} Quote</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <a
+            href={`tel:${BUSINESS_NAP.phoneRaw}`}
+            className="px-6 py-3.5 rounded-xl bg-[#071536]/65 hover:bg-[#071536]/85 backdrop-blur-xs text-white border border-white/25 text-sm font-mono font-bold transition-all inline-flex items-center gap-2 tabular-nums"
+          >
+            <Phone className="w-4 h-4 text-[#a3e6be]" />
+            <span>Call {BUSINESS_NAP.phone}</span>
+          </a>
         </div>
-      </section>
+      </InteriorHero>
 
       {/* SECTION 2: LOCAL DOMINANCE & NEIGHBORHOODS */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-slate-200">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs uppercase tracking-[0.25em] font-mono font-bold text-[#12582e] block">
-              Local Market Dominance • {area.name}, Florida
+            <span className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#12582e] block">
+              Trusted Local Care • {area.name}, Florida
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a] leading-tight">
-              Setting the Gold Standard for Cleanliness in {area.name}
+              Why {area.name} Neighbors &amp; Businesses Love Coming Home to Our Clean
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
               {area.description}
             </p>
             <p className="text-base text-slate-600 leading-relaxed">
-              In a sophisticated market like <strong>{area.name}</strong>, maintaining pristine cleanliness requires more than basic sweeping. South Florida&apos;s heat, humidity, and coastal salt air create unique challenges that demand certified cleaning methods. At South Florida Cleaning Concepts, our vetted specialists combine EPA List N hospital disinfectants with microfiber technology to protect your health, property value, and reputation.
+              Living and working in <strong>{area.name}</strong> means dealing with South Florida humidity, tracked-in sand, and salty coastal breezes that quickly dull floors and glass. Our friendly, background-checked pros bring gentle, kid- and pet-safe supplies and fresh color-coded microfiber cloths so your home, vacation rental, or workplace stays spotless and smells fresh.
             </p>
 
             {area.highlights && area.highlights.length > 0 && (
@@ -353,13 +325,13 @@ export const ServiceAreaDetailPage: React.FC = () => {
             {area.neighborhoods && area.neighborhoods.length > 0 && (
               <div className="pt-4 space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-[#07111a]">
-                  Proudly Serving {area.name} Neighborhoods &amp; Enclaves:
+                  Neighborhoods &amp; Communities We Serve in {area.name}:
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {area.neighborhoods.map((hood) => (
                     <span
                       key={hood}
-                      className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 inline-flex items-center gap-1.5"
+                      className="px-3 py-1 rounded-lg bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 inline-flex items-center gap-1.5"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#12582e]" /> {hood}
                     </span>
@@ -374,11 +346,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
               <div className="w-12 h-12 rounded-2xl bg-[#4fd18b]/15 border border-[#4fd18b]/40 flex items-center justify-center text-[#4fd18b]">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
-                Why Professional Sanitization Matters in {area.name}
+              <h3 className="text-2xl font-bold tracking-tight text-white">
+                A Fresh, Healthy Space Without Lifting a Finger
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Over <strong>94% of employees and guests</strong> cite cleanliness as the single most critical factor in their perception of a facility. In {area.name}, our hospital-grade protocols protect indoor air quality, eliminate pathogens, and present your space with flawless polish.
+                Over <strong>94% of families and employees</strong> say walking into a clean, clutter-free room immediately lowers stress. In {area.name}, our vetted local crew handles all the scrubbing, dusting, and sanitizing so you get your free time back.
               </p>
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
@@ -400,9 +372,9 @@ export const ServiceAreaDetailPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-green-400">24/7</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-green-400">7 Days</div>
                   <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">
-                    Emergency Janitorial
+                    Flexible Scheduling
                   </div>
                 </div>
               </div>
@@ -417,11 +389,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
         onRequestConsultation={() => setIsQuoteOpen(true)}
       />
 
-      {/* SECTION 4: SPECIALIZED CLEANING DIVISIONS IN AREA */}
+      {/* SECTION 4: SPECIALIZED CLEANING SERVICES IN AREA */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] font-mono font-bold text-[#12582e] block">
-            Specialized Cleaning Divisions • {area.name}, FL
+            Local Cleaning Services • {area.name}, FL
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a]">
             Our Core Cleaning Capabilities in {area.name}
@@ -448,11 +420,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
                   {division.shortDesc}
                 </p>
               </div>
-              <Link
+                <Link
                 to={`/service/${division.slug}`}
-                className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-[#12582e] hover:text-[#0b1926] inline-flex items-center gap-2 transition-colors"
+                className="pt-4 border-t border-slate-100 text-xs font-bold text-[#12582e] hover:text-[#0b1926] inline-flex items-center gap-2 transition-colors"
               >
-                Explore Division Details <ArrowRight className="w-4 h-4" />
+                See What’s Included <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           ))}
@@ -464,18 +436,18 @@ export const ServiceAreaDetailPage: React.FC = () => {
                 <Sparkles className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold tracking-tight text-white">
-                Free Personalized Walkthrough in {area.name}
+                Free Custom Quote in {area.name}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Schedule a complimentary on-site walkthrough with our senior operations director. Receive a custom rotation cleaning blueprint and flat-rate estimate within 24 hours.
+                Tell us about your home, rental, or office—or schedule a quick walkthrough with our friendly local team—and get a clear, flat-rate price the same day.
               </p>
             </div>
             <button
               type="button"
               onClick={() => setIsQuoteOpen(true)}
-              className="pt-4 border-t border-white/15 text-xs font-bold uppercase tracking-widest text-[#4fd18b] hover:text-white inline-flex items-center gap-2 transition-colors cursor-pointer"
+              className="pt-4 border-t border-white/15 text-xs font-bold text-[#4fd18b] hover:text-white inline-flex items-center gap-2 transition-colors cursor-pointer"
             >
-              Claim Your Free Walkthrough <ArrowRight className="w-4 h-4" />
+              Get My Free Quote <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -486,11 +458,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="space-y-10">
             <div className="text-center max-w-3xl mx-auto space-y-3">
-              <span className="text-xs uppercase tracking-[0.25em] font-mono font-bold text-[#4fd18b] block">
-                Proven Execution Roadmap
+              <span className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#4fd18b] block">
+                Simple, Dependable Care
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-                Our 4-Step Cleaning System in {area.name}
+                How Our 4-Step Cleaning Works in {area.name}
               </h2>
             </div>
 
@@ -498,23 +470,23 @@ export const ServiceAreaDetailPage: React.FC = () => {
               {[
                 {
                   step: '01',
-                  title: `${area.name} Facility Walkthrough`,
-                  desc: `We inspect square footage, high-touch pathogen zones, floor finishes (marble, tile, carpet), and specific operating hours in ${area.name}.`
+                  title: 'Quick Quote or Walkthrough',
+                  desc: `Share a few details about your ${area.name} home, vacation rental, or office so we know your floors, pets, and priorities.`
                 },
                 {
                   step: '02',
-                  title: 'Customized Rotation Plan',
-                  desc: 'We engineer a tailored rotation plan focusing on high-touch surfaces, restrooms, and deep cleaning to prevent dirt accumulation.'
+                  title: 'Tailored Cleaning Checklist',
+                  desc: 'We build a custom room-by-room plan—including our 4-Step Rotation System so baseboards, fans, and blinds never get skipped.'
                 },
                 {
                   step: '03',
-                  title: 'Hospital-Grade Disinfection',
-                  desc: 'Certified, background-checked crews apply EPA List N hospital disinfectants, HEPA filtration vacuums, and color-coded microfiber.'
+                  title: 'Safe, Thorough Cleaning',
+                  desc: 'Our friendly, background-checked pros arrive on time with kid- and pet-safe supplies, HEPA vacuums, and fresh microfiber cloths.'
                 },
                 {
                   step: '04',
-                  title: 'Continuous Quality Assurance',
-                  desc: 'Regular supervisor inspections and our 100% Satisfaction Guarantee ensure your property remains spotless on every recurring visit.'
+                  title: 'Love It or Don’t Pay Check',
+                  desc: 'Our team lead checks every room before locking up—backed 100% by our Love Your Clean or Don’t Pay Guarantee.'
                 }
               ].map((item) => (
                 <div
@@ -532,24 +504,24 @@ export const ServiceAreaDetailPage: React.FC = () => {
           {/* Operator Pledge Card */}
           <div className="relative rounded-3xl p-8 sm:p-12 border border-[#4fd18b]/30 bg-white/[0.03] space-y-6">
             <div className="max-w-3xl space-y-4">
-              <span className="px-3.5 py-1.5 rounded-full bg-[#4fd18b]/15 border border-[#4fd18b]/40 text-[#4fd18b] text-[10px] font-bold uppercase tracking-widest inline-block">
-                Over Two Decades of South Florida Cleaning Leadership
-              </span>
+              <div className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#4fd18b]">
+                20+ Years Serving South Florida Families &amp; Businesses
+              </div>
               <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-                Family-Owned Integrity &amp; Uncompromising Accountability
+                Family-Owned Care &amp; Dependable Local Cleaners
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                Unlike franchise brokers who subcontract your keys to untested third parties, South Florida Cleaning Concepts operates with vetted, insured, and thoroughly background-checked staff. Every commercial building and residence in {area.name} is treated with senior supervision and personal pride.
+                Unlike franchise apps that send random, unvetted strangers to your door, South Florida Cleaning Concepts is family-owned with friendly, insured, and background-checked cleaners. Every home, vacation rental, and workplace in {area.name} is cared for with personal pride.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Bonded &amp; Insured
+                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Licensed &amp; Insured
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> EPA List N Disinfectants
+                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Safe for Kids &amp; Pets
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> 100% Satisfaction Guarantee
+                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> 100% Love-It Guarantee
                 </div>
               </div>
             </div>
@@ -563,11 +535,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
           {/* Left Column: Market Insight, Packages, FAQs */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.25em] font-mono font-bold text-[#12582e] block">
-                Local Market Intelligence • {area.name}, FL
+              <span className="text-xs uppercase tracking-[0.22em] font-mono font-bold text-[#12582e] block">
+                Local Cleaning Options • {area.name}, FL
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a]">
-                Navigating the {area.name} Cleaning &amp; Facility Landscape
+                Simple, Flexible Cleaning Plans in {area.name}
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 {area.marketInsight}
@@ -577,36 +549,36 @@ export const ServiceAreaDetailPage: React.FC = () => {
             {/* Transparent Rate Packages Table */}
             <div className="space-y-3 pt-2">
               <h3 className="text-lg font-bold tracking-tight text-[#07111a]">
-                Transparent {area.name} Cleaning &amp; Janitorial Programs
+                Popular {area.name} Cleaning Schedules
               </h3>
               <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
                     <tr className="bg-[#07111a] text-white">
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Service Tier</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Frequency</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Core Scope for {area.name}</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Best For</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Plan</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">How Often</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">What’s Included in {area.name}</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Great For</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 text-slate-700">
                     <tr className="hover:bg-slate-50">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Recurring Maintenance</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Regular Home &amp; Office Care</td>
                       <td className="py-3 px-4 font-bold text-[#12582e]">Weekly / Bi-Weekly</td>
-                      <td className="py-3 px-4">4-Phase rotation scrub, high-touch sanitization, kitchen &amp; bath deep care, HEPA floor care</td>
-                      <td className="py-3 px-4">Offices, executive suites &amp; busy family residences</td>
+                      <td className="py-3 px-4">Room-by-room rotation care, kitchens &amp; baths, dusting, vacuuming &amp; fresh floors</td>
+                      <td className="py-3 px-4">Busy families, pet owners &amp; local offices</td>
                     </tr>
                     <tr className="bg-emerald-50/40 hover:bg-emerald-50/70">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Deep Rotation Scrub</td>
-                      <td className="py-3 px-4 font-bold text-[#12582e]">Monthly / Seasonal</td>
-                      <td className="py-3 px-4">Top-to-bottom scrub, appliance interiors, tile/grout acid wash, baseboards, AC vent dusting</td>
-                      <td className="py-3 px-4">Seasonal residences, move-in/out &amp; quarterly resets</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Top-to-Bottom Deep Clean</td>
+                      <td className="py-3 px-4 font-bold text-[#12582e]">Monthly / One-Time</td>
+                      <td className="py-3 px-4">Inside appliances, deep tile &amp; grout scrubbing, baseboards, blinds &amp; ceiling fans</td>
+                      <td className="py-3 px-4">Seasonal arrivals, move-in/move-out &amp; spring resets</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Commercial Janitorial</td>
-                      <td className="py-3 px-4 font-bold text-[#12582e]">Daily / 3x-Weekly</td>
-                      <td className="py-3 px-4">OSHA healthcare sanitization, day porter care, restroom hygiene, trash &amp; recycling</td>
-                      <td className="py-3 px-4">Medical clinics, corporate towers, schools &amp; eateries</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Workplace &amp; Clinic Care</td>
+                      <td className="py-3 px-4 font-bold text-[#12582e]">Daily / Custom</td>
+                      <td className="py-3 px-4">Safe clinic &amp; office sanitizing, spotless restrooms, breakrooms, trash &amp; floors</td>
+                      <td className="py-3 px-4">Medical suites, offices, schools &amp; restaurants</td>
                     </tr>
                   </tbody>
                 </table>
@@ -648,44 +620,42 @@ export const ServiceAreaDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Google Maps & Direct Contact Card */}
+          {/* Right Column: Google Maps & Embedded Netlify Quote Form */}
           <div className="lg:col-span-5 space-y-6">
             <ServiceAreaMap area={area} />
 
-            <div className="p-8 rounded-3xl bg-[#07111a] text-white border border-white/10 space-y-5 shadow-xl">
-              <div className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold text-[#4fd18b]">
-                Ready for a Spotless Space in {area.name}?
+            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-lg space-y-4">
+              <div className="pb-3 border-b border-slate-200/80">
+                <div className="text-[11px] uppercase tracking-wider font-mono font-bold text-[#12582e] mb-1">
+                  Fast Local Pricing • {area.name}, FL
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#071536]">
+                  Get Your Free {area.name} Quote
+                </h3>
+                <p className="text-xs text-slate-600 mt-1 m-0">
+                  Tell us about your home, vacation rental, or office in {area.name} and we’ll reply right away.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
-                Schedule Your {area.name} Walkthrough
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Connect directly with our operations team for a customized cleaning blueprint, flat-rate proposal, and scheduling in {area.name}.
-              </p>
-              <div className="space-y-3 text-xs pt-1">
+
+              <QuoteForm idPrefix="area-" source={`Service Area: ${area.name}, FL`} />
+
+              <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
                 <a
                   href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="flex items-center gap-2.5 text-white font-bold hover:text-[#4fd18b] transition-colors"
+                  className="inline-flex items-center gap-1.5 font-mono font-bold text-[#071536] hover:text-[#12582e] transition-colors tabular-nums"
                 >
-                  <Phone className="w-4 h-4 text-[#4fd18b]" /> Direct Dispatch: {BUSINESS_NAP.phone}
+                  <Phone className="w-3.5 h-3.5 text-[#12582e]" /> {BUSINESS_NAP.phone}
                 </a>
                 <a
                   href={`mailto:${BUSINESS_NAP.email}`}
-                  className="flex items-center gap-2.5 text-white font-bold hover:text-[#4fd18b] transition-colors"
+                  className="inline-flex items-center gap-1.5 font-medium text-slate-600 hover:text-[#12582e] transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#4fd18b]" /> {BUSINESS_NAP.email}
+                  <Mail className="w-3.5 h-3.5 text-[#12582e]" /> {BUSINESS_NAP.email}
                 </a>
-                <div className="flex items-center gap-2.5 text-slate-400">
-                  <Clock className="w-4 h-4 text-[#4fd18b]" /> {BUSINESS_NAP.hours}
-                </div>
+                <span className="inline-flex items-center gap-1 text-slate-500">
+                  <Clock className="w-3.5 h-3.5 text-[#12582e]" /> {BUSINESS_NAP.hours}
+                </span>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsQuoteOpen(true)}
-                className="w-full py-3.5 px-6 rounded-xl bg-[#4fd18b] text-[#07111a] text-xs font-bold uppercase tracking-wider hover:bg-[#3ec47c] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-              >
-                Request Free Estimate <ArrowRight className="w-4 h-4" />
-              </button>
             </div>
           </div>
         </div>
@@ -708,7 +678,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
               <Link
                 key={nearby.slug}
                 to={`/service-area/${nearby.slug}`}
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 hover:border-[#12582e] hover:text-[#12582e] text-slate-700 transition-all shadow-2xs"
+                className="px-3.5 py-2 min-h-[38px] inline-flex items-center rounded-lg text-xs font-semibold bg-white border border-slate-200 hover:border-[#12582e] hover:text-[#12582e] text-slate-700 transition-all shadow-2xs"
               >
                 {nearby.name}, FL
               </Link>
@@ -723,6 +693,6 @@ export const ServiceAreaDetailPage: React.FC = () => {
         onClose={() => setIsQuoteOpen(false)}
         serviceTitle={`${area.name} Cleaning Services`}
       />
-    </main>
+    </div>
   );
 };

@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { Phone, CheckCircle2, AlertCircle, Send, Loader2, ShieldCheck } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
 import { formatPhoneNumberInput } from '../../utils/estimatorLogic';
+import { trackLeadSubmission } from '../../utils/analytics';
+import {
+  NETLIFY_FORM_ACTION,
+  NETLIFY_FORM_NAME,
+  NETLIFY_HONEYPOT_FIELD,
+  resolveCurrentPageUrl,
+  submitNetlifyQuoteForm,
+  validateQuoteFields
+} from '../../utils/netlifyForm';
 
 interface QuoteFormProps {
   onSuccess?: () => void;
@@ -35,6 +44,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   const phoneId = idPrefix ? `${idPrefix}quote-phone` : 'quote-phone';
   const messageId = idPrefix ? `${idPrefix}quote-message` : 'quote-message';
   const submitBtnId = idPrefix ? `${idPrefix}quote-submit-btn` : 'quote-submit-btn';
+  const currentPageUrl = resolveCurrentPageUrl();
 
   // Auto-format phone as user types: (XXX) XXX-XXXX
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,28 +64,9 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   };
 
   const validate = (): boolean => {
-    const newErrors: { [key: string]: string } = {};
-
-    if (!formData.name.trim() || formData.name.trim().length < 2) {
-      newErrors.name = 'Please enter your name (at least 2 characters).';
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-
-    const rawPhone = formData.phone.replace(/\D/g, '');
-    if (!rawPhone || rawPhone.length < 10) {
-      newErrors.phone = 'Please enter a valid 10-digit phone number.';
-    }
-
-    if (!formData.message.trim() || formData.message.trim().length < 10) {
-      newErrors.message = 'Tell us a little about your home or space (at least 10 characters).';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const result = validateQuoteFields(formData);
+    setErrors({ ...result.errors });
+    return result.isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,25 +86,17 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      const payload = new URLSearchParams();
-      payload.append('form-name', 'quote-request');
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('phone', formData.phone);
-      payload.append('message', formData.message);
-      payload.append('source', source);
-      payload.append('bot-field', formData.botField);
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload.toString()
+      await submitNetlifyQuoteForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        source,
+        pageUrl: resolveCurrentPageUrl(),
+        botField: formData.botField
       });
 
-      if (!response.ok) {
-        throw new Error(`Netlify form submission rejected with HTTP ${response.status}`);
-      }
-
+      trackLeadSubmission({ source });
       setIsSubmitted(true);
       if (onSuccess) onSuccess();
     } catch (err: unknown) {
@@ -198,26 +181,27 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
         <form
           id={formId}
           data-react-managed="true"
-          name="quote-request"
+          name={NETLIFY_FORM_NAME}
           method="POST"
-          action="/"
+          action={NETLIFY_FORM_ACTION}
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          netlify-honeypot="bot-field"
+          data-netlify-honeypot={NETLIFY_HONEYPOT_FIELD}
+          netlify-honeypot={NETLIFY_HONEYPOT_FIELD}
           onSubmit={handleSubmit}
           noValidate
           className="lead-form space-y-3.5"
         >
-          <input type="hidden" name="form-name" value="quote-request" />
+          <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
           <input type="hidden" name="source" value={source} />
+          <input type="hidden" name="page_url" value={currentPageUrl} />
 
           {/* Honeypot for bots (hidden from human users) */}
-          <p className="bot-field-container hidden" style={{ display: 'none' }} aria-hidden="true">
+          <p className="bot-field-container hidden" aria-hidden="true">
             <label>
               Do not fill this out:
               <input
                 type="text"
-                name="bot-field"
+                name={NETLIFY_HONEYPOT_FIELD}
                 value={formData.botField}
                 onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
                 tabIndex={-1}

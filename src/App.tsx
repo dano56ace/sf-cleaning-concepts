@@ -45,8 +45,8 @@ export function App() {
             <Route path="/about-us.html" element={<AboutPage />} />
             <Route path="/our-services" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/our-services.html" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/service" element={<ServiceDirectoryPage />} />
-            <Route path="/service/index.html" element={<ServiceDirectoryPage />} />
+            <Route path="/service" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+            <Route path="/service/index.html" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/service/:slug" element={<ServiceDetailPage />} />
             <Route path="/service-areas" element={<ServiceAreaDirectoryPage />} />
             <Route path="/service-areas.html" element={<ServiceAreaDirectoryPage />} />

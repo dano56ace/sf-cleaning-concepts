@@ -1,28 +1,24 @@
 import React from 'react';
 import { QuoteForm } from '../components/ui/QuoteForm';
+import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import { BUSINESS_NAP } from '../data/siteData';
 import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {/* Subpage Hero */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <div className="editorial-kicker-light mb-4">
-              We’d Love to Hear From You · Fast Local Reply
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5 text-white">
-              Interested in Cleaning Services?
-            </h1>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Reach out for a fast, honest, no-obligation quote for your home, vacation rental, or workplace. Our friendly local team responds quickly across Palm Beach, Broward, and Miami-Dade counties.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InteriorHero
+        ariaLabel="Contact Us Header"
+        kicker="We’d Love to Hear From You · Fast Local Reply"
+        title="Interested in Cleaning Services?"
+        description="Reach out for a fast, honest, no-obligation quote for your home, vacation rental, or workplace. Our friendly local team responds quickly across Palm Beach, Broward, and Miami-Dade counties."
+        imageSrc={INTERIOR_HERO_IMAGES.sunlitFoyer}
+        imageAlt="Welcoming sunlit South Florida home entryway and lounge interior"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Contact Us' }
+        ]}
+      />
 
       {/* Main Content */}
       <section className="py-16 lg:py-24">

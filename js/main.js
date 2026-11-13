@@ -296,6 +296,18 @@ function initLeadQuoteForm() {
     }
 
     const formData = new FormData(form);
+    if (!formData.get('form-name')) {
+      formData.set('form-name', form.getAttribute('name') || 'quote-request');
+    }
+    formData.set('page_url', `${window.location.pathname || '/'}${window.location.search || ''}`);
+
+    // Honeypot bot short-circuit
+    const botVal = formData.get('bot-field');
+    if (typeof botVal === 'string' && botVal.trim().length > 0) {
+      form.style.display = 'none';
+      if (successBanner) successBanner.removeAttribute('hidden');
+      return;
+    }
 
     try {
       // Submit via Netlify AJAX endpoint
@@ -306,6 +318,15 @@ function initLeadQuoteForm() {
       });
 
       if (response.ok || response.status === 200 || response.type === 'opaqueredirect') {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'engagement',
+            event_label: String(formData.get('source') || 'Static Fallback Form'),
+            lead_source: String(formData.get('source') || 'Static Fallback Form'),
+            value: 1,
+            currency: 'USD'
+          });
+        }
         form.style.display = 'none';
         if (errorBanner) errorBanner.setAttribute('hidden', '');
         if (successBanner) {

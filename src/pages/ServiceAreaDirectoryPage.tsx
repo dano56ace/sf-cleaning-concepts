@@ -6,11 +6,11 @@ import {
   X,
   ArrowRight,
   Phone,
-  Sparkles,
   Building2
 } from 'lucide-react';
 import { serviceAreas } from '../data/serviceAreas';
 import { QuoteModal } from '../components/ui/QuoteModal';
+import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import { BUSINESS_NAP } from '../data/siteData';
 
 const PALM_BEACH_SLUGS = new Set([
@@ -34,14 +34,6 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Service Areas - 56 Locations | South Florida Cleaning Concepts';
-    const descEl = document.querySelector('meta[name="description"]');
-    if (descEl) {
-      descEl.setAttribute(
-        'content',
-        'Browse our complete directory of 56 South Florida service areas extending north through Jupiter. Commercial janitorial, medical sanitization, and luxury maid service. Call (561) 704-5303.'
-      );
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -149,74 +141,55 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
   };
 
   return (
-    <main className="bg-[#f8fafc] min-h-screen text-slate-800">
+    <div className="bg-[#f8fafc] min-h-screen text-slate-800">
       {/* JSON-LD Schema Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      {/* HERO SECTION WITH SEARCH INPUT */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07111a] via-[#07111a]/95 to-[#07111a]/80"></div>
-          <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
-          {/* Breadcrumbs */}
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-slate-400"
-          >
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-slate-600">/</span>
-            <span className="text-[#4fd18b] font-semibold">Service Areas Directory</span>
-          </nav>
-
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.07] border border-white/15 text-[#4fd18b] text-xs font-mono uppercase tracking-[0.18em]">
-              <MapPin className="w-3.5 h-3.5" /> Local South Florida Cleaners · Jupiter to Miami
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] [text-wrap:balance]">
-              Our Active South Florida{' '}
-              <span className="text-[#4fd18b]">Service Areas</span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-              From family homes and waterfront condos to vacation rentals and local workplaces, our friendly, background-checked pros bring a spotless clean to 56 South Florida communities. Pick your neighborhood below to see how we can help!
-            </p>
-          </div>
-
-          {/* Search Box */}
-          <div className="max-w-xl">
-            <div className="relative flex items-center bg-white/[0.08] backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 shadow-xl focus-within:border-[#4fd18b] transition-colors">
-              <Search className="w-5 h-5 text-[#4fd18b] shrink-0 mr-3" />
-              <input
-                type="text"
-                placeholder="Search your city or neighborhood (e.g. Boca Raton, Jupiter)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent text-white placeholder:text-slate-400 text-sm sm:text-base focus:outline-none"
-                aria-label="Search service areas by city or neighborhood"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="text-slate-400 hover:text-white ml-2 cursor-pointer"
-                  aria-label="Clear city search"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-            </div>
+      {/* HERO SECTION WITH PARALLAX INTERIOR & SEARCH INPUT */}
+      <InteriorHero
+        ariaLabel="Service Areas Directory Header"
+        kicker="Local South Florida Cleaners · Jupiter to Miami"
+        title={
+          <>
+            Our Active South Florida{' '}
+            <span className="text-[#a3e6be]">Service Areas</span>
+          </>
+        }
+        description="From family homes and waterfront condos to vacation rentals and local workplaces, our friendly, background-checked pros bring a spotless clean to 56 South Florida communities. Pick your neighborhood below to see how we can help!"
+        imageSrc={INTERIOR_HERO_IMAGES.waterfrontCondo}
+        imageAlt="Spotless South Florida waterfront condominium living and dining room interior"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Service Areas Directory' }
+        ]}
+      >
+        <div className="max-w-xl">
+          <div className="relative flex items-center bg-[#071536]/65 backdrop-blur-md border border-white/25 rounded-2xl px-4 py-3 shadow-xl focus-within:border-[#a3e6be] transition-colors">
+            <Search className="w-5 h-5 text-[#a3e6be] shrink-0 mr-3" />
+            <input
+              type="text"
+              placeholder="Search your city or neighborhood (e.g. Boca Raton, Jupiter)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-transparent text-white placeholder:text-slate-300 text-sm sm:text-base focus:outline-none"
+              aria-label="Search service areas by city or neighborhood"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="text-slate-300 hover:text-white ml-2 cursor-pointer"
+                aria-label="Clear city search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
-      </section>
+      </InteriorHero>
 
       {/* DIRECTORY CONTENT & FILTERS */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
@@ -409,6 +382,6 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
         onClose={() => setIsQuoteOpen(false)}
         serviceTitle="Service Area Directory"
       />
-    </main>
+    </div>
   );
 };

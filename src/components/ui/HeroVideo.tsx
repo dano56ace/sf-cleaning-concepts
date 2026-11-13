@@ -116,13 +116,17 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
           <div className="lg:col-span-5 flex flex-col">
             <div className="bg-white text-[#071536] rounded-2xl p-6 sm:p-7 shadow-2xl border border-slate-200/90">
               <div className="pb-4 mb-4 border-b border-slate-200/80">
-                <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[#12582e]">
-                    Fast Online Booking &amp; Free Quote
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#12582e] whitespace-nowrap">
+                    Fast Online Booking
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-500">
-                    <Star className="w-3.5 h-3.5 fill-current" />
+                  <span
+                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 border border-amber-200/80 text-xs font-bold text-amber-500 whitespace-nowrap"
+                    aria-label="5.0 out of 5 stars from verified local reviews"
+                  >
+                    <Star className="w-3.5 h-3.5 fill-current shrink-0" />
                     <span className="font-mono text-[#071536] tabular-nums">5.0</span>
+                    <span className="text-[11px] font-semibold text-slate-600">· Verified Reviews</span>
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-[#071536] leading-tight">
@@ -142,8 +146,8 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
       {/* Full-Width 4-Column Consumer Proof Bar Below Hero Split */}
       <div className="relative z-10 bg-[#040d22]/90 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            <div className="border-l-2 border-[#a3e6be]/40 pl-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/15">
+            <div className="lg:pr-8">
               <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">
                 20+ Years
               </div>
@@ -151,15 +155,15 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 Family-Owned in South Florida
               </div>
             </div>
-            <div className="border-l-2 border-[#a3e6be]/40 pl-4">
-              <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">
+            <div className="lg:px-8">
+              <div className="font-mono text-2xl sm:text-3xl font-extrabold text-[#a3e6be] tabular-nums">
                 100%
               </div>
               <div className="text-xs text-slate-300 mt-0.5">
                 Love Your Clean or Don’t Pay
               </div>
             </div>
-            <div className="border-l-2 border-[#a3e6be]/40 pl-4">
+            <div className="lg:px-8">
               <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">
                 10 Services
               </div>
@@ -167,7 +171,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 For Homes, Rentals &amp; Workplaces
               </div>
             </div>
-            <div className="border-l-2 border-[#a3e6be]/40 pl-4">
+            <div className="lg:pl-8">
               <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tabular-nums">
                 Same-Day
               </div>

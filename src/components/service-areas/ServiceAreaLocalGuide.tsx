@@ -40,7 +40,7 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
         {/* Section Header: Category, Title & Geography Badge */}
         <div className="space-y-4 max-w-4xl">
           <div className="flex flex-wrap items-center gap-2 text-xs text-[#4fd18b] font-medium tracking-wide">
-            <span>Regional Market Profile</span>
+            <span>Local Neighborhood Guide</span>
             <span aria-hidden="true">·</span>
             <span>{area.name}, Florida</span>
             {area.stats?.geographyType && (
@@ -64,7 +64,7 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
             id="local-guide-heading"
             className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white [text-wrap:balance]"
           >
-            Inside the {area.name} Community, Commercial Landscape &amp; Property Standards
+            Living, Working &amp; Keeping Spaces Spotless in {area.name}
           </h2>
         </div>
 
@@ -77,9 +77,9 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
               <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#4fd18b] font-semibold">
                 <BarChart3 className="w-4 h-4 text-[#4fd18b] shrink-0" />
-                <span>Executive Community Profile · {area.name}, FL</span>
+                <span>Community Snapshot · {area.name}, FL</span>
               </div>
-              <span className="text-[11px] text-slate-400 font-mono">Verified U.S. Census &amp; Municipal Data</span>
+              <span className="text-[11px] text-slate-400 font-mono">Local Community Overview</span>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -136,7 +136,7 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
                   <span>{area.stats.geographyType}</span>
                 </div>
                 <span className="hidden sm:inline-block font-mono text-[11px] text-slate-400">
-                  EPA List N Sanitation Available Across Entire Municipal Footprint
+                  Kid &amp; Pet Safe Eco-Friendly Supplies Included Across {area.name}
                 </span>
               </div>
             )}
@@ -177,15 +177,15 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
           <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/10 space-y-8">
             <div className="space-y-3">
               <div className="text-xs text-[#4fd18b] font-medium uppercase tracking-wider">
-                <span>Commercial Corridors</span>
+                <span>Neighborhood Routes</span>
                 <span aria-hidden="true" className="mx-1.5">·</span>
-                <span>Active Janitorial Dispatch</span>
+                <span>Local Daily Coverage</span>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white [text-wrap:balance]">
-                Key {area.name} Roadways &amp; Business Districts
+                Main {area.name} Roads &amp; Shopping Corridors We Serve
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Facilities and luxury estates across {area.name} depend on rapid dispatch along major commuter and commercial corridors. We provide tailored janitorial and maintenance schedules centered on these primary arteries:
+                Whether you live near the water, manage a busy neighborhood office, or host vacation guests, our friendly local crews travel {area.name}’s main roads every day for punctual, reliable visits:
               </p>
               <div className="pt-2 text-xs sm:text-sm text-white font-medium leading-relaxed">
                 {keyCorridors.map((corridor, idx) => (
@@ -201,12 +201,12 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
 
             <div className="pt-6 border-t border-white/10 space-y-3">
               <div className="text-xs text-slate-400 font-medium uppercase tracking-wider">
-                <span>Top Industries Served</span>
+                <span>Local Spaces We Clean</span>
                 <span aria-hidden="true" className="mx-1.5">·</span>
                 <span>{area.name}, FL</span>
               </div>
               <h4 className="text-base font-bold text-white">
-                Sectors Trusting Our Sanitation Protocols in {area.name}
+                Homes &amp; Workplaces We Care For in {area.name}
               </h4>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
                 {topIndustries.map((industry, idx) => (
@@ -221,7 +221,7 @@ export const ServiceAreaLocalGuide: React.FC<ServiceAreaLocalGuideProps> = ({
                       {industry}
                     </span>
                     <span className="text-xs text-slate-400 whitespace-nowrap shrink-0">
-                      Disinfected &amp; Maintained
+                      Spotless &amp; Cared For
                     </span>
                   </li>
                 ))}

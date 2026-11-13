@@ -54,9 +54,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   }, [drawerOpen]);
 
   const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
   return (
@@ -78,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           <div className="flex items-center gap-6 font-mono tabular-nums">
             <span className="inline-flex items-center gap-1.5 text-slate-300">
               <Clock className="w-3.5 h-3.5 text-[#a3e6be]" />
-              <span>Mon–Sun: 7:00 AM – 8:00 PM (24/7 Commercial)</span>
+              <span>Mon–Sun: 7:00 AM – 8:00 PM</span>
             </span>
             <span className="text-slate-600" aria-hidden="true">|</span>
             <a
@@ -93,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
 
       {/* Main Sticky Header */}
       <header className="site-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-8">
           {/* Zone 1: Brand Logo */}
           <Link
             to="/"
@@ -105,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               alt="South Florida Cleaning Concepts Logo"
               width="112"
               height="56"
-              className="h-12 sm:h-14 w-24 sm:w-28 object-contain"
+              className="h-11 lg:h-14 w-24 lg:w-28 object-contain"
             />
           </Link>
 
@@ -221,7 +220,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                 <Link
                   to="/service-areas"
                   className={`nav-link inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 py-2 transition-colors relative ${
-                    isActive('/service-area')
+                    isActive('/service-areas') || isActive('/service-area')
                       ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
                       : 'hover:text-[#071536]'
                   }`}
@@ -347,10 +346,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
           </div>
 
           {/* Mobile & Tablet Controls (< 1024px) */}
-          <div className="mobile-controls flex lg:hidden items-center gap-2.5">
+          <div className="mobile-controls flex lg:hidden items-center gap-2">
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="mobile-call-btn w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl bg-[#e8f5ee] text-[#12582e] border border-[#12582e]/20 hover:bg-[#12582e] hover:text-white transition-colors"
+              className="mobile-call-btn w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#e8f5ee] text-[#12582e] border border-[#12582e]/20 hover:bg-[#12582e] hover:text-white transition-colors"
               aria-label="Call South Florida Cleaning Concepts"
             >
               <Phone className="w-5 h-5" />
@@ -358,13 +357,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
             <button
               type="button"
               data-react-managed="true"
-              className="mobile-nav-toggle mobile-menu-toggle w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl border border-slate-200 bg-white text-[#071536] hover:bg-slate-50 transition-colors cursor-pointer"
+              className="mobile-nav-toggle mobile-menu-toggle w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl border border-slate-200 bg-white text-[#071536] hover:bg-slate-50 transition-colors cursor-pointer"
               aria-expanded={drawerOpen}
               aria-controls="mobile-nav-drawer"
               aria-label="Toggle navigation menu"
               onClick={() => syncDrawerDom(!drawerOpen)}
             >
-              {drawerOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

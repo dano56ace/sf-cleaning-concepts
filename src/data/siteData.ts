@@ -50,7 +50,7 @@ export const BUSINESS_NAP = {
   addressRegion: 'FL',
   addressCountry: 'US',
   priceRange: '$$',
-  hours: 'Monday – Sunday: 7:00 AM – 8:00 PM (24/7 Emergency Janitorial Available)',
+  hours: 'Monday – Sunday: 7:00 AM – 8:00 PM',
   areasServed: [
     'Palm Beach County',
     'Broward County',
@@ -615,7 +615,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
 
         ],
         bullets: [
-          "24/7 Assistance:South Florida Cleaning Concepts’ rapid response.",
+          "Fast Local Assistance: South Florida Cleaning Concepts’ rapid response.",
           "Damage Mitigation:Steps to minimize damage."
         ]
       },

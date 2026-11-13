@@ -1,41 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, Heart, Users, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Award, Heart, Users, Phone, ArrowRight } from 'lucide-react';
 import { BUSINESS_NAP } from '../data/siteData';
 import { RotationSystemSection } from '../components/ui/TrustBadges';
+import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 
 export const AboutPage: React.FC = () => {
   return (
     <article className="about-page">
-      {/* Subpage Hero Header */}
-      <section className="page-hero relative bg-[#071536] text-white py-20 lg:py-24 overflow-hidden border-b border-slate-800" aria-label="About Us Header">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <img
-            src="/assets/images/about/about-us-img-4.jpg"
-            alt="South Florida Cleaning Concepts Facility Background"
-            width="1920"
-            height="600"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071536] via-[#071536]/80 to-[#071536]/60" />
-        </div>
-        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="editorial-kicker-light mb-4 justify-center">
-            <span>Family-Owned Since 2004 · Your Local South Florida Neighbors</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4">
-            About Us
-          </h1>
-          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-            For over 20 years, our family-owned team has helped South Florida homeowners, vacation rental hosts, and local businesses enjoy spotless spaces—backed by our Love Your Clean or Don’t Pay guarantee.
-          </p>
-          <nav className="breadcrumbs flex items-center justify-center gap-2 text-xs font-mono font-semibold text-slate-300" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span aria-current="page" className="text-[#a3e6be]">About Us</span>
-          </nav>
-        </div>
-      </section>
+      <InteriorHero
+        ariaLabel="About Us Header"
+        align="center"
+        kicker="Family-Owned Since 2004 · Your Local South Florida Neighbors"
+        title="About Us"
+        description="For over 20 years, our family-owned team has helped South Florida homeowners, vacation rental hosts, and local businesses enjoy spotless spaces—backed by our Love Your Clean or Don’t Pay guarantee."
+        imageSrc={INTERIOR_HERO_IMAGES.coastalLiving}
+        imageAlt="Sunlit spotless South Florida coastal living room interior"
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'About Us' }
+        ]}
+      />
 
       {/* Main Story & Values Section */}
       <section className="section py-20 lg:py-24 bg-white" aria-labelledby="story-heading">

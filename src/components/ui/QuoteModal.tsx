@@ -75,7 +75,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, service
         <div className="modal-body overflow-y-auto p-6 sm:p-8">
           <QuoteForm
             idPrefix="modal-"
-            source={serviceTitle || 'Modal'}
+            source={serviceTitle ? `Quote Modal: ${serviceTitle}` : 'Quote Modal'}
             onSuccess={() => {
               // Keep modal open so user sees confirmation banner
             }}

@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../data/siteData';
 import { getBlogPostSchema } from '../data/blogSchemaData';
 import { QuoteForm } from '../components/ui/QuoteForm';
+import { InteriorHero, getInteriorHeroForSlug } from '../components/ui/InteriorHero';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const EXACT_BLOG_H1_MAP: Record<string, string> = {
@@ -50,54 +51,27 @@ export const BlogPostPage: React.FC = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
         />
       )}
-      {/* Article Header */}
-      <section className="relative bg-[#07111a] text-white py-20 lg:py-24 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={post.image}
-            alt={exactH1}
-            className="w-full h-full object-cover opacity-25"
-            width="1920"
-            height="700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07111a] via-[#07111a]/85 to-[#07111a]/60"></div>
-          <div className="absolute inset-0 bg-architectural-grid opacity-15"></div>
+      {/* Article Parallax Interior Header */}
+      <InteriorHero
+        ariaLabel={`${exactH1} Header`}
+        kicker={`${post.category} · Helpful Cleaning Guide`}
+        title={exactH1}
+        imageSrc={getInteriorHeroForSlug(post.slug)}
+        imageAlt={`${post.category} spotless South Florida interior`}
+        breadcrumbs={[
+          { label: 'Home', to: '/' },
+          { label: 'Our Publications', to: '/our-publications' },
+          { label: post.category }
+        ]}
+      >
+        <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-200">
+          <span className="font-semibold text-white">By South Florida Cleaning Concepts</span>
+          <span aria-hidden="true" className="text-white/50">·</span>
+          <span>{post.date}</span>
+          <span aria-hidden="true" className="text-white/50">·</span>
+          <span className="text-[#a3e6be] tabular-nums">{post.readTime}</span>
         </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-slate-400 mb-6"
-          >
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-slate-600">/</span>
-            <Link to="/our-publications" className="hover:text-white transition-colors">
-              Our Publications
-            </Link>
-            <span className="text-slate-600">/</span>
-            <span className="text-[#4fd18b] font-semibold">{post.category}</span>
-          </nav>
-
-          <div className="editorial-kicker-light mb-4">
-            {post.category} · Helpful Cleaning Guide
-          </div>
-
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 leading-[1.12] text-white">
-            {exactH1}
-          </h1>
-
-          {/* Unboxed inline metadata separated by middot */}
-          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-300">
-            <span className="font-semibold text-white">By South Florida Cleaning Concepts</span>
-            <span aria-hidden="true" className="text-slate-500">·</span>
-            <span>{post.date}</span>
-            <span aria-hidden="true" className="text-slate-500">·</span>
-            <span className="text-[#4fd18b] tabular-nums">{post.readTime}</span>
-          </div>
-        </div>
-      </section>
+      </InteriorHero>
 
       {/* Article Body & Sidebar */}
       <section className="py-16 lg:py-24">
@@ -187,7 +161,20 @@ export const BlogPostPage: React.FC = () => {
 
             {/* Sidebar Quote Form */}
             <aside className="lg:col-span-5 lg:sticky lg:top-28 space-y-8">
-              <QuoteForm source={`Blog: ${post.title}`} />
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-4">
+                <div className="pb-3 border-b border-slate-200/80">
+                  <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#2a8655] font-bold block mb-1">
+                    Fast, Honest South Florida Pricing
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] tracking-tight">
+                    Get Your Free Cleaning Quote
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                    Tell us a bit about your home, rental, or workplace and our local team will reply promptly.
+                  </p>
+                </div>
+                <QuoteForm idPrefix="blog-" source={`Blog: ${post.title}`} />
+              </div>
             </aside>
           </div>
         </div>
