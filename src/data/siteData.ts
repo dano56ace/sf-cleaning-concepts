@@ -40,17 +40,37 @@ export interface TestimonialItem {
   rating: number;
 }
 
+export interface PromoVideoItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  src: string;
+  poster: string;
+  category: string;
+  durationLabel: string;
+  sourceUrl: string;
+}
+
 export const BUSINESS_NAP = {
   name: 'South Florida Cleaning Concepts',
   legalName: 'South Florida Cleaning Concepts LLC',
   phone: '(561) 704-5303',
   phoneRaw: '5617045303',
   email: 'Sflcleaningco@gmail.com',
+  facebookUrl: 'https://www.facebook.com/SFCLEAN',
+  facebookHandle: '@SFCLEAN',
   addressLocality: 'Boynton Beach',
   addressRegion: 'FL',
   addressCountry: 'US',
   priceRange: '$$',
   hours: 'Monday – Sunday: 7:00 AM – 8:00 PM',
+  ratingScore: '4.8',
+  reviewCountLabel: '100+ Verified Local Reviews',
+  websiteDiscountHeadline: '12% Off When Booking From Our Website',
+  websiteDiscountDetail: 'Save 12% on your first clean when you request your booking directly through our website.',
+  careersHeadline: 'We Are Hiring!',
+  careersDescription: 'Interested in working with us? Learn more about our process, competitive pay, thorough training, and flexible South Florida scheduling.',
   areasServed: [
     'Palm Beach County',
     'Broward County',
@@ -63,6 +83,67 @@ export const BUSINESS_NAP = {
     'Fort Lauderdale'
   ],
   guarantee: '100% Love-Your-Clean Guarantee: If you aren’t completely thrilled with how your space looks and feels, let us know within 24 hours and we’ll come right back to re-clean for free—or you don’t pay a dime.'
+};
+
+export const PROMO_VIDEOS: PromoVideoItem[] = [
+  {
+    id: 'promo-video-1',
+    title: 'Homes & Offices in Action',
+    subtitle: 'Featured Promotional Reel',
+    description: 'Watch our trained South Florida specialists detail kitchens, living areas, and commercial workspaces using EPA-registered, family-safe products and our 4-Step Rotation System.',
+    src: '/assets/videos/promo-video-1.mp4',
+    poster: '/assets/videos/h1-video-button-img-2.jpg',
+    category: 'Residential & Commercial',
+    durationLabel: 'HD Reel 01',
+    sourceUrl: 'https://sfcleaningconcepts.com/wp-content/uploads/2023/05/promo-video-1.mp4'
+  },
+  {
+    id: 'promo-video-2',
+    title: 'Deep Cleaning & Online Booking Spotlight',
+    subtitle: '12% Website Booking Promo',
+    description: 'See why South Florida homeowners, vacation rental hosts, and medical suites rate us 4.8+ stars—and how booking directly through our website saves 12% on your first visit.',
+    src: '/assets/videos/promo-video-2.mp4',
+    poster: '/assets/videos/video-poster-2.jpeg',
+    category: 'Deep Clean & Disinfection',
+    durationLabel: 'HD Reel 02',
+    sourceUrl: 'https://sfcleaningconcepts.com/wp-content/uploads/2023/05/promo-video-2.mp4'
+  },
+  {
+    id: 'main-home-video-1',
+    title: 'Inside Our 50-Point Sparkle Checklist',
+    subtitle: 'Team Walkthrough Reel',
+    description: 'A closer look at our background-checked crew polishing fixtures, sanitizing high-touch surfaces, and preparing South Florida homes to shine from floor to ceiling.',
+    src: '/assets/videos/main-home-video-1.mp4',
+    poster: '/assets/images/about/h1-img-9.jpg',
+    category: 'Quality Standards',
+    durationLabel: '0:32 Reel',
+    sourceUrl: 'https://sfcleaningconcepts.com/wp-content/uploads/2022/11/main-home-video-1.mp4'
+  },
+  {
+    id: 'bg-video',
+    title: 'Surface Sanitization & Detail Care',
+    subtitle: 'On-Site Crew Highlights',
+    description: 'From streak-free interior glass and stone countertops to hospital-grade touchpoint disinfection across Palm Beach, Broward, and Miami-Dade counties.',
+    src: '/assets/videos/bg_video.mp4',
+    poster: '/assets/videos/bg_video_13.jpeg',
+    category: 'Sanitization & Polish',
+    durationLabel: 'HD Reel 04',
+    sourceUrl: 'https://sfcleaningconcepts.com/wp-content/uploads/2023/05/bg_video.mp4'
+  }
+];
+
+export const LEGACY_WP_POST_SLUGS: Record<string, string> = {
+  'revitalize-your-office-space-with-south-florida-cleaning-concepts-unleashing-the-power-of-a-pristine-workspace': 'revitalize-your-office-space',
+  'south-florida-cleaning-concepts-complete-guide-to-home-cleaning-tips-and-tricks': 'complete-guide-to-home-cleaning',
+  'shining-a-light-on-clean-how-restaurant-and-bar-cleaning-services-enhance-your-business': 'restaurant-and-bar-cleaning-services',
+  'office-cleaning-made-easy-with-south-florida-cleaning-concepts': 'office-cleaning-made-easy',
+  'short-term-rental-cleaning-with-south-florida-cleaning-concepts-the-ultimate-guide': 'short-term-rental-cleaning-guide',
+  'high-quality-cleaning-services-south-florida-with-south-florida-cleaning-concepts': 'high-quality-cleaning-services-south-florida',
+  'medical-office-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide': 'medical-office-cleaning-guide',
+  'deep-cleaning-for-homes-and-offices-with-south-florida-cleaning-concepts': 'deep-cleaning-for-homes-and-offices',
+  'post-construction-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide': 'post-construction-cleaning-guide',
+  'maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts': 'south-florida-home-maintenance-services',
+  'revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services': 'residential-cleaning-services-journey'
 };
 
 export const TRUST_BADGES = [
@@ -277,23 +358,23 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     slug: 'home-maintenance',
     title: 'Comprehensive Home Maintenance',
-    shortDesc: 'Reclaim your weekends and come home to a house that feels like a luxury resort—with weekly, bi-weekly, or monthly care.',
-    fullDesc: 'Life in South Florida is meant to be enjoyed at the beach, on the water, or with your family—not spent scrubbing toilets and dusting blinds every Saturday. Our recurring home cleaning service uses our 4-Step Rotation System to keep your entire house consistently spotless, while tackling Florida humidity, sand, pet hair, and dust using safe, kid- and pet-friendly products.',
+    shortDesc: 'Reclaim your weekends and come home to a house that feels like a luxury resort—with weekly, bi-weekly, every-3-week, or monthly care.',
+    fullDesc: 'Life in South Florida is meant to be enjoyed at the beach, on the water, or with your family—not spent scrubbing toilets and dusting blinds every Saturday. Our recurring home maintenance service uses our 4-Step Rotation System to keep your entire house consistently spotless, tackling Florida humidity, sand, pet hair, and dust with EPA-registered, kid- and pet-friendly products—plus optional pressure washing, window cleaning, and gutter maintenance upon request.',
     image: '/assets/images/services/young-woman-standing-indoors-at-home-cleaning-win-2022-02-02-04-49-03-utc-Large.jpg',
     iconName: 'Wrench',
     features: [
-      'Flexible weekly, bi-weekly, or monthly visits built around your schedule',
+      'Flexible weekly, every-2-week, every-3-week, or monthly visits built around your schedule',
       'Our 4-Step Rotation System keeps baseboards, fans, and grout clean with no extra fees',
-      'AC vent and ceiling fan dusting so your indoor air stays fresh and allergen-free',
-      'Sliding glass doors, patio tables, and entryways wiped free of salt and sand',
-      'Non-toxic, eco-friendly cleaning products that are 100% safe for kids and pets'
+      'Optional exterior add-ons available: pressure washing, window cleaning, and gutter care',
+      'Sliding glass doors, AC vents, patio tables, and entryways wiped free of salt and dust',
+      'EPA-registered, eco-friendly cleaning products that are 100% safe for kids and pets'
     ],
     checklist: [
       'Rotate deep-clean attention across Kitchens, Bathrooms, and Living Spaces each visit',
       'Vacuum carpets, rugs, sofa cushions, and underneath accessible furniture',
-      'Dust blinds, ceiling fans, picture frames, lamps, and baseboards',
+      'Dust blinds, ceiling fans, picture frames, lamps, AC vents, and baseboards',
       'Scrub showers, tubs, sinks, and toilets and polish mirrors and faucets',
-      'Mop hardwood, marble, travertine, or tile floors with gentle, pH-balanced cleaners'
+      'Mop hardwood, marble, travertine, or tile floors and coordinate exterior window or pressure-wash care on request'
     ],
     benefits: [
       'Get 5+ hours of your free time back every single week',
@@ -331,26 +412,26 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     slug: 'home-watching',
     title: 'Professional Home Watching Services',
-    shortDesc: 'Travel with total peace of mind—we check on your South Florida home every week, spot leaks early, and send you photo updates.',
-    fullDesc: 'Leaving your South Florida home empty for the summer or while traveling can be nerve-wracking. One clogged AC line, roof leak, or tripped breaker in Florida’s heat can cause thousands in mold damage within days. Our trusted Home Watch specialists walk your property inside and out, check your AC and plumbing, bring in packages, prep for storms, and send you a photo report after every visit.',
+    shortDesc: 'Travel with total peace of mind—we check on your South Florida home every week, monitor AC and refrigeration, spot leaks early, and send photo updates.',
+    fullDesc: 'Leaving your South Florida home empty for the summer or while traveling can be nerve-wracking. One clogged AC line, roof leak, or tripped breaker spoiling your refrigerator in Florida’s heat can cause thousands in damage within days. Our trusted Home Watch specialists walk your property inside and out, check your AC, humidity, plumbing, and refrigerators/freezers, bring in packages, prep for storms, and send you a photo report after every visit.',
     image: '/assets/images/services/a-hotel-room-service-cleaning-the-floor-2022-11-08-10-55-57-utc-Large.jpeg',
     iconName: 'Eye',
     features: [
       'Weekly or bi-weekly walkthroughs of your home’s interior and exterior',
       'AC temperature, indoor humidity, and drain line checks to stop mold before it starts',
-      'Flushing toilets and running faucets so plumbing traps never dry out',
-      'Storm and hurricane prep plus fast post-storm property checks',
+      'Refrigerator, wine cooler, and freezer monitoring to catch power blips before spoilage',
+      'Flushing toilets, running faucets, and hurricane/post-storm readiness checks',
       'Instant digital report with timestamped photos texted or emailed to you'
     ],
     checklist: [
       'Walk the exterior, windows, lanai, and doors to make sure everything is secure',
       'Check ceilings, walls, under sinks, and water heaters for any sign of leaks',
-      'Verify AC thermostat and humidity levels and swap air filters when needed',
-      'Run all faucets, disposals, and flush toilets to keep drains fresh',
+      'Verify AC thermostat, indoor humidity, and refrigerator/freezer operation',
+      'Run all faucets, disposals, and flush toilets so plumbing traps never dry out',
       'Collect mail and packages and make sure pool and lawn crews are showing up'
     ],
     benefits: [
-      'Catch small AC or plumbing leaks before they turn into costly repairs',
+      'Catch small AC, appliance, or plumbing issues before they turn into costly repairs',
       'Meet homeowner insurance check-in rules for seasonal or vacant homes',
       'Enjoy your time away knowing a local team you trust is watching over your home'
     ]
@@ -1684,9 +1765,9 @@ export const BLOG_POSTS: BlogPostItem[] = [
         ]
       },
       {
-        heading: "**3.2 South Florida Cleaning Concepts: Your Partner in Boosting Employee Morale and Productivity",
+        heading: "3.2 South Florida Cleaning Concepts: Your Partner in Boosting Employee Morale and Productivity",
         paragraphs: [
-          "A clean work environment can work wonders on employee morale and productivity. As outlined by a study, a clean workspace creates a positive environment that helps employees increase their focus. Cluttered and unorganized workspaces, on the other hand, can demotivate and distract employees, preventing them from giving their best【6†source】. South Florida Cleaning Concepts helps create this positive environment by maintaining a pristine workspace that your employees can be proud of."
+          "A clean work environment can work wonders on employee morale and productivity. As outlined by workplace productivity research, a clean workspace creates a positive environment that helps employees increase their focus. Cluttered and unorganized workspaces, on the other hand, can demotivate and distract employees, preventing them from giving their best. South Florida Cleaning Concepts helps create this positive environment by maintaining a pristine workspace that your employees can be proud of."
         ]
       },
       {
@@ -1771,24 +1852,45 @@ export const FAQS_LIST: FaqItem[] = [
   },
   {
     category: 'residential',
-    question: 'How fast can I get a free price quote?',
-    answer: 'In just a few minutes! Use our instant price calculator right on this page, fill out our quick 4-box quote form, or call/text us at (561) 704-5303. We’ll give you a clear, honest price with zero pressure and no hidden fees.'
+    question: 'How fast can I get a free price quote—and do you offer an online booking discount?',
+    answer: 'In just a few minutes! Even better, you save 12% on your first clean when you book directly through our website. Use our instant price calculator right on this page, fill out our quick 4-box quote form, or call/text us at (561) 704-5303 for a clear, honest price with zero pressure.'
   }
 ];
 
 export const CLIENT_TESTIMONIALS: TestimonialItem[] = [
   {
+    quote: 'I have used South Florida Cleaning Concepts for years for their professionalism and quality. Patients and guests constantly compliment how clean and welcoming our offices feel, and their crew never misses a detail.',
+    author: 'Lindsey J. Crowley',
+    role: 'Long-Term Commercial & Medical Client',
+    location: 'West Palm Beach, FL',
+    rating: 5
+  },
+  {
+    quote: 'Their cleaning services are exceptional, catering to all domestic requirements with precision. I’m genuinely impressed with their work and would strongly recommend them to anyone in need.',
+    author: 'Adrian James',
+    role: 'Residential Homeowner',
+    location: 'South Florida',
+    rating: 5
+  },
+  {
+    quote: 'Opting for South Florida Cleaning Concepts was undoubtedly a top-notch decision. Their distinctive cleaning services, coupled with their comprehensive home assistance, set them apart.',
+    author: 'Una Walker',
+    role: 'Home Maintenance & Watch Client',
+    location: 'South Florida',
+    rating: 5
+  },
+  {
+    quote: 'South Florida Cleaning Concepts consistently fulfills my expectations, boasting a team of meticulously trained cleaning specialists. They place immense value on ensuring customer satisfaction.',
+    author: 'Sonia Paige',
+    role: 'Recurring Residential Client',
+    location: 'South Florida',
+    rating: 5
+  },
+  {
     quote: 'Walking into my house on cleaning day is honestly the best feeling in the world. Everything smells fresh, the shower glass actually sparkles, and I get my whole Saturday back with my kids!',
     author: 'Elena & David Ross',
     role: 'Homeowners',
     location: 'Boynton Beach, FL',
-    rating: 5
-  },
-  {
-    quote: 'We’ve used South Florida Cleaning Concepts for years at our medical offices. Patients constantly compliment how clean and welcoming our waiting room feels, and their crew never misses a detail.',
-    author: 'Lindsey J. Crowley',
-    role: 'Medical Practice Director',
-    location: 'West Palm Beach, FL',
     rating: 5
   },
   {

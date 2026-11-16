@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
-import { CLIENT_TESTIMONIALS } from '../../data/siteData';
+import { BUSINESS_NAP, CLIENT_TESTIMONIALS } from '../../data/siteData';
 
 const COMMERCIAL_PARTNERS = [
   { name: "Chili's Grill & Bar", logo: '/assets/images/clients/chillis.jpg', sector: 'Hospitality & Dining' },
@@ -32,7 +32,7 @@ export const TestimonialsSlider: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>5-Star Local Reviews · Real South Florida Neighbors</span>
+              <span>{BUSINESS_NAP.ratingScore} Stars · {BUSINESS_NAP.reviewCountLabel} · Real South Florida Neighbors</span>
             </div>
             <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
               See Why Your Neighbors Love Coming Home to Our Clean
@@ -53,7 +53,7 @@ export const TestimonialsSlider: React.FC = () => {
               <ChevronLeft className="w-5 h-5" />
             </button>
             <span className="font-mono text-xs font-bold text-slate-500 px-2 tabular-nums">
-              0{currentIdx + 1} / 0{CLIENT_TESTIMONIALS.length}
+              {String(currentIdx + 1).padStart(2, '0')} / {String(CLIENT_TESTIMONIALS.length).padStart(2, '0')}
             </span>
             <button
               type="button"
@@ -106,7 +106,7 @@ export const TestimonialsSlider: React.FC = () => {
           </div>
 
           {/* Client Selector Stack (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-3">
+          <div className="lg:col-span-4 flex flex-col justify-between gap-2">
             {CLIENT_TESTIMONIALS.map((item, idx) => {
               const isSelected = idx === currentIdx;
               return (
@@ -114,7 +114,7 @@ export const TestimonialsSlider: React.FC = () => {
                   key={idx}
                   type="button"
                   onClick={() => setCurrentIdx(idx)}
-                  className={`w-full text-left p-4 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                  className={`w-full text-left py-2.5 px-3.5 min-h-[52px] rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                     isSelected
                       ? 'bg-[#e8f5ee]/80 border-[#12582e] text-[#071536] shadow-xs'
                       : 'bg-slate-50/80 border-slate-200/80 text-slate-700 hover:bg-white hover:border-slate-300'
@@ -133,7 +133,7 @@ export const TestimonialsSlider: React.FC = () => {
                       isSelected ? 'text-[#12582e]' : 'text-slate-400'
                     }`}
                   >
-                    0{idx + 1}
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
                 </button>
               );

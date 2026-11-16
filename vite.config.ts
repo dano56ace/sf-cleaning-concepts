@@ -8,32 +8,50 @@ export default defineConfig({
     {
       name: 'spa-route-rewrite',
       configureServer(server) {
+        const legacyWpPostPaths = new Set([
+          '/revitalize-your-office-space-with-south-florida-cleaning-concepts-unleashing-the-power-of-a-pristine-workspace',
+          '/south-florida-cleaning-concepts-complete-guide-to-home-cleaning-tips-and-tricks',
+          '/shining-a-light-on-clean-how-restaurant-and-bar-cleaning-services-enhance-your-business',
+          '/office-cleaning-made-easy-with-south-florida-cleaning-concepts',
+          '/short-term-rental-cleaning-with-south-florida-cleaning-concepts-the-ultimate-guide',
+          '/high-quality-cleaning-services-south-florida-with-south-florida-cleaning-concepts',
+          '/medical-office-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide',
+          '/deep-cleaning-for-homes-and-offices-with-south-florida-cleaning-concepts',
+          '/post-construction-cleaning-with-south-florida-cleaning-concepts-a-comprehensive-guide',
+          '/maximize-the-beauty-of-your-home-south-florida-home-maintenance-services-with-south-florida-cleaning-concepts',
+          '/revitalize-your-home-a-journey-with-south-florida-cleaning-concepts-residential-cleaning-services',
+        ]);
         server.middlewares.use((req, _res, next) => {
           if (req.url) {
-            const pathname = req.url.split('?')[0];
+            const rawPathname = req.url.split('?')[0];
+            const cleanPathname =
+              rawPathname.length > 1 && rawPathname.endsWith('/')
+                ? rawPathname.slice(0, -1)
+                : rawPathname;
             const isSpaRoute =
-              pathname === '/about-us' ||
-              pathname === '/about-us.html' ||
-              pathname === '/our-services' ||
-              pathname === '/our-services.html' ||
-              pathname === '/contact-us' ||
-              pathname === '/contact-us.html' ||
-              pathname === '/faqs' ||
-              pathname === '/faqs.html' ||
-              pathname === '/our-publications' ||
-              pathname === '/our-publications.html' ||
-              pathname === '/404' ||
-              pathname === '/404.html' ||
-              pathname === '/service' ||
-              pathname === '/service/' ||
-              pathname === '/service/index.html' ||
-              pathname.startsWith('/service/') ||
-              pathname === '/service-areas' ||
-              pathname === '/service-areas.html' ||
-              pathname === '/service-areas/' ||
-              pathname.startsWith('/service-area/') ||
-              pathname.startsWith('/blog/');
-            if (isSpaRoute && !pathname.match(/\.(js|ts|tsx|css|png|jpg|jpeg|svg|gif|webp|mp4|mp3|woff2?|xml|txt|json)$/i)) {
+              cleanPathname === '/about-us' ||
+              cleanPathname === '/about-us.html' ||
+              cleanPathname === '/our-services' ||
+              cleanPathname === '/our-services.html' ||
+              cleanPathname === '/contact-us' ||
+              cleanPathname === '/contact-us.html' ||
+              cleanPathname === '/contact' ||
+              cleanPathname === '/contact.html' ||
+              cleanPathname === '/faqs' ||
+              cleanPathname === '/faqs.html' ||
+              cleanPathname === '/our-publications' ||
+              cleanPathname === '/our-publications.html' ||
+              cleanPathname === '/404' ||
+              cleanPathname === '/404.html' ||
+              cleanPathname === '/service' ||
+              cleanPathname === '/service/index.html' ||
+              rawPathname.startsWith('/service/') ||
+              cleanPathname === '/service-areas' ||
+              cleanPathname === '/service-areas.html' ||
+              rawPathname.startsWith('/service-area/') ||
+              rawPathname.startsWith('/blog/') ||
+              legacyWpPostPaths.has(cleanPathname);
+            if (isSpaRoute && !rawPathname.match(/\.(js|ts|tsx|css|png|jpg|jpeg|svg|gif|webp|mp4|mp3|woff2?|xml|txt|json)$/i)) {
               req.url = '/index.html';
             }
           }
@@ -94,10 +112,15 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: '0.0.0.0',
+    allowedHosts: true,
+    hmr: process.env.DISABLE_HMR !== 'true',
     open: false,
   },
   preview: {
     port: 4173,
+    host: '0.0.0.0',
+    allowedHosts: true,
     open: false,
   },
 });

@@ -5,7 +5,8 @@ import {
   BUSINESS_NAP,
   SERVICES_CATALOG,
   BLOG_POSTS,
-  FAQS_LIST
+  FAQS_LIST,
+  PROMO_VIDEOS
 } from '../../data/siteData';
 import { extractTelNumber, trackClickToCall, trackSpaPageView } from '../../utils/analytics';
 
@@ -31,6 +32,13 @@ function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<st
     email: BUSINESS_NAP.email,
     priceRange: BUSINESS_NAP.priceRange,
     image: `${SITE_URL}/assets/images/hero/video-poster-2.jpeg`,
+    sameAs: [BUSINESS_NAP.facebookUrl],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: BUSINESS_NAP.ratingScore,
+      reviewCount: '104',
+      bestRating: '5'
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: BUSINESS_NAP.addressLocality,
@@ -51,6 +59,17 @@ function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<st
     }))
   };
 
+  const promoVideoNodes = PROMO_VIDEOS.slice(0, 2).map((video) => ({
+    '@type': 'VideoObject',
+    '@id': `${SITE_URL}/#${video.id}`,
+    name: `${BUSINESS_NAP.name} — ${video.title}`,
+    description: video.description,
+    thumbnailUrl: `${SITE_URL}${video.poster}`,
+    contentUrl: `${SITE_URL}${video.src}`,
+    uploadDate: '2023-05-15T12:00:00Z',
+    publisher: { '@id': `${SITE_URL}/#organization` }
+  }));
+
   if (normalizedPath === '/') {
     return {
       '@context': 'https://schema.org',
@@ -62,7 +81,8 @@ function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<st
           url: `${SITE_URL}/`,
           name: BUSINESS_NAP.name,
           publisher: { '@id': `${SITE_URL}/#organization` }
-        }
+        },
+        ...promoVideoNodes
       ]
     };
   }
@@ -186,7 +206,8 @@ function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<st
           name: meta.title,
           description: meta.description,
           about: { '@id': `${SITE_URL}/#organization` }
-        }
+        },
+        ...(normalizedPath === '/about-us' ? promoVideoNodes : [])
       ]
     };
   }

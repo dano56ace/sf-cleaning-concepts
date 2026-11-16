@@ -7,6 +7,7 @@ import { TestimonialsSlider } from '../components/ui/TestimonialsSlider';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { RecentBlogPosts } from '../components/ui/RecentBlogPosts';
+import { PromoVideoShowcase } from '../components/ui/PromoVideoShowcase';
 import {
   ServiceSlideshowBackdrop,
   SlideshowIndicators,
@@ -189,6 +190,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
           </div>
         </div>
       </section>
+
+      {/* 3B. Scraped Source Promotional Video Showcase & 12% Website Booking Offer */}
+      <PromoVideoShowcase onOpenQuoteModal={onOpenQuoteModal} />
 
       {/* 4. Interactive Scope, Crew & Rate Estimator */}
       <CleaningEstimator onSelectEstimate={(serviceTitle) => onOpenQuoteModal?.(serviceTitle)} />

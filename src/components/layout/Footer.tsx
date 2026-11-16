@@ -84,6 +84,17 @@ export const Footer: React.FC = () => {
                 <Clock className="w-4 h-4 text-[#a3e6be] shrink-0" />
                 <span>Mon–Sun: 7:00 AM – 8:00 PM</span>
               </li>
+              <li className="flex items-center gap-3">
+                <ArrowUpRight className="w-4 h-4 text-[#a3e6be] shrink-0" />
+                <a
+                  href={BUSINESS_NAP.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Follow Us on Facebook ({BUSINESS_NAP.facebookHandle})
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -113,6 +124,9 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/our-publications" className="hover:text-white transition-colors">Cleaning Tips</Link>
+              </li>
+              <li>
+                <Link to="/about-us#careers" className="hover:text-white transition-colors">We’re Hiring</Link>
               </li>
               <li>
                 <Link to="/contact-us" className="text-[#a3e6be] font-semibold hover:text-white transition-colors">

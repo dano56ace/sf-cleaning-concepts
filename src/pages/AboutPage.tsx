@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, Heart, Users, Phone, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Award, Heart, Users, Phone, ArrowRight, Briefcase, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_NAP } from '../data/siteData';
 import { RotationSystemSection } from '../components/ui/TrustBadges';
+import { PromoVideoShowcase } from '../components/ui/PromoVideoShowcase';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import {
   ServiceSlideshowBackdrop,
@@ -10,7 +11,11 @@ import {
   useAutoRotatingSlideshow,
 } from '../components/ui/ServiceSlideshowBackdrop';
 
-export const AboutPage: React.FC = () => {
+export interface AboutPageProps {
+  onOpenQuoteModal?: (serviceTitle?: string) => void;
+}
+
+export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
   const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(3);
   return (
     <article className="about-page">
@@ -174,8 +179,69 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Scraped Source Promotional Video Showcase */}
+      <PromoVideoShowcase onOpenQuoteModal={onOpenQuoteModal} />
+
       {/* Rotation System Section */}
       <RotationSystemSection />
+
+      {/* Authentic Source Careers Section: We Are Hiring! */}
+      <section
+        id="careers"
+        data-testid="careers-hiring-section"
+        className="section py-16 lg:py-20 bg-slate-50 border-t border-slate-200/80 scroll-mt-24"
+        aria-labelledby="about-careers-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <div className="editorial-kicker mb-3">
+                <span>Careers Across Palm Beach, Broward &amp; Miami-Dade</span>
+              </div>
+              <h2
+                id="about-careers-heading"
+                className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-3"
+              >
+                {BUSINESS_NAP.careersHeadline} Join Our Friendly Cleaning Crew
+              </h2>
+              <p className="text-slate-600 text-base leading-relaxed mb-6 max-w-2xl">
+                {BUSINESS_NAP.careersDescription} We treat our team like family—with steady local routes, paid hands-on training, and all equipment provided.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-semibold text-slate-700 p-0 m-0 list-none">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
+                  <span>Competitive Pay &amp; Weekly Tips</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
+                  <span>Flexible Daytime or Evening Routes</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
+                  <span>Supportive Family-Owned Culture</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-stretch gap-3">
+              <Link
+                to="/contact-us#careers"
+                className="btn btn-primary bg-[#071536] hover:bg-[#12582e] text-white font-bold py-3.5 px-6 min-h-[48px] rounded-xl text-sm transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
+              >
+                <Briefcase className="w-4 h-4 text-[#a3e6be]" />
+                <span>Apply or Ask About Openings</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href={`mailto:${BUSINESS_NAP.email}?subject=Careers%20Inquiry%20-%20South%20Florida%20Cleaning%20Concepts`}
+                className="py-3 px-5 min-h-[44px] rounded-xl border border-slate-200 hover:border-[#071536] text-xs sm:text-sm font-mono font-bold text-[#071536] text-center transition-colors inline-flex items-center justify-center whitespace-nowrap"
+              >
+                Email Resume: {BUSINESS_NAP.email}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action with Hero Slideshow */}
       <section className="section py-16 lg:py-20 bg-white border-t border-slate-200/80" aria-label="About Us Call to Action">

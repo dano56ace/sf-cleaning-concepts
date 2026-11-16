@@ -200,11 +200,11 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
               id="exit-intent-heading"
               className="text-2xl sm:text-3xl lg:text-[2.15rem] font-extrabold text-white leading-[1.12] tracking-tight drop-shadow-md [text-wrap:balance]"
             >
-              Claim <span className="text-[#a3e6be]">$35 Off</span> Your First Deep Clean—Or a Free Walkthrough
+              Claim <span className="text-[#a3e6be]">12% Off</span> When You Book Directly From Our Website
             </h2>
 
             <p className="text-sm sm:text-base text-white/95 leading-relaxed m-0 drop-shadow-xs">
-              Leaving so soon? Let our family-owned South Florida crew give you your weekends back—with kid- and pet-safe supplies and zero surprise fees.
+              Leaving so soon? Lock in your 12% online website booking discount—and let our 4.8-star South Florida crew give you your weekends back with zero surprise fees.
             </p>
 
             <ul className="space-y-2 text-xs sm:text-sm font-semibold text-white p-0 m-0 list-none pt-3 border-t border-white/20">
@@ -249,7 +249,7 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
                   No Contracts · Honest Flat-Rate Pricing
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#071536] leading-tight">
-                  Get Your Free Quote &amp; $35 Credit
+                  Get Your Free Quote &amp; 12% Savings
                 </h3>
                 <p className="text-xs text-slate-600 mt-1 m-0">
                   Share a few quick details below and our friendly local team will text or call you right back.
@@ -268,7 +268,7 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
 
             <QuoteForm
               idPrefix="exit-"
-              source="Exit Intent Slideshow Banner ($35 Off First Deep Clean)"
+              source="Exit Intent Slideshow Banner (12% Website Booking Discount)"
             />
           </div>
 

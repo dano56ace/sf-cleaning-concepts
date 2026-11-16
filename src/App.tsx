@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
@@ -21,6 +21,7 @@ import { BlogPostPage } from './pages/BlogPostPage';
 import { ContactPage } from './pages/ContactPage';
 import { FaqsPage } from './pages/FaqsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { LEGACY_WP_POST_SLUGS } from './data/siteData';
 
 export function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -42,8 +43,8 @@ export function App() {
           <Routes>
             <Route path="/" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/index.html" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/about-us" element={<AboutPage />} />
-            <Route path="/about-us.html" element={<AboutPage />} />
+            <Route path="/about-us" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+            <Route path="/about-us.html" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/our-services" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/our-services.html" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/service" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
@@ -55,6 +56,13 @@ export function App() {
             <Route path="/our-publications" element={<PublicationsPage />} />
             <Route path="/our-publications.html" element={<PublicationsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            {Object.entries(LEGACY_WP_POST_SLUGS).map(([legacySlug, targetSlug]) => (
+              <Route
+                key={legacySlug}
+                path={`/${legacySlug}`}
+                element={<Navigate to={`/blog/${targetSlug}`} replace />}
+              />
+            ))}
             <Route path="/contact-us" element={<ContactPage />} />
             <Route path="/contact-us.html" element={<ContactPage />} />
             <Route path="/contact" element={<ContactPage />} />

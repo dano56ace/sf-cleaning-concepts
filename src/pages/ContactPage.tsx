@@ -2,7 +2,7 @@ import React from 'react';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import { BUSINESS_NAP } from '../data/siteData';
-import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Phone, Mail, Clock, MapPin, Briefcase, ExternalLink } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   return (
@@ -29,13 +29,13 @@ export const ContactPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg">
                 <div className="mb-7 pb-5 border-b border-slate-100">
                   <div className="editorial-kicker mb-2">
-                    Fast Online Booking &amp; Free Quote
+                    Fast Online Booking · Save 12% When Booking Online
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-1.5 tracking-tight">
                     Get Your Free Cleaning Quote
                   </h2>
                   <p className="text-slate-500 text-sm">
-                    Fill out the 4 quick fields below and our friendly local team will call or text you right back with an honest price.
+                    Fill out the 4 quick fields below to lock in your 12% online website booking discount—our local team will call or text you right back.
                   </p>
                 </div>
                 <QuoteForm source="Contact Page" />
@@ -106,6 +106,23 @@ export const ContactPage: React.FC = () => {
                       </p>
                     </div>
                   </div>
+
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[11px] font-mono text-slate-400 uppercase tracking-[0.14em] font-semibold">
+                        Follow Us on Facebook
+                      </p>
+                      <a
+                        href={BUSINESS_NAP.facebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold text-[#a3e6be] hover:text-white transition-colors inline-flex items-center gap-1.5 mt-1"
+                      >
+                        <span>facebook.com/SFCLEAN</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -147,6 +164,30 @@ export const ContactPage: React.FC = () => {
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {BUSINESS_NAP.guarantee}
                   </p>
+                </div>
+              </div>
+
+              <div
+                id="careers"
+                data-testid="contact-careers-card"
+                className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm flex items-start gap-4 scroll-mt-24"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#071536] text-[#a3e6be] flex items-center justify-center shrink-0">
+                  <Briefcase className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-[#0b1926] mb-1">
+                    {BUSINESS_NAP.careersHeadline} Join Our Team
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-2">
+                    {BUSINESS_NAP.careersDescription} Send a quick note in our form on this page or email us directly to apply.
+                  </p>
+                  <a
+                    href={`mailto:${BUSINESS_NAP.email}?subject=Careers%20Application%20-%20South%20Florida%20Cleaning%20Concepts`}
+                    className="text-xs font-mono font-bold text-[#12582e] hover:underline"
+                  >
+                    Apply via Email →
+                  </a>
                 </div>
               </div>
             </div>
