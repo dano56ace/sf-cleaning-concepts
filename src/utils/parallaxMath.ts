@@ -34,3 +34,27 @@ export function selectHeroIndexBySlug(slug: string, poolSize: number): number {
   }
   return hash % poolSize;
 }
+
+/**
+ * Normalizes any arbitrary slide index into [0, totalSlides - 1].
+ */
+export function clampSlideIndex(index: number, totalSlides: number): number {
+  if (totalSlides <= 1 || !Number.isFinite(index)) return 0;
+  const mod = Math.trunc(index) % totalSlides;
+  return mod < 0 ? mod + totalSlides : mod;
+}
+
+/**
+ * Advances to the next slide index with wrap-around from last -> 0.
+ */
+export function getNextSlideIndex(currentIndex: number, totalSlides: number): number {
+  return clampSlideIndex(currentIndex + 1, totalSlides);
+}
+
+/**
+ * Steps back to the previous slide index with wrap-around from 0 -> last.
+ */
+export function getPrevSlideIndex(currentIndex: number, totalSlides: number): number {
+  return clampSlideIndex(currentIndex - 1, totalSlides);
+}
+

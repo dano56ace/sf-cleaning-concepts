@@ -4,8 +4,14 @@ import { ShieldCheck, Award, Heart, Users, Phone, ArrowRight } from 'lucide-reac
 import { BUSINESS_NAP } from '../data/siteData';
 import { RotationSystemSection } from '../components/ui/TrustBadges';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
+import {
+  ServiceSlideshowBackdrop,
+  SlideshowIndicators,
+  useAutoRotatingSlideshow,
+} from '../components/ui/ServiceSlideshowBackdrop';
 
 export const AboutPage: React.FC = () => {
+  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(3);
   return (
     <article className="about-page">
       <InteriorHero
@@ -171,33 +177,54 @@ export const AboutPage: React.FC = () => {
       {/* Rotation System Section */}
       <RotationSystemSection />
 
-      {/* Call to Action */}
-      <section className="section py-20 bg-[#071536] text-white text-center border-t border-slate-800" aria-label="About Us Call to Action">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="editorial-kicker-light mb-4 justify-center">
-            <span>Get Your Weekend Back</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to Let Our Family Take Care of Your Clean?
-          </h2>
-          <p className="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-            See why hundreds of South Florida homeowners and businesses trust us every single week. Get your free, no-obligation quote in minutes!
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/contact-us"
-              className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2"
-            >
-              <span>Book My Free Quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="btn btn-phone flex items-center gap-2 py-3.5 px-6 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono font-semibold transition-colors tabular-nums"
-            >
-              <Phone className="w-4 h-4 text-[#a3e6be]" />
-              <span>Call {BUSINESS_NAP.phone}</span>
-            </a>
+      {/* Call to Action with Hero Slideshow */}
+      <section className="section py-16 lg:py-20 bg-white border-t border-slate-200/80" aria-label="About Us Call to Action">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            data-testid="about-bottom-cta-slideshow"
+            data-active-slide={activeIndex}
+            className="relative overflow-hidden rounded-3xl bg-[#071536] text-white text-center px-6 py-12 sm:p-14 shadow-2xl border border-slate-800"
+          >
+            <ServiceSlideshowBackdrop
+              activeIndex={activeIndex}
+              enableParallax={false}
+              scrimVariant="cta-card"
+            />
+
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <div className="editorial-kicker-light mb-4 justify-center drop-shadow-xs">
+                <span>Get Your Weekend Back</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-md">
+                Ready to Let Our Family Take Care of Your Clean?
+              </h2>
+              <p className="text-white/90 text-base sm:text-lg mb-8 max-w-2xl mx-auto drop-shadow-xs">
+                See why hundreds of South Florida homeowners and businesses trust us every single week. Get your free, no-obligation quote in minutes!
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  to="/contact-us"
+                  className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap"
+                >
+                  <span>Book My Free Quote</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href={`tel:${BUSINESS_NAP.phoneRaw}`}
+                  className="btn btn-phone flex items-center gap-2 py-3.5 px-6 rounded-xl bg-[#071536]/75 hover:bg-[#071536]/95 border border-white/25 text-white font-mono font-semibold transition-colors tabular-nums whitespace-nowrap"
+                >
+                  <Phone className="w-4 h-4 text-[#a3e6be]" />
+                  <span>Call {BUSINESS_NAP.phone}</span>
+                </a>
+              </div>
+              <SlideshowIndicators
+                activeIndex={activeIndex}
+                onSelectSlide={setActiveIndex}
+                ariaLabel="About page CTA service slides"
+                align="center"
+                className="mt-5"
+              />
+            </div>
           </div>
         </div>
       </section>

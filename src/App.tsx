@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
 import { QuoteModal } from './components/ui/QuoteModal';
 import { GlobalCTA } from './components/ui/GlobalCTA';
+import { ExitIntentBanner } from './components/ui/ExitIntentBanner';
 import { SEOHead } from './components/seo/SEOHead';
 import { ScrollToTop } from './components/seo/ScrollToTop';
 
@@ -37,7 +38,7 @@ export function App() {
         <ScrollToTop />
         <Header onOpenQuoteModal={() => handleOpenQuoteModal('')} />
 
-        <main id="main-content" className="flex-grow pb-20 md:pb-0">
+        <main id="main-content" className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
             <Route path="/index.html" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
@@ -75,6 +76,8 @@ export function App() {
           onClose={() => setIsQuoteModalOpen(false)}
           serviceTitle={selectedService}
         />
+
+        <ExitIntentBanner isQuoteModalOpen={isQuoteModalOpen} />
       </div>
     </BrowserRouter>
   );

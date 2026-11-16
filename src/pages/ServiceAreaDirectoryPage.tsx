@@ -11,6 +11,11 @@ import {
 import { serviceAreas } from '../data/serviceAreas';
 import { QuoteModal } from '../components/ui/QuoteModal';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
+import {
+  ServiceSlideshowBackdrop,
+  SlideshowIndicators,
+  useAutoRotatingSlideshow,
+} from '../components/ui/ServiceSlideshowBackdrop';
 import { BUSINESS_NAP } from '../data/siteData';
 
 const PALM_BEACH_SLUGS = new Set([
@@ -32,6 +37,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<RegionFilter>('all');
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -344,34 +350,51 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
           </div>
         )}
 
-        {/* CTA Banner: Need Custom Dispatch? */}
-        <div className="rounded-3xl p-8 sm:p-12 bg-[#07111a] text-white border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#4fd18b]">
-              <Building2 className="w-4 h-4" /> Homes, Condos, Rentals &amp; Workplaces
+        {/* CTA Banner with Hero Slideshow */}
+        <div
+          data-testid="service-areas-bottom-cta-slideshow"
+          data-active-slide={activeIndex}
+          className="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-[#071536] text-white border border-slate-800 shadow-2xl"
+        >
+          <ServiceSlideshowBackdrop
+            activeIndex={activeIndex}
+            enableParallax={false}
+            scrimVariant="cta-card"
+          />
+          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#a3e6be] drop-shadow-xs">
+                <Building2 className="w-4 h-4" /> Homes, Condos, Rentals &amp; Workplaces
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-md">
+                Want a Spotless Home or Office in South Florida?
+              </h3>
+              <p className="text-sm text-white/90 leading-relaxed m-0 drop-shadow-xs">
+                We bring all the supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee. Get your free quote today!
+              </p>
+              <SlideshowIndicators
+                activeIndex={activeIndex}
+                onSelectSlide={setActiveIndex}
+                ariaLabel="Service areas CTA slides"
+                className="pt-2"
+              />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Want a Spotless Home or Office in South Florida?
-            </h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              We bring all the supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee. Get your free quote today!
-            </p>
-          </div>
 
-          <div className="flex flex-wrap gap-3 shrink-0">
-            <button
-              type="button"
-              onClick={() => setIsQuoteOpen(true)}
-              className="px-6 py-3 rounded-xl bg-[#4fd18b] hover:bg-[#3ec47c] text-[#07111a] text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-2 cursor-pointer shadow-md"
-            >
-              Get My Free Quote <ArrowRight className="w-4 h-4" />
-            </button>
-            <a
-              href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/20 text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-[#4fd18b]" /> {BUSINESS_NAP.phone}
-            </a>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => setIsQuoteOpen(true)}
+                className="px-6 py-3.5 min-h-[48px] rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold transition-colors inline-flex items-center gap-2 cursor-pointer shadow-lg whitespace-nowrap"
+              >
+                Get My Free Quote <ArrowRight className="w-4 h-4 text-[#a3e6be]" />
+              </button>
+              <a
+                href={`tel:${BUSINESS_NAP.phoneRaw}`}
+                className="px-6 py-3.5 min-h-[48px] rounded-xl bg-[#071536]/75 hover:bg-[#071536]/95 text-white border border-white/25 text-sm font-mono font-bold transition-colors inline-flex items-center gap-2 tabular-nums whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4 text-[#a3e6be]" /> {BUSINESS_NAP.phone}
+              </a>
+            </div>
           </div>
         </div>
       </section>

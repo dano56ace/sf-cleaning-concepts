@@ -97,6 +97,11 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
       });
 
       trackLeadSubmission({ source });
+      try {
+        window.sessionStorage.setItem('sfcc_quote_submitted_v1', '1');
+      } catch {
+        // Ignore storage restrictions
+      }
       setIsSubmitted(true);
       if (onSuccess) onSuccess();
     } catch (err: unknown) {

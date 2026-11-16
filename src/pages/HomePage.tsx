@@ -7,6 +7,11 @@ import { TestimonialsSlider } from '../components/ui/TestimonialsSlider';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { RecentBlogPosts } from '../components/ui/RecentBlogPosts';
+import {
+  ServiceSlideshowBackdrop,
+  SlideshowIndicators,
+  useAutoRotatingSlideshow,
+} from '../components/ui/ServiceSlideshowBackdrop';
 import { SERVICES_CATALOG, FAQS_LIST, BUSINESS_NAP } from '../data/siteData';
 import { ArrowRight, Phone, CheckCircle2, MapPin } from 'lucide-react';
 
@@ -29,6 +34,7 @@ const SERVICE_CATEGORY_MAP: Record<string, 'commercial' | 'hospitality' | 'resid
 
 export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
   const [serviceFilter, setServiceFilter] = useState<'all' | 'commercial' | 'hospitality' | 'residential'>('all');
+  const { activeIndex: bottomSlideIndex, setActiveIndex: setBottomSlideIndex } = useAutoRotatingSlideshow(2);
 
   const filteredServices = SERVICES_CATALOG.filter((svc) => {
     if (serviceFilter === 'all') return true;
@@ -214,28 +220,38 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
       {/* 8. Recent Blog Posts & Expert Cleaning Guides */}
       <RecentBlogPosts />
 
-      {/* 9. Bottom Lead Capture & Tri-County Dispatch Section */}
+      {/* 9. Bottom Lead Capture & Tri-County Dispatch Section with Hero Slideshow */}
       <section className="section py-20 lg:py-24 bg-white border-t border-slate-200/80" aria-labelledby="cta-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#071536] rounded-2xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <div className="lg:col-span-6">
-              <div className="editorial-kicker-light mb-4">
+          <div
+            data-testid="homepage-bottom-cta-slideshow"
+            data-active-slide={bottomSlideIndex}
+            className="relative overflow-hidden bg-[#071536] rounded-3xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
+          >
+            <ServiceSlideshowBackdrop
+              activeIndex={bottomSlideIndex}
+              enableParallax={false}
+              scrimVariant="cta-split"
+            />
+
+            <div className="lg:col-span-6 relative z-10">
+              <div className="editorial-kicker-light mb-4 drop-shadow-xs">
                 <span>Free, No-Obligation Quote · Fast Local Reply</span>
               </div>
-              <h2 id="cta-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+              <h2 id="cta-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-md">
                 Ready to Come Home to a Spotless Space?
               </h2>
-              <p className="text-slate-300 text-base leading-relaxed mb-8">
+              <p className="text-white/90 text-base leading-relaxed mb-8 drop-shadow-xs">
                 Tell us a little about your home, vacation rental, or workplace. We’ll get right back to you with simple, honest pricing—backed by our Love Your Clean or Don’t Pay Guarantee.
               </p>
 
               {/* Regional Service Area Matrix */}
-              <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 mb-8">
+              <div className="p-5 rounded-xl bg-[#071536]/75 backdrop-blur-xs border border-white/20 mb-7">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
                   <MapPin className="w-4 h-4" />
                   <span>Proudly Cleaning Across South Florida</span>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-200 font-medium">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-100 font-medium">
                   {BUSINESS_NAP.areasServed.map((area) => (
                     <div key={area} className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#a3e6be] shrink-0" />
@@ -245,18 +261,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex flex-wrap items-center justify-between gap-4">
                 <a
                   href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="inline-flex items-center gap-2.5 text-base font-mono font-bold text-[#a3e6be] hover:text-white transition-colors tabular-nums"
+                  className="inline-flex items-center gap-2.5 text-base font-mono font-bold text-[#a3e6be] hover:text-white transition-colors tabular-nums drop-shadow-xs"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call or Text Us: {BUSINESS_NAP.phone}</span>
                 </a>
+
+                <SlideshowIndicators
+                  activeIndex={bottomSlideIndex}
+                  onSelectSlide={setBottomSlideIndex}
+                  ariaLabel="Homepage bottom CTA service slides"
+                />
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-8 lg:p-10 text-slate-800 shadow-xl">
+            <div className="lg:col-span-6 relative z-10 bg-white rounded-2xl p-6 sm:p-8 lg:p-10 text-slate-800 shadow-xl">
               <div className="pb-4 mb-6 border-b border-slate-200/80">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#071536] mb-1">
                   Get Your Free Cleaning Quote

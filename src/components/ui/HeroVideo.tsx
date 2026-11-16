@@ -1,79 +1,75 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Phone, CheckCircle2, Star } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
 import { QuoteForm } from './QuoteForm';
+import {
+  SPLASH_SLIDES,
+  ServiceSlideshowBackdrop,
+  SlideshowIndicators,
+  SplashSlide,
+  useAutoRotatingSlideshow,
+} from './ServiceSlideshowBackdrop';
+
+export { SPLASH_SLIDES };
+export type { SplashSlide };
 
 interface HeroVideoProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
 export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
+  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(0);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const activeSlide = SPLASH_SLIDES[activeIndex] ?? SPLASH_SLIDES[0];
+
   const focusBookingForm = () => {
     const nameInput = document.getElementById('quote-name');
     if (nameInput) {
       nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => nameInput.focus(), 300);
+      window.setTimeout(() => nameInput.focus(), 300);
     } else if (onOpenQuoteModal) {
-      onOpenQuoteModal();
+      onOpenQuoteModal(activeSlide.title);
     }
   };
 
   return (
     <section
+      ref={sectionRef}
+      data-testid="splash-parallax-slider"
+      data-active-slide={activeIndex}
       className="hero-banner relative overflow-hidden bg-[#071536] border-b border-slate-800"
       aria-label="Hero Section"
     >
-      {/* Background Media Container */}
-      <div className="hero-media-wrapper absolute inset-0 z-0 w-full h-full overflow-hidden">
-        {/* Desktop Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/assets/videos/bg_video_13.jpeg"
-          width="1280"
-          height="720"
-          className="hidden md:block w-full h-full object-cover"
-        >
-          <source src="/assets/videos/main-home-video-1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      {/* Native-Sharpness 300-DPI 6-Slide Parallax Layer */}
+      <ServiceSlideshowBackdrop
+        activeIndex={activeIndex}
+        containerRef={sectionRef}
+        enableParallax={true}
+        prioritizeFirstSlide={true}
+        scrimVariant="hero"
+        layerTestId="splash-parallax-layer"
+      />
 
-        {/* Mobile Poster Fallback */}
-        <img
-          src="/assets/videos/bg_video_13.jpeg"
-          alt="South Florida Cleaning Concepts Professional Crew"
-          width="1280"
-          height="720"
-          className="block md:hidden w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
-
-        {/* High-Transparency Contrast Scrim so the background video shines through */}
-        <div className="hero-overlay absolute inset-0 bg-gradient-to-r from-[#071536]/65 via-[#071536]/48 to-[#071536]/35" />
-      </div>
-
-      {/* Main Hero 12-Column Split Container */}
-      <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-16 lg:pb-20 text-white">
+      {/* Streamlined 12-Column Split Container */}
+      <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 lg:pt-16 lg:pb-14 text-white">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left 7 Columns: Relatable Consumer Value Proposition & Actions */}
+          {/* Left 7 Columns: Clean Value Proposition & Primary Actions */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <div className="editorial-kicker-light mb-5 drop-shadow-xs">
               <span>Family-Owned Since 2004 · Loved by South Florida Homeowners</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight mb-6 drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight mb-6 drop-shadow-md [text-wrap:balance]">
               Commercial &amp; Residential Cleaning <span className="text-[#a3e6be]">Pros</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-medium mb-8 max-w-2xl drop-shadow-sm">
-              Take back your weekends and come home to a house that truly sparkles. Whether it’s your family home, vacation rental, or local workplace, our friendly, background-checked team delivers a spotless clean across Palm Beach, Broward &amp; Miami-Dade—or you don’t pay a dime.
+              Take back your weekends and come home to a space that truly sparkles. Whether it’s your family home, vacation rental, or local workplace, our friendly, background-checked team delivers a spotless clean across Palm Beach, Broward &amp; Miami-Dade—or you don’t pay a dime.
             </p>
 
             {/* 2x2 Consumer Benefit Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-10 pt-6 border-t border-white/25 text-sm font-semibold text-white drop-shadow-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-9 pt-6 border-t border-white/25 text-sm font-semibold text-white drop-shadow-xs">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#a3e6be] shrink-0" />
                 <span>Love Your Clean or You Don’t Pay</span>
@@ -92,24 +88,32 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
               </div>
             </div>
 
-            {/* Action Bar */}
+            {/* Primary CTA Action Bar */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <button
                 type="button"
                 onClick={focusBookingForm}
-                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-4 px-8 rounded-xl text-base shadow-lg hover:shadow-xl transition-all duration-150 text-center cursor-pointer whitespace-nowrap"
+                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-4 px-8 rounded-xl text-base shadow-lg hover:shadow-xl transition-all duration-150 text-center cursor-pointer whitespace-nowrap min-h-[48px]"
               >
                 Book My Free Quote
               </button>
 
               <a
                 href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                className="btn btn-phone flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-[#071536]/60 hover:bg-[#071536]/80 backdrop-blur-xs border border-white/30 text-white font-mono font-bold text-base transition-colors whitespace-nowrap tabular-nums"
+                className="btn btn-phone flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-[#071536]/60 hover:bg-[#071536]/80 backdrop-blur-xs border border-white/30 text-white font-mono font-bold text-base transition-colors whitespace-nowrap tabular-nums min-h-[48px]"
               >
                 <Phone className="w-4 h-4 text-[#a3e6be]" />
                 <span>Call {BUSINESS_NAP.phone}</span>
               </a>
             </div>
+
+            {/* Minimal Streamlined 6-Slide Line Indicators */}
+            <SlideshowIndicators
+              activeIndex={activeIndex}
+              onSelectSlide={setActiveIndex}
+              ariaLabel="Hero service background slides"
+              className="mt-6"
+            />
           </div>
 
           {/* Right 5 Columns: Main Contact Booking Form Card */}
@@ -126,7 +130,9 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                   >
                     <Star className="w-3.5 h-3.5 fill-current shrink-0" />
                     <span className="font-mono text-[#071536] tabular-nums">5.0</span>
-                    <span className="text-[11px] font-semibold text-slate-600">· Verified Reviews</span>
+                    <span className="text-[11px] font-semibold text-slate-600">
+                      · Verified Reviews
+                    </span>
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-[#071536] leading-tight">

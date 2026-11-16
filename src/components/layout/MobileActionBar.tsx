@@ -10,7 +10,7 @@ interface MobileActionBarProps {
 export const MobileActionBar: React.FC<MobileActionBarProps> = ({ onOpenQuoteModal }) => {
   return (
     <nav
-      className="mobile-bottom-bar fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-4 py-1.5 flex items-center justify-around shadow-[0_-4px_20px_rgba(7,21,54,0.08)] md:hidden"
+      className="mobile-bottom-bar fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-4 py-1 flex items-center justify-around shadow-[0_-4px_20px_rgba(7,21,54,0.08)] md:hidden"
       aria-label="Quick Actions"
     >
       <div className="bottom-bar-grid grid grid-cols-2 gap-3 w-full max-w-md mx-auto">

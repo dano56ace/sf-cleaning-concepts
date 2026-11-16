@@ -4,6 +4,11 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Phone } from 'lucide-react';
 import { SERVICES_CATALOG, BUSINESS_NAP } from '../data/siteData';
 import { CleaningEstimator } from '../components/ui/CleaningEstimator';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
+import {
+  ServiceSlideshowBackdrop,
+  SlideshowIndicators,
+  useAutoRotatingSlideshow,
+} from '../components/ui/ServiceSlideshowBackdrop';
 
 interface ServicesOverviewPageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
@@ -11,6 +16,7 @@ interface ServicesOverviewPageProps {
 
 export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOpenQuoteModal }) => {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'commercial' | 'residential'>('all');
+  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(4);
 
   const commercialSlugs = [
     'office-cleaning',
@@ -179,23 +185,43 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
       {/* Interactive Cleaning Estimator */}
       <CleaningEstimator onSelectEstimate={(title) => onOpenQuoteModal?.(title)} />
 
-      {/* Guarantee Bottom Bar */}
-      <section className="section py-16 bg-slate-50 border-t border-slate-200/80 text-center" aria-label="Services Guarantee">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ShieldCheck className="w-10 h-10 text-[#12582e] mx-auto mb-3" />
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-3">
-            Love Your Clean or You Don’t Pay—Period
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8">
-            If you aren’t completely thrilled when we finish, we’ll come right back and fix it for free—or you don’t pay. Call or text (561) 704-5303 today!
-          </p>
-          <a
-            href={`tel:${BUSINESS_NAP.phoneRaw}`}
-            className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-mono font-bold py-3.5 px-8 rounded-xl text-base shadow-md transition-colors inline-flex items-center gap-2 tabular-nums"
+      {/* Guarantee Bottom CTA with Hero Slideshow */}
+      <section className="section py-16 lg:py-20 bg-white border-t border-slate-200/80" aria-label="Services Guarantee">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            data-testid="services-bottom-cta-slideshow"
+            data-active-slide={activeIndex}
+            className="relative overflow-hidden rounded-3xl bg-[#071536] text-white text-center px-6 py-12 sm:p-14 shadow-2xl border border-slate-800"
           >
-            <Phone className="w-4 h-4" />
-            <span>Call {BUSINESS_NAP.phone} Now</span>
-          </a>
+            <ServiceSlideshowBackdrop
+              activeIndex={activeIndex}
+              enableParallax={false}
+              scrimVariant="cta-card"
+            />
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <ShieldCheck className="w-10 h-10 text-[#a3e6be] mx-auto mb-3 drop-shadow-xs" />
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3 drop-shadow-md">
+                Love Your Clean or You Don’t Pay—Period
+              </h2>
+              <p className="text-white/90 text-sm sm:text-base max-w-xl mx-auto mb-8 drop-shadow-xs">
+                If you aren’t completely thrilled when we finish, we’ll come right back and fix it for free—or you don’t pay. Call or text (561) 704-5303 today!
+              </p>
+              <a
+                href={`tel:${BUSINESS_NAP.phoneRaw}`}
+                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-mono font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2 tabular-nums whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4 text-[#a3e6be]" />
+                <span>Call {BUSINESS_NAP.phone} Now</span>
+              </a>
+              <SlideshowIndicators
+                activeIndex={activeIndex}
+                onSelectSlide={setActiveIndex}
+                ariaLabel="Services overview CTA slides"
+                align="center"
+                className="mt-5"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </article>
