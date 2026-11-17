@@ -9,6 +9,7 @@ import {
   NETLIFY_HONEYPOT_FIELD,
   resolveCurrentPageUrl,
   submitNetlifyQuoteForm,
+  submitSmtpQuoteEmail,
   validateQuoteFields
 } from '../../utils/netlifyForm';
 
@@ -86,7 +87,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      await submitNetlifyQuoteForm({
+      const submissionPayload = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -94,7 +95,16 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
         source,
         pageUrl: resolveCurrentPageUrl(),
         botField: formData.botField
-      });
+      };
+
+      const [netlifyRes, smtpRes] = await Promise.allSettled([
+        submitNetlifyQuoteForm(submissionPayload),
+        submitSmtpQuoteEmail(submissionPayload)
+      ]);
+
+      if (netlifyRes.status === 'rejected' && smtpRes.status === 'rejected') {
+        throw netlifyRes.reason;
+      }
 
       trackLeadSubmission({ source });
       try {

@@ -5,6 +5,7 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "24"
@@ -169,8 +170,13 @@
   force = true
 
 # ==============================================================================
-# 4. SPA REWRITE FALLBACK
+# 4. SERVERLESS API & SPA REWRITE FALLBACK
 # ==============================================================================
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
 # Missing static assets return 404 rather than fallback HTML
 [[redirects]]
   from = "/assets/*"

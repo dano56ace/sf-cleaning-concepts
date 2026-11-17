@@ -1,5 +1,6 @@
 export const NETLIFY_FORM_NAME = 'quote-request';
 export const NETLIFY_FORM_ACTION = '/';
+export const SMTP_QUOTE_API_ENDPOINT = '/api/quote';
 export const NETLIFY_HONEYPOT_FIELD = 'bot-field';
 
 /**
@@ -117,4 +118,39 @@ export async function submitNetlifyQuoteForm(
   }
 
   return { honeypotTripped: false, payload };
+}
+
+export interface SubmitSmtpQuoteResult {
+  honeypotTripped: boolean;
+  referenceId?: string;
+}
+
+export async function submitSmtpQuoteEmail(
+  input: QuoteFormInput,
+  fetchImpl: typeof fetch = fetch
+): Promise<SubmitSmtpQuoteResult> {
+  if (input.botField && input.botField.trim().length > 0) {
+    return { honeypotTripped: true };
+  }
+
+  const response = await fetchImpl(SMTP_QUOTE_API_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: input.name.trim(),
+      email: input.email.trim(),
+      phone: input.phone.trim(),
+      message: input.message.trim(),
+      source: (input.source || 'General').trim(),
+      pageUrl: (input.pageUrl || resolveCurrentPageUrl()).trim() || '/',
+      botField: input.botField ?? '',
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`SMTP quote API rejected with HTTP ${response.status}`);
+  }
+
+  const data = (await response.json().catch(() => ({}))) as { referenceId?: string };
+  return { honeypotTripped: false, referenceId: data.referenceId };
 }
