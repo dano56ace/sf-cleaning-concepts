@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Phone, CheckCircle2, Star } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
 import { QuoteForm } from './QuoteForm';
@@ -9,6 +9,11 @@ import {
   SplashSlide,
   useAutoRotatingSlideshow,
 } from './ServiceSlideshowBackdrop';
+import {
+  cancelSmoothScroll,
+  prefersReducedMotion,
+  smoothScrollToElement,
+} from '../../utils/smoothScroll';
 
 export { SPLASH_SLIDES };
 export type { SplashSlide };
@@ -21,13 +26,26 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
   const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(0);
   const sectionRef = useRef<HTMLElement | null>(null);
 
+  useEffect(() => {
+    return () => {
+      cancelSmoothScroll();
+    };
+  }, []);
+
   const activeSlide = SPLASH_SLIDES[activeIndex] ?? SPLASH_SLIDES[0];
 
   const focusBookingForm = () => {
     const nameInput = document.getElementById('quote-name');
     if (nameInput) {
-      nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      window.setTimeout(() => nameInput.focus(), 300);
+      smoothScrollToElement(nameInput, {
+        block: 'center',
+        behavior: prefersReducedMotion() ? 'instant' : 'smooth',
+        onComplete: () => {
+          if (nameInput.isConnected) {
+            nameInput.focus({ preventScroll: true });
+          }
+        },
+      });
     } else if (onOpenQuoteModal) {
       onOpenQuoteModal(activeSlide.title);
     }
@@ -57,34 +75,34 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
           {/* Left 7 Columns: Clean Value Proposition & Primary Actions */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <div className="editorial-kicker-light mb-5 drop-shadow-xs">
-              <span>Family-Owned Since 2004 · Loved by South Florida Homeowners</span>
+              <span>Family-Owned Since 2004 · Tri-County South Florida</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight mb-6 drop-shadow-md [text-wrap:balance]">
-              Commercial &amp; Residential Cleaning <span className="text-[#a3e6be]">Pros</span>
+              South Florida Commercial &amp; Residential Cleaning <span className="text-[#a3e6be]">Pros</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-white/95 leading-relaxed font-medium mb-8 max-w-2xl drop-shadow-sm">
-              Take back your weekends and come home to a space that truly sparkles. Whether it’s your family home, vacation rental, or local workplace, our friendly, background-checked team delivers a spotless clean across Palm Beach, Broward &amp; Miami-Dade—or you don’t pay a dime.
+              Spotless homes, vacation rentals, and workplaces across Palm Beach, Broward, and Miami-Dade—backed by our Love Your Clean or Don’t Pay Guarantee.
             </p>
 
             {/* 2x2 Consumer Benefit Matrix */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-9 pt-6 border-t border-white/25 text-sm font-semibold text-white drop-shadow-xs">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#a3e6be] shrink-0" />
-                <span>Love Your Clean or You Don’t Pay</span>
+                <span>Love-It Guarantee</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#a3e6be] shrink-0" />
-                <span>We Bring All Supplies (Kid &amp; Pet Safe)</span>
+                <span>Eco-Safe Supplies Included</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#a3e6be] shrink-0" />
-                <span>No Surprise Deep-Clean Fees</span>
+                <span>Upfront, Honest Pricing</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#a3e6be] shrink-0" />
-                <span>Friendly, Background-Checked Pros</span>
+                <span>Vetted, Insured Pros</span>
               </div>
             </div>
 
@@ -122,24 +140,24 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
               <div className="pb-4 mb-4 border-b border-slate-200/80">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#12582e] whitespace-nowrap">
-                    Fast Online Booking
+                    Fast Online Quote
                   </span>
                   <span
                     className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 border border-amber-200/80 text-xs font-bold text-amber-500 whitespace-nowrap"
-                    aria-label="5.0 out of 5 stars from verified local reviews"
+                    aria-label={`${BUSINESS_NAP.ratingScore} out of 5 stars from verified local reviews`}
                   >
                     <Star className="w-3.5 h-3.5 fill-current shrink-0" />
-                    <span className="font-mono text-[#071536] tabular-nums">5.0</span>
+                    <span className="font-mono text-[#071536] tabular-nums">{BUSINESS_NAP.ratingScore}</span>
                     <span className="text-[11px] font-semibold text-slate-600">
                       · Verified Reviews
                     </span>
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-[#071536] leading-tight">
-                  Get Your Free Cleaning Quote
+                  Get Your Free Quote
                 </h2>
                 <p className="text-xs text-slate-600 mt-1 m-0">
-                  Fill out the quick form below and we’ll text or call you right back with an honest, no-obligation price.
+                  Fast local reply with transparent pricing.
                 </p>
               </div>
 
@@ -158,7 +176,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 20+ Years
               </div>
               <div className="text-xs text-slate-300 mt-0.5">
-                Family-Owned in South Florida
+                South Florida Owned
               </div>
             </div>
             <div className="lg:px-8">
@@ -166,7 +184,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 100%
               </div>
               <div className="text-xs text-slate-300 mt-0.5">
-                Love Your Clean or Don’t Pay
+                Satisfaction Guarantee
               </div>
             </div>
             <div className="lg:px-8">
@@ -174,7 +192,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 10 Services
               </div>
               <div className="text-xs text-slate-300 mt-0.5">
-                For Homes, Rentals &amp; Workplaces
+                Homes &amp; Businesses
               </div>
             </div>
             <div className="lg:pl-8">
@@ -182,7 +200,7 @@ export const HeroVideo: React.FC<HeroVideoProps> = ({ onOpenQuoteModal }) => {
                 Same-Day
               </div>
               <div className="text-xs text-slate-300 mt-0.5">
-                Quotes Across Tri-County FL
+                Local Quotes
               </div>
             </div>
           </div>

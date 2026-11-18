@@ -12,12 +12,12 @@ interface CleaningEstimatorProps {
 }
 
 const PROPERTY_CATEGORIES: { id: PropertyCategory; label: string; sub: string }[] = [
-  { id: 'residential', label: 'Home & Condo', sub: 'Houses, Townhomes & Condos' },
-  { id: 'rental', label: 'Airbnb & Rental', sub: 'Same-Day Guest Turnovers' },
-  { id: 'office', label: 'Local Office', sub: 'Workplaces & Suites' },
-  { id: 'medical', label: 'Medical & Dental', sub: 'Clinics & Waiting Rooms' },
-  { id: 'restaurant', label: 'Bar & Restaurant', sub: 'Kitchens & Dining Rooms' },
-  { id: 'construction', label: 'Post-Renovation', sub: 'Remodel & New-Build Clean' }
+  { id: 'residential', label: 'Home & Condo', sub: 'Houses & Condos' },
+  { id: 'rental', label: 'Airbnb & Rental', sub: 'Guest Turnovers' },
+  { id: 'office', label: 'Local Office', sub: 'Offices & Suites' },
+  { id: 'medical', label: 'Medical & Dental', sub: 'Clinics & Dental' },
+  { id: 'restaurant', label: 'Bar & Restaurant', sub: 'Dining & Kitchens' },
+  { id: 'construction', label: 'Post-Renovation', sub: 'Post-Remodel Clean' }
 ];
 
 const FREQUENCIES: { id: CleaningFrequency; label: string; badge: string }[] = [
@@ -50,13 +50,13 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12">
           <div className="editorial-kicker-light mb-3">
-            <span>Instant Price &amp; Time Calculator</span>
+            <span>Instant Estimate Calculator</span>
           </div>
           <h2 id="estimator-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            See What Your Clean Will Cost in Seconds
+            Estimate Your Cleaning Cost
           </h2>
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            Pick your space type, slide to your approximate size, and choose how often you’d like us to visit. You’ll see your estimated price range and crew size right away—no guesswork, no hidden fees.
+            Select your space type, size, and frequency for an instant price and crew estimate.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Step 1: Property Type */}
               <div>
                 <label className="block font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
-                  01 · What Are We Cleaning?
+                  01 · Space Type
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                   {PROPERTY_CATEGORIES.map((item) => {
@@ -98,7 +98,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <label htmlFor="estimator-sqft" className="font-mono text-xs uppercase tracking-widest text-[#a3e6be]">
-                      02 · Approx. Size
+                      02 · Size
                     </label>
                     <span className="font-mono text-lg font-extrabold text-white tabular-nums">
                       {sqft.toLocaleString()} sq ft
@@ -151,7 +151,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Step 3: Cleaning Schedule Frequency */}
               <div className="pt-6 border-t border-white/10">
                 <label className="block font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
-                  04 · How Often Should We Visit? (Save More on Regular Visits)
+                  04 · Frequency
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                   {FREQUENCIES.map((freq) => {
@@ -177,11 +177,6 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 </div>
               </div>
             </div>
-
-            <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
-              <span>We bring all supplies, vacuums &amp; kid/pet-safe products</span>
-              <span className="font-mono text-[#a3e6be] whitespace-nowrap">100% Insured &amp; Bonded</span>
-            </div>
           </div>
 
           {/* Right 5 Cols: Live Architectural Estimate Output */}
@@ -191,19 +186,19 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                 <div className="flex items-center gap-2">
                   <Calculator className="w-4 h-4 text-[#12582e]" />
                   <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#12582e]">
-                    Your Custom Plan
+                    Your Estimate
                   </span>
                 </div>
                 {estimate.frequencyDiscountPercent > 0 && (
                   <span className="font-mono text-xs font-bold text-[#12582e] tabular-nums whitespace-nowrap">
-                    You Save {estimate.frequencyDiscountPercent}%
+                    Save {estimate.frequencyDiscountPercent}%
                   </span>
                 )}
               </div>
 
               <div className="mb-6">
                 <div className="text-xs font-medium text-slate-500 mb-1">
-                  Recommended Service
+                  Recommended
                 </div>
                 <h3 className="text-2xl font-extrabold text-[#071536] mb-1">
                   {estimate.recommendedServiceTitle}
@@ -214,23 +209,23 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               </div>
 
               {/* 3-Metric Tabular Readout */}
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 mb-6">
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-3 gap-3 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 mb-6">
                 <div className="min-w-0">
-                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Est. Per Visit</div>
-                  <div className="font-mono text-base sm:text-lg xl:text-xl font-extrabold text-[#071536] tabular-nums mt-0.5 whitespace-nowrap">
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500">Est. Per Visit</div>
+                  <div className="font-mono text-base sm:text-lg font-extrabold text-[#071536] tabular-nums mt-0.5 break-words">
                     ${estimate.estimatedVisitRangeMin}–${estimate.estimatedVisitRangeMax}
                   </div>
                 </div>
-                <div className="border-l border-slate-200 pl-2.5 sm:pl-3 min-w-0">
-                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Team Size</div>
-                  <div className="font-mono text-base sm:text-lg xl:text-xl font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1 whitespace-nowrap">
+                <div className="border-t pt-2.5 min-[480px]:border-t-0 min-[480px]:pt-0 min-[480px]:border-l border-slate-200 min-[480px]:pl-3 min-w-0">
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500">Team Size</div>
+                  <div className="font-mono text-base sm:text-lg font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1">
                     <Users className="w-3.5 h-3.5 text-[#12582e] shrink-0" />
                     <span>{estimate.estimatedCrewSize} Pros</span>
                   </div>
                 </div>
-                <div className="border-l border-slate-200 pl-2.5 sm:pl-3 min-w-0">
-                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500 whitespace-nowrap">Clean Time</div>
-                  <div className="font-mono text-base sm:text-lg xl:text-xl font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1 whitespace-nowrap">
+                <div className="border-t pt-2.5 min-[480px]:border-t-0 min-[480px]:pt-0 min-[480px]:border-l border-slate-200 min-[480px]:pl-3 min-w-0">
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-500">Clean Time</div>
+                  <div className="font-mono text-base sm:text-lg font-extrabold text-[#071536] tabular-nums mt-0.5 flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5 text-[#12582e] shrink-0" />
                     <span>{estimate.estimatedHoursMin}–{estimate.estimatedHoursMax}h</span>
                   </div>
@@ -240,7 +235,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
               {/* Included Protocol Highlights */}
               <div className="mb-6">
                 <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                  What’s Included Every Visit:
+                  Included:
                 </div>
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-700 list-none p-0 m-0">
                   {estimate.includedHighlights.map((hl, i) => (
@@ -260,7 +255,7 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                   onClick={() => onSelectEstimate(`${estimate.recommendedServiceTitle} (${sqft.toLocaleString()} sq ft)`)}
                   className="w-full py-3.5 px-6 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Lock In My Free Quote</span>
+                  <span>Get Free Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
@@ -268,21 +263,21 @@ export const CleaningEstimator: React.FC<CleaningEstimatorProps> = ({ onSelectEs
                   to="/contact-us"
                   className="w-full py-3.5 px-6 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  <span>Lock In My Free Quote</span>
+                  <span>Get Free Quote</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               )}
 
-              <div className="flex items-center justify-between text-xs text-slate-500">
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
                 <span className="inline-flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#12582e]" />
-                  <span>100% Love-It Guarantee</span>
+                  <span>Love-It Guarantee</span>
                 </span>
                 <Link
                   to={`/service/${estimate.recommendedServiceSlug}`}
                   className="font-bold text-[#12582e] hover:underline"
                 >
-                  See Full Checklist →
+                  View Checklist →
                 </Link>
               </div>
             </div>

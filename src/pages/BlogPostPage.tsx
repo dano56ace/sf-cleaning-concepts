@@ -1,60 +1,57 @@
 import React, { useEffect, useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { BLOG_POSTS } from '../data/siteData';
+import { BLOG_POSTS, getBlogCtaServicePhrase } from '../data/siteData';
 import { getBlogPostSchema } from '../data/blogSchemaData';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { InteriorHero, getInteriorHeroForSlug } from '../components/ui/InteriorHero';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const EXACT_BLOG_H1_MAP: Record<string, string> = {
-  'revitalize-your-office-space': 'Revitalize Your Office Space with South Florida Cleaning Concepts: Unleashing the Power of a Pristine Workspace',
-  'post-construction-cleaning-guide': 'Post-Construction Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide',
-  'office-cleaning-made-easy': 'Office Cleaning Made Easy with South Florida Cleaning Concepts',
-  'medical-office-cleaning-guide': 'Medical Office Cleaning with South Florida Cleaning Concepts: A Comprehensive Guide',
-  'restaurant-and-bar-cleaning-services': 'Shining a Light on Clean: How Restaurant and Bar Cleaning Services Enhance Your Business',
-  'residential-cleaning-services-journey': 'Revitalize Your Home: A Journey with South Florida Cleaning Concepts’ Residential Cleaning Services',
-  'complete-guide-to-home-cleaning': 'South Florida Cleaning Concepts – Complete Guide to Home Cleaning Tips and Tricks',
-  'deep-cleaning-for-homes-and-offices': 'Deep Cleaning for Homes and Offices with South Florida Cleaning Concepts',
-  'south-florida-home-maintenance-services': 'Maximize the Beauty of Your Home: South Florida Home Maintenance Services with South Florida Cleaning Concepts',
-  'high-quality-cleaning-services-south-florida': 'High-Quality Cleaning Services South Florida with South Florida Cleaning Concepts',
-  'short-term-rental-cleaning-guide': 'Short Term Rental Cleaning with South Florida Cleaning Concepts: The Ultimate Guide',
+  'revitalize-your-office-space': 'Revitalize Your South Florida Office Workspace',
+  'post-construction-cleaning-guide': 'Post-Construction Cleaning Guide for South Florida Builds',
+  'office-cleaning-made-easy': 'Commercial Office Cleaning Made Easy in South Florida',
+  'medical-office-cleaning-guide': 'Medical Office Cleaning Guide for South Florida Clinics',
+  'restaurant-and-bar-cleaning-services': 'How Restaurant and Bar Cleaning Protects Your Business',
+  'residential-cleaning-services-journey': 'What to Expect from Recurring Residential Maid Service',
+  'complete-guide-to-home-cleaning': 'Complete South Florida Home Cleaning Tips and Checklist',
+  'deep-cleaning-for-homes-and-offices': 'Deep Cleaning Guide for South Florida Homes and Offices',
+  'south-florida-home-maintenance-services': 'South Florida Home Maintenance for Coastal Property Protection',
+  'high-quality-cleaning-services-south-florida': 'What Defines High-Quality Cleaning in South Florida',
+  'short-term-rental-cleaning-guide': 'Short-Term Rental Turnover Guide for South Florida Hosts',
 };
 
 export const BlogPostPage: React.FC = () => {
   const { slug: rawSlug } = useParams<{ slug: string }>();
-  const slug = rawSlug ? rawSlug.replace(/\.html$/, '') : undefined;
+  const slug = rawSlug ? rawSlug.toLowerCase().replace(/\.html$/, '') : undefined;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+  const schemaGraph = useMemo(() => (slug && post ? getBlogPostSchema(slug) : null), [slug, post]);
+
+  useEffect(() => {
+    if (!schemaGraph) return;
+    let headScript = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
+    if (!headScript) {
+      headScript = document.createElement('script');
+      headScript.id = 'dynamic-jsonld';
+      headScript.type = 'application/ld+json';
+      document.head.appendChild(headScript);
+    }
+    headScript.textContent = JSON.stringify(schemaGraph);
+  }, [schemaGraph]);
 
   if (!post) {
     return <Navigate to="/404" replace />;
   }
-
-  const schemaGraph = useMemo(() => (slug ? getBlogPostSchema(slug) : null), [slug]);
-
-  useEffect(() => {
-    if (schemaGraph) {
-      const headScript = document.getElementById('dynamic-jsonld');
-      if (headScript) {
-        headScript.textContent = JSON.stringify(schemaGraph, null, 2);
-      }
-    }
-  }, [schemaGraph]);
 
   const exactH1 = (slug && EXACT_BLOG_H1_MAP[slug]) || post.title;
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {schemaGraph && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
-        />
-      )}
       {/* Article Parallax Interior Header */}
       <InteriorHero
         ariaLabel={`${exactH1} Header`}
-        kicker={`${post.category} · Helpful Cleaning Guide`}
+        kicker={`${post.category} · Cleaning Guide`}
         title={exactH1}
         imageSrc={getInteriorHeroForSlug(post.slug)}
         imageAlt={`${post.category} spotless South Florida interior`}
@@ -143,10 +140,10 @@ export const BlogPostPage: React.FC = () => {
               <div className="mt-10 p-6 sm:p-8 bg-[#07111a] text-white rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-white/10">
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#4fd18b] font-semibold block mb-1">
-                    Let Us Do the Heavy Lifting
+                    Ready for a Spotless Space?
                   </span>
                   <h3 className="text-lg font-bold text-white">
-                    Want our friendly pros to handle your {post.category.toLowerCase()}?
+                    Let our local pros handle your {getBlogCtaServicePhrase(post.category)}.
                   </h3>
                 </div>
                 <Link
@@ -164,13 +161,13 @@ export const BlogPostPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-4">
                 <div className="pb-3 border-b border-slate-200/80">
                   <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#2a8655] font-bold block mb-1">
-                    Fast, Honest South Florida Pricing
+                    Free South Florida Estimates
                   </span>
                   <h2 className="text-xl sm:text-2xl font-extrabold text-[#0b1926] tracking-tight">
                     Get Your Free Cleaning Quote
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                    Tell us a bit about your home, rental, or workplace and our local team will reply promptly.
+                    Request a fast estimate for your home or business.
                   </p>
                 </div>
                 <QuoteForm idPrefix="blog-" source={`Blog: ${post.title}`} />

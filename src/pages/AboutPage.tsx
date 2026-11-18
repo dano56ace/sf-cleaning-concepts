@@ -1,30 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, Heart, Users, Phone, ArrowRight, Briefcase, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Briefcase, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_NAP } from '../data/siteData';
-import { RotationSystemSection } from '../components/ui/TrustBadges';
 import { PromoVideoShowcase } from '../components/ui/PromoVideoShowcase';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
-import {
-  ServiceSlideshowBackdrop,
-  SlideshowIndicators,
-  useAutoRotatingSlideshow,
-} from '../components/ui/ServiceSlideshowBackdrop';
 
 export interface AboutPageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
-  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(3);
   return (
     <article className="about-page">
       <InteriorHero
         ariaLabel="About Us Header"
         align="center"
-        kicker="Family-Owned Since 2004 · Your Local South Florida Neighbors"
+        kicker="Family-Owned Since 2004 · South Florida"
         title="About Us"
-        description="For over 20 years, our family-owned team has helped South Florida homeowners, vacation rental hosts, and local businesses enjoy spotless spaces—backed by our Love Your Clean or Don’t Pay guarantee."
+        description="Family-owned since 2004, helping South Florida homes, rentals, and businesses stay spotless—backed by our Love Your Clean or Don’t Pay Guarantee."
         imageSrc={INTERIOR_HERO_IMAGES.coastalLiving}
         imageAlt="Sunlit spotless South Florida coastal living room interior"
         breadcrumbs={[
@@ -39,20 +32,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <div className="editorial-kicker mb-3">
-                <span>Our Family Story &amp; Promise</span>
+                <span>Our Family Story</span>
               </div>
               <h2 id="story-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-6">
-                20+ Years of Making South Florida Homes &amp; Workplaces Sparkle
+                20+ Years of Trusted South Florida Cleaning
               </h2>
               <div className="space-y-4 text-slate-600 text-base leading-relaxed">
                 <p>
-                  We started South Florida Cleaning Concepts over 20 years ago with a simple belief: when you invite someone into your home or business, you deserve a friendly team that treats your space with the exact same care they’d give their own family’s home.
+                  Founded in Boynton Beach in 2004, South Florida Cleaning Concepts built its reputation on treating every home, rental, and workplace like our own. Our full-time, background-checked, insured team brings eco-safe supplies and never sends random contractors.
                 </p>
                 <p>
-                  Unlike big national franchises that send random, revolving-door contractors, our cleaners are full-time, background-checked, and trained team members who genuinely love making your place shine. We bring all the supplies, show up on time, and never cut corners.
-                </p>
-                <p>
-                  Best of all, we stand behind every single visit with our famous <strong>Love Your Clean or Don’t Pay Guarantee</strong>: if anything isn’t 100% up to your standards, just let us know within 24 hours and we’ll come right back to make it right for free—or you don’t pay a dime.
+                  Every visit includes our <strong>Love Your Clean or Don’t Pay Guarantee</strong>: let us know within 24 hours if anything falls short and we’ll re-clean it free—or you don’t pay.
                 </p>
               </div>
 
@@ -77,7 +67,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
                 <div className="sm:col-span-7 rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-100">
                   <img
                     src="/assets/images/about/about-us-img-5.jpg"
-                    alt="South Florida Cleaning Concepts Professional Cleaning Specialists"
+                    alt="Uniformed South Florida Cleaning Concepts crew members prepared for service"
                     width="800"
                     height="600"
                     className="w-full h-full min-h-[280px] object-cover"
@@ -87,7 +77,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
                   <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 h-48 sm:h-full">
                     <img
                       src="/assets/images/about/about-us-img-7.jpg"
-                      alt="Sanitization Equipment and Microfiber Detailing"
+                      alt="Color-coded microfiber cloths and eco-safe sanitization supplies"
                       width="500"
                       height="400"
                       className="w-full h-full object-cover"
@@ -95,10 +85,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
                   </div>
                   <div className="bg-[#071536] text-white p-6 rounded-2xl border border-slate-800">
                     <div className="font-mono text-xs text-[#a3e6be] uppercase tracking-widest mb-1.5">
-                      Personal Quality Check
+                      50-Point Quality Check
                     </div>
                     <p className="text-sm font-medium text-slate-200 leading-relaxed m-0">
-                      Every single clean is checked against our 50-point room-by-room sparkle checklist before we lock up.
+                      Every clean passes our 50-point inspection checklist before we lock up.
                     </p>
                   </div>
                 </div>
@@ -108,95 +98,21 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
         </div>
       </section>
 
-      {/* 4 Pillars of Excellence */}
-      <section className="section py-20 lg:py-24 bg-white border-t border-slate-200/80" aria-labelledby="pillars-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-14">
-            <div className="editorial-kicker mb-3">
-              <span>Why Families &amp; Businesses Love Us</span>
-            </div>
-            <h2 id="pillars-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              4 Reasons You’ll Love Coming Home to Our Clean
-            </h2>
-            <p className="text-slate-600 text-base sm:text-lg m-0">
-              Here’s how we make sure every visit is effortless, safe, and spotless from top to bottom.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                num: '01',
-                icon: ShieldCheck,
-                title: 'Love It or Don’t Pay',
-                desc: 'If you aren’t smiling when you walk through the door, you don’t pay. We’ll re-clean any spot for free within 24 hours.'
-              },
-              {
-                num: '02',
-                icon: Users,
-                title: 'Friendly, Vetted Pros',
-                desc: 'Every cleaner is background-checked, insured, and trained by our family team so you always feel comfortable handing us the keys.'
-              },
-              {
-                num: '03',
-                icon: Heart,
-                title: 'Kid & Pet Safe',
-                desc: 'We bring all our own gentle, eco-friendly cleaning supplies and fresh microfiber cloths—zero harsh chemical smells.'
-              },
-              {
-                num: '04',
-                icon: Award,
-                title: '4-Step Rotation Clean',
-                desc: 'We rotate deep-detailing work across your kitchens, baths, bedrooms, and living areas so dust and grime never build up.'
-              }
-            ].map((pillar) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={pillar.num}
-                  className="p-7 rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:bg-white hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-11 h-11 rounded-xl bg-[#071536] text-[#a3e6be] flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="font-mono text-xs font-bold text-slate-400 tabular-nums">
-                        {pillar.num}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-extrabold text-[#071536] mb-2.5">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed m-0">
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Scraped Source Promotional Video Showcase */}
       <PromoVideoShowcase onOpenQuoteModal={onOpenQuoteModal} />
-
-      {/* Rotation System Section */}
-      <RotationSystemSection />
 
       {/* Authentic Source Careers Section: We Are Hiring! */}
       <section
         id="careers"
         data-testid="careers-hiring-section"
-        className="section py-16 lg:py-20 bg-slate-50 border-t border-slate-200/80 scroll-mt-24"
+        className="section py-16 lg:py-20 bg-white border-t border-slate-200/80 scroll-mt-24"
         aria-labelledby="about-careers-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="rounded-3xl bg-slate-50 border border-slate-200/90 p-8 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
               <div className="editorial-kicker mb-3">
-                <span>Careers Across Palm Beach, Broward &amp; Miami-Dade</span>
+                <span>Careers · Palm Beach, Broward &amp; Miami-Dade</span>
               </div>
               <h2
                 id="about-careers-heading"
@@ -205,20 +121,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
                 {BUSINESS_NAP.careersHeadline} Join Our Friendly Cleaning Crew
               </h2>
               <p className="text-slate-600 text-base leading-relaxed mb-6 max-w-2xl">
-                {BUSINESS_NAP.careersDescription} We treat our team like family—with steady local routes, paid hands-on training, and all equipment provided.
+                {BUSINESS_NAP.careersDescription}
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-semibold text-slate-700 p-0 m-0 list-none">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
-                  <span>Competitive Pay &amp; Weekly Tips</span>
+                  <span>Competitive Pay &amp; Tips</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
-                  <span>Flexible Daytime or Evening Routes</span>
+                  <span>Flexible Local Routes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#12582e] shrink-0" />
-                  <span>Supportive Family-Owned Culture</span>
+                  <span>Family-Owned Culture</span>
                 </li>
               </ul>
             </div>
@@ -229,67 +145,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuoteModal }) => {
                 className="btn btn-primary bg-[#071536] hover:bg-[#12582e] text-white font-bold py-3.5 px-6 min-h-[48px] rounded-xl text-sm transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <Briefcase className="w-4 h-4 text-[#a3e6be]" />
-                <span>Apply or Ask About Openings</span>
+                <span>Apply for Openings</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href={`mailto:${BUSINESS_NAP.email}?subject=Careers%20Inquiry%20-%20South%20Florida%20Cleaning%20Concepts`}
                 className="py-3 px-5 min-h-[44px] rounded-xl border border-slate-200 hover:border-[#071536] text-xs sm:text-sm font-mono font-bold text-[#071536] text-center transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
-                Email Resume: {BUSINESS_NAP.email}
+                Email: {BUSINESS_NAP.email}
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action with Hero Slideshow */}
-      <section className="section py-16 lg:py-20 bg-white border-t border-slate-200/80" aria-label="About Us Call to Action">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            data-testid="about-bottom-cta-slideshow"
-            data-active-slide={activeIndex}
-            className="relative overflow-hidden rounded-3xl bg-[#071536] text-white text-center px-6 py-12 sm:p-14 shadow-2xl border border-slate-800"
-          >
-            <ServiceSlideshowBackdrop
-              activeIndex={activeIndex}
-              enableParallax={false}
-              scrimVariant="cta-card"
-            />
-
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <div className="editorial-kicker-light mb-4 justify-center drop-shadow-xs">
-                <span>Get Your Weekend Back</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-md">
-                Ready to Let Our Family Take Care of Your Clean?
-              </h2>
-              <p className="text-white/90 text-base sm:text-lg mb-8 max-w-2xl mx-auto drop-shadow-xs">
-                See why hundreds of South Florida homeowners and businesses trust us every single week. Get your free, no-obligation quote in minutes!
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  to="/contact-us"
-                  className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap"
-                >
-                  <span>Book My Free Quote</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <a
-                  href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="btn btn-phone flex items-center gap-2 py-3.5 px-6 rounded-xl bg-[#071536]/75 hover:bg-[#071536]/95 border border-white/25 text-white font-mono font-semibold transition-colors tabular-nums whitespace-nowrap"
-                >
-                  <Phone className="w-4 h-4 text-[#a3e6be]" />
-                  <span>Call {BUSINESS_NAP.phone}</span>
-                </a>
-              </div>
-              <SlideshowIndicators
-                activeIndex={activeIndex}
-                onSelectSlide={setActiveIndex}
-                ariaLabel="About page CTA service slides"
-                align="center"
-                className="mt-5"
-              />
             </div>
           </div>
         </div>

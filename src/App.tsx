@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { MobileActionBar } from './components/layout/MobileActionBar';
 import { QuoteModal } from './components/ui/QuoteModal';
 import { GlobalCTA } from './components/ui/GlobalCTA';
 import { ExitIntentBanner } from './components/ui/ExitIntentBanner';
-import { SEOHead } from './components/seo/SEOHead';
+import { SEOHead, normalizeRoutePath } from './components/seo/SEOHead';
 import { ScrollToTop } from './components/seo/ScrollToTop';
 
 import { HomePage } from './pages/HomePage';
@@ -22,8 +22,22 @@ import { ContactPage } from './pages/ContactPage';
 import { FaqsPage } from './pages/FaqsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { LEGACY_WP_POST_SLUGS } from './data/siteData';
+import { SEO_ROUTES_MAP } from './data/seoRegistry';
 
-export function App() {
+const OMITTED_GLOBAL_CTA_PATHS = new Set(['/contact-us', '/contact', '/404']);
+
+export function shouldShowGlobalCta(pathname: string): boolean {
+  const normalized = normalizeRoutePath(pathname);
+
+  if (OMITTED_GLOBAL_CTA_PATHS.has(normalized)) {
+    return false;
+  }
+
+  return Object.prototype.hasOwnProperty.call(SEO_ROUTES_MAP, normalized);
+}
+
+function AppShell() {
+  const { pathname } = useLocation();
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
 
@@ -33,60 +47,69 @@ export function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 antialiased selection:bg-[#2a8655] selection:text-white">
-        <SEOHead />
-        <ScrollToTop />
-        <Header onOpenQuoteModal={() => handleOpenQuoteModal('')} />
+    <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 antialiased selection:bg-[#2a8655] selection:text-white">
+      <SEOHead />
+      <ScrollToTop />
+      <Header onOpenQuoteModal={() => handleOpenQuoteModal('')} />
 
-        <main id="main-content" className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/index.html" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/about-us" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/about-us.html" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/our-services" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/our-services.html" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/service" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/service/index.html" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
-            <Route path="/service/:slug" element={<ServiceDetailPage />} />
-            <Route path="/service-areas" element={<ServiceAreaDirectoryPage />} />
-            <Route path="/service-areas.html" element={<ServiceAreaDirectoryPage />} />
-            <Route path="/service-area/:slug" element={<ServiceAreaDetailPage />} />
-            <Route path="/our-publications" element={<PublicationsPage />} />
-            <Route path="/our-publications.html" element={<PublicationsPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            {Object.entries(LEGACY_WP_POST_SLUGS).map(([legacySlug, targetSlug]) => (
-              <Route
-                key={legacySlug}
-                path={`/${legacySlug}`}
-                element={<Navigate to={`/blog/${targetSlug}`} replace />}
-              />
-            ))}
-            <Route path="/contact-us" element={<ContactPage />} />
-            <Route path="/contact-us.html" element={<ContactPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/contact.html" element={<ContactPage />} />
-            <Route path="/faqs" element={<FaqsPage />} />
-            <Route path="/faqs.html" element={<FaqsPage />} />
-            <Route path="/404" element={<NotFoundPage />} />
-            <Route path="/404.html" element={<NotFoundPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
+      <main id="main-content" className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/index.html" element={<HomePage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/about-us" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/about-us.html" element={<AboutPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/our-services" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/our-services.html" element={<ServicesOverviewPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service.html" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service/index.html" element={<ServiceDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service/:slug" element={<ServiceDetailPage />} />
+          <Route path="/service-areas" element={<ServiceAreaDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service-areas.html" element={<ServiceAreaDirectoryPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/service-area/:slug" element={<ServiceAreaDetailPage onOpenQuoteModal={handleOpenQuoteModal} />} />
+          <Route path="/our-publications" element={<PublicationsPage />} />
+          <Route path="/our-publications.html" element={<PublicationsPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          {Object.entries(LEGACY_WP_POST_SLUGS).map(([legacySlug, targetSlug]) => (
+            <Route
+              key={legacySlug}
+              path={`/${legacySlug}`}
+              element={<Navigate to={`/blog/${targetSlug}`} replace />}
+            />
+          ))}
+          <Route path="/contact-us" element={<ContactPage />} />
+          <Route path="/contact-us.html" element={<ContactPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact.html" element={<ContactPage />} />
+          <Route path="/faqs" element={<FaqsPage />} />
+          <Route path="/faqs.html" element={<FaqsPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="/404.html" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
 
+      {shouldShowGlobalCta(pathname) && (
         <GlobalCTA onOpenQuoteModal={() => handleOpenQuoteModal('')} />
-        <Footer />
-        <MobileActionBar onOpenQuoteModal={() => handleOpenQuoteModal('')} />
+      )}
+      <Footer />
+      <MobileActionBar onOpenQuoteModal={() => handleOpenQuoteModal('')} />
 
-        <QuoteModal
-          isOpen={isQuoteModalOpen}
-          onClose={() => setIsQuoteModalOpen(false)}
-          serviceTitle={selectedService}
-        />
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        serviceTitle={selectedService}
+      />
 
-        <ExitIntentBanner isQuoteModalOpen={isQuoteModalOpen} />
-      </div>
+      <ExitIntentBanner isQuoteModalOpen={isQuoteModalOpen} />
+    </div>
+  );
+}
+
+export function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

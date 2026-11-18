@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Phone } from 'lucide-react';
-import { SERVICES_CATALOG, BUSINESS_NAP } from '../data/siteData';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { SERVICES_CATALOG } from '../data/siteData';
 import { CleaningEstimator } from '../components/ui/CleaningEstimator';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
-import {
-  ServiceSlideshowBackdrop,
-  SlideshowIndicators,
-  useAutoRotatingSlideshow,
-} from '../components/ui/ServiceSlideshowBackdrop';
 
 interface ServicesOverviewPageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
+const SERVICE_IMAGE_ALTS: Record<string, string> = {
+  'office-cleaning': 'Cleaners sanitizing desks and glass partitions in a South Florida office',
+  'medical-office-cleaning': 'Sanitized medical clinic exam suite and waiting room seating',
+  'bars-and-restaurant-cleaning': 'Degreased stainless restaurant kitchen and spotless dining bar',
+  'short-term-rentals': 'Crisply staged South Florida Airbnb bedroom ready for guest check-in',
+  'post-construction-cleaning': 'Technician HEPA-vacuuming drywall dust inside a newly remodeled room',
+  'move-in-out-cleaning': 'Freshly scrubbed empty residence kitchen and gleaming hardwood floors',
+  'home-maintenance': 'Housekeeper wiping sunlit residential windows in a South Florida home',
+  'school-cleaning': 'Disinfected classroom desks and sanitized daycare learning space',
+  'home-watching': 'Clean South Florida coastal residence inspected during seasonal home watch',
+  'covid-19-disinfection': 'Specialist applying electrostatic disinfectant mist across commercial surfaces',
+};
+
 export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOpenQuoteModal }) => {
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'commercial' | 'residential'>('all');
-  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(4);
 
   const commercialSlugs = [
     'office-cleaning',
@@ -38,9 +45,9 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
       <InteriorHero
         ariaLabel="Services Overview Header"
         align="center"
-        kicker="10 Ways We Make Your Space Shine · South Florida"
+        kicker="10 Specialized Plans · South Florida"
         title="Cleaning Services for Your Home, Rental & Workplace"
-        description="Whether you want a sparkling family home, a 5-star vacation rental turnover, or a fresh, welcoming workplace, our friendly local team brings all the supplies and guarantees you’ll love your clean."
+        description="Tailored cleaning plans for South Florida homes, vacation rentals, and workplaces—all supplies included and 100% guaranteed."
         imageSrc={INTERIOR_HERO_IMAGES.modernOffice}
         imageAlt="Pristine South Florida modern executive office and glass conference interior"
         breadcrumbs={[
@@ -55,26 +62,26 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
             <div className="max-w-2xl">
               <div className="editorial-kicker mb-3">
-                <span>Tailored to Your Home or Business</span>
+                <span>Home &amp; Commercial Plans</span>
               </div>
               <h2 id="catalog-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-                Choose the Clean That Fits Your Life
+                Choose the Clean That Fits Your Space
               </h2>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed m-0">
-                Every visit is handled by our friendly, background-checked pros using kid- and pet-safe supplies—and backed by our Love Your Clean or Don’t Pay Guarantee.
+                Background-checked crews, eco-safe supplies, and our Love Your Clean or Don’t Pay Guarantee.
               </p>
             </div>
 
             {/* Interactive Filter Tabs */}
             <div
-              className="flex items-center gap-1.5 p-1.5 bg-slate-100 rounded-xl border border-slate-200/80 shrink-0 w-fit"
+              className="flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-100 rounded-xl border border-slate-200/80 max-w-full lg:shrink-0 w-fit"
               role="tablist"
               aria-label="Filter service divisions"
             >
               {[
-                { id: 'all', label: 'All 10 Services' },
-                { id: 'residential', label: 'Homes & Vacation Rentals (4)' },
-                { id: 'commercial', label: 'Offices, Clinics & Dining (6)' }
+                { id: 'all', label: 'All (10)' },
+                { id: 'residential', label: 'Homes & Rentals (4)' },
+                { id: 'commercial', label: 'Commercial (6)' }
               ].map((tab) => {
                 const active = selectedCategory === tab.id;
                 return (
@@ -107,38 +114,23 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                   <div className="lg:col-span-5 relative rounded-xl overflow-hidden min-h-[260px] lg:h-full bg-slate-100">
                     <img
                       src={svc.image}
-                      alt={`${svc.title} - South Florida Cleaning Concepts`}
+                      alt={SERVICE_IMAGE_ALTS[svc.slug] || svc.shortDesc}
                       width="800"
                       height="600"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071536]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                      <span className="font-mono text-xs font-bold text-[#a3e6be]">
-                        All Supplies Included
-                      </span>
-                      <span className="font-mono text-xs text-white/90">
-                        100% Guaranteed
-                      </span>
-                    </div>
                   </div>
 
                   <div className="lg:col-span-7 flex flex-col justify-between">
                     <div>
-                      <div className="font-mono text-xs font-semibold uppercase tracking-widest text-[#12582e] mb-2">
-                        Custom Checklist · Kid &amp; Pet Safe
-                      </div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-3">
                         {svc.title}
                       </h3>
                       <p className="text-slate-600 text-base leading-relaxed mb-6">
-                        {svc.fullDesc}
+                        {svc.shortDesc}
                       </p>
 
-                      <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                        What We Take Off Your Plate:
-                      </h4>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-slate-700 mb-8 p-0 m-0 list-none">
                         {svc.features.map((feature, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2.5">
@@ -163,14 +155,14 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
                           onClick={() => onOpenQuoteModal(svc.title)}
                           className="btn btn-outline border border-slate-300 text-[#071536] hover:bg-slate-50 font-bold py-3 px-5 rounded-xl text-sm transition-colors cursor-pointer"
                         >
-                          Book Free Quote
+                          Free Quote
                         </button>
                       ) : (
                         <Link
                           to="/contact-us"
                           className="btn btn-outline border border-slate-300 text-[#071536] hover:bg-slate-50 font-bold py-3 px-5 rounded-xl text-sm transition-colors"
                         >
-                          Book Free Quote
+                          Free Quote
                         </Link>
                       )}
                     </div>
@@ -184,46 +176,6 @@ export const ServicesOverviewPage: React.FC<ServicesOverviewPageProps> = ({ onOp
 
       {/* Interactive Cleaning Estimator */}
       <CleaningEstimator onSelectEstimate={(title) => onOpenQuoteModal?.(title)} />
-
-      {/* Guarantee Bottom CTA with Hero Slideshow */}
-      <section className="section py-16 lg:py-20 bg-white border-t border-slate-200/80" aria-label="Services Guarantee">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            data-testid="services-bottom-cta-slideshow"
-            data-active-slide={activeIndex}
-            className="relative overflow-hidden rounded-3xl bg-[#071536] text-white text-center px-6 py-12 sm:p-14 shadow-2xl border border-slate-800"
-          >
-            <ServiceSlideshowBackdrop
-              activeIndex={activeIndex}
-              enableParallax={false}
-              scrimVariant="cta-card"
-            />
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <ShieldCheck className="w-10 h-10 text-[#a3e6be] mx-auto mb-3 drop-shadow-xs" />
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3 drop-shadow-md">
-                Love Your Clean or You Don’t Pay—Period
-              </h2>
-              <p className="text-white/90 text-sm sm:text-base max-w-xl mx-auto mb-8 drop-shadow-xs">
-                If you aren’t completely thrilled when we finish, we’ll come right back and fix it for free—or you don’t pay. Call or text (561) 704-5303 today!
-              </p>
-              <a
-                href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-mono font-bold py-3.5 px-8 rounded-xl text-base shadow-lg transition-colors inline-flex items-center gap-2 tabular-nums whitespace-nowrap"
-              >
-                <Phone className="w-4 h-4 text-[#a3e6be]" />
-                <span>Call {BUSINESS_NAP.phone} Now</span>
-              </a>
-              <SlideshowIndicators
-                activeIndex={activeIndex}
-                onSelectSlide={setActiveIndex}
-                ariaLabel="Services overview CTA slides"
-                align="center"
-                className="mt-5"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
     </article>
   );
 };

@@ -22,10 +22,13 @@ export const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({
   const embedUrl = `https://maps.google.com/maps?q=${encodedLocation}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
   const externalMapUrl = `https://maps.google.com/?q=${encodedLocation}`;
 
-  // Format GPS coordinates if available
-  const formattedCoords = area.geo
-    ? `${Number(area.geo.latitude).toFixed(4)}° N, ${Math.abs(Number(area.geo.longitude)).toFixed(4)}° W`
-    : null;
+  // Format GPS coordinates if valid and finite
+  const parsedLat = area.geo ? Number(area.geo.latitude) : NaN;
+  const parsedLng = area.geo ? Number(area.geo.longitude) : NaN;
+  const formattedCoords =
+    Number.isFinite(parsedLat) && Number.isFinite(parsedLng)
+      ? `${parsedLat.toFixed(4)}° N, ${Math.abs(parsedLng).toFixed(4)}° W`
+      : null;
 
   return (
     <div

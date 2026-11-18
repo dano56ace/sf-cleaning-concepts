@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serviceAreas } from '../src/data/serviceAreas';
+import { BUSINESS_NAP, SERVICES_CATALOG, FAQS_LIST } from '../src/data/siteData';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -78,22 +79,37 @@ export function generateLlmsManifest(): string {
     return `- **${group.region}**: ${links.join(', ')}.`;
   }).join('\n');
 
-  return `# South Florida Cleaning Concepts
+  const serviceBySlug = new Map(SERVICES_CATALOG.map((svc) => [svc.slug, svc]));
+  const divisionOrder: { slug: string; label: string }[] = [
+    { slug: 'office-cleaning', label: 'Commercial Office Cleaning' },
+    { slug: 'medical-office-cleaning', label: 'Medical Office & Healthcare Disinfection' },
+    { slug: 'short-term-rentals', label: 'Short-Term Rental & Vacation Rental Turnover' },
+    { slug: 'home-maintenance', label: 'Luxury Residential & Home Maintenance (4-Step Rotation System)' },
+    { slug: 'post-construction-cleaning', label: 'Post-Construction Cleanup' },
+    { slug: 'bars-and-restaurant-cleaning', label: 'Commercial Bar & Restaurant Cleaning' },
+    { slug: 'school-cleaning', label: 'School & Daycare Cleaning Services' },
+    { slug: 'move-in-out-cleaning', label: 'Move In / Move Out Cleaning Services' },
+    { slug: 'home-watching', label: 'Professional Home Watching Services' },
+    { slug: 'covid-19-disinfection', label: 'COVID-19 Disinfection & Electrostatic Spraying' }
+  ];
 
-> South Florida Cleaning Concepts is a premier commercial janitorial, specialized medical facility disinfection, short-term rental turnover, post-construction cleanup, and luxury residential rotation cleaning service provider operating across 56 municipalities in Palm Beach, Broward, and Miami-Dade counties from Jupiter south to Miami.
+  const divisionLines = divisionOrder
+    .map(({ slug, label }) => {
+      const svc = serviceBySlug.get(slug);
+      if (!svc) {
+        throw new Error(`Service slug not found in SERVICES_CATALOG: ${slug}`);
+      }
+      return `- [${label}](https://sfcleaningconcepts.com/service/${svc.slug}): ${svc.fullDesc}`;
+    })
+    .join('\n');
+
+  return `# ${BUSINESS_NAP.name}
+
+> ${BUSINESS_NAP.name} is a premier commercial janitorial, specialized medical facility disinfection, short-term rental turnover, post-construction cleanup, and luxury residential cleaning service provider operating across 56 communities in Palm Beach, Broward, Miami-Dade, and neighboring Florida counties from Jupiter south to Miami.
 
 ## Service Divisions
 
-- [Commercial Office Cleaning](https://sfcleaningconcepts.com/service/office-cleaning): Nightly corporate janitorial, day porter service, executive workstation sanitization, restroom deep sanitizing, touchpoint pathogen mitigation, and commercial HEPA floor care.
-- [Medical Office & Healthcare Disinfection](https://sfcleaningconcepts.com/service/medical-office-cleaning): Terminal sterilization, OSHA/CDC/HIPAA-compliant protocols, EPA List N hospital-grade virucides, bloodborne pathogen defense, and non-cross-contamination color-coded microfiber care for surgical, dental, and clinical suites.
-- [Short-Term Rental & Vacation Rental Turnover](https://sfcleaningconcepts.com/service/short-term-rentals): Guaranteed same-day 10:00 AM - 4:00 PM turnaround windows, 50-point hospitality staging, hotel-grade linen laundering, and automated photographic damage/supply reporting for Airbnb/VRBO hosts.
-- [Luxury Residential Maid Service & Rotation Cleaning](https://sfcleaningconcepts.com/service/home-maintenance): Proprietary 4-Phase Rotation Cleaning System (Kitchens, Bathrooms, Living Areas, Sleeping Quarters), Green Seal certified eco-friendly supplies, and specialized defense against Florida humidity, coastal salt air, and mold intrusion.
-- [Post-Construction Cleanup](https://sfcleaningconcepts.com/service/post-construction-cleaning): Comprehensive 3-phase builder transition (Rough Clean, Deep Prep, White-Glove Final Polish) removing fine drywall silica dust, adhesives, paint overspray, and debris for architects and general contractors.
-- [Bars & Restaurant Cleaning](https://sfcleaningconcepts.com/service/bars-and-restaurant-cleaning): Commercial kitchen degreasing, dining room floor care, bar well sanitization, and health inspection readiness.
-- [School & Daycare Cleaning](https://sfcleaningconcepts.com/service/school-cleaning): Child-safe sanitization, non-toxic germ mitigation, and high-touch playground/classroom disinfection.
-- [Move-In / Move-Out Cleaning](https://sfcleaningconcepts.com/service/move-in-out-cleaning): Deep sanitization, appliance interior degreasing, cabinet restoration, and deposit-return guarantee for realtors and residents.
-- [Home Watching Services](https://sfcleaningconcepts.com/service/home-watching): Hurricane readiness checks, weekly estate wellness inspections, moisture monitoring, and vendor oversight for seasonal residents.
-- [COVID-19 & Pathogen Disinfection](https://sfcleaningconcepts.com/service/covid-19-disinfection): Hospital-grade electrostatic spray application, EPA List N broad-spectrum virucides, and bio-fogging for rapid contamination response.
+${divisionLines}
 
 ## Geographic Service Areas (56 Municipalities)
 
@@ -104,76 +120,79 @@ ${regionalLines}
 
 ## Company Credentials & Standards
 
-- **Licensing & Insurance**: Fully licensed Florida commercial cleaning contractor with $2,000,000+ general commercial liability policy and comprehensive surety bonding.
-- **100% Satisfaction Guarantee**: If a client is not completely satisfied with any area, our mobile team returns within 24 hours to re-clean at no charge, or the service is free.
-- **Green Chemistry & Disinfection**: Exclusively utilizing EPA List N registered hospital-grade disinfectants and Green Seal certified non-toxic, bio-safe cleaning agents.
-- **Vetted Personnel**: 100% background-checked, W-2 employed, uniformed, and OSHA 1910.1030 bloodborne pathogen trained cleaning specialists.
-- **Experience**: Over 20 years of family-owned and operated commercial janitorial leadership in South Florida.
+- **Licensing & Insurance**: Fully licensed, insured, and bonded residential and commercial cleaning specialists (${BUSINESS_NAP.legalName}).
+- **Love Your Clean or Don’t Pay Guarantee**: ${BUSINESS_NAP.guarantee}
+- **Local Reputation**: Rated ${BUSINESS_NAP.ratingScore} stars (${BUSINESS_NAP.reviewCountLabel}) with over 20 years of family-owned care since 2004.
+- **Online Booking Offer**: ${BUSINESS_NAP.websiteDiscountHeadline} — ${BUSINESS_NAP.websiteDiscountDetail}
+- **Eco-Safe & Color-Coded Supplies**: EPA-registered hospital-grade disinfectants, eco-friendly products safe for kids and pets, and strict color-coded microfiber isolation.
+- **Vetted Personnel & Careers**: Background-checked, supervisor-trained local crews. ${BUSINESS_NAP.careersHeadline} ${BUSINESS_NAP.careersDescription}
 
 ## Contact & Booking Information
 
-- **Direct Phone**: [(561) 704-5303](tel:15617045303)
-- **Email**: [Sflcleaningco@gmail.com](mailto:Sflcleaningco@gmail.com)
-- **Headquarters**: Boynton Beach, FL 33435
+- **Direct Phone**: [${BUSINESS_NAP.phone}](tel:${BUSINESS_NAP.phoneRaw})
+- **Email**: [${BUSINESS_NAP.email}](mailto:${BUSINESS_NAP.email})
+- **Headquarters**: ${BUSINESS_NAP.addressLocality}, ${BUSINESS_NAP.addressRegion} 33435
 - **Online Quote Request**: [Instant Cleaning Quote Form](https://sfcleaningconcepts.com/contact-us#quote)
-- **Hours of Operation**: Monday – Sunday, 7:00 AM – 8:00 PM EST
+- **Hours of Operation**: ${BUSINESS_NAP.hours}
 
 ## Full Documentation & Structured Data
 
-- [Complete Knowledge Base (llms-full.txt)](https://sfcleaningconcepts.com/llms-full.txt): Comprehensive operational SOPs, detailed protocols for all 5 service divisions, complete demographic and landmark profiles for all 56 municipalities, commercial FAQs, and certification catalog.
+- [Complete Knowledge Base (llms-full.txt)](https://sfcleaningconcepts.com/llms-full.txt): Comprehensive operational SOPs, detailed protocols for all 10 service divisions, complete demographic and landmark profiles for all 56 municipalities, and FAQs.
 - [XML Sitemap](https://sfcleaningconcepts.com/sitemap.xml): Machine-readable XML index of all 85 canonical indexable URLs.
 `;
 }
 
 export function generateLlmsFullCorpus(): string {
-  let doc = `# South Florida Cleaning Concepts — Complete Commercial & Residential Cleaning Knowledge Base
+  const serviceBySlug = new Map(SERVICES_CATALOG.map((svc) => [svc.slug, svc]));
+  const divisionSpecs: { slug: string; heading: string }[] = [
+    { slug: 'office-cleaning', heading: 'Division 1: Commercial Office Cleaning' },
+    { slug: 'medical-office-cleaning', heading: 'Division 2: Medical Office & Healthcare Disinfection' },
+    { slug: 'short-term-rentals', heading: 'Division 3: Short-Term Rental & Vacation Rental Turnover (Airbnb / VRBO)' },
+    { slug: 'home-maintenance', heading: 'Division 4: Luxury Residential & Home Maintenance (4-Step Rotation System)' },
+    { slug: 'post-construction-cleaning', heading: 'Division 5: Post-Construction Cleanup' },
+    { slug: 'bars-and-restaurant-cleaning', heading: 'Division 6: Commercial Bar & Restaurant Cleaning' },
+    { slug: 'school-cleaning', heading: 'Division 7: School & Daycare Cleaning Services' },
+    { slug: 'move-in-out-cleaning', heading: 'Division 8: Move In / Move Out Cleaning Services' },
+    { slug: 'home-watching', heading: 'Division 9: Professional Home Watching Services' },
+    { slug: 'covid-19-disinfection', heading: 'Division 10: COVID-19 Disinfection & Electrostatic Spraying' }
+  ];
 
-> Comprehensive technical operating procedures, division specifications, demographic community profiles, and compliance standards for South Florida Cleaning Concepts across 56 municipalities in Palm Beach, Broward, and Miami-Dade counties.
+  const divisionsCorpus = divisionSpecs
+    .map(({ slug, heading }) => {
+      const svc = serviceBySlug.get(slug);
+      if (!svc) {
+        throw new Error(`Service slug not found in SERVICES_CATALOG: ${slug}`);
+      }
+      return `### ${heading}
+- **URL**: https://sfcleaningconcepts.com/service/${svc.slug}
+- **Overview**: ${svc.fullDesc}
+- **Key Features**:
+${svc.features.map((f) => `  * ${f}`).join('\n')}
+- **Inspection Checklist**:
+${svc.checklist.map((c) => `  * ${c}`).join('\n')}
+- **Client Benefits**:
+${svc.benefits.map((b) => `  * ${b}`).join('\n')}`;
+    })
+    .join('\n\n');
+
+  let doc = `# ${BUSINESS_NAP.name} — Complete Commercial & Residential Cleaning Knowledge Base
+
+> Comprehensive standard operating procedures, service division specifications, community profiles, and quality standards for ${BUSINESS_NAP.name} across 56 communities in Palm Beach, Broward, Miami-Dade, and neighboring Florida counties.
 
 ---
 
 ## 1. Corporate Profile & Operational Philosophy
 
-Founded in Palm Beach County and family-owned for more than two decades, South Florida Cleaning Concepts is built upon hospital-grade sanitization standards, employee accountability, and transparent commercial partnerships. Our operations are governed by three immovable commitments:
-1. **$2,000,000+ Commercial General Liability & Bonding**: Protecting commercial property owners, property managers, healthcare facilities, and luxury estate owners from liability.
-2. **100% Satisfaction Guarantee**: Any inspection finding that fails our 50-point cleanliness audit is remedied by a mobile supervisory team within 24 hours at zero additional cost.
-3. **Bio-Safe Chemistry & EPA List N Compliance**: Elimination of pathogenic reservoirs using hospital-grade disinfectants without VOCs or harsh residues that compromise indoor air quality.
+Founded in Boynton Beach in 2004 and family-owned for over 20 years, ${BUSINESS_NAP.name} (${BUSINESS_NAP.legalName}) delivers residential, hospitality, and commercial cleaning across South Florida. Our operations are governed by three core commitments:
+1. **Licensed, Insured & Bonded Care**: Every technician is background-checked, insured, bonded, and supervisor-trained—never random gig-app contractors.
+2. **Love Your Clean or Don’t Pay Guarantee**: ${BUSINESS_NAP.guarantee} Backed by our 50-point quality inspection checklist.
+3. **Eco-Safe Supplies & Color-Coded Microfiber**: EPA-registered hospital-grade disinfectants, kid- and pet-safe solutions, and strict color-coded cloth isolation between restrooms, kitchens, and workstations.
 
 ---
 
-## 2. Standard Operating Procedures (SOPs) Across 5 Core Service Divisions
+## 2. Standard Operating Procedures (SOPs) Across All 10 Service Divisions
 
-### Division 1: Commercial Office Cleaning
-- **Nightly Janitorial Scope**: Emptying and sanitizing waste receptacles, recycling sorting, electrostatic dust suppression on horizontal surfaces, commercial HEPA multi-stage floor vacuuming, and terminal touchpoint sanitization (keyboards, phone handsets, conference table connectivity boxes, elevator call plates, push-bars).
-- **Restroom Terminal Sanitation**: High-pressure washdown, virucidal porcelain bowl descaling, touch-free dispenser servicing, and grout scrubbing using quaternary ammonium disinfectants.
-- **Color-Coded Microfiber Protocol**: Strict isolation preventing cross-contamination:
-  * Red: Restroom commodes, urinals, and biological containment.
-  * Yellow: Restroom counters, sinks, and partition walls.
-  * Blue: Interior glass, architectural mirrors, and polished chrome.
-  * Green: Food preparation areas, breakrooms, and executive kitchenettes.
-
-### Division 2: Medical Office & Healthcare Disinfection
-- **Regulatory Framework**: Fully compliant with OSHA 1910.1030 Bloodborne Pathogen standards, CDC Guideline for Disinfection and Sterilization in Healthcare Facilities, and HIPAA physical privacy standards.
-- **Surface Dwell-Time Adherence**: Application of EPA List N broad-spectrum virucides, tuberculocides, and bactericides requiring strict 10-minute wet contact time.
-- **Clinical Scope**: Reception triage zones, surgical exam tables, phlebotomy chairs, dental treatment bays, sterile supply rooms, and non-porous antimicrobial flooring.
-
-### Division 3: Short-Term Rental & Vacation Rental Turnover (Airbnb / VRBO)
-- **Rapid-Response Turnaround**: Guaranteed turnover between guest check-out (10:00 AM) and incoming guest check-in (4:00 PM).
-- **Linen & Towel Laundering**: Commercial off-site or high-temperature sanitizing wash (160°F thermal disinfection) with hypoallergenic detergent.
-- **50-Point Hospitality Inspection**: Staging toiletries, inventory verification, appliance inspection (refrigerator, oven, dishwasher, microwave), and high-resolution photographic damage logging uploaded directly to host dashboards.
-
-### Division 4: Luxury Residential Rotation Cleaning
-- **4-Phase Deep Rotation System**:
-  * Phase A: Kitchen deep scrub, range hood degreasing, backsplash restoration, and cabinet face conditioning.
-  * Phase B: Master bathroom scale removal, frameless glass shower door descaling, and grout steam sanitization.
-  * Phase C: Living & dining rooms, crown molding dust extraction, and fine furniture conditioning.
-  * Phase D: Bedrooms, mattress sanitization, under-bed vacuuming, and baseboard detailing.
-- **Sub-Tropical Climate Defense**: Specialized treatment inhibiting mold spore colonization caused by high humidity, coastal salt air neutralizers on metal finishes, and moisture meter checks.
-
-### Division 5: Post-Construction Cleanup
-- **Phase 1 (Rough Clean)**: Removal of framing off-cuts, construction trash, protective adhesive tape, and bulk paint spatters.
-- **Phase 2 (Deep Prep Clean)**: Industrial HEPA vacuum extraction of ultra-fine drywall silica dust from air returns, ceiling fans, cabinet drawers, and window tracks.
-- **Phase 3 (White-Glove Final Polish)**: Microfiber buffing of all plumbing fixtures, luxury stone sealing, zero-streak architectural glazing wash, and floor burnishing for developer turnover.
+${divisionsCorpus}
 
 ---
 
@@ -236,27 +255,18 @@ Founded in Palm Beach County and family-owned for more than two decades, South F
     doc += `\n---\n\n`;
   }
 
-  doc += `## 4. Frequently Asked Questions (Commercial Cleaning Knowledge Base)
+  doc += `## 4. Frequently Asked Questions
 
-### Q: How do you price commercial cleaning contracts?
-A: Commercial pricing is customized based on square footage, frequency (daily, 3x/week, weekly), facility type (general office vs. medical vs. post-construction), flooring composition, and specialized requirements such as day porter coverage or cleanroom terminal sterilization. We provide transparent, no-obligation on-site facility assessments.
-
-### Q: What is the difference between sanitizing and disinfecting?
-A: Sanitizing reduces bacterial counts by 99.9% on surfaces to public health safety levels. Disinfecting utilizes EPA-registered chemical formulations to destroy or irreversibly inactivate 99.999% of specified target pathogens (viruses, bacteria, fungi) across verified wet dwell times (typically 5 to 10 minutes).
-
-### Q: How do you guarantee building security during night janitorial shifts?
-A: Every cleaning technician is a W-2 employee (never unvetted 1099 sub-contractors) who has passed multi-jurisdictional criminal background checks and drug screenings. Facilities are managed via digital key-tracking lockboxes, alarmed access protocols, and GPS-stamped timekeeping.
-
-### Q: What certifications and insurance do you maintain?
-A: We carry $2,000,000+ commercial general liability insurance, full statutory Workers' Compensation coverage, comprehensive janitorial fidelity bonding, and compliance with OSHA Bloodborne Pathogens standard 29 CFR 1910.1030.
+${FAQS_LIST.map((faq) => `### Q: ${faq.question}\nA: ${faq.answer}`).join('\n\n')}
 
 ---
 
-## 5. Contact & Immediate Commercial Dispatch
+## 5. Contact & Immediate Dispatch
 
-- **Direct Telephone**: (561) 704-5303
-- **Email**: Sflcleaningco@gmail.com
-- **Headquarters**: Boynton Beach, FL 33435
+- **Direct Telephone**: ${BUSINESS_NAP.phone}
+- **Email**: ${BUSINESS_NAP.email}
+- **Headquarters**: ${BUSINESS_NAP.addressLocality}, ${BUSINESS_NAP.addressRegion} 33435
+- **Hours**: ${BUSINESS_NAP.hours}
 - **Web**: https://sfcleaningconcepts.com
 `;
 

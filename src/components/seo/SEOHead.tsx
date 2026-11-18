@@ -8,16 +8,54 @@ import {
   FAQS_LIST,
   PROMO_VIDEOS
 } from '../../data/siteData';
+import {
+  serviceAreas,
+  serviceAreasBySlug,
+  getServiceAreaCoreServices,
+  getServiceAreaFaqs
+} from '../../data/serviceAreas';
 import { extractTelNumber, trackClickToCall, trackSpaPageView } from '../../utils/analytics';
 
 const SITE_URL = 'https://sfcleaningconcepts.com';
 
-function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<string, unknown> | null {
-  // Routes that manage their own dedicated rich JSON-LD graphs inside page components
+const EXPLICIT_HTML_ROUTES = new Set([
+  '/about-us.html',
+  '/our-services.html',
+  '/service.html',
+  '/service-areas.html',
+  '/our-publications.html',
+  '/contact-us.html',
+  '/contact.html',
+  '/faqs.html',
+  '/404.html',
+]);
+
+export function normalizeRoutePath(pathname: string): string {
+  const raw = pathname.toLowerCase();
+  const trimmed = raw.length > 1 ? raw.replace(/\/+$/, '') : raw;
+
+  if (trimmed === '/index.html') {
+    return '/';
+  }
+  if (trimmed === '/service/index.html') {
+    return '/service';
+  }
   if (
-    normalizedPath.startsWith('/blog/') ||
-    normalizedPath === '/service-areas' ||
-    normalizedPath.startsWith('/service-area/')
+    EXPLICIT_HTML_ROUTES.has(trimmed) ||
+    /^\/(?:service|service-area|blog)\/[^/]+\.html$/.test(trimmed)
+  ) {
+    return trimmed.slice(0, -'.html'.length);
+  }
+  return trimmed;
+}
+
+function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<string, unknown> | null {
+  // Error routes emit no JSON-LD, and blog routes manage their own rich JSON-LD
+  if (
+    meta.schemaType === 'ErrorPage' ||
+    normalizedPath === '/404' ||
+    !SEO_ROUTES_MAP[normalizedPath] ||
+    normalizedPath.startsWith('/blog/')
   ) {
     return null;
   }
@@ -212,6 +250,192 @@ function buildRouteJsonLd(normalizedPath: string, meta: RouteSeoMeta): Record<st
     };
   }
 
+  if (normalizedPath === '/service-areas') {
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': ['CleaningService', 'LocalBusiness'],
+          '@id': `${SITE_URL}/#localbusiness`,
+          name: BUSINESS_NAP.name,
+          image: `${SITE_URL}/assets/images/hero/video-poster-2.jpeg`,
+          telephone: BUSINESS_NAP.phone,
+          email: BUSINESS_NAP.email,
+          priceRange: BUSINESS_NAP.priceRange,
+          url: `${SITE_URL}/service-areas`,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: BUSINESS_NAP.addressLocality,
+            addressRegion: BUSINESS_NAP.addressRegion,
+            postalCode: '33435',
+            addressCountry: BUSINESS_NAP.addressCountry
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 26.5256,
+            longitude: -80.0664
+          },
+          areaServed: [
+            { '@type': 'AdministrativeArea', name: 'Palm Beach County' },
+            { '@type': 'AdministrativeArea', name: 'Broward County' },
+            { '@type': 'AdministrativeArea', name: 'Miami-Dade County' }
+          ]
+        },
+        {
+          '@type': 'CollectionPage',
+          '@id': `${SITE_URL}/service-areas#webpage`,
+          name: 'South Florida Cleaning Concepts Service Areas Directory',
+          description: meta.description,
+          url: `${SITE_URL}/service-areas`,
+          mainEntity: {
+            '@type': 'ItemList',
+            name: 'South Florida Cleaning Concepts Service Locations',
+            numberOfItems: serviceAreas.length,
+            itemListElement: serviceAreas.map((area, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: `${area.name}, FL`,
+              url: `${SITE_URL}/service-area/${area.slug}`
+            }))
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${SITE_URL}/service-areas#breadcrumb`,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Service Areas', item: `${SITE_URL}/service-areas` }
+          ]
+        }
+      ]
+    };
+  }
+
+  if (normalizedPath.startsWith('/service-area/')) {
+    const slug = normalizedPath.replace('/service-area/', '');
+    const area = Object.prototype.hasOwnProperty.call(serviceAreasBySlug, slug)
+      ? serviceAreasBySlug[slug]
+      : undefined;
+    if (area) {
+      const parsedLat = area.geo ? Number(area.geo.latitude) : NaN;
+      const parsedLng = area.geo ? Number(area.geo.longitude) : NaN;
+      const latitude = Number.isFinite(parsedLat) ? parsedLat : 26.7153;
+      const longitude = Number.isFinite(parsedLng) ? parsedLng : -80.0534;
+      const coreServices = getServiceAreaCoreServices(area.name);
+      const areaFaqs = getServiceAreaFaqs(area.name);
+      const canonicalAreaUrl = `${SITE_URL}/service-area/${area.slug}`;
+
+      return {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Service',
+            '@id': `${canonicalAreaUrl}#service`,
+            name: `Professional Commercial & Residential Cleaning in ${area.name}, FL`,
+            serviceType: 'CleaningService',
+            description: area.description,
+            provider: {
+              '@type': 'LocalBusiness',
+              '@id': `${SITE_URL}/#localbusiness`,
+              name: BUSINESS_NAP.name,
+              telephone: BUSINESS_NAP.phone,
+              email: BUSINESS_NAP.email,
+              url: `${SITE_URL}/`,
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: BUSINESS_NAP.addressLocality,
+                addressRegion: BUSINESS_NAP.addressRegion,
+                postalCode: '33435',
+                addressCountry: BUSINESS_NAP.addressCountry
+              }
+            },
+            areaServed: {
+              '@type': 'City',
+              name: area.name,
+              containedInPlace: {
+                '@type': 'State',
+                name: 'Florida'
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude,
+                longitude
+              }
+            },
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: `Commercial & Residential Cleaning Services in ${area.name}`,
+              itemListElement: coreServices.map((division) => ({
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: division.title,
+                  description: division.shortDesc
+                }
+              }))
+            }
+          },
+          {
+            '@type': ['CleaningService', 'LocalBusiness'],
+            '@id': `${canonicalAreaUrl}#local-service`,
+            name: `${BUSINESS_NAP.name} - ${area.name}`,
+            image: `${SITE_URL}/assets/images/hero/video-poster-2.jpeg`,
+            telephone: BUSINESS_NAP.phone,
+            email: BUSINESS_NAP.email,
+            priceRange: BUSINESS_NAP.priceRange,
+            url: canonicalAreaUrl,
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: area.name,
+              addressRegion: 'FL',
+              addressCountry: 'US'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude,
+              longitude
+            },
+            areaServed: {
+              '@type': 'City',
+              name: area.name,
+              containedInPlace: {
+                '@type': 'State',
+                name: 'Florida'
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude,
+                longitude
+              }
+            },
+            description: area.description
+          },
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalAreaUrl}#breadcrumb`,
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+              { '@type': 'ListItem', position: 2, name: 'Service Areas', item: `${SITE_URL}/service-areas` },
+              { '@type': 'ListItem', position: 3, name: `${area.name}, FL`, item: canonicalAreaUrl }
+            ]
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': `${canonicalAreaUrl}#faq`,
+            mainEntity: areaFaqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.a
+              }
+            }))
+          }
+        ]
+      };
+    }
+  }
+
   return {
     '@context': 'https://schema.org',
     '@graph': [baseBusiness]
@@ -250,11 +474,8 @@ export function SEOHead() {
   }, []);
 
   useEffect(() => {
-    // Clean trailing slashes and .html extensions
-    let normalized = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
-    if (normalized === '/index.html') normalized = '/';
-    else if (normalized.endsWith('/index.html')) normalized = normalized.replace(/\/index\.html$/, '') || '/';
-    else if (normalized.endsWith('.html')) normalized = normalized.replace(/\.html$/, '');
+    let normalized = normalizeRoutePath(pathname);
+    if (normalized === '/contact') normalized = '/contact-us';
     const meta = SEO_ROUTES_MAP[normalized] || SEO_ROUTES_MAP['/404'] || SEO_ROUTES_MAP['/'];
 
     if (meta) {
@@ -278,15 +499,22 @@ export function SEOHead() {
       }
       canonEl.setAttribute('href', meta.canonical);
 
-      // Maintain hreflang="en-us" alternate link
-      let hreflangEl = document.querySelector('link[rel="alternate"][hreflang="en-us"]');
-      if (!hreflangEl) {
-        hreflangEl = document.createElement('link');
-        hreflangEl.setAttribute('rel', 'alternate');
-        hreflangEl.setAttribute('hreflang', 'en-us');
-        document.head.appendChild(hreflangEl);
+      const isErrorPage = meta.schemaType === 'ErrorPage' || normalized === '/404' || !SEO_ROUTES_MAP[normalized];
+
+      // Maintain hreflang="en-us" alternate link on indexable pages only (matching prerender-routes.ts)
+      const existingHreflangEl = document.querySelector('link[rel="alternate"][hreflang="en-us"]');
+      if (isErrorPage) {
+        existingHreflangEl?.remove();
+      } else {
+        let hreflangEl = existingHreflangEl;
+        if (!hreflangEl) {
+          hreflangEl = document.createElement('link');
+          hreflangEl.setAttribute('rel', 'alternate');
+          hreflangEl.setAttribute('hreflang', 'en-us');
+          document.head.appendChild(hreflangEl);
+        }
+        hreflangEl.setAttribute('href', meta.canonical);
       }
-      hreflangEl.setAttribute('href', meta.canonical);
 
       // Update Open Graph tags
       const updateOg = (property: string, content: string) => {
@@ -299,7 +527,7 @@ export function SEOHead() {
         el.setAttribute('content', content);
       };
 
-      const targetOgType = meta.ogType || (pathname.startsWith('/blog/') ? 'article' : 'website');
+      const targetOgType = meta.ogType || (normalized.startsWith('/blog/') ? 'article' : 'website');
       updateOg('og:title', meta.title);
       updateOg('og:description', meta.description);
       updateOg('og:url', meta.canonical);
@@ -329,7 +557,6 @@ export function SEOHead() {
         robotsEl.setAttribute('name', 'robots');
         document.head.appendChild(robotsEl);
       }
-      const isErrorPage = meta.schemaType === 'ErrorPage' || normalized === '/404' || !SEO_ROUTES_MAP[normalized];
       robotsEl.setAttribute(
         'content',
         isErrorPage
@@ -338,16 +565,22 @@ export function SEOHead() {
       );
 
       // Synchronize dynamic route-specific JSON-LD graph in <script id="dynamic-jsonld">
-      const jsonLdGraph = buildRouteJsonLd(normalized, meta);
-      if (jsonLdGraph) {
-        let scriptEl = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
-        if (!scriptEl) {
-          scriptEl = document.createElement('script');
-          scriptEl.id = 'dynamic-jsonld';
-          scriptEl.type = 'application/ld+json';
-          document.head.appendChild(scriptEl);
+      const shouldRemoveDynamicJsonLd = isErrorPage;
+
+      if (shouldRemoveDynamicJsonLd) {
+        document.getElementById('dynamic-jsonld')?.remove();
+      } else {
+        const jsonLdGraph = buildRouteJsonLd(normalized, meta);
+        if (jsonLdGraph) {
+          let scriptEl = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
+          if (!scriptEl) {
+            scriptEl = document.createElement('script');
+            scriptEl.id = 'dynamic-jsonld';
+            scriptEl.type = 'application/ld+json';
+            document.head.appendChild(scriptEl);
+          }
+          scriptEl.textContent = JSON.stringify(jsonLdGraph);
         }
-        scriptEl.textContent = JSON.stringify(jsonLdGraph);
       }
 
       // Notify Google Analytics (G-R1LCQWZJW0) on SPA route change

@@ -5,20 +5,27 @@ import { TrustBadges, RotationSystemSection } from '../components/ui/TrustBadges
 import { CleaningEstimator } from '../components/ui/CleaningEstimator';
 import { TestimonialsSlider } from '../components/ui/TestimonialsSlider';
 import { FaqAccordion } from '../components/ui/FaqAccordion';
-import { QuoteForm } from '../components/ui/QuoteForm';
 import { RecentBlogPosts } from '../components/ui/RecentBlogPosts';
 import { PromoVideoShowcase } from '../components/ui/PromoVideoShowcase';
-import {
-  ServiceSlideshowBackdrop,
-  SlideshowIndicators,
-  useAutoRotatingSlideshow,
-} from '../components/ui/ServiceSlideshowBackdrop';
-import { SERVICES_CATALOG, FAQS_LIST, BUSINESS_NAP } from '../data/siteData';
-import { ArrowRight, Phone, CheckCircle2, MapPin } from 'lucide-react';
+import { SERVICES_CATALOG, FAQS_LIST } from '../data/siteData';
+import { ArrowRight } from 'lucide-react';
 
 interface HomePageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
+
+const SERVICE_IMAGE_ALTS: Record<string, string> = {
+  'office-cleaning': 'Cleaners sanitizing desks and glass partitions in a South Florida office',
+  'medical-office-cleaning': 'Sanitized medical clinic exam suite and waiting room seating',
+  'bars-and-restaurant-cleaning': 'Degreased stainless restaurant kitchen and spotless dining bar',
+  'short-term-rentals': 'Crisply staged South Florida Airbnb bedroom ready for guest check-in',
+  'post-construction-cleaning': 'Technician HEPA-vacuuming drywall dust inside a newly remodeled room',
+  'move-in-out-cleaning': 'Freshly scrubbed empty residence kitchen and gleaming hardwood floors',
+  'home-maintenance': 'Housekeeper wiping sunlit residential windows in a South Florida home',
+  'school-cleaning': 'Disinfected classroom desks and sanitized daycare learning space',
+  'home-watching': 'Clean South Florida coastal residence inspected during seasonal home watch',
+  'covid-19-disinfection': 'Specialist applying electrostatic disinfectant mist across commercial surfaces',
+};
 
 const SERVICE_CATEGORY_MAP: Record<string, 'commercial' | 'hospitality' | 'residential'> = {
   'office-cleaning': 'commercial',
@@ -35,7 +42,6 @@ const SERVICE_CATEGORY_MAP: Record<string, 'commercial' | 'hospitality' | 'resid
 
 export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
   const [serviceFilter, setServiceFilter] = useState<'all' | 'commercial' | 'hospitality' | 'residential'>('all');
-  const { activeIndex: bottomSlideIndex, setActiveIndex: setBottomSlideIndex } = useAutoRotatingSlideshow(2);
 
   const filteredServices = SERVICES_CATALOG.filter((svc) => {
     if (serviceFilter === 'all') return true;
@@ -56,13 +62,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
             <div className="max-w-2xl">
               <div className="editorial-kicker mb-3">
-                <span>From Cozy Homes to Busy Workplaces</span>
+                <span>Homes, Rentals &amp; Workplaces</span>
               </div>
               <h2 id="services-overview-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-                How Can We Make Your Space Shine?
+                10 Specialized South Florida Cleaning Services
               </h2>
               <p className="text-slate-600 text-base sm:text-lg m-0">
-                Whether you want your weekends back at home, need a fast 5-star Airbnb turnover, or want a spotless office your team loves walking into, we’ve got you covered.
+                Tailored residential, hospitality, and commercial plans with supplies included.
               </p>
             </div>
 
@@ -73,7 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
               aria-label="Filter cleaning services"
             >
               {[
-                { id: 'all', label: 'All 10 Services' },
+                { id: 'all', label: 'All (10)' },
                 { id: 'residential', label: 'Homes & Condos' },
                 { id: 'hospitality', label: 'Airbnb & Dining' },
                 { id: 'commercial', label: 'Offices & Clinics' }
@@ -112,21 +118,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                   <div className={isDesktopFullWidthBanner ? 'lg:col-span-5 relative h-56 lg:h-full overflow-hidden bg-slate-100' : 'relative h-56 overflow-hidden bg-slate-100'}>
                     <img
                       src={svc.image}
-                      alt={`${svc.title} South Florida Cleaning Concepts`}
+                      alt={SERVICE_IMAGE_ALTS[svc.slug] || svc.shortDesc}
                       width="600"
                       height="400"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071536]/75 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                      <span className="font-mono text-xs font-bold text-[#a3e6be]">
-                        All Supplies Included
-                      </span>
-                      <span className="font-mono text-[11px] text-slate-200 uppercase tracking-wider">
-                        100% Guaranteed
-                      </span>
-                    </div>
                   </div>
 
                   <div className={isDesktopFullWidthBanner ? 'lg:col-span-7 flex flex-col justify-between' : 'flex-grow flex flex-col justify-between'}>
@@ -136,19 +133,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                           {svc.title}
                         </Link>
                       </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                      <p className="text-slate-600 text-sm leading-relaxed m-0">
                         {svc.shortDesc}
                       </p>
-                      <ul className={`text-xs text-slate-600 mb-6 p-0 m-0 list-none border-t border-slate-100 pt-4 ${
-                        isDesktopFullWidthBanner ? 'grid grid-cols-1 sm:grid-cols-3 gap-3' : 'space-y-2'
-                      }`}>
-                        {svc.features.slice(0, 3).map((f, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#12582e] shrink-0 mt-0.5" />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
 
                     <div className="px-6 py-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between gap-3">
@@ -156,7 +143,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                         to={`/service/${svc.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#12582e] hover:text-[#0d4222] transition-colors"
                       >
-                        <span>See What’s Included</span>
+                        <span>Service Details</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
 
@@ -166,7 +153,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
                           onClick={() => onOpenQuoteModal(svc.title)}
                           className="text-xs font-mono font-bold text-[#071536] hover:text-[#12582e] transition-colors cursor-pointer"
                         >
-                          Free Quote →
+                          Quote →
                         </button>
                       )}
                     </div>
@@ -178,13 +165,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
 
           <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-600 m-0">
-              Not sure which cleaning plan fits best? We’re happy to build a custom checklist just for you.
+              Need a custom checklist?
             </p>
             <Link
               to="/our-services"
               className="btn btn-outline border-2 border-[#071536] text-[#071536] hover:bg-[#071536] hover:text-white font-bold py-3 px-7 rounded-xl text-sm transition-all duration-150 inline-flex items-center gap-2 whitespace-nowrap"
             >
-              <span>Explore All 10 Services</span>
+              <span>View All Services</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -208,13 +195,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="editorial-kicker mb-3">
-              <span>Simple, Honest Answers</span>
+              <span>Quick Answers</span>
             </div>
             <h2 id="home-faq-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              Got Questions? We’ve Got Answers
+              Frequently Asked Questions
             </h2>
             <p className="text-slate-600 text-base m-0">
-              Everything you want to know about how we clean, our kid- and pet-safe supplies, and our Love It or You Don’t Pay guarantee.
+              Details on our 4-Step Rotation System, eco-safe supplies, and guarantee.
             </p>
           </div>
           <FaqAccordion items={FAQS_LIST} showCategoryFilters={true} />
@@ -223,79 +210,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenQuoteModal }) => {
 
       {/* 8. Recent Blog Posts & Expert Cleaning Guides */}
       <RecentBlogPosts />
-
-      {/* 9. Bottom Lead Capture & Tri-County Dispatch Section with Hero Slideshow */}
-      <section className="section py-20 lg:py-24 bg-white border-t border-slate-200/80" aria-labelledby="cta-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            data-testid="homepage-bottom-cta-slideshow"
-            data-active-slide={bottomSlideIndex}
-            className="relative overflow-hidden bg-[#071536] rounded-3xl p-6 sm:p-10 lg:p-14 text-white shadow-2xl border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
-          >
-            <ServiceSlideshowBackdrop
-              activeIndex={bottomSlideIndex}
-              enableParallax={false}
-              scrimVariant="cta-split"
-            />
-
-            <div className="lg:col-span-6 relative z-10">
-              <div className="editorial-kicker-light mb-4 drop-shadow-xs">
-                <span>Free, No-Obligation Quote · Fast Local Reply</span>
-              </div>
-              <h2 id="cta-heading" className="text-3xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-md">
-                Ready to Come Home to a Spotless Space?
-              </h2>
-              <p className="text-white/90 text-base leading-relaxed mb-8 drop-shadow-xs">
-                Tell us a little about your home, vacation rental, or workplace. We’ll get right back to you with simple, honest pricing—backed by our Love Your Clean or Don’t Pay Guarantee.
-              </p>
-
-              {/* Regional Service Area Matrix */}
-              <div className="p-5 rounded-xl bg-[#071536]/75 backdrop-blur-xs border border-white/20 mb-7">
-                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#a3e6be] mb-3">
-                  <MapPin className="w-4 h-4" />
-                  <span>Proudly Cleaning Across South Florida</span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-100 font-medium">
-                  {BUSINESS_NAP.areasServed.map((area) => (
-                    <div key={area} className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#a3e6be] shrink-0" />
-                      <span>{area}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <a
-                  href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="inline-flex items-center gap-2.5 text-base font-mono font-bold text-[#a3e6be] hover:text-white transition-colors tabular-nums drop-shadow-xs"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Call or Text Us: {BUSINESS_NAP.phone}</span>
-                </a>
-
-                <SlideshowIndicators
-                  activeIndex={bottomSlideIndex}
-                  onSelectSlide={setBottomSlideIndex}
-                  ariaLabel="Homepage bottom CTA service slides"
-                />
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 relative z-10 bg-white rounded-2xl p-6 sm:p-8 lg:p-10 text-slate-800 shadow-xl">
-              <div className="pb-4 mb-6 border-b border-slate-200/80">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#071536] mb-1">
-                  Get Your Free Cleaning Quote
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500 m-0">
-                  Fill out the 4 quick fields below and our friendly local team will reach right out.
-                </p>
-              </div>
-              <QuoteForm idPrefix="bottom-" source="HomePage-Bottom" />
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 };

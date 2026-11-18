@@ -1,22 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   MapPin,
   Search,
   X,
-  ArrowRight,
-  Phone,
-  Building2
+  ArrowRight
 } from 'lucide-react';
 import { serviceAreas } from '../data/serviceAreas';
-import { QuoteModal } from '../components/ui/QuoteModal';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
-import {
-  ServiceSlideshowBackdrop,
-  SlideshowIndicators,
-  useAutoRotatingSlideshow,
-} from '../components/ui/ServiceSlideshowBackdrop';
-import { BUSINESS_NAP } from '../data/siteData';
 
 const PALM_BEACH_SLUGS = new Set([
   'west-palm-beach', 'boca-raton', 'delray-beach', 'jupiter', 'palm-beach-gardens',
@@ -33,15 +24,15 @@ const PALM_BEACH_SLUGS = new Set([
 
 type RegionFilter = 'all' | 'palm-beach' | 'broward' | 'miami-dade' | 'extended';
 
-export const ServiceAreaDirectoryPage: React.FC = () => {
+interface ServiceAreaDirectoryPageProps {
+  onOpenQuoteModal?: (serviceTitle?: string) => void;
+}
+
+export const ServiceAreaDirectoryPage: React.FC<ServiceAreaDirectoryPageProps> = ({
+  onOpenQuoteModal,
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<RegionFilter>('all');
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const { activeIndex, setActiveIndex } = useAutoRotatingSlideshow(0);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const filteredAreas = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -77,103 +68,28 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
     });
   }, [searchQuery, selectedRegion]);
 
-  const schemaGraph = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': ['CleaningService', 'LocalBusiness'],
-        '@id': 'https://sfcleaningconcepts.com/#localbusiness',
-        name: 'South Florida Cleaning Concepts',
-        image: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
-        telephone: BUSINESS_NAP.phone,
-        email: BUSINESS_NAP.email,
-        priceRange: BUSINESS_NAP.priceRange,
-        url: 'https://sfcleaningconcepts.com/service-areas',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Boynton Beach',
-          addressRegion: 'FL',
-          postalCode: '33435',
-          addressCountry: 'US'
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 26.5256,
-          longitude: -80.0664
-        },
-        areaServed: [
-          { '@type': 'AdministrativeArea', name: 'Palm Beach County' },
-          { '@type': 'AdministrativeArea', name: 'Broward County' },
-          { '@type': 'AdministrativeArea', name: 'Miami-Dade County' }
-        ]
-      },
-      {
-        '@type': 'CollectionPage',
-        '@id': 'https://sfcleaningconcepts.com/service-areas#webpage',
-        name: 'South Florida Cleaning Concepts Service Areas Directory',
-        description: 'Complete directory of 56 South Florida service areas extending north through Jupiter served by South Florida Cleaning Concepts.',
-        url: 'https://sfcleaningconcepts.com/service-areas',
-        mainEntity: {
-          '@type': 'ItemList',
-          name: 'South Florida Cleaning Concepts Service Locations',
-          numberOfItems: serviceAreas.length,
-          itemListElement: serviceAreas.map((area, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            name: `${area.name}, FL`,
-            url: `https://sfcleaningconcepts.com/service-area/${area.slug}`
-          }))
-        }
-      },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': 'https://sfcleaningconcepts.com/service-areas#breadcrumb',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: 'https://sfcleaningconcepts.com/'
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Service Areas',
-            item: 'https://sfcleaningconcepts.com/service-areas'
-          }
-        ]
-      }
-    ]
-  };
-
   return (
     <div className="bg-[#f8fafc] min-h-screen text-slate-800">
-      {/* JSON-LD Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
-      />
-
       {/* HERO SECTION WITH PARALLAX INTERIOR & SEARCH INPUT */}
       <InteriorHero
         ariaLabel="Service Areas Directory Header"
-        kicker="Local South Florida Cleaners · Jupiter to Miami"
+        kicker="South Florida Coverage · Jupiter to Miami"
         title={
           <>
             Our Active South Florida{' '}
             <span className="text-[#a3e6be]">Service Areas</span>
           </>
         }
-        description="From family homes and waterfront condos to vacation rentals and local workplaces, our friendly, background-checked pros bring a spotless clean to 56 South Florida communities. Pick your neighborhood below to see how we can help!"
+        description="Trusted home, condo, vacation rental, and office cleaning across 56 South Florida communities."
         imageSrc={INTERIOR_HERO_IMAGES.waterfrontCondo}
         imageAlt="Spotless South Florida waterfront condominium living and dining room interior"
         breadcrumbs={[
           { label: 'Home', to: '/' },
-          { label: 'Service Areas Directory' }
+          { label: 'Service Areas' }
         ]}
       >
-        <div className="max-w-xl">
-          <div className="relative flex items-center bg-[#071536]/65 backdrop-blur-md border border-white/25 rounded-2xl px-4 py-3 shadow-xl focus-within:border-[#a3e6be] transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 max-w-2xl">
+          <div className="relative flex-1 flex items-center bg-[#071536]/65 backdrop-blur-md border border-white/25 rounded-2xl px-4 py-3 shadow-xl focus-within:border-[#a3e6be] transition-colors">
             <Search className="w-5 h-5 text-[#a3e6be] shrink-0 mr-3" />
             <input
               type="text"
@@ -194,6 +110,15 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               </button>
             )}
           </div>
+          {onOpenQuoteModal && (
+            <button
+              type="button"
+              onClick={() => onOpenQuoteModal('Service Area Directory')}
+              className="px-5 py-3.5 rounded-2xl bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold inline-flex items-center justify-center gap-2 transition-colors shadow-lg border border-white/15 cursor-pointer whitespace-nowrap shrink-0"
+            >
+              Request Free Quote <ArrowRight className="w-4 h-4 text-[#a3e6be]" />
+            </button>
+          )}
         </div>
       </InteriorHero>
 
@@ -206,7 +131,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               Palm Beach • Broward • Miami-Dade • Treasure Coast
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#07111a] mt-1">
-              {filteredAreas.length} Neighborhoods &amp; Cities We Serve
+              {filteredAreas.length} {filteredAreas.length === 1 ? 'Community' : 'Communities'} We Serve
             </h2>
           </div>
 
@@ -291,19 +216,12 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
               <Link
                 key={area.slug}
                 to={`/service-area/${area.slug}`}
-                className="group p-6 rounded-3xl bg-white border border-slate-200 hover:border-[#12582e] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between gap-5"
+                aria-label={`View cleaning services in ${area.name}, FL`}
+                className="group p-6 rounded-3xl bg-white border border-slate-200 hover:border-[#12582e] shadow-xs hover:shadow-xl transition-all flex flex-col justify-between gap-4"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="w-10 h-10 rounded-2xl bg-slate-100 group-hover:bg-[#07111a] text-[#12582e] group-hover:text-[#4fd18b] flex items-center justify-center transition-colors shrink-0">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    {area.geo && (
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                        {Number(area.geo.latitude).toFixed(2)}°N,{' '}
-                        {Math.abs(Number(area.geo.longitude)).toFixed(2)}°W
-                      </span>
-                    )}
+                  <div className="w-10 h-10 rounded-2xl bg-slate-100 group-hover:bg-[#07111a] text-[#12582e] group-hover:text-[#4fd18b] flex items-center justify-center transition-colors shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
 
                   <h3 className="text-xl font-bold text-[#07111a] group-hover:text-[#12582e] transition-colors">
@@ -313,17 +231,10 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
                   <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
                     {area.description}
                   </p>
-
-                  {area.landmarks && area.landmarks.length > 0 && (
-                    <div className="pt-2 text-[11px] text-slate-500 leading-snug">
-                      <span className="font-semibold text-slate-700">Local Favorites:</span>{' '}
-                      {area.landmarks.slice(0, 2).map((l) => l.name).join(' · ')}
-                    </div>
-                  )}
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#12582e]">
-                  <span>See {area.name} Services</span>
+                  <span>View Services</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -332,10 +243,10 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
         ) : (
           <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
             <h3 className="text-xl font-bold text-[#07111a]">
-              No South Florida locations found matching &ldquo;{searchQuery}&rdquo;
+              No locations found for &ldquo;{searchQuery}&rdquo;
             </h3>
             <p className="text-sm text-slate-600">
-              Try searching for a nearby city or neighborhood, or reset your search to see all 56 communities.
+              Try another city or neighborhood, or reset to view all 56 communities.
             </p>
             <button
               type="button"
@@ -349,62 +260,7 @@ export const ServiceAreaDirectoryPage: React.FC = () => {
             </button>
           </div>
         )}
-
-        {/* CTA Banner with Hero Slideshow */}
-        <div
-          data-testid="service-areas-bottom-cta-slideshow"
-          data-active-slide={activeIndex}
-          className="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-[#071536] text-white border border-slate-800 shadow-2xl"
-        >
-          <ServiceSlideshowBackdrop
-            activeIndex={activeIndex}
-            enableParallax={false}
-            scrimVariant="cta-card"
-          />
-          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#a3e6be] drop-shadow-xs">
-                <Building2 className="w-4 h-4" /> Homes, Condos, Rentals &amp; Workplaces
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-md">
-                Want a Spotless Home or Office in South Florida?
-              </h3>
-              <p className="text-sm text-white/90 leading-relaxed m-0 drop-shadow-xs">
-                We bring all the supplies, show up on time, and back every visit with our Love Your Clean or Don’t Pay Guarantee. Get your free quote today!
-              </p>
-              <SlideshowIndicators
-                activeIndex={activeIndex}
-                onSelectSlide={setActiveIndex}
-                ariaLabel="Service areas CTA slides"
-                className="pt-2"
-              />
-            </div>
-
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <button
-                type="button"
-                onClick={() => setIsQuoteOpen(true)}
-                className="px-6 py-3.5 min-h-[48px] rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold transition-colors inline-flex items-center gap-2 cursor-pointer shadow-lg whitespace-nowrap"
-              >
-                Get My Free Quote <ArrowRight className="w-4 h-4 text-[#a3e6be]" />
-              </button>
-              <a
-                href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                className="px-6 py-3.5 min-h-[48px] rounded-xl bg-[#071536]/75 hover:bg-[#071536]/95 text-white border border-white/25 text-sm font-mono font-bold transition-colors inline-flex items-center gap-2 tabular-nums whitespace-nowrap"
-              >
-                <Phone className="w-4 h-4 text-[#a3e6be]" /> {BUSINESS_NAP.phone}
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
-
-      {/* Quote Modal */}
-      <QuoteModal
-        isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
-        serviceTitle="Service Area Directory"
-      />
     </div>
   );
 };

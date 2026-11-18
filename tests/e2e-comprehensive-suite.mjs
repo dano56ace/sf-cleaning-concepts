@@ -1059,6 +1059,16 @@ runner.register(1, "M3", "T1.R3.6", "Universal Global CTA Component & Telephony 
     const ctaIdx = html.indexOf("data-testid=\"global-cta\"");
     const footerIdx = html.indexOf("<footer");
 
+    if (route === "/contact-us") {
+      if (ctaIdx !== -1) {
+        errors.push(`${route} should omit redundant data-testid=\"global-cta\"`);
+      }
+      if (footerIdx === -1) {
+        errors.push(`${route} missing <footer element`);
+      }
+      continue;
+    }
+
     if (ctaIdx === -1) {
       errors.push(`${route} missing data-testid=\"global-cta\"`);
       continue;

@@ -11,7 +11,7 @@ export const NotFoundPage: React.FC = () => {
         align="center"
         kicker="404 · Let’s Get You Back on Track"
         title="404 - Page Not Found"
-        description="The page you’re looking for may have moved or been renamed. Explore our popular South Florida cleaning services below or head right back home."
+        description="That page may have moved. Head back home or browse our South Florida cleaning services below."
         imageSrc={INTERIOR_HERO_IMAGES.sunlitFoyer}
         imageAlt="Bright welcoming South Florida home foyer interior"
         breadcrumbs={[

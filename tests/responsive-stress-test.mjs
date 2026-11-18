@@ -90,7 +90,9 @@ function createServer() {
 }
 
 async function launchChrome() {
-  const profileDir = `/tmp/chrome-responsive-profile-${Date.now()}`;
+  const profileDir = `/tmp/chrome-responsive-profile-${Date.now()}-${process.pid}`;
+  const timeoutMs = 20000;
+  const pollIntervalMs = 100;
   const proc = spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', [
     '--headless=new',
     `--remote-debugging-port=${CHROME_PORT}`,
@@ -99,18 +101,73 @@ async function launchChrome() {
     '--no-default-browser-check',
     '--disable-gpu',
     '--hide-scrollbars'
-  ], { stdio: 'ignore' });
+  ], { stdio: ['ignore', 'ignore', 'pipe'] });
 
-  // Wait for Chrome to listen
-  for (let i = 0; i < 30; i++) {
-    try {
-      const res = await fetch(`http://127.0.0.1:${CHROME_PORT}/json/version`);
-      if (res.ok) break;
-    } catch {}
-    await new Promise(r => setTimeout(r, 100));
+  let stderr = '';
+  let exited = false;
+  let exitCode = null;
+  let exitSignal = null;
+  let spawnError = null;
+
+  if (proc.stderr) {
+    proc.stderr.on('data', (chunk) => {
+      if (stderr.length < 8192) {
+        stderr += chunk.toString('utf8');
+        if (stderr.length > 8192) {
+          stderr = stderr.slice(-8192);
+        }
+      }
+    });
   }
 
-  return { proc, profileDir };
+  proc.once('exit', (code, signal) => {
+    exited = true;
+    exitCode = code;
+    exitSignal = signal;
+  });
+
+  proc.once('error', (err) => {
+    spawnError = err;
+  });
+
+  const cleanupFailedLaunch = () => {
+    try {
+      if (!exited) proc.kill('SIGKILL');
+    } catch {}
+    try {
+      fs.rmSync(profileDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });
+    } catch {}
+  };
+
+  // Wait for Chrome CDP /json/version readiness
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if (spawnError) {
+      cleanupFailedLaunch();
+      throw new Error(`Failed to spawn Chrome: ${spawnError.message}. Stderr: ${stderr.trim()}`);
+    }
+    if (exited) {
+      cleanupFailedLaunch();
+      throw new Error(`Chrome exited prematurely (code=${exitCode}, signal=${exitSignal}). Stderr: ${stderr.trim()}`);
+    }
+
+    try {
+      const res = await fetch(`http://127.0.0.1:${CHROME_PORT}/json/version`, {
+        signal: AbortSignal.timeout(1000)
+      });
+      if (res.ok) {
+        const versionData = await res.json().catch(() => null);
+        if (versionData && typeof versionData.webSocketDebuggerUrl === 'string' && versionData.webSocketDebuggerUrl.length > 0) {
+          return { proc, profileDir };
+        }
+      }
+    } catch {}
+
+    await new Promise(r => setTimeout(r, pollIntervalMs));
+  }
+
+  cleanupFailedLaunch();
+  throw new Error(`Timed out after ${timeoutMs}ms waiting for Chrome CDP on port ${CHROME_PORT}. Stderr: ${stderr.trim()}`);
 }
 
 async function createCdpClient() {
@@ -157,48 +214,72 @@ async function createCdpClient() {
   };
 }
 
+async function waitForHydration(cdp, pageUrl, timeoutMs = 5000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    try {
+      const res = await cdp.send('Runtime.evaluate', {
+        expression: `Boolean(document.querySelector('.mobile-nav-toggle.mobile-menu-toggle[data-react-managed="true"]'))`,
+        returnByValue: true
+      });
+      if (res.result?.value === true) {
+        await new Promise(r => setTimeout(r, 50));
+        return;
+      }
+    } catch {}
+    await new Promise(r => setTimeout(r, 50));
+  }
+  throw new Error(`Timed out waiting for React hydration on ${pageUrl}`);
+}
+
 async function runTests() {
   console.log('--- Starting Empirical Responsive Stress Test Suite ---');
-  const server = createServer();
-  await new Promise(r => server.listen(HTTP_PORT, r));
-  console.log(`Static server running at http://127.0.0.1:${HTTP_PORT}`);
+  let server = null;
+  let chrome = null;
+  let cdp = null;
+  let exitCode = 2;
 
-  const chrome = await launchChrome();
-  console.log(`Headless Chrome launched on CDP port ${CHROME_PORT}`);
+  try {
+    server = createServer();
+    await new Promise(r => server.listen(HTTP_PORT, r));
+    console.log(`Static server running at http://127.0.0.1:${HTTP_PORT}`);
 
-  const cdp = await createCdpClient();
-  await cdp.send('Page.enable');
-  await cdp.send('DOM.enable');
-  await cdp.send('Runtime.enable');
+    chrome = await launchChrome();
+    console.log(`Headless Chrome launched on CDP port ${CHROME_PORT}`);
 
-  const allResults = {
-    pagesTested: PAGES.length,
-    viewportsTested: VIEWPORTS.length,
-    totalEvaluations: PAGES.length * VIEWPORTS.length,
-    overflowFailures: [],
-    touchTargetFailures: [],
-    stickyBarFailures: [],
-    drawerInteractionFailures: [],
-    imageScalingFailures: [],
-    summary: {}
-  };
+    cdp = await createCdpClient();
+    await cdp.send('Page.enable');
+    await cdp.send('DOM.enable');
+    await cdp.send('Runtime.enable');
 
-  for (const pagePath of PAGES) {
-    const pageUrl = `http://127.0.0.1:${HTTP_PORT}${pagePath}`;
-    console.log(`\nTesting Page: ${pagePath}`);
+    const allResults = {
+      pagesTested: PAGES.length,
+      viewportsTested: VIEWPORTS.length,
+      totalEvaluations: PAGES.length * VIEWPORTS.length,
+      overflowFailures: [],
+      touchTargetFailures: [],
+      stickyBarFailures: [],
+      drawerInteractionFailures: [],
+      imageScalingFailures: [],
+      summary: {}
+    };
 
-    for (const vp of VIEWPORTS) {
-      // Set viewport
-      await cdp.send('Emulation.setDeviceMetricsOverride', {
-        width: vp.width,
-        height: vp.height,
-        deviceScaleFactor: 1,
-        mobile: vp.isMobile
-      });
+    for (const pagePath of PAGES) {
+      const pageUrl = `http://127.0.0.1:${HTTP_PORT}${pagePath}`;
+      console.log(`\nTesting Page: ${pagePath}`);
 
-      // Navigate
-      await cdp.send('Page.navigate', { url: pageUrl });
-      await new Promise(r => setTimeout(r, 200));
+      for (const vp of VIEWPORTS) {
+        // Set viewport
+        await cdp.send('Emulation.setDeviceMetricsOverride', {
+          width: vp.width,
+          height: vp.height,
+          deviceScaleFactor: 1,
+          mobile: vp.isMobile
+        });
+
+        // Navigate and wait for React hydration
+        await cdp.send('Page.navigate', { url: pageUrl });
+        await waitForHydration(cdp, pageUrl);
 
       // 1. Viewport Overflow Check
       const overflowResult = await cdp.send('Runtime.evaluate', {
@@ -605,15 +686,54 @@ async function runTests() {
   console.log(`Drawer Interaction Failures:  ${allResults.summary.drawerInteractionFailuresCount}`);
   console.log('==================================================');
 
-  // Save report to disk
-  fs.writeFileSync(path.join(PROJECT_ROOT, 'tests', 'stress-test-results.json'), JSON.stringify(allResults, null, 2));
-  console.log('Results written to tests/stress-test-results.json');
+    // Save report to disk
+    fs.writeFileSync(path.join(PROJECT_ROOT, 'tests', 'stress-test-results.json'), JSON.stringify(allResults, null, 2));
+    console.log('Results written to tests/stress-test-results.json');
 
-  // Teardown
-  await cdp.close();
-  chrome.proc.kill();
-  server.close();
-  process.exit(allResults.overflowFailures.length > 0 ? 1 : 0);
+    exitCode = allResults.overflowFailures.length > 0 ? 1 : 0;
+  } finally {
+    if (cdp) {
+      try {
+        await cdp.close();
+      } catch {}
+    }
+    if (chrome) {
+      try {
+        if (chrome.proc && chrome.proc.exitCode === null) {
+          await new Promise((resolve) => {
+            const timer = setTimeout(() => {
+              try {
+                chrome.proc.kill('SIGKILL');
+              } catch {}
+              resolve();
+            }, 1000);
+            chrome.proc.once('exit', () => {
+              clearTimeout(timer);
+              resolve();
+            });
+            try {
+              chrome.proc.kill();
+            } catch {
+              clearTimeout(timer);
+              resolve();
+            }
+          });
+        }
+      } catch {}
+      try {
+        if (chrome.profileDir) {
+          fs.rmSync(chrome.profileDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });
+        }
+      } catch {}
+    }
+    if (server) {
+      try {
+        server.close();
+      } catch {}
+    }
+  }
+
+  process.exit(exitCode);
 }
 
 runTests().catch(err => {

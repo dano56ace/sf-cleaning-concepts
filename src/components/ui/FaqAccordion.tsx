@@ -5,9 +5,15 @@ import { FaqItem } from '../../data/siteData';
 interface FaqAccordionProps {
   items: FaqItem[];
   showCategoryFilters?: boolean;
+  headingLevel?: 'h2' | 'h3';
 }
 
-export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryFilters = true }) => {
+export const FaqAccordion: React.FC<FaqAccordionProps> = ({
+  items,
+  showCategoryFilters = true,
+  headingLevel = 'h3',
+}) => {
+  const HeadingTag = headingLevel;
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
@@ -78,7 +84,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryF
                   : 'border-slate-200/90 hover:border-slate-300'
               }`}
             >
-              <h3 className="m-0">
+              <HeadingTag className="m-0">
                 <button
                   type="button"
                   id={headingId}
@@ -99,7 +105,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, showCategoryF
                     }`}
                   />
                 </button>
-              </h3>
+              </HeadingTag>
               <div
                 id={contentId}
                 role="region"

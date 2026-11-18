@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronDown, ArrowUpRight, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { BUSINESS_NAP, SERVICES_CATALOG } from '../../data/siteData';
+import { lockBodyScroll } from '../../utils/bodyScrollLock';
 
 interface HeaderProps {
   onOpenQuoteModal?: () => void;
@@ -23,17 +24,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
     toggles.forEach((t) => t.setAttribute('aria-expanded', String(nextOpen)));
   };
 
-  // Close drawer on route change
+  // Close drawer on route change (including same-pathname search/hash POP transitions)
   useEffect(() => {
     syncDrawerDom(false);
     setServicesAccordionOpen(false);
     setServiceAreasAccordionOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.search, location.hash]);
 
-  // Handle ESC key to close mobile drawer
+  // Handle ESC key to close mobile drawer (unless a higher modal dialog is open)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && drawerOpen) {
+        const hasHigherModalOpen = Boolean(
+          document.querySelector(
+            '[role="dialog"][aria-modal="true"]:not(#mobile-nav-drawer)'
+          )
+        );
+        if (hasHigherModalOpen) return;
         syncDrawerDom(false);
       }
     };
@@ -41,16 +48,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [drawerOpen]);
 
-  // Lock body scroll when drawer is open
+  // Lock body scroll when drawer is open (ref-counted to preserve nested locks)
   useEffect(() => {
-    if (drawerOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    if (!drawerOpen) return;
+    return lockBodyScroll();
   }, [drawerOpen]);
 
   const isActive = (path: string) => {
@@ -381,6 +382,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
       {/* Mobile Navigation Drawer */}
       <aside
         id="mobile-nav-drawer"
+        role={drawerOpen ? 'dialog' : undefined}
+        aria-modal={drawerOpen ? 'true' : undefined}
         className={`mobile-nav-drawer fixed top-0 right-0 w-80 max-w-[86vw] h-full bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out ${
           drawerOpen ? 'translate-x-0 is-active is-open visible' : 'translate-x-full invisible'
         }`}
@@ -440,8 +443,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                   onClick={(e) => {
                     const nextAcc = !servicesAccordionOpen;
                     setServicesAccordionOpen(nextAcc);
-                    const contents = document.querySelectorAll('.mobile-accordion-content');
-                    contents.forEach((c) => c.classList.toggle('is-open', nextAcc));
+                    const content = e.currentTarget.nextElementSibling;
+                    if (content?.classList.contains('mobile-accordion-content')) {
+                      content.classList.toggle('is-open', nextAcc);
+                    }
                     e.currentTarget.setAttribute('aria-expanded', String(nextAcc));
                   }}
                 >
@@ -487,6 +492,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                   onClick={(e) => {
                     const nextAcc = !serviceAreasAccordionOpen;
                     setServiceAreasAccordionOpen(nextAcc);
+                    const content = e.currentTarget.nextElementSibling;
+                    if (content?.classList.contains('mobile-accordion-content')) {
+                      content.classList.toggle('is-open', nextAcc);
+                    }
                     e.currentTarget.setAttribute('aria-expanded', String(nextAcc));
                   }}
                 >

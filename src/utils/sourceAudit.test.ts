@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 import {
   BUSINESS_NAP,
   PROMO_VIDEOS,
@@ -120,9 +121,54 @@ test('all 10 source services are preserved with Home Maintenance exterior add-on
   assert.ok(homeWatchBlob.includes('refrigerat') && homeWatchBlob.includes('freezer'), 'Missing refrigerator/freezer monitoring in home-watching');
 });
 
-test('user constraint preserved: zero 24/7 or twenty-four hours commercial claims in siteData.ts', () => {
-  const siteDataRaw = fs.readFileSync(path.join(PROJECT_ROOT, 'src/data/siteData.ts'), 'utf8');
-  assert.ok(!/24\/7/i.test(siteDataRaw), 'Found banned 24/7 string in siteData.ts');
-  assert.ok(!/twenty-four hours/i.test(siteDataRaw), 'Found banned twenty-four hours string in siteData.ts');
-  assert.ok(!/[【】\u200b]/.test(siteDataRaw), 'Found raw scrape citation or zero-width artifact in siteData.ts');
+test('user constraint preserved: zero 24/7 or twenty-four hours commercial claims across data and llms files', () => {
+  const filesToAudit = [
+    'src/data/siteData.ts',
+    'src/data/serviceAreas.ts',
+    'src/data/serviceAreaGuideData.ts',
+    'src/data/seoRegistry.ts',
+    'src/data/blogSchemaData.ts',
+    'public/llms.txt',
+    'public/llms-full.txt',
+  ];
+  for (const relPath of filesToAudit) {
+    const raw = fs.readFileSync(path.join(PROJECT_ROOT, relPath), 'utf8');
+    assert.ok(!/24\/7/i.test(raw), `Found banned 24/7 string in ${relPath}`);
+    assert.ok(!/twenty-four hours/i.test(raw), `Found banned twenty-four hours string in ${relPath}`);
+    assert.ok(!/[【】\u200b]/.test(raw), `Found raw scrape citation or zero-width artifact in ${relPath}`);
+  }
+});
+
+test('js/main.js and public/js/main.js stay identical and skip listener registration when [data-react-managed="true"] exists', () => {
+  const jsMain = fs.readFileSync(path.join(PROJECT_ROOT, 'js/main.js'), 'utf8');
+  const pubMain = fs.readFileSync(path.join(PROJECT_ROOT, 'public/js/main.js'), 'utf8');
+  assert.equal(jsMain, pubMain, 'js/main.js and public/js/main.js must remain identical');
+
+  let attached = 0;
+  const noopEl = {
+    getAttribute: () => 'true',
+    addEventListener: () => {
+      attached++;
+    },
+    querySelector: () => null,
+    querySelectorAll: () => [],
+  };
+
+  vm.runInNewContext(pubMain, {
+    document: {
+      readyState: 'complete',
+      body: { style: { overflow: '' } },
+      querySelector: (selector: string) => (selector === '[data-react-managed="true"]' ? noopEl : null),
+      querySelectorAll: () => [],
+      getElementById: () => noopEl,
+      addEventListener: () => {
+        attached++;
+      },
+    },
+    window: { location: { pathname: '/', search: '' } },
+    FormData: class {},
+    URLSearchParams,
+  });
+
+  assert.equal(attached, 0, 'Legacy main.js must not attach listeners when React manages the DOM');
 });

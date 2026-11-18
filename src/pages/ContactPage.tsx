@@ -9,9 +9,9 @@ export const ContactPage: React.FC = () => {
     <div className="bg-[#f8fafc] min-h-screen">
       <InteriorHero
         ariaLabel="Contact Us Header"
-        kicker="We’d Love to Hear From You · Fast Local Reply"
+        kicker="Fast Local Reply"
         title="Interested in Cleaning Services?"
-        description="Reach out for a fast, honest, no-obligation quote for your home, vacation rental, or workplace. Our friendly local team responds quickly across Palm Beach, Broward, and Miami-Dade counties."
+        description="Request a free, no-obligation quote for your home, rental, or workplace across Palm Beach, Broward, and Miami-Dade counties."
         imageSrc={INTERIOR_HERO_IMAGES.sunlitFoyer}
         imageAlt="Welcoming sunlit South Florida home entryway and lounge interior"
         breadcrumbs={[
@@ -29,13 +29,13 @@ export const ContactPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg">
                 <div className="mb-7 pb-5 border-b border-slate-100">
                   <div className="editorial-kicker mb-2">
-                    Fast Online Booking · Save 12% When Booking Online
+                    Fast Online Booking · Save 12%
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#071536] mb-1.5 tracking-tight">
                     Get Your Free Cleaning Quote
                   </h2>
                   <p className="text-slate-500 text-sm">
-                    Fill out the 4 quick fields below to lock in your 12% online website booking discount—our local team will call or text you right back.
+                    Complete the 4 fields below to claim your 12% online booking discount.
                   </p>
                 </div>
                 <QuoteForm source="Contact Page" />
@@ -46,7 +46,7 @@ export const ContactPage: React.FC = () => {
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-[#07111a] text-white rounded-3xl p-8 shadow-xl border border-white/10">
                 <div className="editorial-kicker-light mb-3">
-                  Reach Us Anytime
+                  Direct Contact
                 </div>
                 <h2 className="text-2xl font-extrabold mb-6 text-white">
                   Call, Text, or Email Us
@@ -68,7 +68,7 @@ export const ContactPage: React.FC = () => {
                         {BUSINESS_NAP.phone}
                       </a>
                       <p className="text-xs text-slate-400 mt-1">
-                        Fast quotes &amp; same-day scheduling available
+                        Fast quotes &amp; same-day scheduling
                       </p>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export const ContactPage: React.FC = () => {
                         {BUSINESS_NAP.email}
                       </a>
                       <p className="text-xs text-slate-400 mt-1">
-                        Send us your questions or special cleaning requests
+                        Questions or custom requests
                       </p>
                     </div>
                   </div>
@@ -132,10 +132,10 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <h3 className="text-lg font-extrabold text-[#0b1926] mb-3 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-[#2a8655]" />
-                  Based in {BUSINESS_NAP.addressLocality}, {BUSINESS_NAP.addressRegion}
+                  Based in {BUSINESS_NAP.addressLocality}, {BUSINESS_NAP.addressRegion} 33435
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed mb-5">
-                  Our friendly local crews clean homes, rentals, and workplaces throughout {BUSINESS_NAP.areasServed.join(', ')}, and nearby South Florida neighborhoods.
+                  Serving homes, rentals, and workplaces across {BUSINESS_NAP.areasServed.join(', ')}.
                 </p>
                 <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 text-center">
                   <div className="bg-[#f8fafc] rounded-xl p-2.5 border border-slate-200/70">
@@ -180,7 +180,7 @@ export const ContactPage: React.FC = () => {
                     {BUSINESS_NAP.careersHeadline} Join Our Team
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed mb-2">
-                    {BUSINESS_NAP.careersDescription} Send a quick note in our form on this page or email us directly to apply.
+                    {BUSINESS_NAP.careersDescription} Apply via email or our quick form.
                   </p>
                   <a
                     href={`mailto:${BUSINESS_NAP.email}?subject=Careers%20Application%20-%20South%20Florida%20Cleaning%20Concepts`}

@@ -4,6 +4,20 @@ import { BLOG_POSTS } from '../data/siteData';
 import { InteriorHero, INTERIOR_HERO_IMAGES } from '../components/ui/InteriorHero';
 import { ArrowRight, Search, X } from 'lucide-react';
 
+const POST_IMAGE_ALTS: Record<string, string> = {
+  'residential-cleaning-services-journey': 'Freshly cleaned empty South Florida residence kitchen and living area',
+  'south-florida-home-maintenance-services': 'Bright coastal South Florida home interior maintained for humidity protection',
+  'post-construction-cleaning-guide': 'Post-renovation room undergoing HEPA dust extraction after remodeling',
+  'deep-cleaning-for-homes-and-offices': 'Deep upholstery and surface cleaning inside a South Florida property',
+  'medical-office-cleaning-guide': 'Sanitized South Florida medical clinic corridor and clinical examination room',
+  'high-quality-cleaning-services-south-florida': 'Detail-oriented residential cleaning inside a sunlit coastal living room',
+  'short-term-rental-cleaning-guide': 'Crisply made vacation rental bedroom prepared for arriving South Florida guests',
+  'office-cleaning-made-easy': 'Clean modern medical and executive office workspace ready for staff',
+  'complete-guide-to-home-cleaning': 'Homekeeper polishing sunlit residential windows with microfiber cloths',
+  'revitalize-your-office-space': 'Office team member sanitizing keyboard and workstation surfaces',
+  'restaurant-and-bar-cleaning-services': 'Hospitality staff disinfecting dining tables and commercial bar surfaces',
+};
+
 export const PublicationsPage: React.FC = () => {
   const uniqueCategories = Array.from(new Set(BLOG_POSTS.map((p) => p.category)));
   const categories: string[] = ['All Guides', ...uniqueCategories];
@@ -33,9 +47,9 @@ export const PublicationsPage: React.FC = () => {
     <div className="bg-[#f8fafc] min-h-screen">
       <InteriorHero
         ariaLabel="Our Publications Header"
-        kicker="Fresh Tips & Home Care Guides"
+        kicker="Tips &amp; Home Care Guides"
         title="Our Publications & Cleaning Guides"
-        description={`Browse ${BLOG_POSTS.length} easy-to-follow cleaning guides, time-saving tips, and home care checklists written by our local South Florida team.`}
+        description={`Browse ${BLOG_POSTS.length} practical cleaning guides and checklists from our local South Florida team.`}
         imageSrc={INTERIOR_HERO_IMAGES.sparklingKitchen}
         imageAlt="Sparkling sunlit South Florida modern kitchen interior"
         breadcrumbs={[
@@ -120,14 +134,14 @@ export const PublicationsPage: React.FC = () => {
                 No cleaning guides matched &ldquo;{searchQuery.trim()}&rdquo;
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Try searching a broader room or topic—like kitchen, move-out, rental, or office—or view our full library of guides.
+                Try a broader topic—like kitchen, rental, or office—or reset filters.
               </p>
               <button
                 type="button"
                 onClick={handleResetFilters}
                 className="inline-flex items-center justify-center px-5 py-3 min-h-[44px] rounded-xl bg-[#2a8655] hover:bg-[#1f6840] text-white text-sm font-bold transition-colors cursor-pointer"
               >
-                Reset Filters &amp; Show All {BLOG_POSTS.length} Guides
+                Show All {BLOG_POSTS.length} Guides
               </button>
             </div>
           ) : (
@@ -140,7 +154,7 @@ export const PublicationsPage: React.FC = () => {
                   <Link to={`/blog/${post.slug}`} className="relative h-56 overflow-hidden block bg-slate-900">
                     <img
                       src={post.image}
-                      alt={post.title}
+                      alt={POST_IMAGE_ALTS[post.slug] || `${post.category} editorial cover photo`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                       width="600"
@@ -179,7 +193,7 @@ export const PublicationsPage: React.FC = () => {
                         to={`/blog/${post.slug}`}
                         className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0b1926] group-hover:text-[#2a8655] transition-colors"
                       >
-                        Read Full Guide
+                        Read Guide
                         <ArrowRight className="w-4 h-4 text-[#2a8655] group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>

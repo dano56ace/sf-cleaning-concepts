@@ -4,10 +4,5 @@
   "stickyBarTests": [],
   "heroAndQuoteTests": [],
   "imageSizingTests": [],
-  "failures": [
-    "/service/office-cleaning.html: Image overflows parent container on /assets/images/services/service-img-12.jpg",
-    "/service/office-cleaning.html: Image overflows viewport right edge on /assets/images/services/service-img-12.jpg",
-    "/service/medical-office-cleaning.html: Image overflows parent container on /assets/images/services/services-img-1.jpg",
-    "/service/medical-office-cleaning.html: Image overflows viewport right edge on /assets/images/services/services-img-1.jpg"
-  ]
+  "failures": []
 }

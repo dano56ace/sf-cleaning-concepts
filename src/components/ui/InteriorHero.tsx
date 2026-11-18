@@ -109,7 +109,7 @@ export const InteriorHero: React.FC<InteriorHeroProps> = ({
       if (rect.bottom < -120 || rect.top > window.innerHeight + 120) return;
 
       const offset = computeParallaxOffset(rect.top, rect.height, window.innerHeight, 0.28, 96);
-      layerEl.style.transform = `translate3d(0, ${offset}px, 0) scale(1.08)`;
+      layerEl.style.transform = `translate3d(0, ${offset}px, 0)`;
     };
 
     const scheduleUpdate = () => {
@@ -144,7 +144,7 @@ export const InteriorHero: React.FC<InteriorHeroProps> = ({
       <div
         ref={parallaxLayerRef}
         data-testid="interior-parallax-bg"
-        className="absolute -top-24 -bottom-24 inset-x-0 z-0 scale-[1.08] will-change-transform pointer-events-none select-none bg-gradient-to-br from-[#071536] via-[#0d2847] to-[#12582e]"
+        className="absolute -top-24 -bottom-24 inset-x-0 z-0 will-change-transform pointer-events-none select-none bg-gradient-to-br from-[#071536] via-[#0d2847] to-[#12582e]"
       >
         {!imgFailed && (
           <img

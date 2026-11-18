@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { BUSINESS_NAP, CLIENT_TESTIMONIALS } from '../../data/siteData';
 
 const COMMERCIAL_PARTNERS = [
-  { name: "Chili's Grill & Bar", logo: '/assets/images/clients/chillis.jpg', sector: 'Hospitality & Dining' },
-  { name: 'LongHorn Steakhouse', logo: '/assets/images/clients/longhorn.jpg', sector: 'Commercial Kitchens' },
-  { name: 'Romano’s Macaroni Grill', logo: '/assets/images/clients/macaroni.jpg', sector: 'Restaurant Group' },
-  { name: 'Lime Fresh Mexican Grill', logo: '/assets/images/clients/limegrill.jpg', sector: 'Multi-Unit Dining' },
-  { name: 'Journeys Retail Stores', logo: '/assets/images/clients/journeys.jpg', sector: 'Retail & Commercial' }
+  { name: "Chili's Grill & Bar", logo: '/assets/images/clients/chillis.jpg' },
+  { name: 'LongHorn Steakhouse', logo: '/assets/images/clients/longhorn.jpg' },
+  { name: 'Romano’s Macaroni Grill', logo: '/assets/images/clients/macaroni.jpg' },
+  { name: 'Lime Fresh Mexican Grill', logo: '/assets/images/clients/limegrill.jpg' },
+  { name: 'Journeys Retail Stores', logo: '/assets/images/clients/journeys.jpg' }
 ];
 
 export const TestimonialsSlider: React.FC = () => {
@@ -32,13 +32,13 @@ export const TestimonialsSlider: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>{BUSINESS_NAP.ratingScore} Stars · {BUSINESS_NAP.reviewCountLabel} · Real South Florida Neighbors</span>
+              <span>{BUSINESS_NAP.ratingScore} Stars · {BUSINESS_NAP.reviewCountLabel}</span>
             </div>
             <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
-              See Why Your Neighbors Love Coming Home to Our Clean
+              What South Florida Clients Say
             </h2>
             <p className="text-slate-600 text-base sm:text-lg m-0">
-              Don’t just take our word for it—hear from local families, Airbnb hosts, and business owners who count on us every week.
+              Feedback from local homeowners, Airbnb hosts, and business owners.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export const TestimonialsSlider: React.FC = () => {
                   ))}
                 </div>
                 <span className="font-mono text-xs text-[#a3e6be] uppercase tracking-wider">
-                  Verified Local Client · {t.location}
+                  {t.location}
                 </span>
               </div>
 
@@ -97,10 +97,6 @@ export const TestimonialsSlider: React.FC = () => {
                 <div className="text-xs sm:text-sm text-slate-300 mt-0.5">
                   {t.role} · {t.location}
                 </div>
-              </div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-mono text-[#a3e6be]">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Happy Customer Guarantee</span>
               </div>
             </div>
           </div>
@@ -145,7 +141,7 @@ export const TestimonialsSlider: React.FC = () => {
         <div className="mt-16 pt-12 border-t border-slate-200/80">
           <div className="text-center mb-8">
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Also Trusted by Favorite Restaurants, Stores &amp; Local Businesses Across South Florida
+              Trusted by South Florida Businesses
             </span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 items-center">
@@ -156,7 +152,7 @@ export const TestimonialsSlider: React.FC = () => {
               >
                 <img
                   src={partner.logo}
-                  alt={partner.name}
+                  alt={`${partner.name} logo`}
                   width="48"
                   height="48"
                   className="w-11 h-11 rounded-lg object-cover shrink-0 border border-slate-200"
@@ -165,9 +161,6 @@ export const TestimonialsSlider: React.FC = () => {
                 <div className="min-w-0">
                   <div className="text-xs font-extrabold text-[#071536] truncate">
                     {partner.name}
-                  </div>
-                  <div className="text-[11px] text-slate-500 truncate">
-                    {partner.sector}
                   </div>
                 </div>
               </div>

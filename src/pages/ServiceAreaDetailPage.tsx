@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
   Phone,
@@ -14,235 +14,55 @@ import {
   Clock,
   Mail
 } from 'lucide-react';
-import { serviceAreas, serviceAreasBySlug } from '../data/serviceAreas';
+import {
+  serviceAreas,
+  serviceAreasBySlug,
+  getServiceAreaCoreServices,
+  getServiceAreaFaqs
+} from '../data/serviceAreas';
 import { ServiceAreaLocalGuide } from '../components/service-areas/ServiceAreaLocalGuide';
 import { ServiceAreaMap } from '../components/service-areas/ServiceAreaMap';
-import { QuoteModal } from '../components/ui/QuoteModal';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { InteriorHero, getInteriorHeroForSlug } from '../components/ui/InteriorHero';
 import { BUSINESS_NAP } from '../data/siteData';
 
-interface DivisionItem {
-  slug: string;
-  title: string;
-  shortDesc: string;
-  icon: React.ReactNode;
+const DIVISION_ICONS: Record<string, React.ReactNode> = {
+  'home-maintenance': <Sparkles className="w-6 h-6 text-[#12582e]" />,
+  'short-term-rentals': <Home className="w-6 h-6 text-[#12582e]" />,
+  'office-cleaning': <Building2 className="w-6 h-6 text-[#12582e]" />,
+  'medical-office-cleaning': <ShieldAlert className="w-6 h-6 text-[#12582e]" />,
+  'post-construction-cleaning': <HardHat className="w-6 h-6 text-[#12582e]" />
+};
+
+interface ServiceAreaDetailPageProps {
+  onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
-export const ServiceAreaDetailPage: React.FC = () => {
+export const ServiceAreaDetailPage: React.FC<ServiceAreaDetailPageProps> = ({
+  onOpenQuoteModal,
+}) => {
   const { slug: rawSlug } = useParams<{ slug: string }>();
-  const slug = rawSlug ? rawSlug.replace(/\.html$/, '') : undefined;
+  const slug = rawSlug ? rawSlug.toLowerCase().replace(/\.html$/, '') : undefined;
   const area = slug && Object.prototype.hasOwnProperty.call(serviceAreasBySlug, slug)
     ? serviceAreasBySlug[slug]
     : undefined;
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-
-  useEffect(() => {
-    if (area) {
-      window.scrollTo(0, 0);
-    }
-  }, [area]);
 
   if (!area) {
     return <Navigate to="/404" replace />;
   }
 
-  const divisions: DivisionItem[] = [
-    {
-      slug: 'home-maintenance',
-      title: `Recurring Home & Condo Cleaning in ${area.name}`,
-      shortDesc: `Our popular 4-Step Rotation Clean keeps ${area.name} homes fresh, dust-free, and sparkling week after week—with zero surprise fees.`,
-      icon: <Sparkles className="w-6 h-6 text-[#12582e]" />
-    },
-    {
-      slug: 'short-term-rentals',
-      title: `Airbnb & Vacation Rental Turnovers in ${area.name}`,
-      shortDesc: `Reliable same-day check-out to check-in cleans (10 AM - 4 PM), fresh hotel-style bed making, laundry, and photo updates in ${area.name}.`,
-      icon: <Home className="w-6 h-6 text-[#12582e]" />
-    },
-    {
-      slug: 'office-cleaning',
-      title: `Office & Workplace Cleaning in ${area.name}`,
-      shortDesc: `Flexible evening or daytime cleaning, spotless restrooms, fresh breakrooms, and dust-free desks for ${area.name} businesses.`,
-      icon: <Building2 className="w-6 h-6 text-[#12582e]" />
-    },
-    {
-      slug: 'medical-office-cleaning',
-      title: `Medical & Dental Office Cleaning in ${area.name}`,
-      shortDesc: `Gentle, hospital-grade disinfection for waiting rooms and exam suites so patients and staff feel safe and cared for in ${area.name}.`,
-      icon: <ShieldAlert className="w-6 h-6 text-[#12582e]" />
-    },
-    {
-      slug: 'post-construction-cleaning',
-      title: `Post-Renovation & Remodel Cleanup in ${area.name}`,
-      shortDesc: `We clear away every speck of drywall dust, paint splatter, and sticker residue so your newly remodeled ${area.name} space is ready to enjoy.`,
-      icon: <HardHat className="w-6 h-6 text-[#12582e]" />
-    }
-  ];
-
-  const faqs = [
-    {
-      q: `How often do most ${area.name} homeowners and offices schedule cleaning?`,
-      a: `Most families in ${area.name} love our weekly or every-other-week Rotation Clean so they never have to spend their weekends scrubbing. Local offices and clinics usually pick nightly or 2x–3x weekly evening visits after everyone heads home.`
-    },
-    {
-      q: `Do you offer same-day Airbnb and vacation rental turnovers in ${area.name}?`,
-      a: `Yes! We specialize in tight 10:00 AM to 4:00 PM guest turnover windows across ${area.name}. We wash linens, stage beds like a boutique hotel, restock essentials, and text you photos as soon as your rental is guest-ready.`
-    },
-    {
-      q: `Are your cleaning supplies safe for my kids and pets in ${area.name}?`,
-      a: `100% yes. We bring all our own eco-friendly, non-toxic cleaners and fresh color-coded microfiber cloths that wipe out germs without leaving harsh chemical fumes behind.`
-    },
-    {
-      q: `How does your Love Your Clean or Don’t Pay guarantee work in ${area.name}?`,
-      a: `It’s simple: if you aren’t smiling when you walk into your freshly cleaned space, let us know within 24 hours and we’ll come right back to re-clean it for free. Still not happy? You don’t pay a dime.`
-    },
-    {
-      q: `How fast can I get a quote and book my first clean in ${area.name}?`,
-      a: `We can usually give you a free quote the very same day you reach out, and often have next-day or same-week openings across ${area.name}!`
-    }
-  ];
-
-  const schemaGraph = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Service',
-        '@id': `https://sfcleaningconcepts.com/service-area/${area.slug}#service`,
-        name: `Professional Commercial & Residential Cleaning in ${area.name}, FL`,
-        serviceType: 'CleaningService',
-        description: area.description,
-        provider: {
-          '@type': 'LocalBusiness',
-          '@id': 'https://sfcleaningconcepts.com/#localbusiness',
-          name: 'South Florida Cleaning Concepts',
-          telephone: BUSINESS_NAP.phone,
-          email: BUSINESS_NAP.email,
-          url: 'https://sfcleaningconcepts.com/',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Boynton Beach',
-            addressRegion: 'FL',
-            postalCode: '33435',
-            addressCountry: 'US'
-          }
-        },
-        areaServed: {
-          '@type': 'City',
-          name: area.name,
-          containedInPlace: {
-            '@type': 'State',
-            name: 'Florida'
-          },
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
-            longitude: area.geo ? Number(area.geo.longitude) : -80.0534
-          }
-        },
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: `Commercial & Residential Cleaning Services in ${area.name}`,
-          itemListElement: divisions.map((division) => ({
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: division.title,
-              description: division.shortDesc
-            }
-          }))
-        }
-      },
-      {
-        '@type': ['CleaningService', 'LocalBusiness'],
-        '@id': `https://sfcleaningconcepts.com/service-area/${area.slug}#local-service`,
-        name: `South Florida Cleaning Concepts - ${area.name}`,
-        image: 'https://sfcleaningconcepts.com/assets/images/hero/video-poster-2.jpeg',
-        telephone: BUSINESS_NAP.phone,
-        email: BUSINESS_NAP.email,
-        priceRange: BUSINESS_NAP.priceRange,
-        url: `https://sfcleaningconcepts.com/service-area/${area.slug}`,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: area.name,
-          addressRegion: 'FL',
-          addressCountry: 'US'
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
-          longitude: area.geo ? Number(area.geo.longitude) : -80.0534
-        },
-        areaServed: {
-          '@type': 'City',
-          name: area.name,
-          containedInPlace: {
-            '@type': 'State',
-            name: 'Florida'
-          },
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: area.geo ? Number(area.geo.latitude) : 26.7153,
-            longitude: area.geo ? Number(area.geo.longitude) : -80.0534
-          }
-        },
-        description: area.description
-      },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': `https://sfcleaningconcepts.com/service-area/${area.slug}#breadcrumb`,
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: 'https://sfcleaningconcepts.com/'
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Service Areas',
-            item: 'https://sfcleaningconcepts.com/service-areas'
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: `${area.name}, FL`,
-            item: `https://sfcleaningconcepts.com/service-area/${area.slug}`
-          }
-        ]
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `https://sfcleaningconcepts.com/service-area/${area.slug}#faq`,
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.a
-          }
-        }))
-      }
-    ]
-  };
-
-  const nearbyAreas = serviceAreas.filter((a) => a.slug !== area.slug).slice(0, 16);
+  const divisions = getServiceAreaCoreServices(area.name);
+  const faqs = getServiceAreaFaqs(area.name);
+  const nearbyAreas = serviceAreas.filter((a) => a.slug !== area.slug).slice(0, 6);
 
   return (
     <div className="bg-[#f8fafc] min-h-screen text-slate-800">
-      {/* JSON-LD Schema Script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
-      />
-
       {/* SECTION 1: PARALLAX INTERIOR HERO BANNER */}
       <InteriorHero
         ariaLabel={`${area.name}, FL Cleaning Services Header`}
-        kicker={`Serving ${area.name}, FL & Surrounding Areas`}
+        kicker={`Serving ${area.name}, FL`}
         title={
           <>
             Premier Commercial &amp; Residential Cleaning Services in{' '}
@@ -254,20 +74,20 @@ export const ServiceAreaDetailPage: React.FC = () => {
         imageAlt={`Spotless luxury South Florida interior in ${area.name}, FL`}
         breadcrumbs={[
           { label: 'Home', to: '/' },
-          { label: 'All 56 Service Areas', to: '/service-areas' },
+          { label: 'Service Areas', to: '/service-areas' },
           { label: `${area.name}, FL` }
         ]}
         aside={
-          <div className="w-full sm:w-auto bg-[#071536]/65 backdrop-blur-md border border-white/20 rounded-2xl p-6 space-y-3 shadow-xl">
+          <div className="w-full sm:w-auto bg-[#071536]/65 backdrop-blur-md border border-white/20 rounded-2xl p-5 space-y-2.5 shadow-xl">
             <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#a3e6be] font-semibold">
-              100% Satisfaction Guarantee
+              100% Guarantee
             </div>
             <div className="text-sm text-slate-100 leading-snug">
-              If you are not completely thrilled with our clean, we return to re-clean for free or you do not pay.
+              Free 24-hour re-clean or you don&apos;t pay.
             </div>
-            <div className="pt-2 border-t border-white/15 flex items-center justify-between text-xs text-slate-300">
-              <span>Licensed &amp; Bonded</span>
-              <span className="text-[#a3e6be] font-mono tabular-nums">20+ Yrs Exp</span>
+            <div className="pt-2 border-t border-white/15 flex items-center justify-between gap-4 text-xs text-slate-300">
+              <span>Licensed · Bonded</span>
+              <span className="text-[#a3e6be] font-mono tabular-nums">20+ Yrs</span>
             </div>
           </div>
         }
@@ -275,10 +95,10 @@ export const ServiceAreaDetailPage: React.FC = () => {
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={() => setIsQuoteOpen(true)}
+            onClick={() => onOpenQuoteModal?.(`${area.name} Cleaning Services`)}
             className="px-6 py-3.5 rounded-xl bg-[#12582e] hover:bg-[#0d4222] text-white text-sm font-bold tracking-wide transition-all inline-flex items-center gap-2 cursor-pointer shadow-lg border border-white/15"
           >
-            <span>Request Free {area.name} Quote</span>
+            <span>Get Free Quote</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
@@ -296,24 +116,21 @@ export const ServiceAreaDetailPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#12582e] block">
-              Trusted Local Care • {area.name}, Florida
+              Local Care
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a] leading-tight">
-              Why {area.name} Neighbors &amp; Businesses Love Coming Home to Our Clean
+              Trusted Cleaning in {area.name}
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
-              {area.description}
-            </p>
-            <p className="text-base text-slate-600 leading-relaxed">
-              Living and working in <strong>{area.name}</strong> means dealing with South Florida humidity, tracked-in sand, and salty coastal breezes that quickly dull floors and glass. Our friendly, background-checked pros bring gentle, kid- and pet-safe supplies and fresh color-coded microfiber cloths so your home, vacation rental, or workplace stays spotless and smells fresh.
+              Our vetted crews use kid- and pet-safe supplies and color-coded microfiber built for South Florida humidity and salt air.
             </p>
 
             {area.highlights && area.highlights.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 {area.highlights.map((highlight) => (
                   <div
                     key={highlight}
-                    className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-3 text-xs sm:text-sm font-semibold text-slate-800"
+                    className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-800"
                   >
                     <CheckCircle2 className="w-5 h-5 text-[#12582e] shrink-0 mt-0.5" />
                     <span>{highlight}</span>
@@ -325,7 +142,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
             {area.neighborhoods && area.neighborhoods.length > 0 && (
               <div className="pt-4 space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-[#07111a]">
-                  Neighborhoods &amp; Communities We Serve in {area.name}:
+                  Neighborhoods Served in {area.name}:
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {area.neighborhoods.map((hood) => (
@@ -347,34 +164,34 @@ export const ServiceAreaDetailPage: React.FC = () => {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold tracking-tight text-white">
-                A Fresh, Healthy Space Without Lifting a Finger
+                Spotless Results, Zero Effort
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Over <strong>94% of families and employees</strong> say walking into a clean, clutter-free room immediately lowers stress. In {area.name}, our vetted local crew handles all the scrubbing, dusting, and sanitizing so you get your free time back.
+                Our vetted team handles scrubbing and sanitizing so you reclaim your time.
               </p>
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="text-2xl sm:text-3xl font-extrabold text-[#4fd18b]">100%</div>
                   <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">
-                    Satisfaction Guarantee
+                    Satisfaction
                   </div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="text-2xl sm:text-3xl font-extrabold text-green-400">20+ Yrs</div>
                   <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">
-                    South Florida Heritage
+                    Experience
                   </div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="text-2xl sm:text-3xl font-extrabold text-[#4fd18b]">0%</div>
                   <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">
-                    Cross-Contamination
+                    Cross-Contact
                   </div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="text-2xl sm:text-3xl font-extrabold text-green-400">7 Days</div>
                   <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">
-                    Flexible Scheduling
+                    Scheduling
                   </div>
                 </div>
               </div>
@@ -386,20 +203,20 @@ export const ServiceAreaDetailPage: React.FC = () => {
       {/* SECTION 3: INTERACTIVE SERVICE AREA LOCAL GUIDE */}
       <ServiceAreaLocalGuide
         area={area}
-        onRequestConsultation={() => setIsQuoteOpen(true)}
+        onRequestConsultation={() => onOpenQuoteModal?.(`${area.name} Cleaning Services`)}
       />
 
       {/* SECTION 4: SPECIALIZED CLEANING SERVICES IN AREA */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs uppercase tracking-[0.25em] font-mono font-bold text-[#12582e] block">
-            Local Cleaning Services • {area.name}, FL
+            Our Services
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a]">
-            Our Core Cleaning Capabilities in {area.name}
+            Core Cleaning Services in {area.name}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            From daily commercial office janitorial care to specialized terminal medical disinfection and luxury home maintenance across {area.name}.
+            Commercial, medical, rental, and residential care.
           </p>
         </div>
 
@@ -411,7 +228,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center">
-                  {division.icon}
+                  {DIVISION_ICONS[division.slug] || <Sparkles className="w-6 h-6 text-[#12582e]" />}
                 </div>
                 <h3 className="text-xl font-bold tracking-tight text-[#07111a]">
                   {division.title}
@@ -420,11 +237,11 @@ export const ServiceAreaDetailPage: React.FC = () => {
                   {division.shortDesc}
                 </p>
               </div>
-                <Link
+              <Link
                 to={`/service/${division.slug}`}
                 className="pt-4 border-t border-slate-100 text-xs font-bold text-[#12582e] hover:text-[#0b1926] inline-flex items-center gap-2 transition-colors"
               >
-                See What’s Included <ArrowRight className="w-4 h-4" />
+                Details <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           ))}
@@ -436,18 +253,18 @@ export const ServiceAreaDetailPage: React.FC = () => {
                 <Sparkles className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold tracking-tight text-white">
-                Free Custom Quote in {area.name}
+                Request a Custom Quote
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Tell us about your home, rental, or office—or schedule a quick walkthrough with our friendly local team—and get a clear, flat-rate price the same day.
+                Book a quick walkthrough for same-day flat-rate pricing.
               </p>
             </div>
             <button
               type="button"
-              onClick={() => setIsQuoteOpen(true)}
+              onClick={() => onOpenQuoteModal?.(`${area.name} Cleaning Services`)}
               className="pt-4 border-t border-white/15 text-xs font-bold text-[#4fd18b] hover:text-white inline-flex items-center gap-2 transition-colors cursor-pointer"
             >
-              Get My Free Quote <ArrowRight className="w-4 h-4" />
+              Get Free Quote <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -459,10 +276,10 @@ export const ServiceAreaDetailPage: React.FC = () => {
           <div className="space-y-10">
             <div className="text-center max-w-3xl mx-auto space-y-3">
               <span className="text-xs uppercase tracking-[0.2em] font-mono font-bold text-[#4fd18b] block">
-                Simple, Dependable Care
+                Dependable Process
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-                How Our 4-Step Cleaning Works in {area.name}
+                Our 4-Step Process
               </h2>
             </div>
 
@@ -470,23 +287,23 @@ export const ServiceAreaDetailPage: React.FC = () => {
               {[
                 {
                   step: '01',
-                  title: 'Quick Quote or Walkthrough',
-                  desc: `Share a few details about your ${area.name} home, vacation rental, or office so we know your floors, pets, and priorities.`
+                  title: 'Quick Quote',
+                  desc: 'Share your home, rental, or office priorities.'
                 },
                 {
                   step: '02',
-                  title: 'Tailored Cleaning Checklist',
-                  desc: 'We build a custom room-by-room plan—including our 4-Step Rotation System so baseboards, fans, and blinds never get skipped.'
+                  title: 'Custom Checklist',
+                  desc: 'Custom 4-Step Rotation plan covering baseboards, fans, and blinds.'
                 },
                 {
                   step: '03',
-                  title: 'Safe, Thorough Cleaning',
-                  desc: 'Our friendly, background-checked pros arrive on time with kid- and pet-safe supplies, HEPA vacuums, and fresh microfiber cloths.'
+                  title: 'Eco-Safe Clean',
+                  desc: 'Vetted pros arrive with HEPA vacuums and fresh microfiber.'
                 },
                 {
                   step: '04',
-                  title: 'Love It or Don’t Pay Check',
-                  desc: 'Our team lead checks every room before locking up—backed 100% by our Love Your Clean or Don’t Pay Guarantee.'
+                  title: 'Final Inspection',
+                  desc: 'Final walkthrough backed by our Love Your Clean guarantee.'
                 }
               ].map((item) => (
                 <div
@@ -505,23 +322,23 @@ export const ServiceAreaDetailPage: React.FC = () => {
           <div className="relative rounded-3xl p-8 sm:p-12 border border-[#4fd18b]/30 bg-white/[0.03] space-y-6">
             <div className="max-w-3xl space-y-4">
               <div className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#4fd18b]">
-                20+ Years Serving South Florida Families &amp; Businesses
+                20+ Years in South Florida
               </div>
               <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-                Family-Owned Care &amp; Dependable Local Cleaners
+                Family-Owned Care You Can Trust
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                Unlike franchise apps that send random, unvetted strangers to your door, South Florida Cleaning Concepts is family-owned with friendly, insured, and background-checked cleaners. Every home, vacation rental, and workplace in {area.name} is cared for with personal pride.
+                Your space is cleaned by our insured, background-checked local specialists—never gig-app strangers.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
                   <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Licensed &amp; Insured
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Safe for Kids &amp; Pets
+                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> Kid &amp; Pet Safe
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> 100% Love-It Guarantee
+                  <CheckCircle2 className="w-4 h-4 text-[#4fd18b] shrink-0" /> 100% Guarantee
                 </div>
               </div>
             </div>
@@ -536,10 +353,10 @@ export const ServiceAreaDetailPage: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
               <span className="text-xs uppercase tracking-[0.22em] font-mono font-bold text-[#12582e] block">
-                Local Cleaning Options • {area.name}, FL
+                Cleaning Plans
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#07111a]">
-                Simple, Flexible Cleaning Plans in {area.name}
+                Cleaning Plans in {area.name}
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 {area.marketInsight}
@@ -549,36 +366,36 @@ export const ServiceAreaDetailPage: React.FC = () => {
             {/* Transparent Rate Packages Table */}
             <div className="space-y-3 pt-2">
               <h3 className="text-lg font-bold tracking-tight text-[#07111a]">
-                Popular {area.name} Cleaning Schedules
+                Cleaning Schedules
               </h3>
               <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
                     <tr className="bg-[#07111a] text-white">
                       <th className="py-3 px-4 font-bold uppercase tracking-wider">Plan</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">How Often</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">What’s Included in {area.name}</th>
-                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Great For</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Cadence</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Scope</th>
+                      <th className="py-3 px-4 font-bold uppercase tracking-wider">Best For</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 text-slate-700">
                     <tr className="hover:bg-slate-50">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Regular Home &amp; Office Care</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Regular Care</td>
                       <td className="py-3 px-4 font-bold text-[#12582e]">Weekly / Bi-Weekly</td>
-                      <td className="py-3 px-4">Room-by-room rotation care, kitchens &amp; baths, dusting, vacuuming &amp; fresh floors</td>
-                      <td className="py-3 px-4">Busy families, pet owners &amp; local offices</td>
+                      <td className="py-3 px-4">Kitchens, baths, dusting, vacuuming &amp; floors</td>
+                      <td className="py-3 px-4">Families &amp; offices</td>
                     </tr>
                     <tr className="bg-emerald-50/40 hover:bg-emerald-50/70">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Top-to-Bottom Deep Clean</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Deep Clean</td>
                       <td className="py-3 px-4 font-bold text-[#12582e]">Monthly / One-Time</td>
-                      <td className="py-3 px-4">Inside appliances, deep tile &amp; grout scrubbing, baseboards, blinds &amp; ceiling fans</td>
-                      <td className="py-3 px-4">Seasonal arrivals, move-in/move-out &amp; spring resets</td>
+                      <td className="py-3 px-4">Appliances, grout, baseboards, blinds &amp; fans</td>
+                      <td className="py-3 px-4">Move-ins &amp; resets</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
-                      <td className="py-3 px-4 font-bold text-[#07111a]">Workplace &amp; Clinic Care</td>
+                      <td className="py-3 px-4 font-bold text-[#07111a]">Clinic &amp; Office</td>
                       <td className="py-3 px-4 font-bold text-[#12582e]">Daily / Custom</td>
-                      <td className="py-3 px-4">Safe clinic &amp; office sanitizing, spotless restrooms, breakrooms, trash &amp; floors</td>
-                      <td className="py-3 px-4">Medical suites, offices, schools &amp; restaurants</td>
+                      <td className="py-3 px-4">EPA List N disinfection, restrooms &amp; breakrooms</td>
+                      <td className="py-3 px-4">Clinics &amp; suites</td>
                     </tr>
                   </tbody>
                 </table>
@@ -588,7 +405,7 @@ export const ServiceAreaDetailPage: React.FC = () => {
             {/* Localized FAQs */}
             <div className="space-y-3 pt-2">
               <h3 className="text-lg font-bold tracking-tight text-[#07111a]">
-                Frequently Asked Questions About Cleaning in {area.name}
+                Cleaning FAQs
               </h3>
               <div className="space-y-3">
                 {faqs.map((faq, idx) => {
@@ -627,13 +444,13 @@ export const ServiceAreaDetailPage: React.FC = () => {
             <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-lg space-y-4">
               <div className="pb-3 border-b border-slate-200/80">
                 <div className="text-[11px] uppercase tracking-wider font-mono font-bold text-[#12582e] mb-1">
-                  Fast Local Pricing • {area.name}, FL
+                  Fast Local Pricing
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#071536]">
-                  Get Your Free {area.name} Quote
+                  Free Estimate
                 </h3>
                 <p className="text-xs text-slate-600 mt-1 m-0">
-                  Tell us about your home, vacation rental, or office in {area.name} and we’ll reply right away.
+                  Request a fast, no-obligation quote.
                 </p>
               </div>
 
@@ -664,13 +481,13 @@ export const ServiceAreaDetailPage: React.FC = () => {
         <div className="pt-10 border-t border-slate-200 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">
-              Explore Other South Florida Service Areas
+              Nearby Service Areas
             </h3>
             <Link
               to="/service-areas"
               className="text-xs font-bold uppercase tracking-widest text-[#12582e] hover:underline"
             >
-              View All 56 Service Areas →
+              All 56 Areas →
             </Link>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -686,13 +503,6 @@ export const ServiceAreaDetailPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Quote Modal */}
-      <QuoteModal
-        isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
-        serviceTitle={`${area.name} Cleaning Services`}
-      />
     </div>
   );
 };

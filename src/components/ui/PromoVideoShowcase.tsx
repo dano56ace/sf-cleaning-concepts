@@ -7,6 +7,13 @@ export interface PromoVideoShowcaseProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
+const VIDEO_POSTER_ALTS: Record<string, string> = {
+  'promo-video-1': 'Cleaners wiping kitchen counters and detailing a South Florida home',
+  'promo-video-2': 'Spotless modern interior featured in our deep cleaning video',
+  'main-home-video-1': 'Specialist inspecting freshly cleaned room with 50-point checklist',
+  'bg-video': 'Team sanitizing high-touch glass and stone surfaces',
+};
+
 export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
   onOpenQuoteModal,
 }) => {
@@ -76,16 +83,16 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>See Our Crew in Action · Real South Florida Footage</span>
+              <span>Crew in Action</span>
             </div>
             <h2
               id="promo-video-heading"
               className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3 [text-wrap:balance]"
             >
-              Watch Why Homes &amp; Offices Entrust Us With Every Clean
+              See Our South Florida Team in Action
             </h2>
             <p className="text-slate-600 text-base sm:text-lg m-0">
-              Step inside our daily cleaning routine across Palm Beach, Broward, and Miami-Dade—from recurring home care and deep sanitization to commercial suites.
+              Real residential, deep-clean, and commercial footage across Palm Beach, Broward, and Miami-Dade.
             </p>
           </div>
 
@@ -98,7 +105,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
             <span aria-hidden="true" className="text-slate-300">·</span>
             <span>{BUSINESS_NAP.reviewCountLabel}</span>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <span className="font-semibold text-[#12582e]">12% Online Booking Savings</span>
+            <span className="font-semibold text-[#12582e]">12% Online Savings</span>
           </div>
         </div>
 
@@ -139,12 +146,12 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                       {isPlaying ? (
                         <>
                           <Pause className="w-4 h-4 fill-current" />
-                          <span>Pause Reel</span>
+                          <span>Pause</span>
                         </>
                       ) : (
                         <>
                           <Play className="w-4 h-4 fill-current" />
-                          <span>Play Reel</span>
+                          <span>Play</span>
                         </>
                       )}
                     </button>
@@ -158,12 +165,12 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                       {isMuted ? (
                         <>
                           <VolumeX className="w-4 h-4 text-[#a3e6be]" />
-                          <span>Sound Off</span>
+                          <span>Muted</span>
                         </>
                       ) : (
                         <>
                           <Volume2 className="w-4 h-4 text-[#a3e6be]" />
-                          <span>Sound On</span>
+                          <span>Unmute</span>
                         </>
                       )}
                     </button>
@@ -174,7 +181,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                     onClick={() => setShowNativeControls(true)}
                     className="px-3 py-2 min-h-[40px] text-xs font-mono text-slate-200 hover:text-white underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap shrink-0"
                   >
-                    Timeline Scrubbing
+                    Controls
                   </button>
                 </div>
               )}
@@ -227,7 +234,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                     <div className="relative w-20 h-13 rounded-xl overflow-hidden bg-[#071536] shrink-0 border border-slate-200/60">
                       <img
                         src={video.poster}
-                        alt={`${video.title} preview frame`}
+                        alt={VIDEO_POSTER_ALTS[video.id] || video.subtitle}
                         referrerPolicy="no-referrer"
                         loading="lazy"
                         className="w-full h-full object-cover"
@@ -261,15 +268,13 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
             <div className="rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between gap-3.5">
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#12582e] mb-1.5">
-                  <span>Act Now</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Online Website Exclusive</span>
+                  <span>Online Exclusive</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-[#071536] mb-1.5 [text-wrap:balance]">
                   {BUSINESS_NAP.websiteDiscountHeadline}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed m-0">
-                  {BUSINESS_NAP.websiteDiscountDetail} Backed by our 100% Love Your Clean or Don’t Pay Guarantee.
+                  {BUSINESS_NAP.websiteDiscountDetail}
                 </p>
               </div>
 
@@ -280,7 +285,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                     onClick={() => onOpenQuoteModal('12% Website Booking Discount')}
                     className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3 px-6 min-h-[44px] rounded-xl text-sm transition-colors inline-flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0"
                   >
-                    <span>Claim 12% Online Discount</span>
+                    <span>Claim 12% Discount</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 ) : (
@@ -288,7 +293,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                     to="/contact-us#quote"
                     className="btn btn-primary bg-[#12582e] hover:bg-[#0d4222] text-white font-bold py-3 px-6 min-h-[44px] rounded-xl text-sm transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
                   >
-                    <span>Claim 12% Online Discount</span>
+                    <span>Claim 12% Discount</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 )}
@@ -296,7 +301,7 @@ export const PromoVideoShowcase: React.FC<PromoVideoShowcaseProps> = ({
                   href={`tel:${BUSINESS_NAP.phoneRaw}`}
                   className="text-xs sm:text-sm font-mono font-bold text-[#071536] hover:text-[#12582e] py-2.5 px-2 min-h-[44px] inline-flex items-center transition-colors whitespace-nowrap shrink-0 tabular-nums"
                 >
-                  Or Call {BUSINESS_NAP.phone}
+                  Call {BUSINESS_NAP.phone}
                 </a>
               </div>
             </div>

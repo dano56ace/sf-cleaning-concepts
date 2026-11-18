@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { X, Phone, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_NAP } from '../../data/siteData';
@@ -15,6 +15,11 @@ import {
   SlideshowIndicators,
   useAutoRotatingSlideshow,
 } from './ServiceSlideshowBackdrop';
+import { lockBodyScroll } from '../../utils/bodyScrollLock';
+import {
+  isProgrammaticScrollRecent,
+  isSmoothScrollActive,
+} from '../../utils/smoothScroll';
 
 export interface ExitIntentBannerProps {
   /** Suppresses exit-intent banner whenever the main QuoteModal is already open */
@@ -37,6 +42,15 @@ function writeSessionFlag(key: string): void {
   }
 }
 
+function isAnyModalDialogOpen(): boolean {
+  if (typeof document === 'undefined') return false;
+  return (
+    document.querySelector(
+      '[role="dialog"][aria-modal="true"]:not([data-testid="exit-intent-banner"])'
+    ) !== null
+  );
+}
+
 export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
   isQuoteModalOpen = false,
 }) => {
@@ -48,24 +62,56 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
   const hasInteractedRef = useRef<boolean>(false);
   const maxScrollYRef = useRef<number>(0);
   const lastScrollYRef = useRef<number>(0);
+  const dismissedPreviewKeyRef = useRef<string | null>(null);
 
   const triggerBanner = useCallback(() => {
+    if (isQuoteModalOpen || isAnyModalDialogOpen()) return;
     writeSessionFlag(EXIT_INTENT_SESSION_KEY);
     setIsOpen(true);
-  }, []);
+  }, [isQuoteModalOpen]);
 
   const handleDismiss = useCallback(() => {
     writeSessionFlag(EXIT_INTENT_SESSION_KEY);
+    if (isPreviewExitIntentRequested(location.search)) {
+      dismissedPreviewKeyRef.current = `${location.pathname}${location.search}`;
+    }
     setIsOpen(false);
-  }, []);
+  }, [location.pathname, location.search]);
 
-  // Support deterministic QA preview via ?exit_intent=1
+  // Dismiss ExitIntentBanner permanently when QuoteModal opens so it never pops back on close
+  useEffect(() => {
+    if (isQuoteModalOpen && isOpen) {
+      if (isPreviewExitIntentRequested(location.search)) {
+        dismissedPreviewKeyRef.current = `${location.pathname}${location.search}`;
+      }
+      setIsOpen(false);
+    }
+  }, [isQuoteModalOpen, isOpen, location.pathname, location.search]);
+
+  // Support deterministic QA preview via ?exit_intent=1 (without re-opening once dismissed)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (isPreviewExitIntentRequested(location.search) && !isQuoteModalOpen) {
+    if (!isPreviewExitIntentRequested(location.search)) {
+      dismissedPreviewKeyRef.current = null;
+      return;
+    }
+    const previewKey = `${location.pathname}${location.search}`;
+    if (
+      dismissedPreviewKeyRef.current !== previewKey &&
+      !isQuoteModalOpen &&
+      !isAnyModalDialogOpen()
+    ) {
       triggerBanner();
     }
-  }, [location.search, isQuoteModalOpen, triggerBanner]);
+  }, [location.pathname, location.search, isQuoteModalOpen, triggerBanner]);
+
+  // Reset scroll depth tracking on route transitions after ScrollToTop snaps so
+  // outgoing scroll offsets or async post-navigation scroll events never false-trigger.
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+    maxScrollYRef.current = 0;
+    lastScrollYRef.current = window.scrollY || 0;
+  }, [location.pathname, location.search, location.hash]);
 
   // Real exit-intent listeners: Desktop top-edge mouseout (>=10s dwell + interaction) & Mobile upward scroll (>=15s dwell)
   useEffect(() => {
@@ -76,9 +122,19 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
     };
 
     const handleScroll = () => {
-      hasInteractedRef.current = true;
       const currentY = window.scrollY || 0;
       const prevY = lastScrollYRef.current;
+
+      if (isSmoothScrollActive() || isProgrammaticScrollRecent()) {
+        lastScrollYRef.current = currentY;
+        return;
+      }
+
+      if (currentY === prevY) {
+        return;
+      }
+
+      hasInteractedRef.current = true;
       if (currentY > maxScrollYRef.current) {
         maxScrollYRef.current = currentY;
       }
@@ -87,7 +143,7 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
         shouldTriggerMobileScrollExitIntent({
           alreadyShown: readSessionFlag(EXIT_INTENT_SESSION_KEY),
           alreadyConverted: readSessionFlag(EXIT_INTENT_QUOTE_SUBMITTED_KEY),
-          isOtherModalOpen: isQuoteModalOpen,
+          isOtherModalOpen: isQuoteModalOpen || isAnyModalDialogOpen(),
           pathname: location.pathname,
           elapsedMs: Date.now() - mountedAtRef.current,
           maxScrollY: maxScrollYRef.current,
@@ -106,7 +162,7 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
         shouldTriggerDesktopExitIntent({
           alreadyShown: readSessionFlag(EXIT_INTENT_SESSION_KEY),
           alreadyConverted: readSessionFlag(EXIT_INTENT_QUOTE_SUBMITTED_KEY),
-          isOtherModalOpen: isQuoteModalOpen,
+          isOtherModalOpen: isQuoteModalOpen || isAnyModalDialogOpen(),
           pathname: location.pathname,
           elapsedMs: Date.now() - mountedAtRef.current,
           hasInteracted: hasInteractedRef.current,
@@ -131,9 +187,9 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
     };
   }, [isOpen, isQuoteModalOpen, location.pathname, triggerBanner]);
 
-  // ESC key dismissal & body scroll lock while open
+  // ESC key dismissal & ref-counted body scroll lock while open
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || isQuoteModalOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -141,15 +197,14 @@ export const ExitIntentBanner: React.FC<ExitIntentBannerProps> = ({
       }
     };
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const unlock = lockBodyScroll();
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = prevOverflow;
+      unlock();
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, handleDismiss]);
+  }, [isOpen, isQuoteModalOpen, handleDismiss]);
 
   if (!isOpen || isQuoteModalOpen) return null;
 

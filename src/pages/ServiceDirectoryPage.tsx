@@ -8,6 +8,19 @@ interface ServiceDirectoryPageProps {
   onOpenQuoteModal?: (serviceTitle?: string) => void;
 }
 
+const SERVICE_IMAGE_ALTS: Record<string, string> = {
+  'office-cleaning': 'Cleaners sanitizing desks and glass partitions in a South Florida office',
+  'medical-office-cleaning': 'Sanitized medical clinic exam suite and waiting room seating',
+  'bars-and-restaurant-cleaning': 'Degreased stainless restaurant kitchen and spotless dining bar',
+  'short-term-rentals': 'Crisply staged South Florida Airbnb bedroom ready for guest check-in',
+  'post-construction-cleaning': 'Technician HEPA-vacuuming drywall dust inside a newly remodeled room',
+  'move-in-out-cleaning': 'Freshly scrubbed empty residence kitchen and gleaming hardwood floors',
+  'home-maintenance': 'Housekeeper wiping sunlit residential windows in a South Florida home',
+  'school-cleaning': 'Disinfected classroom desks and sanitized daycare learning space',
+  'home-watching': 'Clean South Florida coastal residence inspected during seasonal home watch',
+  'covid-19-disinfection': 'Specialist applying electrostatic disinfectant mist across commercial surfaces',
+};
+
 export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOpenQuoteModal }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -26,9 +39,9 @@ export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOp
       <InteriorHero
         ariaLabel="Directory Header"
         align="center"
-        kicker="All 10 Cleaning Services · Compare & Choose"
+        kicker="All 10 Cleaning Services"
         title="Commercial & Residential Services Directory"
-        description="Find the right clean for your home, vacation rental, or workplace across Palm Beach, Broward, and Miami-Dade counties."
+        description="Compare all 10 residential and commercial cleaning plans across Palm Beach, Broward, and Miami-Dade counties."
         imageSrc={INTERIOR_HERO_IMAGES.sparklingKitchen}
         imageAlt="Sparkling freshly cleaned South Florida modern kitchen interior"
         breadcrumbs={[
@@ -43,13 +56,13 @@ export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOp
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <div className="editorial-kicker mb-3">
-                <span>10 Ways We Help You Shine</span>
+                <span>10 Specialized Plans</span>
               </div>
               <h2 id="directory-list-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-2">
                 Browse All Cleaning Services
               </h2>
               <p className="text-slate-600 text-base m-0">
-                Pick any service below to see our full room-by-room checklist and request your free quote.
+                Select any service below to view its checklist and request a free quote.
               </p>
             </div>
 
@@ -104,15 +117,14 @@ export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOp
                       <div className="relative h-48 rounded-xl overflow-hidden mb-5 bg-slate-100">
                         <img
                           src={svc.image}
-                          alt={`${svc.title} South Florida Cleaning Concepts`}
+                          alt={SERVICE_IMAGE_ALTS[svc.slug] || svc.shortDesc}
                           width="500"
                           height="300"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#071536]/75 via-transparent to-transparent" />
-                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
-                          <span className="text-[#a3e6be] font-bold">100% Guaranteed</span>
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-end text-xs font-mono">
                           <span className="text-slate-200 tabular-nums">{svc.checklist.length}-Point Clean</span>
                         </div>
                       </div>
@@ -130,7 +142,7 @@ export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOp
                         to={`/service/${svc.slug}`}
                         className="inline-flex items-center gap-1.5 text-sm font-bold text-[#12582e] hover:text-[#0d4222] transition-colors whitespace-nowrap"
                       >
-                        <span>See What’s Included</span>
+                        <span>Service Details</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                       {onOpenQuoteModal && (
@@ -139,7 +151,7 @@ export const ServiceDirectoryPage: React.FC<ServiceDirectoryPageProps> = ({ onOp
                           onClick={() => onOpenQuoteModal(svc.title)}
                           className="text-xs font-mono font-bold text-[#071536] hover:text-[#12582e] transition-colors cursor-pointer whitespace-nowrap"
                         >
-                          Free Quote →
+                          Quote →
                         </button>
                       )}
                     </div>

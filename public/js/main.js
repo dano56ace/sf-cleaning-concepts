@@ -4,6 +4,7 @@
  */
 
 function initAll() {
+  if (document.querySelector('[data-react-managed="true"]')) return;
   initMobileNavigation();
   initHeroVideo();
   initVideoModals();
@@ -31,13 +32,18 @@ function initMobileNavigation() {
   if (!toggleBtn || !drawer) return;
   if (toggleBtn.getAttribute('data-react-managed') === 'true') return;
 
+  let prevOverflow = '';
+
   function openDrawer() {
+    if (!drawer.classList.contains('is-active')) {
+      prevOverflow = document.body.style.overflow;
+    }
     toggleBtn.setAttribute('aria-expanded', 'true');
     drawer.classList.add('is-active');
     if (overlay) overlay.classList.add('is-active');
     document.body.style.overflow = 'hidden';
     if (closeBtn) {
-      closeBtn.focus();
+      closeBtn.focus({ preventScroll: true });
     }
   }
 
@@ -45,8 +51,8 @@ function initMobileNavigation() {
     toggleBtn.setAttribute('aria-expanded', 'false');
     drawer.classList.remove('is-active');
     if (overlay) overlay.classList.remove('is-active');
-    document.body.style.overflow = '';
-    toggleBtn.focus();
+    document.body.style.overflow = prevOverflow;
+    toggleBtn.focus({ preventScroll: true });
   }
 
   toggleBtn.addEventListener('click', () => {
@@ -65,7 +71,7 @@ function initMobileNavigation() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('is-active')) {
       closeDrawer();
-      toggleBtn.focus();
+      toggleBtn.focus({ preventScroll: true });
     }
   });
 
@@ -122,10 +128,11 @@ function initVideoModals() {
       const firstFocusable = focusable[0];
       const lastFocusable = focusable[focusable.length - 1];
 
+      const prevOverflow = document.body.style.overflow;
       modal.removeAttribute('hidden');
       document.body.style.overflow = 'hidden';
 
-      if (firstFocusable) firstFocusable.focus();
+      if (firstFocusable) firstFocusable.focus({ preventScroll: true });
 
       if (video) {
         video.play().catch(() => {
@@ -139,8 +146,8 @@ function initVideoModals() {
           video.currentTime = 0;
         }
         modal.setAttribute('hidden', '');
-        document.body.style.overflow = '';
-        trigger.focus();
+        document.body.style.overflow = prevOverflow;
+        trigger.focus({ preventScroll: true });
         document.removeEventListener('keydown', handleKeydown);
       }
 
@@ -155,12 +162,12 @@ function initVideoModals() {
           if (e.shiftKey) {
             if (document.activeElement === firstFocusable) {
               e.preventDefault();
-              lastFocusable.focus();
+              lastFocusable.focus({ preventScroll: true });
             }
           } else {
             if (document.activeElement === lastFocusable) {
               e.preventDefault();
-              firstFocusable.focus();
+              firstFocusable.focus({ preventScroll: true });
             }
           }
         }
@@ -282,7 +289,7 @@ function initLeadQuoteForm() {
     if (!isNameValid || !isEmailValid || !isPhoneValid || !isMsgValid) {
       // Focus first invalid field
       const firstInvalid = form.querySelector('.is-invalid');
-      if (firstInvalid) firstInvalid.focus();
+      if (firstInvalid) firstInvalid.focus({ preventScroll: true });
       return;
     }
 
@@ -369,7 +376,7 @@ function initLeadQuoteForm() {
       if (successBanner) successBanner.setAttribute('hidden', '');
       if (errorBanner) errorBanner.setAttribute('hidden', '');
       form.style.display = 'flex';
-      if (nameInput) nameInput.focus();
+      if (nameInput) nameInput.focus({ preventScroll: true });
     });
   }
 }

@@ -167,7 +167,7 @@ export const ServiceSlideshowBackdrop: React.FC<ServiceSlideshowBackdropProps> =
         0.22,
         56
       );
-      layerEl.style.transform = `translate3d(0, ${offset}px, 0) scale(1.03)`;
+      layerEl.style.transform = `translate3d(0, ${offset}px, 0)`;
     };
 
     const scheduleUpdate = () => {
@@ -212,7 +212,7 @@ export const ServiceSlideshowBackdrop: React.FC<ServiceSlideshowBackdropProps> =
         data-testid={layerTestId}
         className={`hero-media-wrapper absolute inset-x-0 z-0 bg-gradient-to-br from-[#071536] via-[#0d2847] to-[#12582e] ${
           enableParallax
-            ? '-top-16 -bottom-16 scale-[1.03] will-change-transform'
+            ? '-top-16 -bottom-16 will-change-transform'
             : 'inset-y-0'
         }`}
       >

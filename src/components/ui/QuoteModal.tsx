@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { X, Phone } from 'lucide-react';
 import { QuoteForm } from './QuoteForm';
 import { BUSINESS_NAP } from '../../data/siteData';
+import { lockBodyScroll } from '../../utils/bodyScrollLock';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -11,19 +12,18 @@ interface QuoteModalProps {
 
 export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, serviceTitle }) => {
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape') {
         onClose();
       }
     };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-    }
+
+    const unlock = lockBodyScroll();
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.body.style.overflow = '';
+      unlock();
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);

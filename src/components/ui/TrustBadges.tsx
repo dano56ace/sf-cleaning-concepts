@@ -12,50 +12,50 @@ const ICONS_MAP: { [key: string]: React.ElementType } = {
 const ROTATION_ZONE_DETAILS = [
   {
     phase: 'Step 01',
-    zone: 'The First-Visit Top-to-Bottom Refresh',
-    cadence: 'Your Starting Clean',
-    summary: 'On our very first visit, we roll up our sleeves and give your entire place a deep, resetting scrub from ceiling fans down to the baseboards—so every room feels fresh and brand new.',
+    zone: 'Top-to-Bottom Deep Refresh',
+    cadence: 'First Visit',
+    summary: 'Our initial visit deep-cleans every room from ceiling fans to baseboards so ongoing upkeep stays effortless.',
     tasks: [
-      'Hand-wipe all baseboards, door frames, window ledges, and light switches',
-      'Scrub away soap scum and hard-water spots on shower glass, tubs, and tile grout',
-      'Degrease stove hoods, wipe cabinet fronts, and polish every kitchen appliance',
-      'Deep-vacuum all carpets, area rugs, corners, and underneath sofa cushions'
+      'Hand-wipe baseboards, sills & switches',
+      'Scrub shower glass, tubs & tile grout',
+      'Degrease stove hoods & cabinet fronts',
+      'Deep-vacuum rugs, corners & cushions'
     ]
   },
   {
     phase: 'Step 02',
-    zone: 'Kitchen & Heart-of-the-Home Sparkle',
-    cadence: 'Rotating Deep Focus',
-    summary: 'Every visit includes a full-home clean, plus on Step 02 we spend extra time deep-cleaning the places where your family cooks, eats, and gathers.',
+    zone: 'Kitchen & Dining Sparkle',
+    cadence: 'Rotating Focus',
+    summary: 'Every visit cleans your full home while Step 02 focuses extra deep-scrubbing on your kitchen and dining areas.',
     tasks: [
-      'Clean inside and outside of the microwave, oven glass door, and fridge seals',
-      'Scrub kitchen backsplash grout and polish under-cabinet lighting',
-      'Wipe down pantry shelves, sanitize sink drains, and shine chrome faucets',
-      'Polish stainless steel appliances and sanitize all cabinet handles and pulls'
+      'Clean inside microwave, oven glass & fridge seals',
+      'Scrub backsplash grout & under-cabinet trim',
+      'Wipe pantry shelves & sanitize sink drains',
+      'Polish stainless appliances & cabinet handles'
     ]
   },
   {
     phase: 'Step 03',
-    zone: 'Spa-Fresh Bathrooms & Tile Care',
-    cadence: 'Rotating Deep Focus',
-    summary: 'South Florida humidity loves to build up mildew in bathrooms. While cleaning your whole home, Step 03 gives your master bath and powder rooms a true spa-level scrub.',
+    zone: 'Spa-Fresh Bathrooms & Tile',
+    cadence: 'Rotating Focus',
+    summary: 'We tackle South Florida humidity with extra deep scrubbing across your primary bath and powder rooms.',
     tasks: [
-      'Deep-scrub shower walls, tile grout, and bathroom floors until they gleam',
-      'Dust and clear bathroom exhaust fans so moisture and steam vent properly',
-      'Wipe vanity fronts, polish mirrors edge-to-edge, and descale faucets',
-      'Sanitize toilets, sinks, counters, and towel bars with fresh, safe cleaners'
+      'Deep-scrub shower tile, grout & bath floors',
+      'Dust bathroom exhaust fans for airflow',
+      'Polish mirrors & descale chrome faucets',
+      'Sanitize toilets, vanities & towel bars'
     ]
   },
   {
     phase: 'Step 04',
-    zone: 'Bedrooms, Living Spaces & Fresh Air',
-    cadence: 'Rotating Deep Focus',
-    summary: 'In Step 04, we maintain your whole property while targeting hidden dust, pet hair, and allergens in bedrooms, home offices, and living rooms.',
+    zone: 'Bedrooms & Living Spaces',
+    cadence: 'Rotating Focus',
+    summary: 'While maintaining every room, Step 04 clears hidden dust, pet hair, and allergens from living areas.',
     tasks: [
-      'Vacuum underneath beds, couches, cushions, and moveable furniture',
-      'Hand-wipe window blinds slat-by-slat and clean sliding glass door tracks',
-      'Wash AC return air vents and hand-wipe ceiling fan blades',
-      'Dust picture frames, lampshades, crown molding, and bookshelf decor'
+      'Vacuum under beds, sofas & cushions',
+      'Hand-wipe blinds & sliding glass tracks',
+      'Clean AC return vents & ceiling fan blades',
+      'Dust frames, crown molding & shelving'
     ]
   }
 ];
@@ -76,13 +76,10 @@ export const TrustBadges: React.FC = () => {
                 className="trust-card p-6 sm:p-7 rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:bg-white hover:shadow-lg hover:border-[#12582e]/30 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="mb-5">
                     <div className="w-11 h-11 rounded-xl bg-[#071536] text-[#a3e6be] flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-slate-400 tabular-nums">
-                      0{idx + 1}
-                    </span>
                   </div>
                   <h3 className="text-lg font-extrabold text-[#071536] mb-2">
                     {badge.title}
@@ -113,13 +110,13 @@ export const RotationSystemSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="editorial-kicker mb-3">
-            <span>Our Secret to a Forever-Spotless Home · No Extra Fees</span>
+            <span>Included at No Extra Charge</span>
           </div>
           <h2 id="rotation-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-4">
             How Our 4-Step Rotation Clean Works
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed m-0">
-            Most cleaners just wipe the surfaces you can see and rush out the door. We do things differently. Every time we visit, we clean your entire space while rotating an extra-deep scrub from room to room—so nothing ever gets skipped.
+            Every visit cleans your whole home while rotating deep detail work room by room.
           </p>
         </div>
 
@@ -146,22 +143,13 @@ export const RotationSystemSection: React.FC = () => {
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="mb-4">
                     <span
                       className={`font-mono text-xs font-bold uppercase tracking-widest ${
                         isSelected ? 'text-[#a3e6be]' : 'text-[#12582e]'
                       }`}
                     >
                       Step 0{step.step}
-                    </span>
-                    <span
-                      className={`w-8 h-8 rounded-lg font-mono font-bold text-xs flex items-center justify-center tabular-nums ${
-                        isSelected
-                          ? 'bg-[#12582e] text-white'
-                          : 'bg-slate-100 text-[#071536]'
-                      }`}
-                    >
-                      0{step.step}
                     </span>
                   </div>
                   <h3
@@ -188,10 +176,10 @@ export const RotationSystemSection: React.FC = () => {
                 >
                   <span className="inline-flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Included free</span>
+                    <span>Included</span>
                   </span>
                   <span className="font-mono text-[11px] uppercase">
-                    {isSelected ? 'Viewing' : 'See Checklist →'}
+                    {isSelected ? 'Active' : 'Details →'}
                   </span>
                 </div>
               </div>
@@ -215,7 +203,7 @@ export const RotationSystemSection: React.FC = () => {
             </div>
             <div className="lg:col-span-7 lg:border-l lg:border-slate-200 lg:pl-8">
               <div className="font-mono text-xs uppercase tracking-widest text-slate-400 font-semibold mb-4">
-                What We Scrub in This Step:
+                Included in This Step:
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {activeZone.tasks.map((task, i) => (
