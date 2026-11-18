@@ -1,40 +1,139 @@
-import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Star, ChevronLeft, ChevronRight, Quote, Pause, Play } from 'lucide-react';
 import { BUSINESS_NAP, CLIENT_TESTIMONIALS } from '../../data/siteData';
+import {
+  TESTIMONIAL_AUTOPLAY_MS,
+  computeCountdownScale,
+  stepTestimonialTimer,
+  resolveSwipeDirection,
+  resolveSlideNavigation,
+  getAuthorInitials,
+} from '../../utils/testimonialSliderLogic';
 
 const COMMERCIAL_PARTNERS = [
   { name: "Chili's Grill & Bar", logo: '/assets/images/clients/chillis.jpg' },
   { name: 'LongHorn Steakhouse', logo: '/assets/images/clients/longhorn.jpg' },
   { name: 'Romano’s Macaroni Grill', logo: '/assets/images/clients/macaroni.jpg' },
   { name: 'Lime Fresh Mexican Grill', logo: '/assets/images/clients/limegrill.jpg' },
-  { name: 'Journeys Retail Stores', logo: '/assets/images/clients/journeys.jpg' }
+  { name: 'Journeys Retail Stores', logo: '/assets/images/clients/journeys.jpg' },
 ];
 
 export const TestimonialsSlider: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
+    }
+    return false;
+  });
 
-  const prev = () => {
-    setCurrentIdx((curr) => (curr === 0 ? CLIENT_TESTIMONIALS.length - 1 : curr - 1));
+  const currentIdxRef = useRef(0);
+  const remainingMsRef = useRef(TESTIMONIAL_AUTOPLAY_MS);
+  const isPausedRef = useRef(isPaused);
+  const countdownBarRef = useRef<HTMLDivElement | null>(null);
+  const touchStartXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    currentIdxRef.current = currentIdx;
+  }, [currentIdx]);
+
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+
+  const applyCountdownBarTransform = useCallback((remainingMs: number) => {
+    if (!countdownBarRef.current) return;
+    const scale = computeCountdownScale(remainingMs, TESTIMONIAL_AUTOPLAY_MS);
+    countdownBarRef.current.style.transform = `scaleX(${scale})`;
+  }, []);
+
+  const jumpToSlide = useCallback(
+    (action: { type: 'next' } | { type: 'prev' } | { type: 'goto'; index: number }) => {
+      const nextIdx = resolveSlideNavigation(
+        currentIdxRef.current,
+        CLIENT_TESTIMONIALS.length,
+        action
+      );
+      currentIdxRef.current = nextIdx;
+      remainingMsRef.current = TESTIMONIAL_AUTOPLAY_MS;
+      applyCountdownBarTransform(TESTIMONIAL_AUTOPLAY_MS);
+      setCurrentIdx(nextIdx);
+    },
+    [applyCountdownBarTransform]
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    let rafId = 0;
+    let lastTimestamp: number | null = null;
+
+    applyCountdownBarTransform(remainingMsRef.current);
+
+    const tick = (now: number) => {
+      if (lastTimestamp === null) {
+        lastTimestamp = now;
+      }
+      const deltaMs = now - lastTimestamp;
+      lastTimestamp = now;
+
+      const step = stepTestimonialTimer({
+        currentIndex: currentIdxRef.current,
+        totalSlides: CLIENT_TESTIMONIALS.length,
+        remainingMs: remainingMsRef.current,
+        deltaMs,
+        durationMs: TESTIMONIAL_AUTOPLAY_MS,
+        isPaused: isPausedRef.current,
+      });
+
+      remainingMsRef.current = step.nextRemainingMs;
+      applyCountdownBarTransform(step.nextRemainingMs);
+
+      if (step.didAdvance) {
+        currentIdxRef.current = step.nextIndex;
+        setCurrentIdx(step.nextIndex);
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    rafId = window.requestAnimationFrame(tick);
+
+    return () => {
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
+  }, [applyCountdownBarTransform]);
+
+  const handleDotsKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      jumpToSlide({ type: 'next' });
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      jumpToSlide({ type: 'prev' });
+    }
   };
-
-  const next = () => {
-    setCurrentIdx((curr) => (curr === CLIENT_TESTIMONIALS.length - 1 ? 0 : curr + 1));
-  };
-
-  const t = CLIENT_TESTIMONIALS[currentIdx];
 
   return (
     <section
+      data-testid="testimonials-slider-section"
       className="testimonials-section py-20 lg:py-24 bg-white border-t border-slate-200/80"
       aria-labelledby="testimonials-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div className="max-w-2xl">
             <div className="editorial-kicker mb-3">
-              <span>{BUSINESS_NAP.ratingScore} Stars · {BUSINESS_NAP.reviewCountLabel}</span>
+              <span>
+                {BUSINESS_NAP.ratingScore} Stars · {BUSINESS_NAP.reviewCountLabel}
+              </span>
             </div>
-            <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3">
+            <h2
+              id="testimonials-heading"
+              className="text-3xl sm:text-4xl font-extrabold text-[#071536] mb-3"
+            >
               What South Florida Clients Say
             </h2>
             <p className="text-slate-600 text-base sm:text-lg m-0">
@@ -42,23 +141,51 @@ export const TestimonialsSlider: React.FC = () => {
             </p>
           </div>
 
-          {/* Slider Navigation Controls */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Slider Navigation & Autoplay Controls */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <button
               type="button"
-              onClick={prev}
-              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-slate-50 border border-slate-200 hover:border-[#071536] hover:bg-white flex items-center justify-center text-[#071536] transition-colors cursor-pointer"
+              onClick={() => setIsPaused((prev) => !prev)}
+              aria-pressed={isPaused}
+              aria-label={
+                isPaused ? 'Resume testimonial autoplay' : 'Pause testimonial autoplay'
+              }
+              className="h-12 min-h-[48px] px-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#071536] hover:bg-white flex items-center gap-2 text-xs font-bold text-[#071536] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            >
+              {isPaused ? (
+                <>
+                  <Play className="w-4 h-4 text-[#12582e] fill-current" />
+                  <span>Play</span>
+                </>
+              ) : (
+                <>
+                  <Pause className="w-4 h-4 text-[#071536]" />
+                  <span>Pause</span>
+                </>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => jumpToSlide({ type: 'prev' })}
+              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-slate-50 border border-slate-200 hover:border-[#071536] hover:bg-white flex items-center justify-center text-[#071536] transition-colors cursor-pointer shrink-0"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <span className="font-mono text-xs font-bold text-slate-500 px-2 tabular-nums">
-              {String(currentIdx + 1).padStart(2, '0')} / {String(CLIENT_TESTIMONIALS.length).padStart(2, '0')}
+
+            <span
+              data-testid="testimonial-slide-counter"
+              className="font-mono text-xs font-bold text-slate-500 px-1.5 tabular-nums whitespace-nowrap shrink-0"
+            >
+              {String(currentIdx + 1).padStart(2, '0')} /{' '}
+              {String(CLIENT_TESTIMONIALS.length).padStart(2, '0')}
             </span>
+
             <button
               type="button"
-              onClick={next}
-              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-slate-50 border border-slate-200 hover:border-[#071536] hover:bg-white flex items-center justify-center text-[#071536] transition-colors cursor-pointer"
+              onClick={() => jumpToSlide({ type: 'next' })}
+              className="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-slate-50 border border-slate-200 hover:border-[#071536] hover:bg-white flex items-center justify-center text-[#071536] transition-colors cursor-pointer shrink-0"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
@@ -66,74 +193,151 @@ export const TestimonialsSlider: React.FC = () => {
           </div>
         </div>
 
-        {/* Architectural Split: Featured Testimonial + Selector List */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Featured Quote Card (8 cols) */}
-          <div className="lg:col-span-8 bg-[#071536] text-white rounded-2xl p-8 sm:p-10 lg:p-12 flex flex-col justify-between relative overflow-hidden shadow-xl">
-            <Quote className="w-20 h-20 text-white/5 absolute top-6 right-6 pointer-events-none" />
+        {/* Auto-Playing Horizontal Testimonial Slider + Countdown Bar + Dots */}
+        <div className="bg-[#071536] text-white rounded-2xl shadow-xl overflow-hidden relative">
+          {/* Sliding Viewport */}
+          <div
+            className="overflow-hidden"
+            onTouchStart={(e) => {
+              touchStartXRef.current = e.touches[0]?.clientX ?? null;
+            }}
+            onTouchEnd={(e) => {
+              const startX = touchStartXRef.current;
+              const endX = e.changedTouches[0]?.clientX ?? null;
+              touchStartXRef.current = null;
+              if (startX === null || endX === null) return;
+              const direction = resolveSwipeDirection(startX, endX);
+              if (direction === 'next') jumpToSlide({ type: 'next' });
+              if (direction === 'prev') jumpToSlide({ type: 'prev' });
+            }}
+          >
+            <div
+              data-testid="testimonial-slider-track"
+              className="flex items-stretch transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none will-change-transform"
+              style={{ transform: `translate3d(-${currentIdx * 100}%, 0, 0)` }}
+            >
+              {CLIENT_TESTIMONIALS.map((item, idx) => {
+                const isActiveSlide = idx === currentIdx;
+                return (
+                  <article
+                    key={item.author}
+                    aria-hidden={!isActiveSlide}
+                    className="w-full shrink-0 p-7 sm:p-10 lg:p-12 flex flex-col justify-center relative"
+                  >
+                    <Quote
+                      className="w-20 h-20 text-white/5 absolute top-6 right-6 pointer-events-none"
+                      aria-hidden="true"
+                    />
 
-            <div>
-              <div className="flex items-center justify-between gap-4 mb-6">
-                <div className="flex items-center gap-1 text-amber-400" aria-label={`${t.rating} out of 5 stars`}>
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <span className="font-mono text-xs text-[#a3e6be] uppercase tracking-wider">
-                  {t.location}
-                </span>
-              </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+                      {/* Left 8 Cols: Rating & Verified Quote */}
+                      <div className="lg:col-span-8">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-1.5 sm:gap-x-3 mb-5">
+                          <div
+                            className="flex items-center gap-1 text-amber-400"
+                            aria-label={`${item.rating} out of 5 stars`}
+                          >
+                            {[...Array(item.rating)].map((_, starIdx) => (
+                              <Star key={starIdx} className="w-4 h-4 fill-current" />
+                            ))}
+                          </div>
+                          <span className="hidden sm:inline text-white/30" aria-hidden="true">
+                            ·
+                          </span>
+                          <span className="font-mono text-xs text-[#a3e6be] tracking-wide">
+                            Verified Client Review · {item.location}
+                          </span>
+                        </div>
 
-              <blockquote className="text-xl sm:text-2xl lg:text-[1.65rem] font-semibold text-white leading-relaxed mb-8">
-                “{t.quote}”
-              </blockquote>
-            </div>
+                        <blockquote className="text-xl sm:text-2xl lg:text-[1.6rem] font-semibold text-white leading-relaxed m-0">
+                          “{item.quote}”
+                        </blockquote>
+                      </div>
 
-            <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <div className="text-base font-extrabold text-white">
-                  {t.author}
-                </div>
-                <div className="text-xs sm:text-sm text-slate-300 mt-0.5">
-                  {t.role} · {t.location}
-                </div>
-              </div>
+                      {/* Right 4 Cols: Client Attribution */}
+                      <div className="lg:col-span-4 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/15 lg:pl-8 flex items-center gap-4">
+                        <div
+                          className="w-13 h-13 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center font-extrabold text-base text-[#a3e6be] shrink-0 select-none"
+                          aria-hidden="true"
+                        >
+                          {getAuthorInitials(item.author)}
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-base sm:text-lg font-extrabold text-white">
+                            {item.author}
+                          </div>
+                          <div className="text-xs sm:text-sm text-slate-300 mt-0.5">
+                            {item.role}
+                          </div>
+                          <div className="text-xs font-mono text-[#a3e6be] mt-1 tabular-nums">
+                            Review {String(idx + 1).padStart(2, '0')} of{' '}
+                            {String(CLIENT_TESTIMONIALS.length).padStart(2, '0')}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
 
-          {/* Client Selector Stack (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-2">
-            {CLIENT_TESTIMONIALS.map((item, idx) => {
-              const isSelected = idx === currentIdx;
-              return (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setCurrentIdx(idx)}
-                  className={`w-full text-left py-2.5 px-3.5 min-h-[52px] rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
-                    isSelected
-                      ? 'bg-[#e8f5ee]/80 border-[#12582e] text-[#071536] shadow-xs'
-                      : 'bg-slate-50/80 border-slate-200/80 text-slate-700 hover:bg-white hover:border-slate-300'
-                  }`}
-                >
-                  <div className="min-w-0">
-                    <div className="font-bold text-sm text-[#071536] truncate">
-                      {item.author}
-                    </div>
-                    <div className="text-xs text-slate-500 truncate mt-0.5">
-                      {item.role} · {item.location}
-                    </div>
-                  </div>
-                  <span
-                    className={`font-mono text-xs font-bold shrink-0 tabular-nums ${
-                      isSelected ? 'text-[#12582e]' : 'text-slate-400'
-                    }`}
+          {/* Smooth Auto-Play Countdown Bar */}
+          <div
+            data-testid="testimonial-countdown-track"
+            className="h-1.5 w-full bg-white/15 overflow-hidden"
+            aria-hidden="true"
+          >
+            <div
+              ref={countdownBarRef}
+              data-testid="testimonial-countdown-bar"
+              className="h-full w-full bg-gradient-to-r from-[#61997a] to-[#a3e6be] origin-left will-change-transform"
+              style={{ transform: 'scaleX(1)' }}
+            />
+          </div>
+
+          {/* Pagination Dots Bar */}
+          <div className="px-3 sm:px-10 lg:px-12 py-3 bg-[#040d22]/45 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div
+              role="tablist"
+              aria-label="Client testimonial slides"
+              data-testid="testimonial-dots"
+              onKeyDown={handleDotsKeyDown}
+              className="flex items-center justify-center gap-0.5 sm:gap-1.5"
+            >
+              {CLIENT_TESTIMONIALS.map((item, idx) => {
+                const isSelected = idx === currentIdx;
+                return (
+                  <button
+                    key={item.author}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    aria-label={`Go to review ${idx + 1} by ${item.author}`}
+                    onClick={() => jumpToSlide({ type: 'goto', index: idx })}
+                    className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer group rounded-full focus-visible:outline-2 focus-visible:outline-[#a3e6be]"
                   >
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                </button>
-              );
-            })}
+                    <span
+                      className={`block rounded-full transition-all duration-200 ${
+                        isSelected
+                          ? 'w-3 h-3 bg-[#a3e6be] ring-4 ring-[#a3e6be]/25 scale-110'
+                          : 'w-2.5 h-2.5 bg-white/35 group-hover:bg-white/75'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="hidden sm:flex items-center gap-2 text-xs text-slate-300 font-mono tabular-nums">
+              <span>{CLIENT_TESTIMONIALS[currentIdx].author}</span>
+              <span className="text-white/30" aria-hidden="true">
+                ·
+              </span>
+              <span className="text-[#a3e6be]">
+                {isPaused ? 'Paused' : 'Auto-playing'}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -153,6 +357,7 @@ export const TestimonialsSlider: React.FC = () => {
                 <img
                   src={partner.logo}
                   alt={`${partner.name} logo`}
+                  referrerPolicy="no-referrer"
                   width="48"
                   height="48"
                   className="w-11 h-11 rounded-lg object-cover shrink-0 border border-slate-200"

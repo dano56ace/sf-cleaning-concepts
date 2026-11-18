@@ -12,7 +12,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
   const [serviceAreasAccordionOpen, setServiceAreasAccordionOpen] = useState(false);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<'services' | 'service-areas' | null>(null);
   const location = useLocation();
+
+  const closeMegaMenus = () => {
+    setActiveMegaMenu(null);
+    if (document.activeElement instanceof HTMLElement && document.activeElement.closest('.desktop-nav')) {
+      document.activeElement.blur();
+    }
+  };
 
   const syncDrawerDom = (nextOpen: boolean) => {
     setDrawerOpen(nextOpen);
@@ -24,29 +32,36 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
     toggles.forEach((t) => t.setAttribute('aria-expanded', String(nextOpen)));
   };
 
-  // Close drawer on route change (including same-pathname search/hash POP transitions)
+  // Close drawer and megamenus on route change (including same-pathname search/hash POP transitions)
   useEffect(() => {
     syncDrawerDom(false);
     setServicesAccordionOpen(false);
     setServiceAreasAccordionOpen(false);
+    setActiveMegaMenu(null);
   }, [location.pathname, location.search, location.hash]);
 
-  // Handle ESC key to close mobile drawer (unless a higher modal dialog is open)
+  // Handle ESC key to close desktop megamenu or mobile drawer (unless a higher modal dialog is open)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && drawerOpen) {
-        const hasHigherModalOpen = Boolean(
-          document.querySelector(
-            '[role="dialog"][aria-modal="true"]:not(#mobile-nav-drawer)'
-          )
-        );
-        if (hasHigherModalOpen) return;
-        syncDrawerDom(false);
+      if (e.key === 'Escape') {
+        if (activeMegaMenu) {
+          closeMegaMenus();
+          return;
+        }
+        if (drawerOpen) {
+          const hasHigherModalOpen = Boolean(
+            document.querySelector(
+              '[role="dialog"][aria-modal="true"]:not(#mobile-nav-drawer)'
+            )
+          );
+          if (hasHigherModalOpen) return;
+          syncDrawerDom(false);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [drawerOpen]);
+  }, [drawerOpen, activeMegaMenu]);
 
   // Lock body scroll when drawer is open (ref-counted to preserve nested locks)
   useEffect(() => {
@@ -138,9 +153,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               </li>
 
               {/* Services Architectural Mega-Dropdown */}
-              <li className="nav-item relative group">
+              <li
+                className="nav-item relative"
+                onMouseEnter={() => setActiveMegaMenu('services')}
+                onMouseLeave={() => setActiveMegaMenu((curr) => (curr === 'services' ? null : curr))}
+                onFocus={(e) => {
+                  if (e.target instanceof HTMLElement && e.target.matches(':focus-visible')) {
+                    setActiveMegaMenu('services');
+                  }
+                }}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                    setActiveMegaMenu((curr) => (curr === 'services' ? null : curr));
+                  }
+                }}
+                onClick={(e) => {
+                  if (e.target instanceof HTMLElement && e.target.closest('a')) {
+                    closeMegaMenus();
+                  }
+                }}
+              >
                 <Link
                   to="/our-services"
+                  aria-expanded={activeMegaMenu === 'services'}
                   className={`nav-link inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 py-2 transition-colors relative ${
                     isActive('/our-services') || isActive('/service')
                       ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
@@ -148,10 +183,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                   }`}
                 >
                   <span>Services</span>
-                  <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#12582e]" />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      activeMegaMenu === 'services'
+                        ? 'rotate-180 text-[#12582e]'
+                        : 'text-slate-400'
+                    }`}
+                  />
                 </Link>
 
-                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[680px] xl:w-[740px] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+                <div
+                  data-testid="services-megamenu"
+                  className={`nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[680px] xl:w-[740px] transition-all duration-150 z-50 ${
+                    activeMegaMenu === 'services'
+                      ? 'opacity-100 visible pointer-events-auto'
+                      : 'opacity-0 invisible pointer-events-none'
+                  }`}
+                >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 overflow-hidden">
                     <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100">
                       <div>
@@ -217,9 +265,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
               </li>
 
               {/* Service Areas Navigation & Dropdown */}
-              <li className="nav-item relative group">
+              <li
+                className="nav-item relative"
+                onMouseEnter={() => setActiveMegaMenu('service-areas')}
+                onMouseLeave={() => setActiveMegaMenu((curr) => (curr === 'service-areas' ? null : curr))}
+                onFocus={(e) => {
+                  if (e.target instanceof HTMLElement && e.target.matches(':focus-visible')) {
+                    setActiveMegaMenu('service-areas');
+                  }
+                }}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                    setActiveMegaMenu((curr) => (curr === 'service-areas' ? null : curr));
+                  }
+                }}
+                onClick={(e) => {
+                  if (e.target instanceof HTMLElement && e.target.closest('a')) {
+                    closeMegaMenus();
+                  }
+                }}
+              >
                 <Link
                   to="/service-areas"
+                  aria-expanded={activeMegaMenu === 'service-areas'}
                   className={`nav-link inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 py-2 transition-colors relative ${
                     isActive('/service-areas') || isActive('/service-area')
                       ? 'text-[#12582e] font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#12582e]'
@@ -227,10 +295,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal }) => {
                   }`}
                 >
                   <span>Service Areas</span>
-                  <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#12582e]" />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      activeMegaMenu === 'service-areas'
+                        ? 'rotate-180 text-[#12582e]'
+                        : 'text-slate-400'
+                    }`}
+                  />
                 </Link>
 
-                <div className="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+                <div
+                  data-testid="service-areas-megamenu"
+                  className={`nav-dropdown absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 transition-all duration-150 z-50 ${
+                    activeMegaMenu === 'service-areas'
+                      ? 'opacity-100 visible pointer-events-auto'
+                      : 'opacity-0 invisible pointer-events-none'
+                  }`}
+                >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-4 overflow-hidden">
                     <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
                       <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-slate-400">

@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
           <div>
             <a
               href={`tel:${BUSINESS_NAP.phoneRaw}`}
-              className="font-mono font-bold text-white hover:text-[#a3e6be] transition-colors tabular-nums"
+              className="font-mono font-bold !text-white hover:!text-[#a3e6be] transition-colors tabular-nums"
             >
               Call {BUSINESS_NAP.phone}
             </a>
@@ -61,14 +61,19 @@ export const Footer: React.FC = () => {
         {/* Main 4-Column Architectural Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-800/80">
           {/* Column 1: Brand & NAP (4 cols) */}
-          <div className="footer-col lg:col-span-4 min-w-0">
-            <Link to="/" className="inline-block mb-4" aria-label="South Florida Cleaning Concepts Home">
+          <div className="footer-col footer-brand lg:col-span-4 min-w-0">
+            <Link
+              to="/"
+              className="block w-full mb-5"
+              aria-label="South Florida Cleaning Concepts Home"
+            >
               <img
                 src="/assets/images/logo/logo.svg"
                 alt="South Florida Cleaning Concepts Logo"
-                width="180"
-                height="45"
-                className="h-10 w-auto brightness-0 invert"
+                data-testid="footer-brand-logo"
+                width="400"
+                height="200"
+                className="w-full h-auto block brightness-0 invert"
               />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-5 max-w-sm">
@@ -79,7 +84,7 @@ export const Footer: React.FC = () => {
                 <Phone className="w-4 h-4 text-[#a3e6be] shrink-0" />
                 <a
                   href={`tel:${BUSINESS_NAP.phoneRaw}`}
-                  className="font-mono hover:text-white transition-colors tabular-nums"
+                  className="font-mono !text-slate-200 hover:!text-white transition-colors tabular-nums"
                 >
                   {BUSINESS_NAP.phone}
                 </a>
@@ -88,7 +93,7 @@ export const Footer: React.FC = () => {
                 <Mail className="w-4 h-4 text-[#a3e6be] shrink-0" />
                 <a
                   href={`mailto:${BUSINESS_NAP.email}`}
-                  className="hover:text-white transition-colors break-all"
+                  className="!text-slate-200 hover:!text-white transition-colors break-all"
                 >
                   {BUSINESS_NAP.email}
                 </a>
@@ -107,7 +112,7 @@ export const Footer: React.FC = () => {
                   href={BUSINESS_NAP.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="!text-slate-200 hover:!text-white transition-colors"
                 >
                   Facebook ({BUSINESS_NAP.facebookHandle})
                 </a>
@@ -201,17 +206,17 @@ export const Footer: React.FC = () => {
             </div>
             <Link
               to="/our-publications"
-              className="text-xs font-bold text-[#a3e6be] hover:underline"
+              className="text-xs font-bold !text-[#a3e6be] hover:underline"
             >
               All Guides →
             </Link>
           </div>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-300">
             {featuredGuides.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="hover:text-white transition-colors"
+                className="!text-slate-300 hover:!text-white transition-colors"
               >
                 {post.title}
               </Link>
@@ -227,17 +232,17 @@ export const Footer: React.FC = () => {
             </div>
             <Link
               to="/service-areas"
-              className="text-xs font-bold text-[#a3e6be] hover:underline"
+              className="text-xs font-bold !text-[#a3e6be] hover:underline"
             >
               All 56 Cities →
             </Link>
           </div>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-300">
             {SERVICE_HUBS.map((city) => (
               <Link
                 key={city.slug}
                 to={`/service-area/${city.slug}`}
-                className="hover:text-white transition-colors"
+                className="!text-slate-300 hover:!text-white transition-colors"
               >
                 {city.name}
               </Link>
@@ -251,9 +256,9 @@ export const Footer: React.FC = () => {
             &copy; 2026 South Florida Cleaning Concepts LLC. Licensed &amp; Insured.
           </p>
           <div className="flex items-center gap-5">
-            <Link to="/contact-us" className="hover:text-white transition-colors">Privacy &amp; Terms</Link>
-            <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
-            <a href="/robots.txt" className="hover:text-white transition-colors">Robots.txt</a>
+            <Link to="/contact-us" className="!text-slate-300 hover:!text-white transition-colors">Privacy &amp; Terms</Link>
+            <a href="/sitemap.xml" className="!text-slate-300 hover:!text-white transition-colors">Sitemap</a>
+            <a href="/robots.txt" className="!text-slate-300 hover:!text-white transition-colors">Robots.txt</a>
           </div>
         </div>
       </div>

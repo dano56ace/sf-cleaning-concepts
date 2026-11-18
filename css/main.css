@@ -1538,9 +1538,9 @@ a:hover, a:focus-visible {
 }
 
 .footer-brand img {
-  height: 48px;
-  width: auto;
-  margin-bottom: 1.25rem;
+  width: 100%;
+  height: auto;
+  display: block;
   filter: brightness(0) invert(1);
 }
 

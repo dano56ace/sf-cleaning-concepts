@@ -747,8 +747,8 @@ function renderStandardFooter(): string {
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
           <div>
-            <a href="/" aria-label="South Florida Cleaning Concepts Home">
-              <img src="/assets/images/logo/logo.svg" alt="South Florida Cleaning Concepts Logo" width="180" height="45" />
+            <a href="/" aria-label="South Florida Cleaning Concepts Home" style="display: block; width: 100%; margin-bottom: 1rem;">
+              <img src="/assets/images/logo/logo.svg" alt="South Florida Cleaning Concepts Logo" width="400" height="200" style="width: 100%; height: auto; display: block; filter: brightness(0) invert(1);" />
             </a>
             <p style="font-size: 0.875rem; color: #cbd5e1;">Family-owned since 2004, delivering vetted residential and commercial cleaning across South Florida.</p>
             <ul style="list-style: none; padding: 0; font-size: 0.875rem; color: #cbd5e1;">
